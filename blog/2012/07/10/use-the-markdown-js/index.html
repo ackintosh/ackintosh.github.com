@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - My Octopress Blog</title>
+  <title>Markdown記法のパーサー　markdown-jsを使う - My Octopress Blog</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Blog Archive 2012 Markdown記法のパーサー　markdown-jsを使う
-Jul 10 2012 posted in Javascript, Markdown Herokuでアプリを作る
-Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
+  <meta name="description" content="最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。 markdown-js &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/archives/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,106 +65,133 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Markdown記法のパーサー　markdown-jsを使う</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T22:38:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。</p>
 
-  
-  <h2>2012</h2>
+<p><strong>markdown-js</strong><br/>
+<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/10/use-the-markdown-js/">Markdown記法のパーサー　markdown-jsを使う</a></h1>
-<time datetime="2012-07-10T22:38:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>10</span> <span class='year'>2012</span></time>
+<h2>例</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/markdown/'>Markdown</a></span>
-</footer>
+<pre><code>var md = "#markdown";
+console.dir(window.markdown.toHTML(md));
+</code></pre>
 
+<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
 
-</article>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;markdown 2 html&lt;/title&gt;
+    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
+    &lt;div id="html"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        $('#markdown').keyup(function (e){
+        $('#html').html(window.markdown.toHTML($('#markdown').val()));
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
 
+<p></html></p>
 
+<h2>参考URL</h2>
 
-<article>
-  
-<h1><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-<time datetime="2012-07-09T23:04:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/add-comments-feature-to-octopress/">Octopressにコメント機能を追加する</a></h1>
-<time datetime="2012-07-08T14:46:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>Octopress</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/use-rbenv/">rbenvを使う</a></h1>
-<time datetime="2012-07-08T03:11:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/octopress-plus-github/">Octopress + github でブログを始める</a></h1>
-<time datetime="2012-07-08T01:56:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/github/'>github</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/">rvenvでrubyをインストールする時にエラー</a></h1>
-<time datetime="2012-07-08T00:01:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a></span>
-</footer>
-
-
-</article>
-
+<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T22:38:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/markdown/'>Markdown</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/09/make-an-app-in-heroku/" title="Previous Post: Herokuでアプリを作る">&laquo; Herokuでアプリを作る</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -265,7 +292,10 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - My Octopress Blog</title>
+  <title>Octopress + github でブログを始める - My Octopress Blog</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Blog Archive 2012 Markdown記法のパーサー　markdown-jsを使う
-Jul 10 2012 posted in Javascript, Markdown Herokuでアプリを作る
-Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
+  <meta name="description" content="Octopress http://octopress.org/ github https://github.com/ githubでリポジトリを作成 リポジトリ名がURLになる。 http://{ユーザー名}.github.com/{リポジトリ名}/ Octopressインストール 2012/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/archives/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,106 +63,169 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Octopress + Github でブログを始める</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-08T01:56:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
 
-  
-  <h2>2012</h2>
+<p><strong>Octopress</strong></p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/10/use-the-markdown-js/">Markdown記法のパーサー　markdown-jsを使う</a></h1>
-<time datetime="2012-07-10T22:38:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>10</span> <span class='year'>2012</span></time>
+<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/markdown/'>Markdown</a></span>
-</footer>
+<p><strong>github</strong></p>
 
+<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
 
-</article>
+<h2>githubでリポジトリを作成</h2>
 
+<p>リポジトリ名がURLになる。</p>
 
+<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-<time datetime="2012-07-09T23:04:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+<h2>Octopressインストール</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a></span>
-</footer>
+<ul>
+<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
+rbenv等で環境を用意する。</p></li>
+<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
+</ul>
 
 
-</article>
+<p>$ rubyenv local 1.9.2-p320
+→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
+
+<p><em>Octopress Setup</em></p>
+
+<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
+
+<h2>Octpressの設定</h2>
+
+<p>_config.yml を編集する</p>
+
+<h2>Github Pagesにデプロイ</h2>
+
+<p><em>Deploying to Github Pages</em></p>
+
+<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
+
+<ul>
+<li>投稿作成</li>
+</ul>
 
 
+<p>$ rake new_post[&#8220;投稿タイトル&#8221;]</p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/08/add-comments-feature-to-octopress/">Octopressにコメント機能を追加する</a></h1>
-<time datetime="2012-07-08T14:46:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
+<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>Octopress</a></span>
-</footer>
+<ul>
+<li>HTML生成</li>
+</ul>
 
 
-</article>
+<p>$ rake generate</p>
+
+<ul>
+<li>プレビュー(localhost:4000)</li>
+</ul>
 
 
+<p>$ rake preview</p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/08/use-rbenv/">rbenvを使う</a></h1>
-<time datetime="2012-07-08T03:11:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
+<p>編集内容は即時反映される</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
+<ul>
+<li>ブログにアップ</li>
+</ul>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/octopress-plus-github/">Octopress + github でブログを始める</a></h1>
-<time datetime="2012-07-08T01:56:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/github/'>github</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/">rvenvでrubyをインストールする時にエラー</a></h1>
-<time datetime="2012-07-08T00:01:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a></span>
-</footer>
-
-
-</article>
-
+<p>$ rake deploy</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-08T01:56:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/github/'>github</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/" title="Previous Post: rvenvでrubyをインストールする時にエラー">&laquo; rvenvでrubyをインストールする時にエラー</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/07/08/use-rbenv/" title="Next Post: rbenvを使う">rbenvを使う &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -265,7 +326,10 @@ Jul 09 2012 posted in Git, Heroku, Rails &hellip;">
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

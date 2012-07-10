@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | My Octopress Blog]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2012-07-10T23:11:12+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Herokuでアプリを作る]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/"/>
+    <updated>2012-07-09T23:04:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/heroku.jpeg" alt="heroku" /></p>
+
+<p><strong>Heroku</strong><br/>
+<a href="http://www.heroku.com/">http://www.heroku.com/</a></p>
+
+<p>ユーザー登録後、Herokuのgemをインストールする。</p>
+
+<pre><code>$ gem install heroku
+</code></pre>
+
+<p>herokuの利用に必要なコマンドがインストールされる。</p>
+
+<h2>作成したアプリ一覧を確認</h2>
+
+<pre><code>$ heroku list
+</code></pre>
+
+<h2>新規Railsアプリを作成</h2>
+
+<pre><code>$ rails new newApp
+</code></pre>
+
+<h2>アプリの起動確認</h2>
+
+<pre><code>$ cd newApp
+$ rails s
+</code></pre>
+
+<h2>git初期化</h2>
+
+<pre><code>$ git init
+$ git add .
+$ git commit -m "initialize"
+</code></pre>
+
+<h2>Herokuで動かす</h2>
+
+<pre><code>$ heroku create appname
+</code></pre>
+
+<p><a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a> から引用させていただきます。<br/>
+必要最低限のgemを記述。</p>
+
+<pre><code>$ curl https://raw.github.com/gist/1970532/376b6a26ed936ac43cad0b17a64512f5c0216a50/Gemifile &gt; Gemfile
+$ rm -f Gemfile.lock
+$ bundle install --without production
+$ git add -A
+$ git commit -m 'Update Gemfile'
+</code></pre>
+
+<p>中身はこんな感じ。<br/>
+herokuでは、PostgreSQL使うので、pgを指定したり、developmentでしか使わないものはそこに移動とかです。</p>
+
+<pre><code>source 'https://rubygems.org'
+
+gem 'rails', '3.2.2'
+gem 'jquery-rails'
+
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier', '&gt;= 1.0.3'
+end
+
+group :test, :development do
+  gem 'sqlite3'
+  gem 'heroku'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+</code></pre>
+
+<p>Herokuにデプロイ</p>
+
+<pre><code>$ git push heroku master
+$ heroku open
+</code></pre>
+
+<p>参考URL<br/>
+<a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
+<a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
+]]></content>
+  </entry>
+  
+</feed>

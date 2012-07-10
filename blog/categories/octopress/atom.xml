@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | My Octopress Blog]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2012-07-10T23:11:12+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressにコメント機能を追加する]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/"/>
+    <updated>2012-07-08T14:46:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/disqus.jpeg" alt="DISQUS" /></p>
+
+<p>OctopressはデフォルトでDISQUSをサポートしているので、<br/>
+DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。</p>
+
+<p><strong>DISQUS</strong><br/>
+<a href="http://disqus.com/">http://disqus.com/</a></p>
+
+<p>_config.ymlに、DISQUSで登録したshortnameを設定する。</p>
+
+<p><code>
+disqus_short_name: your shortname
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress + github でブログを始める]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/"/>
+    <updated>2012-07-08T01:56:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
+
+<p><strong>Octopress</strong></p>
+
+<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
+
+<p><strong>github</strong></p>
+
+<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
+
+<h2>githubでリポジトリを作成</h2>
+
+<p>リポジトリ名がURLになる。</p>
+
+<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
+
+<h2>Octopressインストール</h2>
+
+<ul>
+<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
+rbenv等で環境を用意する。</p></li>
+<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
+</ul>
+
+
+<p>$ rubyenv local 1.9.2-p320
+→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
+
+<p><em>Octopress Setup</em></p>
+
+<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
+
+<h2>Octpressの設定</h2>
+
+<p>_config.yml を編集する</p>
+
+<h2>Github Pagesにデプロイ</h2>
+
+<p><em>Deploying to Github Pages</em></p>
+
+<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
+
+<ul>
+<li>投稿作成</li>
+</ul>
+
+
+<p>$ rake new_post["投稿タイトル"]</p>
+
+<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
+
+<ul>
+<li>HTML生成</li>
+</ul>
+
+
+<p>$ rake generate</p>
+
+<ul>
+<li>プレビュー(localhost:4000)</li>
+</ul>
+
+
+<p>$ rake preview</p>
+
+<p>編集内容は即時反映される</p>
+
+<ul>
+<li>ブログにアップ</li>
+</ul>
+
+
+<p>$ rake deploy</p>
+]]></content>
+  </entry>
+  
+</feed>
