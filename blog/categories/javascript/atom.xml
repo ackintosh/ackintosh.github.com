@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | My Octopress Blog]]></title>
   <link href="http://ackintosh.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-07-10T23:16:47+09:00</updated>
+  <updated>2012-07-10T23:25:34+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -18,7 +18,9 @@
     <link href="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/"/>
     <updated>2012-07-10T22:38:00+09:00</updated>
     <id>http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js</id>
-    <content type="html"><![CDATA[<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
+
+<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
 ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
 今回markdown-jsというのを使ってみました。</p>
 
