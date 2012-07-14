@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-07-14T09:21:01+09:00</updated>
+  <updated>2012-07-14T17:32:36+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyで日本語を扱う]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/"/>
+    <updated>2012-07-14T17:30:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby</id>
+    <content type="html"><![CDATA[<p>Ruby1.9以降では</p>
+
+<pre><code># encoding : 文字コード
+</code></pre>
+
+<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
+
+<p>実際のファイルの文字コードと一致していなければならない。</p>
+
+<pre><code># encoding : utf-8
+# encoding : shift_jis
+# encoding : euc-jp
+</code></pre>
+
+<p>shift_jisだけアンダースコア…</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopressに静的HTMLファイルを設置する]]></title>
