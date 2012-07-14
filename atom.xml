@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-07-14T01:29:45+09:00</updated>
+  <updated>2012-07-14T09:21:01+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressに静的HTMLファイルを設置する]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/14/put-html-file-to-octopress/"/>
+    <updated>2012-07-14T09:18:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/14/put-html-file-to-octopress</id>
+    <content type="html"><![CDATA[<p>構築したブログをGoogleウェブマスターツールに登録する時などに、
+静的なHTMLファイルを設置したい時があります。</p>
+
+<p>その場合は、sourceディレクトリ下にHTMLを置いて</p>
+
+<pre><code>$ rake gen_deploy
+</code></pre>
+
+<p>するとデプロイされます。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown記法のパーサー　markdown-jsを使う]]></title>
