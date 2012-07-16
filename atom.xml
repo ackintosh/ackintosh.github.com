@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-07-14T17:53:14+09:00</updated>
+  <updated>2012-07-17T00:10:38+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby 1.9ではString#to_aは使えない]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/"/>
+    <updated>2012-07-17T00:08:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9</id>
+    <content type="html"><![CDATA[<pre><code>"hoge".to_a
+ undefined method `to_a' for "the":String (NoMethodError)
+</code></pre>
+
+<p>参考URL</p>
+
+<p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyで日本語を扱う]]></title>
