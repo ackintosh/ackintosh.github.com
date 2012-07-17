@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MySQL | My Octopress Blog]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/mysql/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2012-07-18T00:37:28+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MySQLでバルクinsertのベンチマークとってみました]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/"/>
+    <updated>2012-07-18T00:33:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert</id>
+    <content type="html"><![CDATA[<h2>テーブル作成</h2>
+
+<pre><code>create table test (
+id int(11) unsigned auto_increment primary key,
+name varchar(255) not null,
+created datetime not null
+);
+</code></pre>
+
+<h2>通常のinsert文</h2>
+
+<pre><code>insert into test (name, created) values ('name1', now());
+insert into test (name, created) values ('name2', now());
+・・・ 10,000回
+</code></pre>
+
+<p>結果<br/>
+<em>6.39秒</em></p>
+
+<h2>バルクinsert</h2>
+
+<pre><code>insert into test (name, created) values ('name1', now()), ('name2', now()) ・・・
+・・・10,000回
+</code></pre>
+
+<p>結果<br/>
+<em>0.20秒</em></p>
+
+<p>全然違う(・∀・)</p>
+]]></content>
+  </entry>
+  
+</feed>
