@@ -5,11 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Heroku - My Octopress Blog</title>
+  <title>MySQLでバルクinsertのベンチマークとってみました - My Octopress Blog</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Category: Heroku">
+  <meta name="description" content="テーブル作成 create table test (
+id int(11) unsigned auto_increment primary key,
+name varchar(255) not null,
+created datetime not null
+); 通常のinsert文 insert &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/heroku/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,36 +67,117 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Heroku</h1>
+    
+      <h1 class="entry-title">MySQLでバルクinsertのベンチマークとってみました</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:33:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h2>テーブル作成</h2>
 
-  
-  <h2>2012</h2>
+<pre><code>create table test (
+id int(11) unsigned auto_increment primary key,
+name varchar(255) not null,
+created datetime not null
+);
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-<time datetime="2012-07-09T23:04:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+<h2>通常のinsert文</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a></span>
-</footer>
+<pre><code>insert into test (name, created) values ('name1', now());
+insert into test (name, created) values ('name2', now());
+・・・ 10,000回
+</code></pre>
 
+<p>結果<br/>
+<em>6.39秒</em></p>
 
-</article>
+<h2>バルクinsert</h2>
 
+<pre><code>insert into test (name, created) values ('name1', now()), ('name2', now()) ・・・
+・・・10,000回
+</code></pre>
+
+<p>結果<br/>
+<em>0.20秒</em></p>
+
+<p>全然違う(・∀・)</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:33:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/" title="Previous Post: Ruby 1.9ではString#to_aは使えない">&laquo; Ruby 1.9ではString#to_aは使えない</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -193,7 +278,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/18/benchmark-of-bulk-insert/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
