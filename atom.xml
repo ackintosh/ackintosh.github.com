@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-07-22T20:56:45+09:00</updated>
+  <updated>2012-07-27T19:38:38+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP5.3以降、mysql拡張モジュールは非推奨]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/07/27/deprecated-php-mysql-extension/"/>
+    <updated>2012-07-27T19:37:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/07/27/deprecated-php-mysql-extension</id>
+    <content type="html"><![CDATA[<h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
+
+<ul>
+<li><p>mysqli拡張モジュール<br/>
+<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
+<li><p>PDO_MYSQL<br/>
+<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
+</ul>
+
+
+<p>古いmysql関数も含めた3つの機能の比較表がありました。
+<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
+
+<p>新しいモジュールでは、
+* OOPインターフェース
+* プリペアドステートメント
+* ストアドプロシージャ
+* トランザクション<br/>
+をAPIレベルでサポートしている。</p>
+
+<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
+
+<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
+
+<pre><code>class OriginalMysqli extends mysqli
+{
+    …
+}
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[VirtualBoxのCentOSにJenkinsをインストール]]></title>

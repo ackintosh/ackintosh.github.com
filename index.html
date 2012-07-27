@@ -9,11 +9,10 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="VirtualBoxの設定 ホストOS〜ゲストOS間で通信できる
-ゲストOS〜外部で通信できる 上記を満たすためのVirtualBox設定をする。
-設定→ネットワーク
-→アダプタ１　割り当て→「ブリッジアダプタ」
-→アダプタ２　割り当て→「NAT」 CentOSの設定 &hellip;">
+  <meta name="description" content="代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。 mysqli拡張モジュール
+http://php.net/manual/ja/book.mysqli.php
+PDO_MYSQL
+http://www.php.net/manual/ja/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +67,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
+
+<ul>
+<li><p>mysqli拡張モジュール<br/>
+<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
+<li><p>PDO_MYSQL<br/>
+<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
+</ul>
+
+
+<p>古いmysql関数も含めた3つの機能の比較表がありました。
+<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
+
+<p>新しいモジュールでは、
+* OOPインターフェース
+* プリペアドステートメント
+* ストアドプロシージャ
+* トランザクション<br/>
+をAPIレベルでサポートしている。</p>
+
+<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
+
+<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
+
+<pre><code>class OriginalMysqli extends mysqli
+{
+    …
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -687,114 +750,6 @@ $ rbenv rehash</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/08/octopress-plus-github/">Octopress + github でブログを始める</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-08T01:56:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
-
-<p><strong>Octopress</strong></p>
-
-<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
-
-<p><strong>github</strong></p>
-
-<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
-
-<h2>githubでリポジトリを作成</h2>
-
-<p>リポジトリ名がURLになる。</p>
-
-<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
-
-<h2>Octopressインストール</h2>
-
-<ul>
-<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
-rbenv等で環境を用意する。</p></li>
-<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
-</ul>
-
-
-<p>$ rubyenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-
-<p><em>Octopress Setup</em></p>
-
-<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
-
-<h2>Octpressの設定</h2>
-
-<p>_config.yml を編集する</p>
-
-<h2>Github Pagesにデプロイ</h2>
-
-<p><em>Deploying to Github Pages</em></p>
-
-<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
-
-<ul>
-<li>投稿作成</li>
-</ul>
-
-
-<p>$ rake new_post[&#8220;投稿タイトル&#8221;]</p>
-
-<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
-
-<ul>
-<li>HTML生成</li>
-</ul>
-
-
-<p>$ rake generate</p>
-
-<ul>
-<li>プレビュー(localhost:4000)</li>
-</ul>
-
-
-<p>$ rake preview</p>
-
-<p>編集内容は即時反映される</p>
-
-<ul>
-<li>ブログにアップ</li>
-</ul>
-
-
-<p>$ rake deploy</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -810,6 +765,10 @@ rbenv等で環境を用意する。</p></li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a>
       </li>
     
@@ -823,10 +782,6 @@ rbenv等で環境を用意する。</p></li>
     
       <li class="post">
         <a href="/blog/2012/07/14/use-japanese-in-ruby/">Rubyで日本語を扱う</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/14/put-html-file-to-octopress/">Octopressに静的HTMLファイルを設置する</a>
       </li>
     
   </ul>
