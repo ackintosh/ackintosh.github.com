@@ -9,10 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。 mysqli拡張モジュール
-http://php.net/manual/ja/book.mysqli.php
-PDO_MYSQL
-http://www.php.net/manual/ja/ &hellip;">
+  <meta name="description" content="phpDocumentor http://www.phpdoc.org/ 現時点では、php5.3.3以上が必須。 インストール $ php -v
+PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +65,94 @@ http://www.php.net/manual/ja/ &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-28T18:02:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>phpDocumentor</h2>
+
+<p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
+
+<p>現時点では、php5.3.3以上が必須。</p>
+
+<h2>インストール</h2>
+
+<pre><code>$ php -v
+PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
+</code></pre>
+
+<p>githubからダウンロード<br/>
+<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
+
+<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
+
+<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
+
+<pre><code>$ sudo php ./installer.php
+</code></pre>
+
+<p>※ここで、php.iniの設定が必要との警告が表示された</p>
+
+<pre><code>The detect_unicode setting must be disabled.
+Add the following to the end of your `php.ini`:
+detect_unicode = Off  
+</code></pre>
+
+<h3>macのphp.iniを編集</h3>
+
+<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
+$ sudo vi /etc/php.ini
+detect_unicode = Off
+date.timezone = Asia/Tokyo  
+</code></pre>
+
+<h3>installer再実行</h3>
+
+<pre><code>$ sudo php ./installer.php
+&gt; Thank you for installing phpDocumentor.
+&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
+</code></pre>
+
+<h3>シンボリックリンク作成</h3>
+
+<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
+</code></pre>
+
+<h2>phpDocumentor実行</h2>
+
+<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -690,66 +776,6 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/08/use-rbenv/">rbenvを使う</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-08T03:11:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>インストール可能な一覧</h2>
-
-<p>$ rbenv install</p>
-
-<h2>インストール</h2>
-
-<p>$ rbenv install 1.9.2-p320</p>
-
-<h2>インストールされているバージョンを確認</h2>
-
-<p>$ rbenv versions</p>
-
-<h2>通常使うバージョンを指定</h2>
-
-<p>$ rbenv global 1.9.3-p194
-$ rbenv rehash</p>
-
-<h2>不要になったRubyを削除</h2>
-
-<p>$ rbenv -rf .rbenv/versions/1.8.6-p420</p>
-
-<h2>ディレクトリで使うrubyのバージョンを固定する</h2>
-
-<p>$ rbenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -765,6 +791,10 @@ $ rbenv rehash</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
       </li>
     
@@ -778,10 +808,6 @@ $ rbenv rehash</p>
     
       <li class="post">
         <a href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">Ruby 1.9ではString#to_aは使えない</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/14/use-japanese-in-ruby/">Rubyで日本語を扱う</a>
       </li>
     
   </ul>

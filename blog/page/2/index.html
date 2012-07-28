@@ -9,7 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Octopress http://octopress.org/ github https://github.com/ githubでリポジトリを作成 リポジトリ名がURLになる。 http://{ユーザー名}.github.com/{リポジトリ名}/ Octopressインストール 2012/ &hellip;">
+  <meta name="description" content="インストール可能な一覧 $ rbenv install インストール $ rbenv install 1.9.2-p320 インストールされているバージョンを確認 $ rbenv versions 通常使うバージョンを指定 $ rbenv global 1.9.3-p194
+$ rbenv &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +65,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/08/use-rbenv/">rbenvを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-08T03:11:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>インストール可能な一覧</h2>
+
+<p>$ rbenv install</p>
+
+<h2>インストール</h2>
+
+<p>$ rbenv install 1.9.2-p320</p>
+
+<h2>インストールされているバージョンを確認</h2>
+
+<p>$ rbenv versions</p>
+
+<h2>通常使うバージョンを指定</h2>
+
+<p>$ rbenv global 1.9.3-p194
+$ rbenv rehash</p>
+
+<h2>不要になったRubyを削除</h2>
+
+<p>$ rbenv -rf .rbenv/versions/1.8.6-p420</p>
+
+<h2>ディレクトリで使うrubyのバージョンを固定する</h2>
+
+<p>$ rbenv local 1.9.2-p320
+→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -235,6 +296,10 @@ make: *** [mkmain.sh] Error 1</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
       </li>
     
@@ -248,10 +313,6 @@ make: *** [mkmain.sh] Error 1</p>
     
       <li class="post">
         <a href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">Ruby 1.9ではString#to_aは使えない</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/14/use-japanese-in-ruby/">Rubyで日本語を扱う</a>
       </li>
     
   </ul>

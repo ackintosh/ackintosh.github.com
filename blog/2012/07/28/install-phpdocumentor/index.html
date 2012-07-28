@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Git - My Octopress Blog</title>
+  <title>MacにphpDocumentorをインストール - My Octopress Blog</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Category: Git">
+  <meta name="description" content="phpDocumentor http://www.phpdoc.org/ 現時点では、php5.3.3以上が必須。 インストール $ php -v
+PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/git/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,36 +64,141 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Git</h1>
+    
+      <h1 class="entry-title">MacにphpDocumentorをインストール</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-28T18:02:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><h2>phpDocumentor</h2>
 
-  
-  <h2>2012</h2>
+<p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-<time datetime="2012-07-09T23:04:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+<p>現時点では、php5.3.3以上が必須。</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a></span>
-</footer>
+<h2>インストール</h2>
 
+<pre><code>$ php -v
+PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
+</code></pre>
 
-</article>
+<p>githubからダウンロード<br/>
+<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
 
+<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
+
+<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
+
+<pre><code>$ sudo php ./installer.php
+</code></pre>
+
+<p>※ここで、php.iniの設定が必要との警告が表示された</p>
+
+<pre><code>The detect_unicode setting must be disabled.
+Add the following to the end of your `php.ini`:
+detect_unicode = Off  
+</code></pre>
+
+<h3>macのphp.iniを編集</h3>
+
+<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
+$ sudo vi /etc/php.ini
+detect_unicode = Off
+date.timezone = Asia/Tokyo  
+</code></pre>
+
+<h3>installer再実行</h3>
+
+<pre><code>$ sudo php ./installer.php
+&gt; Thank you for installing phpDocumentor.
+&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
+</code></pre>
+
+<h3>シンボリックリンク作成</h3>
+
+<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
+</code></pre>
+
+<h2>phpDocumentor実行</h2>
+
+<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-28T18:02:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/27/deprecated-php-mysql-extension/" title="Previous Post: PHP5.3以降、mysql拡張モジュールは非推奨">&laquo; PHP5.3以降、mysql拡張モジュールは非推奨</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -193,7 +299,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
