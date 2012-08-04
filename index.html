@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
+  <title>暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="phpDocumentor http://www.phpdoc.org/ 現時点では、php5.3.3以上が必須。 インストール $ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
+  <meta name="description" content="既にMAMPにインストールされている。 $ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann. 下記のようにインクルードして使う。 require_once &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +25,7 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="暁" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -36,9 +36,9 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">暁</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Using a blogging framework for hackers.</h2>
   
 </hgroup>
 
@@ -65,6 +65,54 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T16:39:00+09:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>既にMAMPにインストールされている。</p>
+
+<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann.  
+</code></pre>
+
+<p>下記のようにインクルードして使う。</p>
+
+<pre><code>require_once('PHPUnit/Autoload.php');
+class HogeTest extends PHPUnit_Framework_TestCase
+{
+}
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -728,54 +776,6 @@ $ heroku open
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/08/add-comments-feature-to-octopress/">Octopressにコメント機能を追加する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-08T14:46:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/disqus.jpeg" alt="DISQUS" /></p>
-
-<p>OctopressはデフォルトでDISQUSをサポートしているので、<br/>
-DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。</p>
-
-<p><strong>DISQUS</strong><br/>
-<a href="http://disqus.com/">http://disqus.com/</a></p>
-
-<p>_config.ymlに、DISQUSで登録したshortnameを設定する。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>disqus_short_name: your shortname</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -791,6 +791,10 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
       </li>
     
@@ -804,10 +808,6 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
     
       <li class="post">
         <a href="/blog/2012/07/18/benchmark-of-bulk-insert/">MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">Ruby 1.9ではString#to_aは使えない</a>
       </li>
     
   </ul>

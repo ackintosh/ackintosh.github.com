@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Heroku - 暁</title>
+  <title>MAMPでPHPUnitを使う - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Category: Heroku">
+  <meta name="description" content="既にMAMPにインストールされている。 $ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann. 下記のようにインクルードして使う。 require_once &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/heroku/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,36 +64,107 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Heroku</h1>
+    
+      <h1 class="entry-title">MAMPでPHPUnitを使う</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T16:39:00+09:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>既にMAMPにインストールされている。</p>
 
-  
-  <h2>2012</h2>
+<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann.  
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-<time datetime="2012-07-09T23:04:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>09</span> <span class='year'>2012</span></time>
+<p>下記のようにインクルードして使う。</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a></span>
-</footer>
-
-
-</article>
-
+<pre><code>require_once('PHPUnit/Autoload.php');
+class HogeTest extends PHPUnit_Framework_TestCase
+{
+}
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T16:39:00+09:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mamp/'>MAMP</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/28/install-phpdocumentor/" title="Previous Post: MacにphpDocumentorをインストール">&laquo; MacにphpDocumentorをインストール</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -193,7 +265,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
