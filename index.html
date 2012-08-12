@@ -9,8 +9,9 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Anote(アノート)という名前にしました。 https://github.com/ackintosh/Anote アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。 まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)
-">
+  <meta name="description" content="先日githubで、Anote(アノート)というPHPフレームワークを公開しました。
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。 Travis CI
+http://travis-ci.org/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,90 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-12T15:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
+
+<p><strong>Travis CI</strong><br/>
+<a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
+
+<p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
+
+<h2>githubと連携する</h2>
+
+<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
+
+<p>自分はこんな風に書きました。</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: sh testrunner.sh
+</code></pre>
+
+<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
+僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
+
+<h3>Travisにサインアップ</h3>
+
+<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
+
+<p>右側のスイッチをONにするだけで連携されます。</p>
+
+<h2>コードカバレッジを表示する</h2>
+
+<p>.travis.yml</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: phpunit --coverage-text
+</code></pre>
+
+<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
+
+<h2>参考にさせていただきました</h2>
+
+<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
+
+<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -623,82 +708,6 @@ insert into test (name, created) values ('name2', now());
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/10/use-the-markdown-js/">Markdown記法のパーサー　markdown-jsを使う</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-10T22:38:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
-
-<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
-ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
-今回markdown-jsというのを使ってみました。</p>
-
-<p><strong>markdown-js</strong><br/>
-<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
-
-<h2>例</h2>
-
-<pre><code>var md = "#markdown";
-console.dir(window.markdown.toHTML(md));
-</code></pre>
-
-<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;title&gt;markdown 2 html&lt;/title&gt;
-    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
-    &lt;div id="html"&gt;&lt;/div&gt;
-    &lt;script type="text/javascript"&gt;
-        $('#markdown').keyup(function (e){
-        $('#html').html(window.markdown.toHTML($('#markdown').val()));
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-</code></pre>
-
-<p></html></p>
-
-<h2>参考URL</h2>
-
-<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -714,6 +723,10 @@ console.dir(window.markdown.toHTML(md));
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
       </li>
     
@@ -727,10 +740,6 @@ console.dir(window.markdown.toHTML(md));
     
       <li class="post">
         <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a>
       </li>
     
   </ul>

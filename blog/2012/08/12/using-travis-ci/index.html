@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: rbenv - 暁</title>
+  <title>TravisCIを使ってみました。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Category: rbenv">
+  <meta name="description" content="先日githubで、Anote(アノート)というPHPフレームワークを公開しました。
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。 Travis CI
+http://travis-ci.org/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/rbenv/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,36 +65,143 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: rbenv</h1>
+    
+      <h1 class="entry-title">TravisCIを使ってみました。</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-12T15:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
 
-  
-  <h2>2012</h2>
+<p><strong>Travis CI</strong><br/>
+<a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/">rbenvでrubyをインストールする時にエラー</a></h1>
-<time datetime="2012-07-08T00:01:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
+<p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a></span>
-</footer>
+<h2>githubと連携する</h2>
 
+<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
 
-</article>
+<p>自分はこんな風に書きました。</p>
 
+<pre><code>language: php
+php:
+  - 5.3
+script: sh testrunner.sh
+</code></pre>
+
+<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
+僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
+
+<h3>Travisにサインアップ</h3>
+
+<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
+
+<p>右側のスイッチをONにするだけで連携されます。</p>
+
+<h2>コードカバレッジを表示する</h2>
+
+<p>.travis.yml</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: phpunit --coverage-text
+</code></pre>
+
+<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
+
+<h2>参考にさせていただきました</h2>
+
+<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
+
+<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-12T15:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/travisci/'>TravisCI</a>, <a class='category' href='/blog/categories/github/'>github</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/12/developed-php-framework/" title="Previous Post: PHPでWebアプリフレームワーク作ってみました。">&laquo; PHPでWebアプリフレームワーク作ってみました。</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -193,7 +302,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

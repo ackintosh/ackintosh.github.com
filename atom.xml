@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-12T11:08:28+09:00</updated>
+  <updated>2012-08-12T15:07:20+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TravisCIを使ってみました。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/"/>
+    <updated>2012-08-12T15:03:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/08/12/using-travis-ci</id>
+    <content type="html"><![CDATA[<p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
+
+<p><strong>Travis CI</strong><br/>
+<a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
+
+<p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
+
+<h2>githubと連携する</h2>
+
+<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
+
+<p>自分はこんな風に書きました。</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: sh testrunner.sh
+</code></pre>
+
+<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
+僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
+
+<h3>Travisにサインアップ</h3>
+
+<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
+
+<p>右側のスイッチをONにするだけで連携されます。</p>
+
+<h2>コードカバレッジを表示する</h2>
+
+<p>.travis.yml</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: phpunit --coverage-text
+</code></pre>
+
+<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
+
+<h2>参考にさせていただきました</h2>
+
+<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
+
+<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHPでWebアプリフレームワーク作ってみました。]]></title>

@@ -9,8 +9,9 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Heroku
-http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストールする。 $ gem install heroku herokuの利用に必要なコマンドがインストールされる。 作成したアプリ一覧を確認 $ heroku list &hellip;">
+  <meta name="description" content="最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。 markdown-js &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,82 @@ http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストール
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/10/use-the-markdown-js/">Markdown記法のパーサー　markdown-jsを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T22:38:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
+
+<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。</p>
+
+<p><strong>markdown-js</strong><br/>
+<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
+
+<h2>例</h2>
+
+<pre><code>var md = "#markdown";
+console.dir(window.markdown.toHTML(md));
+</code></pre>
+
+<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;markdown 2 html&lt;/title&gt;
+    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
+    &lt;div id="html"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        $('#markdown').keyup(function (e){
+        $('#html').html(window.markdown.toHTML($('#markdown').val()));
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p></html></p>
+
+<h2>参考URL</h2>
+
+<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -463,6 +540,10 @@ make: *** [mkmain.sh] Error 1</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
       </li>
     
@@ -476,10 +557,6 @@ make: *** [mkmain.sh] Error 1</p>
     
       <li class="post">
         <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a>
       </li>
     
   </ul>
