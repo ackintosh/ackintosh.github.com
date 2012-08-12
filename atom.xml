@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-04T16:44:20+09:00</updated>
+  <updated>2012-08-12T11:08:28+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPでWebアプリフレームワーク作ってみました。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/"/>
+    <updated>2012-08-12T11:03:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/08/12/developed-php-framework</id>
+    <content type="html"><![CDATA[<p>Anote(アノート)という名前にしました。</p>
+
+<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
+
+<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
+
+<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MAMPでPHPUnitを使う]]></title>

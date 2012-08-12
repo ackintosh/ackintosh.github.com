@@ -9,8 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="既にMAMPにインストールされている。 $ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
-PHPUnit 3.6.10 by Sebastian Bergmann. 下記のようにインクルードして使う。 require_once &hellip;">
+  <meta name="description" content="Anote(アノート)という名前にしました。 https://github.com/ackintosh/Anote アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。 まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,48 @@ PHPUnit 3.6.10 by Sebastian Bergmann. 下記のようにインクルードして
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-12T11:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anote(アノート)という名前にしました。</p>
+
+<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
+
+<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
+
+<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -657,125 +699,6 @@ console.dir(window.markdown.toHTML(md));
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/09/make-an-app-in-heroku/">Herokuでアプリを作る</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-09T23:04:00+09:00" pubdate data-updated="true">Jul 9<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/heroku.jpeg" alt="heroku" /></p>
-
-<p><strong>Heroku</strong><br/>
-<a href="http://www.heroku.com/">http://www.heroku.com/</a></p>
-
-<p>ユーザー登録後、Herokuのgemをインストールする。</p>
-
-<pre><code>$ gem install heroku
-</code></pre>
-
-<p>herokuの利用に必要なコマンドがインストールされる。</p>
-
-<h2>作成したアプリ一覧を確認</h2>
-
-<pre><code>$ heroku list
-</code></pre>
-
-<h2>新規Railsアプリを作成</h2>
-
-<pre><code>$ rails new newApp
-</code></pre>
-
-<h2>アプリの起動確認</h2>
-
-<pre><code>$ cd newApp
-$ rails s
-</code></pre>
-
-<h2>git初期化</h2>
-
-<pre><code>$ git init
-$ git add .
-$ git commit -m "initialize"
-</code></pre>
-
-<h2>Herokuで動かす</h2>
-
-<pre><code>$ heroku create appname
-</code></pre>
-
-<p><a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a> から引用させていただきます。<br/>
-必要最低限のgemを記述。</p>
-
-<pre><code>$ curl https://raw.github.com/gist/1970532/376b6a26ed936ac43cad0b17a64512f5c0216a50/Gemifile &gt; Gemfile
-$ rm -f Gemfile.lock
-$ bundle install --without production
-$ git add -A
-$ git commit -m 'Update Gemfile'
-</code></pre>
-
-<p>中身はこんな感じ。<br/>
-herokuでは、PostgreSQL使うので、pgを指定したり、developmentでしか使わないものはそこに移動とかです。</p>
-
-<pre><code>source 'https://rubygems.org'
-
-gem 'rails', '3.2.2'
-gem 'jquery-rails'
-
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'
-  gem 'coffee-rails', '~&gt; 3.2.1'
-  gem 'uglifier', '&gt;= 1.0.3'
-end
-
-group :test, :development do
-  gem 'sqlite3'
-  gem 'heroku'
-end
-
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
-</code></pre>
-
-<p>Herokuにデプロイ</p>
-
-<pre><code>$ git push heroku master
-$ heroku open
-</code></pre>
-
-<p>参考URL<br/>
-<a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
-<a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -791,6 +714,10 @@ $ heroku open
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
       </li>
     
@@ -804,10 +731,6 @@ $ heroku open
     
       <li class="post">
         <a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/18/benchmark-of-bulk-insert/">MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a>
       </li>
     
   </ul>

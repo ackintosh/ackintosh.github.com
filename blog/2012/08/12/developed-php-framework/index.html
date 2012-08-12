@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopressにコメント機能を追加する - 暁</title>
+  <title>PHPでWebアプリフレームワーク作ってみました。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="OctopressはデフォルトでDISQUSをサポートしているので、
-DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。 DISQUS
-http://disqus.com/ _config.ymlに、DISQUSで登録したshortnameを設定する。 &hellip;">
+  <meta name="description" content="Anote(アノート)という名前にしました。 https://github.com/ackintosh/Anote アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。 まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ http://disqus.com/ _config.ymlに、DISQUSで登録したshortnameを設定す�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +68,7 @@ http://disqus.com/ _config.ymlに、DISQUSで登録したshortnameを設定す�
   
   <header>
     
-      <h1 class="entry-title">Octopressにコメント機能を追加する</h1>
+      <h1 class="entry-title">PHPでWebアプリフレームワーク作ってみました。</h1>
     
     
       <p class="meta">
@@ -85,26 +84,20 @@ http://disqus.com/ _config.ymlに、DISQUSで登録したshortnameを設定す�
   
 
 
-<time datetime="2012-07-08T14:46:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+<time datetime="2012-08-12T11:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/disqus.jpeg" alt="DISQUS" /></p>
+<div class="entry-content"><p>Anote(アノート)という名前にしました。</p>
 
-<p>OctopressはデフォルトでDISQUSをサポートしているので、<br/>
-DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。</p>
+<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
 
-<p><strong>DISQUS</strong><br/>
-<a href="http://disqus.com/">http://disqus.com/</a></p>
+<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
 
-<p>_config.ymlに、DISQUSで登録したshortnameを設定する。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>disqus_short_name: your shortname</span></code></pre></td></tr></table></div></figure>
-
+<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
 </div>
 
 
@@ -127,12 +120,12 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
   
 
 
-<time datetime="2012-07-08T14:46:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+<time datetime="2012-08-12T11:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>
   
 </span>
 
@@ -141,7 +134,7 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -154,10 +147,8 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/08/use-rbenv/" title="Previous Post: rbenvを使う">&laquo; rbenvを使う</a>
+        <a class="basic-alignment left" href="/blog/2012/08/04/using-phpunit-with-mamp/" title="Previous Post: MAMPでPHPUnitを使う">&laquo; MAMPでPHPUnitを使う</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/09/make-an-app-in-heroku/" title="Next Post: Herokuでアプリを作る">Herokuでアプリを作る &raquo;</a>
       
     </p>
   </footer>
@@ -269,8 +260,8 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/';
         var disqus_script = 'embed.js';
       
     (function () {
