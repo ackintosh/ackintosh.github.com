@@ -9,9 +9,9 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="先日githubで、Anote(アノート)というPHPフレームワークを公開しました。
-一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。 Travis CI
-http://travis-ci.org/ &hellip;">
+  <meta name="description" content="PHP5.0〜5.3 インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。
+面倒ですよね(；´∀｀) Hoge::create('Hello')-&gt;fuga(); class Hoge
+{ private $message; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,94 @@ http://travis-ci.org/ &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-14T01:39:00+09:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>PHP5.0〜5.3</h2>
+
+<p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
+面倒ですよね(；´∀｀)</p>
+
+<pre><code>Hoge::create('Hello')-&gt;fuga();
+
+class Hoge
+{
+    private $message;
+
+    private function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
+
+    public static function create($message)
+    {
+        return new self($message);
+    }
+
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
+</code></pre>
+
+<h2>PHP5.4〜</h2>
+
+<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
+
+<pre><code>(new Hoge('Hello'))-&gt;fuga();
+
+class Hoge
+{
+    private $message;
+
+    public function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
+
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
+</code></pre>
+
+<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
+
+<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -664,50 +752,6 @@ insert into test (name, created) values ('name2', now());
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/14/put-html-file-to-octopress/">Octopressに静的HTMLファイルを設置する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T09:18:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>構築したブログをGoogleウェブマスターツールに登録する時などに、
-静的なHTMLファイルを設置したい時があります。</p>
-
-<p>その場合は、sourceディレクトリ下にHTMLを置いて</p>
-
-<pre><code>$ rake gen_deploy
-</code></pre>
-
-<p>するとデプロイされます。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -723,6 +767,10 @@ insert into test (name, created) values ('name2', now());
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
       </li>
     
@@ -736,10 +784,6 @@ insert into test (name, created) values ('name2', now());
     
       <li class="post">
         <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a>
       </li>
     
   </ul>

@@ -5,15 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>VirtualBoxのCentOSにJenkinsをインストール - 暁</title>
+  <title>PHP5.4でメソッドチェーンが便利になったようです。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="VirtualBoxの設定 ホストOS〜ゲストOS間で通信できる
-ゲストOS〜外部で通信できる 上記を満たすためのVirtualBox設定をする。
-設定→ネットワーク
-→アダプタ１　割り当て→「ブリッジアダプタ」
-→アダプタ２　割り当て→「NAT」 CentOSの設定 &hellip;">
+  <meta name="description" content="PHP5.0〜5.3 インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。
+面倒ですよね(；´∀｀) Hoge::create('Hello')-&gt;fuga(); class Hoge
+{ private $message; &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/22/install-jenkins-to-centos/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -71,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">VirtualBoxのCentOSにJenkinsをインストール</h1>
+      <h1 class="entry-title">PHP5.4でメソッドチェーンが便利になったようです。</h1>
     
     
       <p class="meta">
@@ -87,93 +85,66 @@
   
 
 
-<time datetime="2012-07-22T20:53:00+09:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2012</time>
+<time datetime="2012-08-14T01:39:00+09:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>VirtualBoxの設定</h2>
+<div class="entry-content"><h2>PHP5.0〜5.3</h2>
 
-<ul>
-<li>ホストOS〜ゲストOS間で通信できる</li>
-<li>ゲストOS〜外部で通信できる</li>
-</ul>
+<p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
+面倒ですよね(；´∀｀)</p>
 
+<pre><code>Hoge::create('Hello')-&gt;fuga();
 
-<p>上記を満たすためのVirtualBox設定をする。<br/>
-設定→ネットワーク<br/>
-→アダプタ１　割り当て→「ブリッジアダプタ」<br/>
-→アダプタ２　割り当て→「NAT」</p>
+class Hoge
+{
+    private $message;
 
-<h2>CentOSの設定</h2>
+    private function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
 
-<p>デフォルトではiptablesが設定されていて、ホストOSからSSHやHTTP接続等ができないので変更。<br/>
-iptables設定用スクリプトを用意して実行する。</p>
+    public static function create($message)
+    {
+        return new self($message);
+    }
 
-<pre><code># vi iptables.sh
-#!/bin/sh
-
-IPTABLES=/sbin/iptables
-
-# ルールの初期化
-$IPTABLES -F
-
-# ポリシーの設定
-$IPTABLES -P INPUT DROP
-$IPTABLES -P OUTPUT ACCEPT
-$IPTABLES -P FORWARD DROP
-
-# ループバックアドレス
-$IPTABLES -A INPUT -i lo -j ACCEPT
-
-# 接続済みを許可
-$IPTABLES -A INPUT -m state --state  ESTABLISHED,RELATED -j ACCEPT
-
-# ping を許可(1req/sのみ許可)
-$IPTABLES -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
-
-# 公開サービス
-$IPTABLES -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT # SSH
-$IPTABLES -A INPUT -p tcp --dport 25 -m state --state NEW -j ACCEPT # SMTP
-$IPTABLES -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT # HTTP
-$IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
-
-# chmod 744 iptables.sh
-# ./iptables.sh
-# iptables -L (設定確認)
-# service iptables save
-# service iptables restart
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
 </code></pre>
 
-<h2>Jenkinsインストール</h2>
+<h2>PHP5.4〜</h2>
 
-<h3>OpenJDKインストール</h3>
+<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
 
-<pre><code># yum install java-1.6.0-openjdk
+<pre><code>(new Hoge('Hello'))-&gt;fuga();
+
+class Hoge
+{
+    private $message;
+
+    public function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
+
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
 </code></pre>
 
-<h3>公開鍵インポート</h3>
+<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
 
-<pre><code># wget /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-# rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
-</code></pre>
-
-<h3>Jenkinsインストール</h3>
-
-<pre><code># yum install jenkins
-</code></pre>
-
-<h3>Jenkinsのデーモン起動</h3>
-
-<pre><code># /sbin/service jenkins start
-</code></pre>
-
-<h2>起動確認</h2>
-
-<pre><code>http://localhost:8080
-</code></pre>
+<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
 </div>
 
 
@@ -196,12 +167,12 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
   
 
 
-<time datetime="2012-07-22T20:53:00+09:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2012</time>
+<time datetime="2012-08-14T01:39:00+09:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/virtualbox/'>VirtualBox</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>
   
 </span>
 
@@ -210,7 +181,7 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/22/install-jenkins-to-centos/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/22/install-jenkins-to-centos/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -223,10 +194,8 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/18/benchmark-of-bulk-insert/" title="Previous Post: MySQL(InnoDB)でバルクinsertのベンチマークとってみました">&laquo; MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a>
+        <a class="basic-alignment left" href="/blog/2012/08/12/using-travis-ci/" title="Previous Post: TravisCIを使ってみました。">&laquo; TravisCIを使ってみました。</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/27/deprecated-php-mysql-extension/" title="Next Post: PHP5.3以降、mysql拡張モジュールは非推奨">PHP5.3以降、mysql拡張モジュールは非推奨 &raquo;</a>
       
     </p>
   </footer>
@@ -338,8 +307,8 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/22/install-jenkins-to-centos/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/22/install-jenkins-to-centos/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/';
         var disqus_script = 'embed.js';
       
     (function () {

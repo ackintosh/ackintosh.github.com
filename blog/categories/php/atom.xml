@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-12T15:07:20+09:00</updated>
+  <updated>2012-08-14T01:45:16+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP5.4でメソッドチェーンが便利になったようです。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/"/>
+    <updated>2012-08-14T01:39:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4</id>
+    <content type="html"><![CDATA[<h2>PHP5.0〜5.3</h2>
+
+<p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
+面倒ですよね(；´∀｀)</p>
+
+<pre><code>Hoge::create('Hello')-&gt;fuga();
+
+class Hoge
+{
+    private $message;
+
+    private function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
+
+    public static function create($message)
+    {
+        return new self($message);
+    }
+
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
+</code></pre>
+
+<h2>PHP5.4〜</h2>
+
+<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
+
+<pre><code>(new Hoge('Hello'))-&gt;fuga();
+
+class Hoge
+{
+    private $message;
+
+    public function __construct($message)
+    {
+        $this-&gt;message = $message;
+    }
+
+    public function fuga()
+    {
+        echo $this-&gt;message;
+    }
+}
+</code></pre>
+
+<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
+
+<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHPでWebアプリフレームワーク作ってみました。]]></title>
