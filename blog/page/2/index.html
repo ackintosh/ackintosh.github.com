@@ -9,9 +9,9 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="構築したブログをGoogleウェブマスターツールに登録する時などに、
-静的なHTMLファイルを設置したい時があります。 その場合は、sourceディレクトリ下にHTMLを置いて $ rake gen_deploy するとデプロイされます。
-">
+  <meta name="description" content="Ruby1.9以降では # encoding : 文字コード をスクリプトの１行目に書いて文字コードを指定する。 実際のファイルの文字コードと一致していなければならない。 # encoding : utf-8
+# encoding : shift_jis
+# encoding : euc-jp &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/14/use-japanese-in-ruby/">Rubyで日本語を扱う</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ruby1.9以降では</p>
+
+<pre><code># encoding : 文字コード
+</code></pre>
+
+<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
+
+<p>実際のファイルの文字コードと一致していなければならない。</p>
+
+<pre><code># encoding : utf-8
+# encoding : shift_jis
+# encoding : euc-jp
+</code></pre>
+
+<p>shift_jisだけアンダースコア…</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -584,6 +634,10 @@ make: *** [mkmain.sh] Error 1</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a>
       </li>
     
@@ -597,10 +651,6 @@ make: *** [mkmain.sh] Error 1</p>
     
       <li class="post">
         <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
       </li>
     
   </ul>

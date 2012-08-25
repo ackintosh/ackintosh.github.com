@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ruby 1.9ではString#to_aは使えない - 暁</title>
+  <title>PHP5.4でメソッドから返る配列の扱いが便利になったようです。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content=""hoge".to_a undefined method `to_a' for "the":String (NoMethodError) 参考URL Ruby1.9ではStringはEnumerableではない
-">
+  <meta name="description" content="以前書いた、PHP5.4でメソッドチェーンが便利になったようです。 の配列版みたいなものです。 もう知ってるよ！という方は、光よりも速く読み飛ばしてください。 PHP5.3以前 メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では
+わざわざ変数に入れる必要がありました。 &lt;? &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ruby 1.9ではString#to_aは使えない</h1>
+      <h1 class="entry-title">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</h1>
     
     
       <p class="meta">
@@ -84,20 +84,43 @@
   
 
 
-<time datetime="2012-07-17T00:08:00+09:00" pubdate data-updated="true">Jul 17<span>th</span>, 2012</time>
+<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><pre><code>"hoge".to_a
- undefined method `to_a' for "the":String (NoMethodError)
+<div class="entry-content"><p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
+
+<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+
+<h2>PHP5.3以前</h2>
+
+<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
+わざわざ変数に入れる必要がありました。</p>
+
+<pre><code>&lt;?php
+$result_array = getSomethingArray();
+echo $result_array[1];  
 </code></pre>
 
-<p>参考URL</p>
+<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
 
-<p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
+<h2>PHP5.4</h2>
+
+<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
+
+<pre><code>&lt;?php
+function hogefuga()
+{
+    return array('ho', 'ge', 'fu', 'ga');
+}
+echo hogefuga()[1];// 'ge'
+
+$str = "ho,ge,fu,ga";
+echo explode(",", $str)[2];// 'fu'
+</code></pre>
 </div>
 
 
@@ -120,15 +143,21 @@
   
 
 
-<time datetime="2012-07-17T00:08:00+09:00" pubdate data-updated="true">Jul 17<span>th</span>, 2012</time>
+<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -141,10 +170,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/14/use-japanese-in-ruby/" title="Previous Post: Rubyで日本語を扱う">&laquo; Rubyで日本語を扱う</a>
+        <a class="basic-alignment left" href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/" title="Previous Post: PHP5.4でメソッドチェーンが便利になったようです。">&laquo; PHP5.4でメソッドチェーンが便利になったようです。</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/18/benchmark-of-bulk-insert/" title="Next Post: MySQL(InnoDB)でバルクinsertのベンチマークとってみました">MySQL(InnoDB)でバルクinsertのベンチマークとってみました &raquo;</a>
       
     </p>
   </footer>
@@ -256,8 +283,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/';
         var disqus_script = 'embed.js';
       
     (function () {

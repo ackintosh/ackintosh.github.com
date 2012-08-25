@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-14T01:45:16+09:00</updated>
+  <updated>2012-08-25T16:20:21+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP5.4でメソッドから返る配列の扱いが便利になったようです。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/"/>
+    <updated>2012-08-25T16:16:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4</id>
+    <content type="html"><![CDATA[<p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
+
+<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+
+<h2>PHP5.3以前</h2>
+
+<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
+わざわざ変数に入れる必要がありました。</p>
+
+<pre><code>&lt;?php
+$result_array = getSomethingArray();
+echo $result_array[1];  
+</code></pre>
+
+<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
+
+<h2>PHP5.4</h2>
+
+<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
+
+<pre><code>&lt;?php
+function hogefuga()
+{
+    return array('ho', 'ge', 'fu', 'ga');
+}
+echo hogefuga()[1];// 'ge'
+
+$str = "ho,ge,fu,ga";
+echo explode(",", $str)[2];// 'fu'
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP5.4でメソッドチェーンが便利になったようです。]]></title>

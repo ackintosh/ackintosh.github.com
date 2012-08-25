@@ -9,9 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="PHP5.0〜5.3 インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。
-面倒ですよね(；´∀｀) Hoge::create('Hello')-&gt;fuga(); class Hoge
-{ private $message; &hellip;">
+  <meta name="description" content="以前書いた、PHP5.4でメソッドチェーンが便利になったようです。 の配列版みたいなものです。 もう知ってるよ！という方は、光よりも速く読み飛ばしてください。 PHP5.3以前 メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では
+わざわざ変数に入れる必要がありました。 &lt;? &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +65,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
+
+<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+
+<h2>PHP5.3以前</h2>
+
+<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
+わざわざ変数に入れる必要がありました。</p>
+
+<pre><code>&lt;?php
+$result_array = getSomethingArray();
+echo $result_array[1];  
+</code></pre>
+
+<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
+
+<h2>PHP5.4</h2>
+
+<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
+
+<pre><code>&lt;?php
+function hogefuga()
+{
+    return array('ho', 'ge', 'fu', 'ga');
+}
+echo hogefuga()[1];// 'ge'
+
+$str = "ho,ge,fu,ga";
+echo explode(",", $str)[2];// 'fu'
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -702,56 +766,6 @@ insert into test (name, created) values ('name2', now());
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/14/use-japanese-in-ruby/">Rubyで日本語を扱う</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ruby1.9以降では</p>
-
-<pre><code># encoding : 文字コード
-</code></pre>
-
-<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
-
-<p>実際のファイルの文字コードと一致していなければならない。</p>
-
-<pre><code># encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp
-</code></pre>
-
-<p>shift_jisだけアンダースコア…</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -767,6 +781,10 @@ insert into test (name, created) values ('name2', now());
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a>
       </li>
     
@@ -780,10 +798,6 @@ insert into test (name, created) values ('name2', now());
     
       <li class="post">
         <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a>
       </li>
     
   </ul>
