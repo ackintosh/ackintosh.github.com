@@ -9,9 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Ruby1.9以降では # encoding : 文字コード をスクリプトの１行目に書いて文字コードを指定する。 実際のファイルの文字コードと一致していなければならない。 # encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp &hellip;">
+  <meta name="description" content=""hoge".to_a undefined method `to_a' for "the":String (NoMethodError) 参考URL Ruby1.9ではStringはEnumerableではない
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +65,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">Ruby 1.9ではString#to_aは使えない</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-17T00:08:00+09:00" pubdate data-updated="true">Jul 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>"hoge".to_a
+ undefined method `to_a' for "the":String (NoMethodError)
+</code></pre>
+
+<p>参考URL</p>
+
+<p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -634,6 +675,10 @@ make: *** [mkmain.sh] Error 1</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a>
       </li>
     
@@ -647,10 +692,6 @@ make: *** [mkmain.sh] Error 1</p>
     
       <li class="post">
         <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
       </li>
     
   </ul>

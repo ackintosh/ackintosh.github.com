@@ -9,8 +9,11 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="以前書いた、PHP5.4でメソッドチェーンが便利になったようです。 の配列版みたいなものです。 もう知ってるよ！という方は、光よりも速く読み飛ばしてください。 PHP5.3以前 メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では
-わざわざ変数に入れる必要がありました。 &lt;? &hellip;">
+  <meta name="description" content="usersとfavoritesが１対多になるようにして、
+indexの設定あり・なしの2つのDBを用意して比較しました。
+予め、
+usersは 100,000件
+favoritesに300,000件のレコードを用意しました。 indexなし ・テーブル作成 create table users( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +68,104 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-26T11:14:00+09:00" pubdate data-updated="true">Aug 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>usersとfavoritesが１対多になるようにして、
+indexの設定あり・なしの2つのDBを用意して比較しました。<br/>
+予め、<br/>
+usersは 100,000件<br/>
+favoritesに300,000件のレコードを用意しました。</p>
+
+<h2>indexなし</h2>
+
+<p>・テーブル作成</p>
+
+<pre><code>create table users(
+id int(11) not null primary key auto_increment,
+name varchar(40) not null
+) engine=innodb;
+
+create table favorites(
+user_id int(11) not null,
+favorite_name varchar(40) not null
+) engine=innodb;
+</code></pre>
+
+<p>・select<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png" alt="select結果(indexなし)" /></p>
+
+<p>・explain<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png" alt="explain(indexなし)" /></p>
+
+<h2>indexあり</h2>
+
+<p>・テーブル作成</p>
+
+<pre><code>create table users(
+id int(11) not null primary key auto_increment,
+name varchar(40) not null
+) engine=innodb;
+
+create table favorites(
+user_id int(11) not null,
+favorite_name varchar(40) not null,
+foreign key(user_id) references users(id)
+) engine=innodb;
+</code></pre>
+
+<p>・select<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png" alt="select結果(indexあり)" /></p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index_phpmyadmin.png" alt="select結果(phpmyadmin)" /></p>
+
+<p>・explain
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png" alt="explain(indexあり)" /></p>
+
+<h2>結果</h2>
+
+<ul>
+<li>indexなし<br/>
+クエリ実行時間 0.38  秒</li>
+<li>indexあり<br/>
+クエリ実行時間 0.0005秒</li>
+</ul>
+
+
+<p>explainの結果から、indexがないと
+テーブルのフルスキャンが発生してしまっていることがわかりました。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -724,48 +825,6 @@ insert into test (name, created) values ('name2', now());
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/">Ruby 1.9ではString#to_aは使えない</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-17T00:08:00+09:00" pubdate data-updated="true">Jul 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>"hoge".to_a
- undefined method `to_a' for "the":String (NoMethodError)
-</code></pre>
-
-<p>参考URL</p>
-
-<p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -781,6 +840,10 @@ insert into test (name, created) values ('name2', now());
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a>
       </li>
     
@@ -794,10 +857,6 @@ insert into test (name, created) values ('name2', now());
     
       <li class="post">
         <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a>
       </li>
     
   </ul>
