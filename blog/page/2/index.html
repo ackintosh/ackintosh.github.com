@@ -313,85 +313,12 @@ console.dir(window.markdown.toHTML(md));
 
 <p>ユーザー登録後、Herokuのgemをインストールする。</p>
 
-<pre><code>$ gem install heroku
-</code></pre>
-
-<p>herokuの利用に必要なコマンドがインストールされる。</p>
-
-<h2>作成したアプリ一覧を確認</h2>
-
-<pre><code>$ heroku list
-</code></pre>
-
-<h2>新規Railsアプリを作成</h2>
-
-<pre><code>$ rails new newApp
-</code></pre>
-
-<h2>アプリの起動確認</h2>
-
-<pre><code>$ cd newApp
-$ rails s
-</code></pre>
-
-<h2>git初期化</h2>
-
-<pre><code>$ git init
-$ git add .
-$ git commit -m "initialize"
-</code></pre>
-
-<h2>Herokuで動かす</h2>
-
-<pre><code>$ heroku create appname
-</code></pre>
-
-<p><a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a> から引用させていただきます。<br/>
-必要最低限のgemを記述。</p>
-
-<pre><code>$ curl https://raw.github.com/gist/1970532/376b6a26ed936ac43cad0b17a64512f5c0216a50/Gemifile &gt; Gemfile
-$ rm -f Gemfile.lock
-$ bundle install --without production
-$ git add -A
-$ git commit -m 'Update Gemfile'
-</code></pre>
-
-<p>中身はこんな感じ。<br/>
-herokuでは、PostgreSQL使うので、pgを指定したり、developmentでしか使わないものはそこに移動とかです。</p>
-
-<pre><code>source 'https://rubygems.org'
-
-gem 'rails', '3.2.2'
-gem 'jquery-rails'
-
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'
-  gem 'coffee-rails', '~&gt; 3.2.1'
-  gem 'uglifier', '&gt;= 1.0.3'
-end
-
-group :test, :development do
-  gem 'sqlite3'
-  gem 'heroku'
-end
-
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
-</code></pre>
-
-<p>Herokuにデプロイ</p>
-
-<pre><code>$ git push heroku master
-$ heroku open
-</code></pre>
-
-<p>参考URL<br/>
-<a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
-<a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/09/make-an-app-in-heroku/">Continue reading</a>
+    </footer>
   
 
 
@@ -543,71 +470,12 @@ $ rbenv rehash</p>
 
 <p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
 
-<h2>githubでリポジトリを作成</h2>
-
-<p>リポジトリ名がURLになる。</p>
-
-<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
-
-<h2>Octopressインストール</h2>
-
-<ul>
-<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
-rbenv等で環境を用意する。</p></li>
-<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
-</ul>
-
-
-<p>$ rubyenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-
-<p><em>Octopress Setup</em></p>
-
-<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
-
-<h2>Octpressの設定</h2>
-
-<p>_config.yml を編集する</p>
-
-<h2>Github Pagesにデプロイ</h2>
-
-<p><em>Deploying to Github Pages</em></p>
-
-<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
-
-<ul>
-<li>投稿作成</li>
-</ul>
-
-
-<p>$ rake new_post[&#8220;投稿タイトル&#8221;]</p>
-
-<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
-
-<ul>
-<li>HTML生成</li>
-</ul>
-
-
-<p>$ rake generate</p>
-
-<ul>
-<li>プレビュー(localhost:4000)</li>
-</ul>
-
-
-<p>$ rake preview</p>
-
-<p>編集内容は即時反映される</p>
-
-<ul>
-<li>ブログにアップ</li>
-</ul>
-
-
-<p>$ rake deploy</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/08/octopress-plus-github/">Continue reading</a>
+    </footer>
   
 
 
@@ -717,7 +585,7 @@ make: *** [mkmain.sh] Error 1</p>
 
         github.showRepos({
             user: 'ackintosh',
-            count: 0,
+            count: 3,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -734,7 +602,7 @@ make: *** [mkmain.sh] Error 1</p>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
-      getTwitterFeed("NAKANO_Akihito", 4, false);
+      getTwitterFeed("NAKANO_Akihito", 5, false);
     });
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>

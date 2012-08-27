@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-26T11:17:32+09:00</updated>
+  <updated>2012-08-27T10:47:50+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -23,6 +23,9 @@ indexの設定あり・なしの2つのDBを用意して比較しました。<br
 予め、<br/>
 usersは 100,000件<br/>
 favoritesに300,000件のレコードを用意しました。</p>
+
+<!-- more -->
+
 
 <h2>indexなし</h2>
 
@@ -93,6 +96,9 @@ foreign key(user_id) references users(id)
 
 <p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
 
+<!-- more -->
+
+
 <h2>PHP5.3以前</h2>
 
 <p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
@@ -131,6 +137,9 @@ echo explode(",", $str)[2];// 'fu'
 
 <p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
 面倒ですよね(；´∀｀)</p>
+
+<!-- more -->
+
 
 <pre><code>Hoge::create('Hello')-&gt;fuga();
 
@@ -195,6 +204,9 @@ class Hoge
 <a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
 
 <p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
+
+<!-- more -->
+
 
 <h2>githubと連携する</h2>
 
@@ -286,6 +298,9 @@ class HogeTest extends PHPUnit_Framework_TestCase
 <p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
 
 <p>現時点では、php5.3.3以上が必須。</p>
+
+<!-- more -->
+
 
 <h2>インストール</h2>
 
@@ -391,6 +406,9 @@ date.timezone = Asia/Tokyo
 設定→ネットワーク<br/>
 →アダプタ１　割り当て→「ブリッジアダプタ」<br/>
 →アダプタ２　割り当て→「NAT」</p>
+
+<!-- more -->
+
 
 <h2>CentOSの設定</h2>
 
@@ -615,6 +633,9 @@ console.dir(window.markdown.toHTML(md));
 
 <p>ユーザー登録後、Herokuのgemをインストールする。</p>
 
+<!-- more -->
+
+
 <pre><code>$ gem install heroku
 </code></pre>
 
@@ -763,6 +784,9 @@ $ rbenv rehash</p>
 <p><strong>github</strong></p>
 
 <p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
+
+<!-- more -->
+
 
 <h2>githubでリポジトリを作成</h2>
 

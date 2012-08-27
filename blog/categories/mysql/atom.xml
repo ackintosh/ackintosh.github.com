@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MySQL | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/mysql/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-26T11:17:32+09:00</updated>
+  <updated>2012-08-27T10:47:50+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -23,6 +23,9 @@ indexの設定あり・なしの2つのDBを用意して比較しました。<br
 予め、<br/>
 usersは 100,000件<br/>
 favoritesに300,000件のレコードを用意しました。</p>
+
+<!-- more -->
+
 
 <h2>indexなし</h2>
 

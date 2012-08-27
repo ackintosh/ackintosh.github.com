@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TravisCI | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/travisci/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-26T11:17:32+09:00</updated>
+  <updated>2012-08-27T10:47:50+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -25,6 +25,9 @@
 <a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
 
 <p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
+
+<!-- more -->
+
 
 <h2>githubと連携する</h2>
 

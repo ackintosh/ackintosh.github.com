@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-26T11:17:32+09:00</updated>
+  <updated>2012-08-27T10:47:50+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
 
 <p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+
+<!-- more -->
+
 
 <h2>PHP5.3以前</h2>
 
@@ -60,6 +63,9 @@ echo explode(",", $str)[2];// 'fu'
 
 <p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
 面倒ですよね(；´∀｀)</p>
+
+<!-- more -->
+
 
 <pre><code>Hoge::create('Hello')-&gt;fuga();
 
@@ -158,6 +164,9 @@ class HogeTest extends PHPUnit_Framework_TestCase
 <p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
 
 <p>現時点では、php5.3.3以上が必須。</p>
+
+<!-- more -->
+
 
 <h2>インストール</h2>
 

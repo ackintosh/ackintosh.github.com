@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-08-26T11:17:32+09:00</updated>
+  <updated>2012-08-27T10:47:50+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -65,6 +65,9 @@ disqus_short_name: your shortname
 <p><strong>github</strong></p>
 
 <p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
+
+<!-- more -->
+
 
 <h2>githubでリポジトリを作成</h2>
 

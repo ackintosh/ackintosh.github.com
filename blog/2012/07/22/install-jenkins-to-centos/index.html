@@ -107,6 +107,9 @@
 →アダプタ１　割り当て→「ブリッジアダプタ」<br/>
 →アダプタ２　割り当て→「NAT」</p>
 
+<!-- more -->
+
+
 <h2>CentOSの設定</h2>
 
 <p>デフォルトではiptablesが設定されていて、ホストOSからSSHやHTTP接続等ができないので変更。<br/>
@@ -289,7 +292,7 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
 
         github.showRepos({
             user: 'ackintosh',
-            count: 0,
+            count: 3,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -306,7 +309,7 @@ $IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
-      getTwitterFeed("NAKANO_Akihito", 4, false);
+      getTwitterFeed("NAKANO_Akihito", 5, false);
     });
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>

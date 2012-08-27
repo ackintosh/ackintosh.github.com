@@ -13,7 +13,7 @@
 indexの設定あり・なしの2つのDBを用意して比較しました。
 予め、
 usersは 100,000件
-favoritesに300,000件のレコードを用意しました。 indexなし ・テーブル作成 create table users( &hellip;">
+favoritesに300,000件のレコードを用意しました。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,65 +103,12 @@ indexの設定あり・なしの2つのDBを用意して比較しました。<br
 usersは 100,000件<br/>
 favoritesに300,000件のレコードを用意しました。</p>
 
-<h2>indexなし</h2>
-
-<p>・テーブル作成</p>
-
-<pre><code>create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null
-) engine=innodb;
-</code></pre>
-
-<p>・select<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png" alt="select結果(indexなし)" /></p>
-
-<p>・explain<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png" alt="explain(indexなし)" /></p>
-
-<h2>indexあり</h2>
-
-<p>・テーブル作成</p>
-
-<pre><code>create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null,
-foreign key(user_id) references users(id)
-) engine=innodb;
-</code></pre>
-
-<p>・select<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png" alt="select結果(indexあり)" /></p>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index_phpmyadmin.png" alt="select結果(phpmyadmin)" /></p>
-
-<p>・explain
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png" alt="explain(indexあり)" /></p>
-
-<h2>結果</h2>
-
-<ul>
-<li>indexなし<br/>
-クエリ実行時間 0.38  秒</li>
-<li>indexあり<br/>
-クエリ実行時間 0.0005秒</li>
-</ul>
-
-
-<p>explainの結果から、indexがないと
-テーブルのフルスキャンが発生してしまっていることがわかりました。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/26/compared-the-index-with-and-without/">Continue reading</a>
+    </footer>
   
 
 
@@ -199,34 +146,12 @@ foreign key(user_id) references users(id)
 
 <p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
 
-<h2>PHP5.3以前</h2>
-
-<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
-わざわざ変数に入れる必要がありました。</p>
-
-<pre><code>&lt;?php
-$result_array = getSomethingArray();
-echo $result_array[1];  
-</code></pre>
-
-<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
-
-<h2>PHP5.4</h2>
-
-<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
-
-<pre><code>&lt;?php
-function hogefuga()
-{
-    return array('ho', 'ge', 'fu', 'ga');
-}
-echo hogefuga()[1];// 'ge'
-
-$str = "ho,ge,fu,ga";
-echo explode(",", $str)[2];// 'fu'
-</code></pre>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">Continue reading</a>
+    </footer>
   
 
 
@@ -265,56 +190,12 @@ echo explode(",", $str)[2];// 'fu'
 <p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
 面倒ですよね(；´∀｀)</p>
 
-<pre><code>Hoge::create('Hello')-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    private function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public static function create($message)
-    {
-        return new self($message);
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>PHP5.4〜</h2>
-
-<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
-
-<pre><code>(new Hoge('Hello'))-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    public function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
-
-<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">Continue reading</a>
+    </footer>
   
 
 
@@ -356,49 +237,12 @@ class Hoge
 
 <p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
 
-<h2>githubと連携する</h2>
-
-<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
-
-<p>自分はこんな風に書きました。</p>
-
-<pre><code>language: php
-php:
-  - 5.3
-script: sh testrunner.sh
-</code></pre>
-
-<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
-僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
-
-<h3>Travisにサインアップ</h3>
-
-<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
-
-<p>右側のスイッチをONにするだけで連携されます。</p>
-
-<h2>コードカバレッジを表示する</h2>
-
-<p>.travis.yml</p>
-
-<pre><code>language: php
-php:
-  - 5.3
-script: phpunit --coverage-text
-</code></pre>
-
-<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
-
-<h2>参考にさせていただきました</h2>
-
-<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
-
-<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/12/using-travis-ci/">Continue reading</a>
+    </footer>
   
 
 
@@ -528,55 +372,12 @@ class HogeTest extends PHPUnit_Framework_TestCase
 
 <p>現時点では、php5.3.3以上が必須。</p>
 
-<h2>インストール</h2>
-
-<pre><code>$ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
-</code></pre>
-
-<p>githubからダウンロード<br/>
-<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
-
-<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
-
-<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
-
-<pre><code>$ sudo php ./installer.php
-</code></pre>
-
-<p>※ここで、php.iniの設定が必要との警告が表示された</p>
-
-<pre><code>The detect_unicode setting must be disabled.
-Add the following to the end of your `php.ini`:
-detect_unicode = Off  
-</code></pre>
-
-<h3>macのphp.iniを編集</h3>
-
-<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
-$ sudo vi /etc/php.ini
-detect_unicode = Off
-date.timezone = Asia/Tokyo  
-</code></pre>
-
-<h3>installer再実行</h3>
-
-<pre><code>$ sudo php ./installer.php
-&gt; Thank you for installing phpDocumentor.
-&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
-</code></pre>
-
-<h3>シンボリックリンク作成</h3>
-
-<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
-</code></pre>
-
-<h2>phpDocumentor実行</h2>
-
-<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
-</code></pre>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/28/install-phpdocumentor/">Continue reading</a>
+    </footer>
   
 
 
@@ -687,75 +488,12 @@ date.timezone = Asia/Tokyo
 →アダプタ１　割り当て→「ブリッジアダプタ」<br/>
 →アダプタ２　割り当て→「NAT」</p>
 
-<h2>CentOSの設定</h2>
-
-<p>デフォルトではiptablesが設定されていて、ホストOSからSSHやHTTP接続等ができないので変更。<br/>
-iptables設定用スクリプトを用意して実行する。</p>
-
-<pre><code># vi iptables.sh
-#!/bin/sh
-
-IPTABLES=/sbin/iptables
-
-# ルールの初期化
-$IPTABLES -F
-
-# ポリシーの設定
-$IPTABLES -P INPUT DROP
-$IPTABLES -P OUTPUT ACCEPT
-$IPTABLES -P FORWARD DROP
-
-# ループバックアドレス
-$IPTABLES -A INPUT -i lo -j ACCEPT
-
-# 接続済みを許可
-$IPTABLES -A INPUT -m state --state  ESTABLISHED,RELATED -j ACCEPT
-
-# ping を許可(1req/sのみ許可)
-$IPTABLES -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
-
-# 公開サービス
-$IPTABLES -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT # SSH
-$IPTABLES -A INPUT -p tcp --dport 25 -m state --state NEW -j ACCEPT # SMTP
-$IPTABLES -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT # HTTP
-$IPTABLES -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT # HTTPS
-
-# chmod 744 iptables.sh
-# ./iptables.sh
-# iptables -L (設定確認)
-# service iptables save
-# service iptables restart
-</code></pre>
-
-<h2>Jenkinsインストール</h2>
-
-<h3>OpenJDKインストール</h3>
-
-<pre><code># yum install java-1.6.0-openjdk
-</code></pre>
-
-<h3>公開鍵インポート</h3>
-
-<pre><code># wget /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-# rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
-</code></pre>
-
-<h3>Jenkinsインストール</h3>
-
-<pre><code># yum install jenkins
-</code></pre>
-
-<h3>Jenkinsのデーモン起動</h3>
-
-<pre><code># /sbin/service jenkins start
-</code></pre>
-
-<h2>起動確認</h2>
-
-<pre><code>http://localhost:8080
-</code></pre>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/07/22/install-jenkins-to-centos/">Continue reading</a>
+    </footer>
   
 
 
@@ -882,7 +620,7 @@ insert into test (name, created) values ('name2', now());
 
         github.showRepos({
             user: 'ackintosh',
-            count: 0,
+            count: 3,
             skip_forks: true,
             target: '#gh_repos'
         });
@@ -899,7 +637,7 @@ insert into test (name, created) values ('name2', now());
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
-      getTwitterFeed("NAKANO_Akihito", 4, false);
+      getTwitterFeed("NAKANO_Akihito", 5, false);
     });
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>
