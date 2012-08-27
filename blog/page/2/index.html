@@ -9,8 +9,11 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content=""hoge".to_a undefined method `to_a' for "the":String (NoMethodError) 参考URL Ruby1.9ではStringはEnumerableではない
-">
+  <meta name="description" content="テーブル作成 create table test (
+id int(11) unsigned auto_increment primary key,
+name varchar(255) not null,
+created datetime not null
+); 通常のinsert文 insert &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +68,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/18/benchmark-of-bulk-insert/">MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-18T00:33:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>テーブル作成</h2>
+
+<pre><code>create table test (
+id int(11) unsigned auto_increment primary key,
+name varchar(255) not null,
+created datetime not null
+);
+</code></pre>
+
+<h2>通常のinsert文</h2>
+
+<pre><code>insert into test (name, created) values ('name1', now());
+insert into test (name, created) values ('name2', now());
+・・・ 10,000回
+</code></pre>
+
+<p>結果<br/>
+<em>6.39秒</em></p>
+
+<h2>バルクinsert</h2>
+
+<pre><code>insert into test (name, created) values ('name1', now()), ('name2', now()) ・・・
+・・・10,000回
+</code></pre>
+
+<p>結果<br/>
+<em>0.20秒</em></p>
+
+<p>全然違う(・∀・)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -551,6 +618,10 @@ make: *** [mkmain.sh] Error 1</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
       </li>
     
@@ -564,10 +635,6 @@ make: *** [mkmain.sh] Error 1</p>
     
       <li class="post">
         <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
       </li>
     
   </ul>

@@ -9,11 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="usersとfavoritesが１対多になるようにして、
-indexの設定あり・なしの2つのDBを用意して比較しました。
-予め、
-usersは 100,000件
-favoritesに300,000件のレコードを用意しました。 ">
+  <meta name="description" content="最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。 WEB+DB PRESS Vol.70 WEB+DB PRESS vol. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +65,54 @@ favoritesに300,000件のレコードを用意しました。 ">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-28T01:34:00+09:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br/>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
+
+<p><a href="http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904">WEB+DB PRESS Vol.70</a><br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg" alt="WEB+DB PRESS Vol.70" /><br/>
+WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。<br/>
+普段Railsで開発するときはherokuを使っているので<br/>
+herokuでUnicornを使ってみたいと思います。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/28/using-the-unicorn-in-heroku/">Continue reading</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -499,70 +544,6 @@ class HogeTest extends PHPUnit_Framework_TestCase
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/benchmark-of-bulk-insert/">MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T00:33:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>テーブル作成</h2>
-
-<pre><code>create table test (
-id int(11) unsigned auto_increment primary key,
-name varchar(255) not null,
-created datetime not null
-);
-</code></pre>
-
-<h2>通常のinsert文</h2>
-
-<pre><code>insert into test (name, created) values ('name1', now());
-insert into test (name, created) values ('name2', now());
-・・・ 10,000回
-</code></pre>
-
-<p>結果<br/>
-<em>6.39秒</em></p>
-
-<h2>バルクinsert</h2>
-
-<pre><code>insert into test (name, created) values ('name1', now()), ('name2', now()) ・・・
-・・・10,000回
-</code></pre>
-
-<p>結果<br/>
-<em>0.20秒</em></p>
-
-<p>全然違う(・∀・)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -586,6 +567,10 @@ insert into test (name, created) values ('name2', now());
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
       </li>
     
@@ -599,10 +584,6 @@ insert into test (name, created) values ('name2', now());
     
       <li class="post">
         <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a>
       </li>
     
   </ul>

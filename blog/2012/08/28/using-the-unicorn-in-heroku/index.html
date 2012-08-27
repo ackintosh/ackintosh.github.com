@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: VirtualBox - 暁</title>
+  <title>HerokuのWebサーバーをUnicornに変更する - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Category: VirtualBox">
+  <meta name="description" content="最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。 WEB+DB PRESS Vol.70 WEB+DB PRESS vol. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/virtualbox/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,36 +64,163 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: VirtualBox</h1>
+    
+      <h1 class="entry-title">HerokuのWebサーバーをUnicornに変更する</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-28T01:34:00+09:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br/>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
 
-  
-  <h2>2012</h2>
+<p><a href="http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904">WEB+DB PRESS Vol.70</a><br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg" alt="WEB+DB PRESS Vol.70" /><br/>
+WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。<br/>
+普段Railsで開発するときはherokuを使っているので<br/>
+herokuでUnicornを使ってみたいと思います。</p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a></h1>
-<time datetime="2012-07-22T20:53:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>22</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/virtualbox/'>VirtualBox</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<h2>heroku ps を確認</h2>
 
+<p>まずはherokuで現在使われているWebサーバーを確認します。</p>
+
+<pre><code>$ heroku ps
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png" alt="heroku_ps" /></p>
+
+<p>herokuのデフォルトはthinなのでしょうか？？<br/>
+以下、Unicornのインストールを進めていきます。</p>
+
+<h2>Gemfileに追加</h2>
+
+<pre><code>gem 'unicorn'
+</code></pre>
+
+<h2>config/unicorn.rbを作成</h2>
+
+<p>とりあえず設定内容は下記にしました。<br/>
+詳しいことは勉強中です。すみません。</p>
+
+<pre><code>worker_processes 2
+timeout 20
+preload_app false
+stdout_path "log/unicorn-out.log"
+stderr_path "log/unicorn-err.log"
+</code></pre>
+
+<h2>Procfileを作成</h2>
+
+<p>Railsのルートディレクトリ直下にProcfileを作成します。</p>
+
+<pre><code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb  
+</code></pre>
+
+<h2>herokuにpush</h2>
+
+<p>いつものようにherokuにpushします。</p>
+
+<pre><code>$ git push heroku master
+</code></pre>
+
+<h2>heroku ps で確認</h2>
+
+<pre><code>$ heroku ps
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png" alt="heroku_ps_unicorn" /></p>
+
+<p>bundle exec unicorn …となっていれば成功です。<br/>
+heroku psの出力の2行目が</p>
+
+<pre><code>web.1: crashed for…
+</code></pre>
+
+<p>になっていたら設定を見なおしてみてください。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-28T01:34:00+09:00" pubdate data-updated="true">Aug 28<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/26/compared-the-index-with-and-without/" title="Previous Post: MySQLでインデックスあり・なしの検索速度を比較してみました。">&laquo; MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -201,7 +329,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
