@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rubyで日本語を扱う - 暁</title>
+  <title>暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Ruby1.9以降では # encoding : 文字コード をスクリプトの１行目に書いて文字コードを指定する。 実際のファイルの文字コードと一致していなければならない。 # encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp &hellip;">
+  <meta name="description" content="rbenvでrubyをインストールする時に下記のエラーがでる場合 readline.c: In function ‘username_completion_proc_call’:
+readline.c:1386: error: ‘username_completion_function’ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/page/3/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,12 +63,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Rubyで日本語を扱う</h1>
+      <h1 class="entry-title"><a href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/">rbenvでrubyをインストールする時にエラー</a></h1>
     
     
       <p class="meta">
@@ -85,94 +87,40 @@
   
 
 
-<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-07-08T00:01:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Ruby1.9以降では</p>
+  <div class="entry-content"><h3>rbenvでrubyをインストールする時に下記のエラーがでる場合</h3>
 
-<pre><code># encoding : 文字コード
-</code></pre>
+<p>readline.c: In function ‘username_completion_proc_call’:<br/>
+readline.c:1386: error: ‘username_completion_function’ undeclared (first use in this function)<br/>
+readline.c:1386: error: (Each undeclared identifier is reported only once<br/>
+readline.c:1386: error: for each function it appears in.)<br/>
+make[1]: *** [readline.o] Error 1<br/>
+make: *** [mkmain.sh] Error 1</p>
 
-<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
+<h3>下記実行して再トライ</h3>
 
-<p>実際のファイルの文字コードと一致していなければならない。</p>
-
-<pre><code># encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp
-</code></pre>
-
-<p>shift_jisだけアンダースコア…</p>
+<p>$ export CONFIGURE_OPTS=&#8221;&#8211;with-arch=i386 &#8211;with-readline-dir=/usr/local/Cellar/readline/6.2.2&#8221;</p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Ackintosh</span></span>
-
-      
-
-
-
-
-
-
-
-
   
 
 
-<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
-  
-</span>
-
-
-    </p>
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/" >Tweet</a>
-  
-  
-  <div class="g-plusone" data-size="medium"></div>
-  
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/07/14/put-html-file-to-octopress/" title="Previous Post: Octopressに静的HTMLファイルを設置する">&laquo; Octopressに静的HTMLファイルを設置する</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/" title="Next Post: Ruby 1.9ではString#to_aは使えない">Ruby 1.9ではString#to_aは使えない &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
 </div>
-  </section>
-
-</div>
-
 <aside class="sidebar">
   
     <section>
@@ -213,7 +161,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/ackintosh">@ackintosh</a> on GitHub
@@ -243,7 +191,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -263,7 +211,6 @@
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -278,10 +225,7 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

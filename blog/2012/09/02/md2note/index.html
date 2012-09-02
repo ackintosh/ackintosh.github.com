@@ -5,13 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rubyで日本語を扱う - 暁</title>
+  <title>Markdownをプレビュー → Evernoteに保存できるサービスを作りました。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="Ruby1.9以降では # encoding : 文字コード をスクリプトの１行目に書いて文字コードを指定する。 実際のファイルの文字コードと一致していなければならない。 # encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp &hellip;">
+  <meta name="description" content="最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。
+ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。 そこで、Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作りました。
+( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/09/02/md2note/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Rubyで日本語を扱う</h1>
+      <h1 class="entry-title">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</h1>
     
     
       <p class="meta">
@@ -85,28 +85,27 @@
   
 
 
-<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-09-02T16:58:00+09:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Ruby1.9以降では</p>
+<div class="entry-content"><p>最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。<br/>
+ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。</p>
 
-<pre><code># encoding : 文字コード
-</code></pre>
+<p>そこで、Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作りました。<br/>
+(RubyとかRailsの勉強を兼ねて m(<em> </em>)m)</p>
 
-<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png" alt="md2note" /></p>
 
-<p>実際のファイルの文字コードと一致していなければならない。</p>
+<p><em>Md2Note</em></p>
 
-<pre><code># encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp
-</code></pre>
+<p><a href="http://md2note.herokuapp.com/">http://md2note.herokuapp.com/</a></p>
 
-<p>shift_jisだけアンダースコア…</p>
+<p>Evernoteにログインすると、ノート一覧がでますので<br/>
+保存先のノートを選択してください。</p>
 </div>
 
 
@@ -129,21 +128,15 @@
   
 
 
-<time datetime="2012-07-14T17:30:00+09:00" pubdate data-updated="true">Jul 14<span>th</span>, 2012</time>
+<time datetime="2012-09-02T16:58:00+09:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/09/02/md2note/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/09/02/md2note/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -156,10 +149,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/14/put-html-file-to-octopress/" title="Previous Post: Octopressに静的HTMLファイルを設置する">&laquo; Octopressに静的HTMLファイルを設置する</a>
+        <a class="basic-alignment left" href="/blog/2012/08/28/using-the-unicorn-in-heroku/" title="Previous Post: HerokuのWebサーバーをUnicornに変更する">&laquo; HerokuのWebサーバーをUnicornに変更する</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/" title="Next Post: Ruby 1.9ではString#to_aは使えない">Ruby 1.9ではString#to_aは使えない &raquo;</a>
       
     </p>
   </footer>
@@ -279,8 +270,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/09/02/md2note/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/09/02/md2note/';
         var disqus_script = 'embed.js';
       
     (function () {

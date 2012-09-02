@@ -9,8 +9,9 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。
-RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。 WEB+DB PRESS Vol.70 WEB+DB PRESS vol. &hellip;">
+  <meta name="description" content="最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。
+ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。 そこで、Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作りました。
+( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,55 @@ RailsではデフォルトでWEBrickが起動しますが、低速なので本�
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/02/md2note/">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-02T16:58:00+09:00" pubdate data-updated="true">Sep 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。<br/>
+ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。</p>
+
+<p>そこで、Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作りました。<br/>
+(RubyとかRailsの勉強を兼ねて m(<em> </em>)m)</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png" alt="md2note" /></p>
+
+<p><em>Md2Note</em></p>
+
+<p><a href="http://md2note.herokuapp.com/">http://md2note.herokuapp.com/</a></p>
+
+<p>Evernoteにログインすると、ノート一覧がでますので<br/>
+保存先のノートを選択してください。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -492,58 +542,6 @@ class HogeTest extends PHPUnit_Framework_TestCase
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-22T20:53:00+09:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>VirtualBoxの設定</h2>
-
-<ul>
-<li>ホストOS〜ゲストOS間で通信できる</li>
-<li>ゲストOS〜外部で通信できる</li>
-</ul>
-
-
-<p>上記を満たすためのVirtualBox設定をする。<br/>
-設定→ネットワーク<br/>
-→アダプタ１　割り当て→「ブリッジアダプタ」<br/>
-→アダプタ２　割り当て→「NAT」</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/22/install-jenkins-to-centos/">Continue reading</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -567,6 +565,10 @@ class HogeTest extends PHPUnit_Framework_TestCase
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/09/02/md2note/">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a>
       </li>
     
@@ -580,10 +582,6 @@ class HogeTest extends PHPUnit_Framework_TestCase
     
       <li class="post">
         <a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/12/using-travis-ci/">TravisCIを使ってみました。</a>
       </li>
     
   </ul>
