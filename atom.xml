@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-09-02T17:23:03+09:00</updated>
+  <updated>2012-09-02T17:25:06+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -23,8 +23,9 @@
 
 <hr />
 
-<p>Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作りました。<br/>
-(RubyとRailsの勉強を兼ねて φ(..))</p>
+<p>Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。<br/>
+(RubyとRailsの勉強を兼ねて φ(..))<br/>
+上記に当てはまる方は是非使ってみてください。</p>
 
 <p><img src="https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png" alt="md2note" /></p>
 
