@@ -9,9 +9,8 @@
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。
-ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。 Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。
-( &hellip;">
+  <meta name="description" content="php5.4の目玉機能の１つ、trait。
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。 そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +65,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">traitを使ってObserverパターンを書いてみました。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-16T16:43:00+09:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>php5.4の目玉機能の１つ、trait。<br/>
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
+
+<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
+使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。
+<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
+
+<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">Continue reading</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -481,70 +528,6 @@ class HogeTest extends PHPUnit_Framework_TestCase
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
-
-<ul>
-<li><p>mysqli拡張モジュール<br/>
-<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
-<li><p>PDO_MYSQL<br/>
-<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
-</ul>
-
-
-<p>古いmysql関数も含めた3つの機能の比較表がありました。
-<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
-
-<p>新しいモジュールでは、
-* OOPインターフェース
-* プリペアドステートメント
-* ストアドプロシージャ
-* トランザクション<br/>
-をAPIレベルでサポートしている。</p>
-
-<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
-
-<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
-
-<pre><code>class OriginalMysqli extends mysqli
-{
-    …
-}
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -568,6 +551,10 @@ class HogeTest extends PHPUnit_Framework_TestCase
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">traitを使ってObserverパターンを書いてみました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/09/02/md2note/">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a>
       </li>
     
@@ -581,10 +568,6 @@ class HogeTest extends PHPUnit_Framework_TestCase
     
       <li class="post">
         <a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a>
       </li>
     
   </ul>

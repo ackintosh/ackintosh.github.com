@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>MacにphpDocumentorをインストール - 暁</title>
+  <title>traitを使ってObserverパターンを書いてみました。 - 暁</title>
   <meta name="author" content="Ackintosh">
 
   
-  <meta name="description" content="phpDocumentor http://www.phpdoc.org/ 現時点では、php5.3.3以上が必須。 インストール $ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
+  <meta name="description" content="php5.4の目玉機能の１つ、trait。
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。 そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   
   <header>
     
-      <h1 class="entry-title">MacにphpDocumentorをインストール</h1>
+      <h1 class="entry-title">traitを使ってObserverパターンを書いてみました。</h1>
     
     
       <p class="meta">
@@ -84,69 +84,27 @@ PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) &hellip;">
   
 
 
-<time datetime="2012-07-28T18:02:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
+<time datetime="2012-09-16T16:43:00+09:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2>phpDocumentor</h2>
+<div class="entry-content"><p>php5.4の目玉機能の１つ、trait。<br/>
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
 
-<p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
+<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
+使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。
+<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
 
-<p>現時点では、php5.3.3以上が必須。</p>
+<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
 
 <!-- more -->
 
 
-<h2>インストール</h2>
+<script src="https://gist.github.com/3731335.js"> </script>
 
-<pre><code>$ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
-</code></pre>
-
-<p>githubからダウンロード<br/>
-<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
-
-<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
-
-<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
-
-<pre><code>$ sudo php ./installer.php
-</code></pre>
-
-<p>※ここで、php.iniの設定が必要との警告が表示された</p>
-
-<pre><code>The detect_unicode setting must be disabled.
-Add the following to the end of your `php.ini`:
-detect_unicode = Off  
-</code></pre>
-
-<h3>macのphp.iniを編集</h3>
-
-<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
-$ sudo vi /etc/php.ini
-detect_unicode = Off
-date.timezone = Asia/Tokyo  
-</code></pre>
-
-<h3>installer再実行</h3>
-
-<pre><code>$ sudo php ./installer.php
-&gt; Thank you for installing phpDocumentor.
-&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
-</code></pre>
-
-<h3>シンボリックリンク作成</h3>
-
-<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
-</code></pre>
-
-<h2>phpDocumentor実行</h2>
-
-<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
-</code></pre>
 </div>
 
 
@@ -169,7 +127,7 @@ date.timezone = Asia/Tokyo
   
 
 
-<time datetime="2012-07-28T18:02:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2012</time>
+<time datetime="2012-09-16T16:43:00+09:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
       
 
 <span class="categories">
@@ -183,7 +141,7 @@ date.timezone = Asia/Tokyo
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -196,10 +154,8 @@ date.timezone = Asia/Tokyo
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/27/deprecated-php-mysql-extension/" title="Previous Post: PHP5.3以降、mysql拡張モジュールは非推奨">&laquo; PHP5.3以降、mysql拡張モジュールは非推奨</a>
+        <a class="basic-alignment left" href="/blog/2012/09/02/md2note/" title="Previous Post: Markdownをプレビュー → Evernoteに保存できるサービスを作りました。">&laquo; Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/08/04/using-phpunit-with-mamp/" title="Next Post: MAMPでPHPUnitを使う">MAMPでPHPUnitを使う &raquo;</a>
       
     </p>
   </footer>
@@ -319,8 +275,8 @@ date.timezone = Asia/Tokyo
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/';
         var disqus_script = 'embed.js';
       
     (function () {

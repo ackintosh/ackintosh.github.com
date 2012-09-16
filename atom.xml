@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-09-02T17:25:06+09:00</updated>
+  <updated>2012-09-16T17:01:43+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[traitを使ってObserverパターンを書いてみました。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/"/>
+    <updated>2012-09-16T16:43:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4</id>
+    <content type="html"><![CDATA[<p>php5.4の目玉機能の１つ、trait。<br/>
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
+
+<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
+使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。
+<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
+
+<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
+
+<!-- more -->
+
+
+<script src="https://gist.github.com/3731335.js"> </script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdownをプレビュー → Evernoteに保存できるサービスを作りました。]]></title>
@@ -869,90 +891,6 @@ $ rbenv rehash</p>
 
 <p>$ rbenv local 1.9.2-p320
 → .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress + github でブログを始める]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github/"/>
-    <updated>2012-07-08T01:56:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/08/octopress-plus-github</id>
-    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
-
-<p><strong>Octopress</strong></p>
-
-<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
-
-<p><strong>github</strong></p>
-
-<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
-
-<!-- more -->
-
-
-<h2>githubでリポジトリを作成</h2>
-
-<p>リポジトリ名がURLになる。</p>
-
-<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
-
-<h2>Octopressインストール</h2>
-
-<ul>
-<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
-rbenv等で環境を用意する。</p></li>
-<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
-</ul>
-
-
-<p>$ rubyenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-
-<p><em>Octopress Setup</em></p>
-
-<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
-
-<h2>Octpressの設定</h2>
-
-<p>_config.yml を編集する</p>
-
-<h2>Github Pagesにデプロイ</h2>
-
-<p><em>Deploying to Github Pages</em></p>
-
-<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
-
-<ul>
-<li>投稿作成</li>
-</ul>
-
-
-<p>$ rake new_post[&#8220;投稿タイトル&#8221;]</p>
-
-<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
-
-<ul>
-<li>HTML生成</li>
-</ul>
-
-
-<p>$ rake generate</p>
-
-<ul>
-<li>プレビュー(localhost:4000)</li>
-</ul>
-
-
-<p>$ rake preview</p>
-
-<p>編集内容は即時反映される</p>
-
-<ul>
-<li>ブログにアップ</li>
-</ul>
-
-
-<p>$ rake deploy</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-09-02T17:25:06+09:00</updated>
+  <updated>2012-09-16T17:01:43+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[traitを使ってObserverパターンを書いてみました。]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/"/>
+    <updated>2012-09-16T16:43:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4</id>
+    <content type="html"><![CDATA[<p>php5.4の目玉機能の１つ、trait。<br/>
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
+
+<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
+使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。
+<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
+
+<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
+
+<!-- more -->
+
+
+<script src="https://gist.github.com/3731335.js"> </script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP5.4でメソッドから返る配列の扱いが便利になったようです。]]></title>
@@ -150,70 +172,6 @@ PHPUnit 3.6.10 by Sebastian Bergmann.
 class HogeTest extends PHPUnit_Framework_TestCase
 {
 }
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MacにphpDocumentorをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/"/>
-    <updated>2012-07-28T18:02:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor</id>
-    <content type="html"><![CDATA[<h2>phpDocumentor</h2>
-
-<p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
-
-<p>現時点では、php5.3.3以上が必須。</p>
-
-<!-- more -->
-
-
-<h2>インストール</h2>
-
-<pre><code>$ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
-</code></pre>
-
-<p>githubからダウンロード<br/>
-<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
-
-<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
-
-<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
-
-<pre><code>$ sudo php ./installer.php
-</code></pre>
-
-<p>※ここで、php.iniの設定が必要との警告が表示された</p>
-
-<pre><code>The detect_unicode setting must be disabled.
-Add the following to the end of your `php.ini`:
-detect_unicode = Off  
-</code></pre>
-
-<h3>macのphp.iniを編集</h3>
-
-<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
-$ sudo vi /etc/php.ini
-detect_unicode = Off
-date.timezone = Asia/Tokyo  
-</code></pre>
-
-<h3>installer再実行</h3>
-
-<pre><code>$ sudo php ./installer.php
-&gt; Thank you for installing phpDocumentor.
-&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
-</code></pre>
-
-<h3>シンボリックリンク作成</h3>
-
-<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
-</code></pre>
-
-<h2>phpDocumentor実行</h2>
-
-<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
 </code></pre>
 ]]></content>
   </entry>
