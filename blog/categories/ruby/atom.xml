@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-23T20:27:31+09:00</updated>
+  <updated>2012-10-23T21:06:23+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby/"/>
+    <updated>2012-10-23T20:30:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby</id>
+    <content type="html"><![CDATA[<p>Rubyは抽象クラス／メソッドをサポートしていない。<br/>
+これらは、Rubyの手軽で動的な考え方にそぐわないから。</p>
+
+<!-- more -->
+
+
+<p>でも、どうしても同様のことを実装したい場合は、例外を投げるだけのメソッドを定義すれば一応可能。</p>
+
+<p>※ 下記のようなコードはダックタイピングの哲学に反するかもしれない。</p>
+
+<p>※ 埋め込んだコードが表示されない場合
+こちら→ <a href="https://gist.github.com/3938364">gist: 3938364</a></p>
+
+<script src="https://gist.github.com/3938364.js?file=gistfile1.rb"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[HerokuのWebサーバーをUnicornに変更する]]></title>

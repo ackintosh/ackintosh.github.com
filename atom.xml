@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-23T20:27:31+09:00</updated>
+  <updated>2012-10-23T21:06:23+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby/"/>
+    <updated>2012-10-23T20:30:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby</id>
+    <content type="html"><![CDATA[<p>Rubyは抽象クラス／メソッドをサポートしていない。<br/>
+これらは、Rubyの手軽で動的な考え方にそぐわないから。</p>
+
+<!-- more -->
+
+
+<p>でも、どうしても同様のことを実装したい場合は、例外を投げるだけのメソッドを定義すれば一応可能。</p>
+
+<p>※ 下記のようなコードはダックタイピングの哲学に反するかもしれない。</p>
+
+<p>※ 埋め込んだコードが表示されない場合
+こちら→ <a href="https://gist.github.com/3938364">gist: 3938364</a></p>
+
+<script src="https://gist.github.com/3938364.js?file=gistfile1.rb"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[traitを使ってObserverパターンを書いてみました。]]></title>
@@ -864,39 +887,6 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>disqus_short_name: your shortname</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[rbenvを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/"/>
-    <updated>2012-07-08T03:11:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/08/use-rbenv</id>
-    <content type="html"><![CDATA[<h2>インストール可能な一覧</h2>
-
-<p>$ rbenv install</p>
-
-<h2>インストール</h2>
-
-<p>$ rbenv install 1.9.2-p320</p>
-
-<h2>インストールされているバージョンを確認</h2>
-
-<p>$ rbenv versions</p>
-
-<h2>通常使うバージョンを指定</h2>
-
-<p>$ rbenv global 1.9.3-p194
-$ rbenv rehash</p>
-
-<h2>不要になったRubyを削除</h2>
-
-<p>$ rbenv -rf .rbenv/versions/1.8.6-p420</p>
-
-<h2>ディレクトリで使うrubyのバージョンを固定する</h2>
-
-<p>$ rbenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
 ]]></content>
   </entry>
   
