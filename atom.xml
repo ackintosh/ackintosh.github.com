@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-21T22:01:37+09:00</updated>
+  <updated>2012-10-23T20:27:31+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -45,6 +45,9 @@ RubyのMix-in的なことができると噂は聞いていたのですが、今�
     <id>http://ackintosh.github.com/blog/2012/09/02/md2note</id>
     <content type="html"><![CDATA[<p>最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。<br/>
 ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。</p>
+
+<!-- more -->
+
 
 <hr />
 
