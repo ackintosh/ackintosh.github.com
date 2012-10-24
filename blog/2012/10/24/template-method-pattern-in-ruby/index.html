@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: rbenv - 暁</title>
+  <title>RubyでTemplate Methodパターン - 暁</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content=" Category: rbenv ">
+  <meta name="description" content=" Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。 Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。 ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,17 +21,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.comblog/categories/rbenv/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁" />
-  <meta name="og:title" content="Category: rbenv" />
-  <meta name="og:description" content=" Category: rbenv " />
-  <meta name="og:url" content="http://ackintosh.github.comblog/categories/rbenv/index.html"/>
-  <meta name="url" content="http://ackintosh.github.comblog/categories/rbenv/index.html">
+  <meta name="og:title" content="RubyでTemplate Methodパターン" />
+  <meta name="og:description" content=" Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。 Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。 " />
+  <meta name="og:url" content="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/"/>
+  <meta name="url" content="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/">
+  
+  <meta name="subject" content="Design PatternRuby"/>
+  <meta name="category" content="Design PatternRuby"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -42,7 +45,8 @@
 
 </head>
 
-<nav role="navigation"><div class="navbar">
+<body   >
+  <nav role="navigation"><div class="navbar">
   <div class="navbar-inner">
     <a class="brand" href="/">暁</a>
     <ul class="nav">
@@ -65,44 +69,133 @@
   </div>
 </div>
 </nav>
-<div class="wrapper_single">
-  <div class="container">
-    <div class="span8 offset2">
-      <div role="div">
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">RubyでTemplate Methodパターン</h1>
+    
+    
+      <p class="meta">
         
-        <header>
-          <h1 class="entry-title">Category: rbenv</h1>
-          
-        </header>
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
         
-        <div id="blog-archives" class="category">
+
+
+
+
+
 
 
 
   
-  <h2>2012</h2>
 
-<article class="archive-article-format">
+
+<time datetime="2012-10-24T20:45:00+09:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
   
-<h1><a href="/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/">rbenvでrubyをインストールする時にエラー</a></h1>
-<time datetime="2012-07-08T00:01:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories meta">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/rbenv/'>rbenv</a></span>
-</footer>
+    <a class='category' href='/blog/categories/design-pattern/'>Design Pattern</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
 
 
-</article>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
+
+<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
+
+<!-- more -->
+
+
+<p><em>output_start</em> メソッドや <em>output_end</em> メソッドのように、<br/>
+<em>Template Methodの具象クラスによってオーバーライドできる非抽象メソッド</em><br/>
+を<strong>フックメソッド</strong> という。</p>
+
+<script src="https://gist.github.com/3945597.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら
+→ <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-24T20:45:00+09:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time>
+      
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>Design Pattern</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <a class="pull-left" href="/blog/2012/10/23/abstract-method-in-ruby/" title="Previous Post: Rubyで抽象クラス／メソッド">&laquo; Rubyで抽象クラス／メソッド</a>
+    
+    
+  </footer>
 
 </div>
 
-        
-      </div>
-    
+
+      </article>
+    </div>
+    <div class="container">	
+      
+        <section>
+          <h1>Comments</h1>
+          <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </section>
+      
     </div>
   </div>
-</div>
-<div id="footer-widgets">
+  <div id="footer-widgets">
   <div class="container">
     <div class="row">
   <div class="span3">
@@ -166,7 +259,7 @@
   </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 <script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
 <script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
@@ -178,7 +271,10 @@
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -190,3 +286,5 @@
 
 
 
+</body>
+</html>

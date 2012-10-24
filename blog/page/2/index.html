@@ -89,6 +89,76 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T16:39:00+09:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mamp/'>MAMP</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>既にMAMPにインストールされている。</p>
+
+<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann.  
+</code></pre>
+
+<p>下記のようにインクルードして使う。</p>
+
+<pre><code>require_once('PHPUnit/Autoload.php');
+class HogeTest extends PHPUnit_Framework_TestCase
+{
+}
+</code></pre>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a></h1>
     
     
@@ -757,76 +827,6 @@ posted in
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/08/add-comments-feature-to-octopress/">Octopressにコメント機能を追加する</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-08T14:46:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/disqus.jpeg" alt="DISQUS" /></p>
-
-<p>OctopressはデフォルトでDISQUSをサポートしているので、<br/>
-DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。</p>
-
-<p><strong>DISQUS</strong><br/>
-<a href="http://disqus.com/">http://disqus.com/</a></p>
-
-<p>_config.ymlに、DISQUSで登録したshortnameを設定する。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>disqus_short_name: your shortname</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -854,6 +854,10 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2012/10/24/template-method-pattern-in-ruby/">RubyでTemplate Methodパターン</a>
+        </li>
+      
+        <li>
           <a href="/blog/2012/10/23/abstract-method-in-ruby/">Rubyで抽象クラス／メソッド</a>
         </li>
       
@@ -867,10 +871,6 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
       
         <li>
           <a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2012/08/26/compared-the-index-with-and-without/">MySQLでインデックスあり・なしの検索速度を比較してみました。</a>
         </li>
       
     </ul>

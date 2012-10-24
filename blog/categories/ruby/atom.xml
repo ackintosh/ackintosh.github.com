@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-24T20:01:05+09:00</updated>
+  <updated>2012-10-24T20:48:58+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/"/>
+    <updated>2012-10-24T20:45:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
+
+<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
+
+<!-- more -->
+
+
+<p><em>output_start</em> メソッドや <em>output_end</em> メソッドのように、<br/>
+<em>Template Methodの具象クラスによってオーバーライドできる非抽象メソッド</em><br/>
+を<strong>フックメソッド</strong> という。</p>
+
+<script src="https://gist.github.com/3945597.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら
+→ <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
@@ -166,26 +192,6 @@ $ rbenv rehash</p>
 
 <p>$ rbenv local 1.9.2-p320
 → .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[rbenvでrubyをインストールする時にエラー]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera/"/>
-    <updated>2012-07-08T00:01:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/08/rvenvderubywoinsutorusurushi-niera</id>
-    <content type="html"><![CDATA[<h3>rbenvでrubyをインストールする時に下記のエラーがでる場合</h3>
-
-<p>readline.c: In function ‘username_completion_proc_call’:<br/>
-readline.c:1386: error: ‘username_completion_function’ undeclared (first use in this function)<br/>
-readline.c:1386: error: (Each undeclared identifier is reported only once<br/>
-readline.c:1386: error: for each function it appears in.)<br/>
-make[1]: *** [readline.o] Error 1<br/>
-make: *** [mkmain.sh] Error 1</p>
-
-<h3>下記実行して再トライ</h3>
-
-<p>$ export CONFIGURE_OPTS="--with-arch=i386 --with-readline-dir=/usr/local/Cellar/readline/6.2.2"</p>
 ]]></content>
   </entry>
   

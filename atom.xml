@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-24T20:01:05+09:00</updated>
+  <updated>2012-10-24T20:48:58+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/"/>
+    <updated>2012-10-24T20:45:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
+
+<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
+
+<!-- more -->
+
+
+<p><em>output_start</em> メソッドや <em>output_end</em> メソッドのように、<br/>
+<em>Template Methodの具象クラスによってオーバーライドできる非抽象メソッド</em><br/>
+を<strong>フックメソッド</strong> という。</p>
+
+<script src="https://gist.github.com/3945597.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら
+→ <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
@@ -866,27 +892,6 @@ $ heroku open
 <p>参考URL<br/>
 <a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
 <a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopressにコメント機能を追加する]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress/"/>
-    <updated>2012-07-08T14:46:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/08/add-comments-feature-to-octopress</id>
-    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/disqus.jpeg" alt="DISQUS" /></p>
-
-<p>OctopressはデフォルトでDISQUSをサポートしているので、<br/>
-DISQUSにサイトを登録して、_config.ymlに設定するだけでコメントを利用できる。</p>
-
-<p><strong>DISQUS</strong><br/>
-<a href="http://disqus.com/">http://disqus.com/</a></p>
-
-<p>_config.ymlに、DISQUSで登録したshortnameを設定する。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>disqus_short_name: your shortname</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
