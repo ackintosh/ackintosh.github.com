@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-10-24T20:48:58+09:00</updated>
+  <updated>2012-11-04T17:44:41+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby/"/>
+    <updated>2012-11-04T17:04:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<h3>Strategyパターン</h3>
+
+<ul>
+<li><p>アルゴリズムに多態性を持たせたい場合の、委譲ベースのアプローチ。</p></li>
+<li><p>コンテキストとストラテジオブジェクト間のインターフェースに注意して設計する。</p></li>
+</ul>
+
+
+<h3>Rubyで書く</h3>
+
+<ul>
+<li><p>基底クラスFormatterはoutput_reportメソッドで例外を投げているだけなので、<br/>
+この場合、基底クラスを定義せずに書く具象クラスを書いていったほうがRuby的。(ダックタイピング哲学)</p></li>
+<li><p>Report#output_reportの引数がオブジェクトの参照なので、データの流れをシンプルにするが、クラス間の結合度が上がってしまっている。<br/>
+→必要な引数の数が少なければ、オブジェクトでなくても良い。<br/>
+(コンテキスト - ストラテジオブジェクト間のインターフェースの検討)</p></li>
+</ul>
+
+
+<script src="https://gist.github.com/4010809.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010809">https://gist.github.com/4010809</a></p>
+
+<h3>コードブロック(Procオブジェクト)を使って書く</h3>
+
+<ul>
+<li>コード例のように、ストラテジオブジェクトの実装がシンプルな場合には、ストラテジをコードブロックに置き換えることでシンプル且つRuby的になる。</li>
+</ul>
+
+
+<script src="https://gist.github.com/4010931.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
@@ -159,39 +208,6 @@ heroku psの出力の2行目が</p>
 </code></pre>
 
 <p>shift_jisだけアンダースコア…</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[rbenvを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/"/>
-    <updated>2012-07-08T03:11:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/08/use-rbenv</id>
-    <content type="html"><![CDATA[<h2>インストール可能な一覧</h2>
-
-<p>$ rbenv install</p>
-
-<h2>インストール</h2>
-
-<p>$ rbenv install 1.9.2-p320</p>
-
-<h2>インストールされているバージョンを確認</h2>
-
-<p>$ rbenv versions</p>
-
-<h2>通常使うバージョンを指定</h2>
-
-<p>$ rbenv global 1.9.3-p194
-$ rbenv rehash</p>
-
-<h2>不要になったRubyを削除</h2>
-
-<p>$ rbenv -rf .rbenv/versions/1.8.6-p420</p>
-
-<h2>ディレクトリで使うrubyのバージョンを固定する</h2>
-
-<p>$ rbenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
 ]]></content>
   </entry>
   

@@ -89,6 +89,104 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/11/04/strategy-pattern-in-ruby/">RubyでStrategyパターン</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-04T17:04:00+09:00" pubdate data-updated="true">Nov 4<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>Design Pattern</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Strategyパターン</h3>
+
+<ul>
+<li><p>アルゴリズムに多態性を持たせたい場合の、委譲ベースのアプローチ。</p></li>
+<li><p>コンテキストとストラテジオブジェクト間のインターフェースに注意して設計する。</p></li>
+</ul>
+
+
+<h3>Rubyで書く</h3>
+
+<ul>
+<li><p>基底クラスFormatterはoutput_reportメソッドで例外を投げているだけなので、<br/>
+この場合、基底クラスを定義せずに書く具象クラスを書いていったほうがRuby的。(ダックタイピング哲学)</p></li>
+<li><p>Report#output_reportの引数がオブジェクトの参照なので、データの流れをシンプルにするが、クラス間の結合度が上がってしまっている。<br/>
+→必要な引数の数が少なければ、オブジェクトでなくても良い。<br/>
+(コンテキスト - ストラテジオブジェクト間のインターフェースの検討)</p></li>
+</ul>
+
+
+<script src="https://gist.github.com/4010809.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010809">https://gist.github.com/4010809</a></p>
+
+<h3>コードブロック(Procオブジェクト)を使って書く</h3>
+
+<ul>
+<li>コード例のように、ストラテジオブジェクトの実装がシンプルな場合には、ストラテジをコードブロックに置き換えることでシンプル且つRuby的になる。</li>
+</ul>
+
+
+<script src="https://gist.github.com/4010931.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/10/24/template-method-pattern-in-ruby/">RubyでTemplate Methodパターン</a></h1>
     
     
@@ -676,70 +774,6 @@ posted in
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/08/12/developed-php-framework/">PHPでWebアプリフレームワーク作ってみました。</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-08-12T11:03:00+09:00" pubdate data-updated="true">Aug 12<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/php/'>PHP</a>
-  
-</span>
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Anote(アノート)という名前にしました。</p>
-
-<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
-
-<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
-
-<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -763,6 +797,10 @@ posted in
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2012/11/04/strategy-pattern-in-ruby/">RubyでStrategyパターン</a>
+        </li>
+      
+        <li>
           <a href="/blog/2012/10/24/template-method-pattern-in-ruby/">RubyでTemplate Methodパターン</a>
         </li>
       
@@ -776,10 +814,6 @@ posted in
       
         <li>
           <a href="/blog/2012/09/02/md2note/">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2012/08/28/using-the-unicorn-in-heroku/">HerokuのWebサーバーをUnicornに変更する</a>
         </li>
       
     </ul>
