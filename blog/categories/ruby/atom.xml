@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-11-04T17:44:41+09:00</updated>
+  <updated>2012-11-04T17:47:40+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -24,6 +24,9 @@
 <li><p>アルゴリズムに多態性を持たせたい場合の、委譲ベースのアプローチ。</p></li>
 <li><p>コンテキストとストラテジオブジェクト間のインターフェースに注意して設計する。</p></li>
 </ul>
+
+
+<!-- more -->
 
 
 <h3>Rubyで書く</h3>

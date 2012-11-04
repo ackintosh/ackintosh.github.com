@@ -139,41 +139,12 @@ posted in
 </ul>
 
 
-<h3>Rubyで書く</h3>
-
-<ul>
-<li><p>基底クラスFormatterはoutput_reportメソッドで例外を投げているだけなので、<br/>
-この場合、基底クラスを定義せずに書く具象クラスを書いていったほうがRuby的。(ダックタイピング哲学)</p></li>
-<li><p>Report#output_reportの引数がオブジェクトの参照なので、データの流れをシンプルにするが、クラス間の結合度が上がってしまっている。<br/>
-→必要な引数の数が少なければ、オブジェクトでなくても良い。<br/>
-(コンテキスト - ストラテジオブジェクト間のインターフェースの検討)</p></li>
-</ul>
-
-
-<script src="https://gist.github.com/4010809.js?file=gistfile1.rb"></script>
-
-
-<p></p>
-
-<p>埋め込んだコードが表示されない場合はこちら<br/>
-→ <a href="https://gist.github.com/4010809">https://gist.github.com/4010809</a></p>
-
-<h3>コードブロック(Procオブジェクト)を使って書く</h3>
-
-<ul>
-<li>コード例のように、ストラテジオブジェクトの実装がシンプルな場合には、ストラテジをコードブロックに置き換えることでシンプル且つRuby的になる。</li>
-</ul>
-
-
-<script src="https://gist.github.com/4010931.js?file=gistfile1.rb"></script>
-
-
-<p></p>
-
-<p>埋め込んだコードが表示されない場合はこちら<br/>
-→ <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/04/strategy-pattern-in-ruby/">Continue reading</a>
+    </footer>
   
 
 
