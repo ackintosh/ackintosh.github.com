@@ -80,11 +80,11 @@
     </div>
   </section>
   <div class="container">
-    <div class="row">
+    <div class="row masonry">
     
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -182,7 +182,7 @@ console.dir(window.markdown.toHTML(md));
       </article>
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -250,7 +250,7 @@ posted in
       </article>
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -320,7 +320,7 @@ DISQUSにサイトを登録して、_config.ymlに設定するだけでコメン
       </article>
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -402,7 +402,7 @@ $ rbenv rehash</p>
       </article>
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -473,7 +473,7 @@ posted in
       </article>
     
     
-      <article class="span4">
+      <article class="span4 masonry-brick">
         <div class="article-format">
 
   <header>
@@ -626,6 +626,14 @@ make: *** [mkmain.sh] Error 1</p>
 <script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
 <script src="/javascripts/custom.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.masonry.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	$('.masonry').masonry({
+		itemSelector: '.masonry-brick'
+	});
+});
+</script>
 
 
 <script type="text/javascript">
