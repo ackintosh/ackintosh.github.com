@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Scala | 暁]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/scala/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2012-11-10T13:41:20+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MacにScalaをインストール]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/11/10/install-the-scala/"/>
+    <updated>2012-11-10T13:22:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/11/10/install-the-scala</id>
+    <content type="html"><![CDATA[<p>いままでLLしか書いたことないし、話題の関数型言語が気になるなぁという想いからScalaを勉強しようと思いました。</p>
+
+<p>とりあえずAmazonでScalaの本を買いつつ、Macにインストール。</p>
+
+<p><a href="http://www.amazon.co.jp/Scala%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%A9%E3%83%96%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88-%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-Programming-Scala/dp/4844327453">Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]</a>
+<img src="http://ec2.images-amazon.com/images/I/41nFY0KbnfL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg" alt="Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]" /> <br/>
+コップ本って呼ばれているみたいです。</p>
+
+<!-- more -->
+
+
+<h3>Scalaをインストール</h3>
+
+<p>homebrewでインストールしました。簡単〜</p>
+
+<pre><code>$ brew install scala
+==&gt; Downloading http://www.scala-lang.org/downloads/distrib/files/scala-2.9.2.tgz
+######################################################################## 100.0%
+==&gt; Downloading https://raw.github.com/scala/scala-dist/27bc0c25145a83691e3678c7dda602e765e13413/completion.d/2.9.1/scala
+######################################################################## 100.0%
+==&gt; Caveats
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+==&gt; Summary
+/usr/local/Cellar/scala/2.9.2: 38 files, 26M, built in 115 seconds
+$ scala -version
+Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

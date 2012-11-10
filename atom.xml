@@ -4,7 +4,7 @@
   <title><![CDATA[暁]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-11-04T17:47:40+09:00</updated>
+  <updated>2012-11-10T13:41:20+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MacにScalaをインストール]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/11/10/install-the-scala/"/>
+    <updated>2012-11-10T13:22:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/11/10/install-the-scala</id>
+    <content type="html"><![CDATA[<p>いままでLLしか書いたことないし、話題の関数型言語が気になるなぁという想いからScalaを勉強しようと思いました。</p>
+
+<p>とりあえずAmazonでScalaの本を買いつつ、Macにインストール。</p>
+
+<p><a href="http://www.amazon.co.jp/Scala%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%A9%E3%83%96%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88-%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-Programming-Scala/dp/4844327453">Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]</a>
+<img src="http://ec2.images-amazon.com/images/I/41nFY0KbnfL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg" alt="Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]" /> <br/>
+コップ本って呼ばれているみたいです。</p>
+
+<!-- more -->
+
+
+<h3>Scalaをインストール</h3>
+
+<p>homebrewでインストールしました。簡単〜</p>
+
+<pre><code>$ brew install scala
+==&gt; Downloading http://www.scala-lang.org/downloads/distrib/files/scala-2.9.2.tgz
+######################################################################## 100.0%
+==&gt; Downloading https://raw.github.com/scala/scala-dist/27bc0c25145a83691e3678c7dda602e765e13413/completion.d/2.9.1/scala
+######################################################################## 100.0%
+==&gt; Caveats
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+==&gt; Summary
+/usr/local/Cellar/scala/2.9.2: 38 files, 26M, built in 115 seconds
+$ scala -version
+Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
@@ -800,55 +836,6 @@ insert into test (name, created) values ('name2', now());
 </code></pre>
 
 <p>するとデプロイされます。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Markdown記法のパーサー　markdown-jsを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/"/>
-    <updated>2012-07-10T22:38:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js</id>
-    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
-
-<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
-ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
-今回markdown-jsというのを使ってみました。</p>
-
-<p><strong>markdown-js</strong><br/>
-<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
-
-<h2>例</h2>
-
-<pre><code>var md = "#markdown";
-console.dir(window.markdown.toHTML(md));
-</code></pre>
-
-<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;title&gt;markdown 2 html&lt;/title&gt;
-    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
-    &lt;div id="html"&gt;&lt;/div&gt;
-    &lt;script type="text/javascript"&gt;
-        $('#markdown').keyup(function (e){
-        $('#html').html(window.markdown.toHTML($('#markdown').val()));
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-</code></pre>
-
-<p></html></p>
-
-<h2>参考URL</h2>
-
-<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
 ]]></content>
   </entry>
   
