@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | 暁]]></title>
   <link href="http://ackintosh.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-11-10T14:26:50+09:00</updated>
+  <updated>2012-11-10T15:03:38+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery MasonryでTOP記事を整列しました]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/"/>
+    <updated>2012-11-10T14:32:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry</id>
+    <content type="html"><![CDATA[<p>当ブログTOPページに新着記事を並べているのですが、<br/>
+ゴチャってたのですごく不満でした。</p>
+
+<!-- more -->
+
+
+<p>こんな感じです↓
+<img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_before.png" alt="top_before" /></p>
+
+<h3>jQuery Masonry</h3>
+
+<p><a href="http://pinterest.com/">pinterest</a>みたいに並べようと調べていたら、jQuery Masonryとやらで出来るとのことなので試してみました。</p>
+
+<p><a href="http://masonry.desandro.com/">jQuery Masonry</a></p>
+
+<script src="https://gist.github.com/4050100.js?file=masonry.html"></script>
+
+
+<p></p>
+
+<p>※コードが表示されない場合はこちら<br/>
+<a href="https://gist.github.com/4050100">https://gist.github.com/4050100</a></p>
+
+<p>綺麗に並びました！</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_after.png" alt="top_after" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Markdown記法のパーサー　markdown-jsを使う]]></title>

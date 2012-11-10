@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Herokuでアプリを作る - 暁</title>
+  <title>jQuery MasonryでTOP記事を整列しました - 暁</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,8 +13,8 @@
   
     
   
-  <meta name="description" content=" Heroku
-http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストールする。 ">
+  <meta name="description" content=" 当ブログTOPページに新着記事を並べているのですが、
+ゴチャってたのですごく不満でした。 ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -22,21 +22,21 @@ http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストール
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁" />
-  <meta name="og:title" content="Herokuでアプリを作る" />
-  <meta name="og:description" content=" Heroku
-http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストールする。 " />
-  <meta name="og:url" content="http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/"/>
-  <meta name="url" content="http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/">
+  <meta name="og:title" content="jQuery MasonryでTOP記事を整列しました" />
+  <meta name="og:description" content=" 当ブログTOPページに新着記事を並べているのですが、
+ゴチャってたのですごく不満でした。 " />
+  <meta name="og:url" content="http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/"/>
+  <meta name="url" content="http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/">
   
-  <meta name="subject" content="GitHerokuRails"/>
-  <meta name="category" content="GitHerokuRails"/>
+  <meta name="subject" content="Javascript"/>
+  <meta name="category" content="Javascript"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -78,7 +78,7 @@ http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストール
 
   <header>
     
-      <h1 class="entry-title">Herokuでアプリを作る</h1>
+      <h1 class="entry-title">jQuery MasonryでTOP記事を整列しました</h1>
     
     
       <p class="meta">
@@ -103,13 +103,13 @@ http://www.heroku.com/ ユーザー登録後、Herokuのgemをインストール
   
 
 
-<time datetime="2012-07-09T23:04:00+09:00" pubdate data-updated="true">Jul 9<span>th</span>, 2012</time> - 
+<time datetime="2012-11-10T14:32:00+09:00" pubdate data-updated="true">Nov 10<span>th</span>, 2012</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>
   
 </span>
 
@@ -120,93 +120,32 @@ posted in
   </header>
 
 
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/heroku.jpeg" alt="heroku" /></p>
-
-<p><strong>Heroku</strong><br/>
-<a href="http://www.heroku.com/">http://www.heroku.com/</a></p>
-
-<p>ユーザー登録後、Herokuのgemをインストールする。</p>
+  <div class="entry-content"><p>当ブログTOPページに新着記事を並べているのですが、<br/>
+ゴチャってたのですごく不満でした。</p>
 
 <!-- more -->
 
 
-<pre><code>$ gem install heroku
-</code></pre>
+<p>こんな感じです↓
+<img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_before.png" alt="top_before" /></p>
 
-<p>herokuの利用に必要なコマンドがインストールされる。</p>
+<h3>jQuery Masonry</h3>
 
-<h2>作成したアプリ一覧を確認</h2>
+<p><a href="http://pinterest.com/">pinterest</a>みたいに並べようと調べていたら、jQuery Masonryとやらで出来るとのことなので試してみました。</p>
 
-<pre><code>$ heroku list
-</code></pre>
+<p><a href="http://masonry.desandro.com/">jQuery Masonry</a></p>
 
-<h2>新規Railsアプリを作成</h2>
+<script src="https://gist.github.com/4050100.js?file=masonry.html"></script>
 
-<pre><code>$ rails new newApp
-</code></pre>
 
-<h2>アプリの起動確認</h2>
+<p></p>
 
-<pre><code>$ cd newApp
-$ rails s
-</code></pre>
+<p>※コードが表示されない場合はこちら<br/>
+<a href="https://gist.github.com/4050100">https://gist.github.com/4050100</a></p>
 
-<h2>git初期化</h2>
+<p>綺麗に並びました！</p>
 
-<pre><code>$ git init
-$ git add .
-$ git commit -m "initialize"
-</code></pre>
-
-<h2>Herokuで動かす</h2>
-
-<pre><code>$ heroku create appname
-</code></pre>
-
-<p><a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a> から引用させていただきます。<br/>
-必要最低限のgemを記述。</p>
-
-<pre><code>$ curl https://raw.github.com/gist/1970532/376b6a26ed936ac43cad0b17a64512f5c0216a50/Gemifile &gt; Gemfile
-$ rm -f Gemfile.lock
-$ bundle install --without production
-$ git add -A
-$ git commit -m 'Update Gemfile'
-</code></pre>
-
-<p>中身はこんな感じ。<br/>
-herokuでは、PostgreSQL使うので、pgを指定したり、developmentでしか使わないものはそこに移動とかです。</p>
-
-<pre><code>source 'https://rubygems.org'
-
-gem 'rails', '3.2.2'
-gem 'jquery-rails'
-
-group :assets do
-  gem 'sass-rails',   '~&gt; 3.2.3'
-  gem 'coffee-rails', '~&gt; 3.2.1'
-  gem 'uglifier', '&gt;= 1.0.3'
-end
-
-group :test, :development do
-  gem 'sqlite3'
-  gem 'heroku'
-end
-
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
-</code></pre>
-
-<p>Herokuにデプロイ</p>
-
-<pre><code>$ git push heroku master
-$ heroku open
-</code></pre>
-
-<p>参考URL<br/>
-<a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
-<a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_after.png" alt="top_after" /></p>
 </div>
 
 
@@ -233,23 +172,21 @@ $ heroku open
   
 
 
-<time datetime="2012-07-09T23:04:00+09:00" pubdate data-updated="true">Jul 9<span>th</span>, 2012</time>
+<time datetime="2012-11-10T14:32:00+09:00" pubdate data-updated="true">Nov 10<span>th</span>, 2012</time>
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
+    <a class='category' href='/blog/categories/javascript/'>Javascript</a>
   
 </span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/07/08/add-comments-feature-to-octopress/" title="Previous Post: Octopressにコメント機能を追加する">&laquo; Octopressにコメント機能を追加する</a>
+      <a class="pull-left" href="/blog/2012/11/10/install-the-scala/" title="Previous Post: MacにScalaをインストール">&laquo; MacにScalaをインストール</a>
     
-    
-      <a class="pull-right" href="/blog/2012/07/10/use-the-markdown-js/" title="Next Post: Markdown記法のパーサー　markdown-jsを使う">Markdown記法のパーサー　markdown-jsを使う &raquo;</a>
     
   </footer>
 
@@ -353,8 +290,8 @@ $(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/';
         var disqus_script = 'embed.js';
       
     (function () {
