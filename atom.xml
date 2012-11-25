@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-11-25T13:05:23+09:00</updated>
+  <updated>2012-11-25T14:04:11+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[__callの使いどころ]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/11/25/using-the-call/"/>
+    <updated>2012-11-25T13:44:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/11/25/using-the-call</id>
+    <content type="html"><![CDATA[<p>既存クラスをラップしたい時とか、委譲をたくさん使いたい時に有用です。</p>
+
+<!-- more -->
+
+
+<script src="https://gist.github.com/4142451.js?file=gistfile1.php"></script>
+
+
+<p></p>
+
+<p>※コードが表示されない場合はこちら<br/>
+<a href="https://gist.github.com/4142451">https://gist.github.com/4142451</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[jQuery MasonryでTOP記事を整列しました]]></title>
@@ -830,29 +850,6 @@ insert into test (name, created) values ('name2', now());
 <p>参考URL</p>
 
 <p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rubyで日本語を扱う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/"/>
-    <updated>2012-07-14T17:30:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby</id>
-    <content type="html"><![CDATA[<p>Ruby1.9以降では</p>
-
-<pre><code># encoding : 文字コード
-</code></pre>
-
-<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
-
-<p>実際のファイルの文字コードと一致していなければならない。</p>
-
-<pre><code># encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp
-</code></pre>
-
-<p>shift_jisだけアンダースコア…</p>
 ]]></content>
   </entry>
   
