@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2012-11-25T14:04:11+09:00</updated>
+  <updated>2012-12-27T16:33:01+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[devlove2012に行って来ました]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/12/17/devlove2012/"/>
+    <updated>2012-12-17T23:53:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/12/17/devlove2012</id>
+    <content type="html"><![CDATA[<p>devlove2012にいってきました。
+初参加です。<br/>
+<a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
+
+<p>群馬からの参加ということもあり、１日目のあと帰るのが面倒だったので<br/>
+渋谷のカプセルホテルを予め予約していきました。<br/>
+カプセルホテルは初めてでしたが、サウナ付きでなかなか良かったと思います。
+…</p>
+
+<p>今回のテーマは「自分戦略」</p>
+
+<p>自分の能力やキャリア・環境に悩みながらいつもモヤモヤしている日々をなんとかしたい。<br/>
+Web業界の先輩方のお話をきいて何か得られれば、という思いで参加しました。</p>
+
+<!-- more -->
+
+
+<pre><code>■自分戦略
+戦略って？
+{
+  ・「何にどれだけ時間を費やすのか」
+  →取捨選択が必要。
+  ・これまでやってきたことと、これからやりたいことを繋ぐこと
+}
+
+何のための戦略？
+{
+  ・やりたいことをやるため
+  （やりたくないことをやらないため）
+  ・一緒に仕事したい人とするため
+  ・収入を上げるため
+}
+
+■やるべき事
+整理
+{
+    1. 危機感を持って勉強
+    2. アウトプット
+    3. 何が自分の情熱なのか
+    4. どうすればそれが実現するのか
+}
+
+アウトプット
+{
+  Blog
+  github
+  勉強会
+}    
+
+自分をプロモーション
+{
+  twitter, facebook
+  勉強会で発表する
+}
+
+コネクション
+{
+  コミュニティ
+  勉強会
+}
+
+■今後のトレンド
+・マルチコアの活用
+・コンピュータサイエンスの地位向上
+</code></pre>
+
+<p>今後はインプット／アウトプットを更に加速しつつ、
+guRubyに参加（群馬在住ですので）して、コネクションを少しづつでも広げていきます。<br/>
+それと、自分が何に対して情熱とか達成感とかを感じるのかをちゃんと定期的に整理しなければ、と思いました。</p>
+
+<p>また、今回の反省点として、Macの電源を忘れてしまったのが痛かったです・・・</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[__callの使いどころ]]></title>
@@ -835,21 +914,6 @@ insert into test (name, created) values ('name2', now());
 <em>0.20秒</em></p>
 
 <p>全然違う(・∀・)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby 1.9ではString#to_aは使えない]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9/"/>
-    <updated>2012-07-17T00:08:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/17/cant-use-string-number-to-a-in-ruby-1-dot-9</id>
-    <content type="html"><![CDATA[<pre><code>"hoge".to_a
- undefined method `to_a' for "the":String (NoMethodError)
-</code></pre>
-
-<p>参考URL</p>
-
-<p><a href="http://d.hatena.ne.jp/modka/20110210/1297322853">Ruby1.9ではStringはEnumerableではない</a></p>
 ]]></content>
   </entry>
   
