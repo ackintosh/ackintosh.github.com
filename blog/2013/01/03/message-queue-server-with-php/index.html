@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>rbenvを使う - 暁 [stfuawsc]</title>
+  <title>ZendQueueとKestrelでメッセージキューサーバーを体験 - 暁 [stfuawsc]</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,8 +13,8 @@
   
     
   
-  <meta name="description" content="インストール可能な一覧 $ rbenv install インストール $ rbenv install 1.9.2-p320 インストールされているバージョンを確認 $ rbenv versions 通常使うバージョンを指定 $ rbenv global 1.9.3-p194
-$ rbenv &hellip;">
+  <meta name="description" content="Kestrel Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。
+Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism インストールと起動 $ curl -O http:// &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -22,21 +22,21 @@ $ rbenv &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/">
+  <link rel="canonical" href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁 [stfuawsc]" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁 [stfuawsc]" />
-  <meta name="og:title" content="rbenvを使う" />
-  <meta name="og:description" content="インストール可能な一覧 $ rbenv install インストール $ rbenv install 1.9.2-p320 インストールされているバージョンを確認 $ rbenv versions 通常使うバージョンを指定 $ rbenv global 1.9.3-p194
-$ rbenv &hellip;" />
-  <meta name="og:url" content="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/"/>
-  <meta name="url" content="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/">
+  <meta name="og:title" content="ZendQueueとKestrelでメッセージキューサーバーを体験" />
+  <meta name="og:description" content="Kestrel Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。
+Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism インストールと起動 $ curl -O http:// &hellip;" />
+  <meta name="og:url" content="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
+  <meta name="url" content="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/">
   
-  <meta name="subject" content="Ruby"/>
-  <meta name="category" content="Ruby"/>
+  <meta name="subject" content="PHP"/>
+  <meta name="category" content="PHP"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -90,7 +90,7 @@ $ rbenv &hellip;" />
 
   <header>
     
-      <h1 class="entry-title">rbenvを使う</h1>
+      <h1 class="entry-title">ZendQueueとKestrelでメッセージキューサーバーを体験</h1>
     
     
       <p class="meta">
@@ -115,13 +115,13 @@ $ rbenv &hellip;" />
   
 
 
-<time datetime="2012-07-08T03:11:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time> - 
+<time datetime="2013-01-03T22:58:00+09:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2013</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>
   
 </span>
 
@@ -131,11 +131,11 @@ posted in
     
     <p><div class="sharing">
   
-    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.com/blog/2012/07/08/use-rbenv/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
   
-  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.com/blog/2012/07/08/use-rbenv/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2012/07/08/use-rbenv/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -146,31 +146,66 @@ posted in
   </header>
 
 
-  <div class="entry-content"><h2>インストール可能な一覧</h2>
+  <div class="entry-content"><h3>Kestrel</h3>
 
-<p>$ rbenv install</p>
+<p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
+<a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a></p>
 
-<h2>インストール</h2>
+<h4>インストールと起動</h4>
 
-<p>$ rbenv install 1.9.2-p320</p>
+<pre><code>$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
+$ unzip kestrel-2.4.1.zip
+$ cd kestrel-2.4.1
+$ sudo java -jar kestrel_2.9.2-2.4.1.jar
+</code></pre>
 
-<h2>インストールされているバージョンを確認</h2>
+<h3>ZendQueue</h3>
 
-<p>$ rbenv versions</p>
+<p>Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　</p>
 
-<h2>通常使うバージョンを指定</h2>
+<p>GitHub
+<a href="https://github.com/zendframework/ZendQueue">https://github.com/zendframework/ZendQueue</a></p>
 
-<p>$ rbenv global 1.9.3-p194
-$ rbenv rehash</p>
+<p>メッセージを格納する方法によって複数のアダプタが用意されています。<br/>
+Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。</p>
 
-<h2>不要になったRubyを削除</h2>
+<h3>Memcache</h3>
 
-<p>$ rbenv -rf .rbenv/versions/1.8.6-p420</p>
+<p>あらかじめMemcachedライブラリもインストールしておいて下さい。<br/>
+Macの場合はHomebrewを使うと簡単にインストールできます♪</p>
 
-<h2>ディレクトリで使うrubyのバージョンを固定する</h2>
+<pre><code>$ brew install memcached
+$ brew install memcache-php
+</code></pre>
 
-<p>$ rbenv local 1.9.2-p320
-→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
+<h3>メッセージキューサーバーを体験</h3>
+
+<p>２つのスクリプトを用意してください。<br/>
+・worker.php : ワーカープロセス。キューからメッセージを取得して表示する。<br/>
+・front.php : キューにメッセージを送信する。</p>
+
+<script src="https://gist.github.com/4444078.js"></script>
+
+
+<p>
+<a href="https://gist.github.com/4444078">https://gist.github.com/4444078</a></p>
+
+<p>ターミナルを２つたちあげてください。<br/>
+・ターミナル１でworker.phpを実行<br/>
+プロンプトが返ってこない → Kestrelのキューを監視してくれています。</p>
+
+<p>・ターミナル２でfront.phpを実行すると…<br/>
+ターミナル１に「Hello, World!」と表示されます！</p>
+
+<p>簡単ですが以上です。<br/>
+Hello, Worldが表示された時には感動しますね (・∀・)<br/>
+worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪</p>
+
+<h4>参考</h4>
+
+<p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
+<a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
+<a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
 </div>
 
 
@@ -197,23 +232,21 @@ $ rbenv rehash</p>
   
 
 
-<time datetime="2012-07-08T03:11:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+<time datetime="2013-01-03T22:58:00+09:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2013</time>
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>
   
 </span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/07/08/octopress-plus-github/" title="Previous Post: Octopress + github でブログを始める">&laquo; Octopress + github でブログを始める</a>
+      <a class="pull-left" href="/blog/2013/01/03/install-memcacheq/" title="Previous Post: MacにMemcacheQをインストール">&laquo; MacにMemcacheQをインストール</a>
     
-    
-      <a class="pull-right" href="/blog/2012/07/08/add-comments-feature-to-octopress/" title="Next Post: Octopressにコメント機能を追加する">Octopressにコメント機能を追加する &raquo;</a>
     
   </footer>
 
@@ -317,8 +350,8 @@ $(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.com/blog/2012/07/08/use-rbenv/';
-        var disqus_url = 'http://ackintosh.github.com/blog/2012/07/08/use-rbenv/';
+        var disqus_identifier = 'http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/';
+        var disqus_url = 'http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/';
         var disqus_script = 'embed.js';
       
     (function () {

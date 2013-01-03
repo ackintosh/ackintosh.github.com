@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-03T18:06:14+09:00</updated>
+  <updated>2013-01-04T00:50:17+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
+    <updated>2013-01-03T22:58:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php</id>
+    <content type="html"><![CDATA[<h3>Kestrel</h3>
+
+<p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
+<a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a></p>
+
+<h4>インストールと起動</h4>
+
+<pre><code>$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
+$ unzip kestrel-2.4.1.zip
+$ cd kestrel-2.4.1
+$ sudo java -jar kestrel_2.9.2-2.4.1.jar
+</code></pre>
+
+<h3>ZendQueue</h3>
+
+<p>Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　</p>
+
+<p>GitHub
+<a href="https://github.com/zendframework/ZendQueue">https://github.com/zendframework/ZendQueue</a></p>
+
+<p>メッセージを格納する方法によって複数のアダプタが用意されています。<br/>
+Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。</p>
+
+<h3>Memcache</h3>
+
+<p>あらかじめMemcachedライブラリもインストールしておいて下さい。<br/>
+Macの場合はHomebrewを使うと簡単にインストールできます♪</p>
+
+<pre><code>$ brew install memcached
+$ brew install memcache-php
+</code></pre>
+
+<h3>メッセージキューサーバーを体験</h3>
+
+<p>２つのスクリプトを用意してください。<br/>
+・worker.php : ワーカープロセス。キューからメッセージを取得して表示する。<br/>
+・front.php : キューにメッセージを送信する。</p>
+
+<script src="https://gist.github.com/4444078.js"></script>
+
+
+<p>
+<a href="https://gist.github.com/4444078">https://gist.github.com/4444078</a></p>
+
+<p>ターミナルを２つたちあげてください。<br/>
+・ターミナル１でworker.phpを実行<br/>
+プロンプトが返ってこない → Kestrelのキューを監視してくれています。</p>
+
+<p>・ターミナル２でfront.phpを実行すると…<br/>
+ターミナル１に「Hello, World!」と表示されます！</p>
+
+<p>簡単ですが以上です。<br/>
+Hello, Worldが表示された時には感動しますね (・∀・)<br/>
+worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪</p>
+
+<h4>参考</h4>
+
+<p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
+<a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
+<a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MacにMemcacheQをインストール]]></title>
@@ -866,43 +934,6 @@ date.timezone = Asia/Tokyo
 <h2>phpDocumentor実行</h2>
 
 <pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP5.3以降、mysql拡張モジュールは非推奨]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/27/deprecated-php-mysql-extension/"/>
-    <updated>2012-07-27T19:37:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/27/deprecated-php-mysql-extension</id>
-    <content type="html"><![CDATA[<h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
-
-<ul>
-<li><p>mysqli拡張モジュール<br/>
-<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
-<li><p>PDO_MYSQL<br/>
-<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
-</ul>
-
-
-<p>古いmysql関数も含めた3つの機能の比較表がありました。
-<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
-
-<p>新しいモジュールでは、
-* OOPインターフェース
-* プリペアドステートメント
-* ストアドプロシージャ
-* トランザクション<br/>
-をAPIレベルでサポートしている。</p>
-
-<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
-
-<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
-
-<pre><code>class OriginalMysqli extends mysqli
-{
-    …
-}
 </code></pre>
 ]]></content>
   </entry>

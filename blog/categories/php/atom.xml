@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-03T18:06:14+09:00</updated>
+  <updated>2013-01-04T00:50:17+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
+    <updated>2013-01-03T22:58:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php</id>
+    <content type="html"><![CDATA[<h3>Kestrel</h3>
+
+<p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
+<a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a></p>
+
+<h4>インストールと起動</h4>
+
+<pre><code>$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
+$ unzip kestrel-2.4.1.zip
+$ cd kestrel-2.4.1
+$ sudo java -jar kestrel_2.9.2-2.4.1.jar
+</code></pre>
+
+<h3>ZendQueue</h3>
+
+<p>Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　</p>
+
+<p>GitHub
+<a href="https://github.com/zendframework/ZendQueue">https://github.com/zendframework/ZendQueue</a></p>
+
+<p>メッセージを格納する方法によって複数のアダプタが用意されています。<br/>
+Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。</p>
+
+<h3>Memcache</h3>
+
+<p>あらかじめMemcachedライブラリもインストールしておいて下さい。<br/>
+Macの場合はHomebrewを使うと簡単にインストールできます♪</p>
+
+<pre><code>$ brew install memcached
+$ brew install memcache-php
+</code></pre>
+
+<h3>メッセージキューサーバーを体験</h3>
+
+<p>２つのスクリプトを用意してください。<br/>
+・worker.php : ワーカープロセス。キューからメッセージを取得して表示する。<br/>
+・front.php : キューにメッセージを送信する。</p>
+
+<script src="https://gist.github.com/4444078.js"></script>
+
+
+<p>
+<a href="https://gist.github.com/4444078">https://gist.github.com/4444078</a></p>
+
+<p>ターミナルを２つたちあげてください。<br/>
+・ターミナル１でworker.phpを実行<br/>
+プロンプトが返ってこない → Kestrelのキューを監視してくれています。</p>
+
+<p>・ターミナル２でfront.phpを実行すると…<br/>
+ターミナル１に「Hello, World!」と表示されます！</p>
+
+<p>簡単ですが以上です。<br/>
+Hello, Worldが表示された時には感動しますね (・∀・)<br/>
+worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪</p>
+
+<h4>参考</h4>
+
+<p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
+<a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
+<a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[__callの使いどころ]]></title>
@@ -160,21 +228,6 @@ class Hoge
 <h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
 
 <p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPでWebアプリフレームワーク作ってみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/"/>
-    <updated>2012-08-12T11:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/12/developed-php-framework</id>
-    <content type="html"><![CDATA[<p>Anote(アノート)という名前にしました。</p>
-
-<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
-
-<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
-
-<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
 ]]></content>
   </entry>
   
