@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-04T00:50:17+09:00</updated>
+  <updated>2013-01-04T00:51:49+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -22,6 +22,9 @@
 
 <p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
 <a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a></p>
+
+<!-- more -->
+
 
 <h4>インストールと起動</h4>
 
