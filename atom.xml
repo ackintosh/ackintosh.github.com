@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-03T17:52:58+09:00</updated>
+  <updated>2013-01-03T18:06:14+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -28,6 +28,16 @@
 もちろん、依存するBerkeley DBとlibeventも自動でインストールしてくれます。</p>
 
 <pre><code>$ brew install memcacheq
+</code></pre>
+
+<p>ヘルプ確認</p>
+
+<pre><code>$ memcacheq -h
+</code></pre>
+
+<p>とりあえず起動してみる</p>
+
+<pre><code>$ memcacheq -H ./
 </code></pre>
 ]]></content>
   </entry>
