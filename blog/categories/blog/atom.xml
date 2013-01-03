@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Blog | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2013-01-03T17:52:58+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[2012年振り返り]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012/"/>
+    <updated>2013-01-01T18:25:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012</id>
+    <content type="html"><![CDATA[<p>新年あけましておめでとうございます。<br/>
+2012年の振り返りです。<br/>
+2012年は色々なことを始めました。</p>
+
+<!-- more -->
+
+
+<h3>ブログ</h3>
+
+<p>当ブログを2012/07/08から始めました。<br/>
+<a href="http://octopress.org/">Octopress</a> + github Pages で作っています。<br/>
+ブログを書くこと(アウトプット)を意識したインプットをするようになってきたかな・・？と思います。単なる情報ではなく、知識をアウトプットできるように継続していきたいです。<br/>
+このブログをきっかけにMarkdownを知りました。楽に書けて良いですね。<br/>
+Markdownエディタはあまり試してないのですがkobitoを使っています。kobitoのファイル連携機能を使うとOctopressの記事更新がかなり快適になります。<br/>
+あとはブログ自体に、プログラマらしい仕掛けを何か作りたいなぁと。</p>
+
+<h3>勉強会に参加</h3>
+
+<p>内気で人見知りな私ですが、勇気を振り絞って勉強会に参加しました。<br/>
+いまでも参加するときはガチガチに緊張してしまいます。</p>
+
+<h4>6/23 Agile渋谷「The GitHub poweredby Agile渋谷」</h4>
+
+<p><a href="http://atnd.org/events/30016">http://atnd.org/events/30016</a></p>
+
+<h4>6/26 渋谷Rails勉強会</h4>
+
+<p><a href="http://atnd.org/events/27691">http://atnd.org/events/27691</a></p>
+
+<h4>7/27 Developers [Social Enterprise] Summit 2012</h4>
+
+<p><a href="http://codezine.jp/devsumi/2012/social/">http://codezine.jp/devsumi/2012/social/</a></p>
+
+<h4>10/13 Web API勉強会「イベント × 位置情報 マッシュアップワークショップ」</h4>
+
+<p><a href="http://atnd.org/event/E0009968/0">http://atnd.org/event/E0009968/0</a></p>
+
+<h4>12/15〜16 DevLOVE2012</h4>
+
+<p><a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
+
+<h3>github</h3>
+
+<p>ソーシャルコーディング時代。<br/>
+プログラマだったら、コード書いて公開してなんぼですよね！<br/>
+・・・という内容のブログ記事やtweetをいたるところで見かけたのがきっかけです。</p>
+
+<p>6/23のAgile渋谷に参加した日、WEB+DB Press(github特集)を片手に始めました。<br/>
+自分に手頃そうなリポジトリを探してforkして、緊張して手に汗をかきながら pull request したのを覚えています。<br/>
+mergeされたときはメチャクチャ嬉しかったです。</p>
+
+<h3>Ruby</h3>
+
+<p>phpばっかり書いててもなぁ・・・。ということでRubyを勉強し始めました。(いつ頃からかは忘れてしまいました)<br/>
+２年半程前にプログラマーになってから、phpしか知らなかった自分にとって、とても興味深いことばかりです。<br/>
+最初は「文字列とかも全部オブジェクト？どゆこと？？」って感じだったのですが、勉強するほど面白さがわかってくるというか、自分のプログラミングの幅が広がっていくような感覚があります。  <br/>
+いろんな言語のパラダイムを吸収して、もっともっと成長しないとですね。。。<br/>
+Clean Coderに「毎年１つ言語を習得すること」とありますが、まさにこのことなのかなぁと体感しています。</p>
+
+<h3>Rails, Heroku</h3>
+
+<p>Rubyを始めたからにはRailsをさわりたい！Herokuをさわりたい！ということで、Rubyの文法もままならない状態でしたが２つほどWebアプリを作ってみました。<br/>
+<strong>Markdownエディタ。Evernoteに保存できます。</strong><br/>
+<a href="http://md2note.herokuapp.com/">http://md2note.herokuapp.com/</a><br/>
+<strong>感謝の言葉を投稿。Facebookアカウントを使います</strong><br/>
+<a href="http://thankyou.heroku.com/">http://thankyou.heroku.com/</a></p>
+
+<h3>コミュニティ</h3>
+
+<p>Ruby関連の勉強会やらコミュニティについて調べていたときに、地元の群馬(しかも隣り町！)の勉強会を見つけました。<br/>
+(職場が埼玉県さいたま市なので、どう頑張っても開始時刻に間に合わないのが悔しいところです T_T)<br/>
+<em>guRuby</em><br/>
+<a href="http://qwik.jp/guruby/">http://qwik.jp/guruby/</a><br/>
+さっそく勇気を振り絞って、緊張と寒さでガチガチになりながらも参加させていただきました。(年内最後の勉強会でした)<br/>
+まだ、お会いできていない方もいらっしゃいますが、優しい方々で本当によかったです。<br/>
+自分も貢献できるように頑張ります。</p>
+
+<h2>2013年は</h2>
+
+<p>2012年に始めたことを継続していきます！
+あとScalaの勉強したいです。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[devlove2012に行って来ました]]></title>
+    <link href="http://ackintosh.github.com/blog/2012/12/17/devlove2012/"/>
+    <updated>2012-12-17T23:53:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2012/12/17/devlove2012</id>
+    <content type="html"><![CDATA[<p>devlove2012にいってきました。
+初参加です。<br/>
+<a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
+
+<p>群馬からの参加ということもあり、１日目のあと帰るのが面倒だったので<br/>
+渋谷のカプセルホテルを予め予約していきました。<br/>
+カプセルホテルは初めてでしたが、サウナ付きでなかなか良かったと思います。
+…</p>
+
+<p>今回のテーマは「自分戦略」</p>
+
+<p>自分の能力やキャリア・環境に悩みながらいつもモヤモヤしている日々をなんとかしたい。<br/>
+Web業界の先輩方のお話をきいて何か得られれば、という思いで参加しました。</p>
+
+<!-- more -->
+
+
+<pre><code>■自分戦略
+戦略って？
+{
+  ・「何にどれだけ時間を費やすのか」
+  →取捨選択が必要。
+  ・これまでやってきたことと、これからやりたいことを繋ぐこと
+}
+
+何のための戦略？
+{
+  ・やりたいことをやるため
+  （やりたくないことをやらないため）
+  ・一緒に仕事したい人とするため
+  ・収入を上げるため
+}
+
+■やるべき事
+整理
+{
+    1. 危機感を持って勉強
+    2. アウトプット
+    3. 何が自分の情熱なのか
+    4. どうすればそれが実現するのか
+}
+
+アウトプット
+{
+  Blog
+  github
+  勉強会
+}    
+
+自分をプロモーション
+{
+  twitter, facebook
+  勉強会で発表する
+}
+
+コネクション
+{
+  コミュニティ
+  勉強会
+}
+
+■今後のトレンド
+・マルチコアの活用
+・コンピュータサイエンスの地位向上
+</code></pre>
+
+<p>今後はインプット／アウトプットを更に加速しつつ、
+guRubyに参加（群馬在住ですので）して、コネクションを少しづつでも広げていきます。<br/>
+それと、自分が何に対して情熱とか達成感とかを感じるのかをちゃんと定期的に整理しなければ、と思いました。</p>
+
+<p>また、今回の反省点として、Macの電源を忘れてしまったのが痛かったです・・・</p>
+]]></content>
+  </entry>
+  
+</feed>
