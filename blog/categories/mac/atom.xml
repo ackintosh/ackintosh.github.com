@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-02T18:02:38+09:00</updated>
+  <updated>2013-01-03T17:47:36+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MacにMemcacheQをインストール]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/01/03/install-memcacheq/"/>
+    <updated>2013-01-03T17:36:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/01/03/install-memcacheq</id>
+    <content type="html"><![CDATA[<p><em>MemcacheQ - Simple Queue Service over Memcache</em><br/>
+<a href="http://memcachedb.org/memcacheq/">http://memcachedb.org/memcacheq/</a></p>
+
+<!-- more -->
+
+
+<p>homebrewで一発でした (・∀・)<br/>
+もちろん、依存するBerkeley DBとlibeventも自動でインストールしてくれます。</p>
+
+<pre><code>$ brew install memcacheq
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MacにScalaをインストール]]></title>
