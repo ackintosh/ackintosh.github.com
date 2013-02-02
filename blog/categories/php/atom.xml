@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
+  <title><![CDATA[Category: php | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-02T20:14:45+09:00</updated>
+  <updated>2013-02-02T21:03:56+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -14,223 +14,29 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
-    <updated>2013-01-03T22:58:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php</id>
-    <content type="html"><![CDATA[<h3>Kestrel</h3>
-
-<p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
-<a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a></p>
-
-<!-- more -->
-
-
-<h4>インストールと起動</h4>
-
-<pre><code>$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
-$ unzip kestrel-2.4.1.zip
-$ cd kestrel-2.4.1
-$ sudo java -jar kestrel_2.9.2-2.4.1.jar
-</code></pre>
-
-<h3>ZendQueue</h3>
-
-<p>Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　</p>
-
-<p>GitHub
-<a href="https://github.com/zendframework/ZendQueue">https://github.com/zendframework/ZendQueue</a></p>
-
-<p>メッセージを格納する方法によって複数のアダプタが用意されています。<br/>
-Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。</p>
-
-<h3>Memcache</h3>
-
-<p>あらかじめMemcachedライブラリもインストールしておいて下さい。<br/>
-Macの場合はHomebrewを使うと簡単にインストールできます♪</p>
-
-<pre><code>$ brew install memcached
-$ brew install memcache-php
-</code></pre>
-
-<h3>メッセージキューサーバーを体験</h3>
-
-<p>２つのスクリプトを用意してください。<br/>
-・worker.php : ワーカープロセス。キューからメッセージを取得して表示する。<br/>
-・front.php : キューにメッセージを送信する。</p>
-
-<script src="https://gist.github.com/4444078.js"></script>
-
-
-<p>
-<a href="https://gist.github.com/4444078">https://gist.github.com/4444078</a></p>
-
-<p>ターミナルを２つたちあげてください。<br/>
-・ターミナル１でworker.phpを実行<br/>
-プロンプトが返ってこない → Kestrelのキューを監視してくれています。</p>
-
-<p>・ターミナル２でfront.phpを実行すると…<br/>
-ターミナル１に「Hello, World!」と表示されます！</p>
-
-<p>簡単ですが以上です。<br/>
-Hello, Worldが表示された時には感動しますね (・∀・)<br/>
-worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪</p>
-
-<h4>参考</h4>
-
-<p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
-<a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
-<a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[__callの使いどころ]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/25/using-the-call/"/>
-    <updated>2012-11-25T13:44:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/25/using-the-call</id>
-    <content type="html"><![CDATA[<p>既存クラスをラップしたい時とか、委譲をたくさん使いたい時に有用です。</p>
+    <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php/"/>
+    <updated>2013-02-02T19:57:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php</id>
+    <content type="html"><![CDATA[<p>ある日、こちらの記事を読んでいて<br/>
+<a href="http://melborne.github.com/2013/01/21/why-fp-with-ruby/">Rubyを使って「なぜ関数プログラミングは重要か」を読み解く（改定）─ 前編 ─ 但し後編の予定なし</a><br/>
+PHPにもクロージャあるし、PHPで出来そうだ！ということで書いてみました。</p>
 
 <!-- more -->
 
 
-<script src="https://gist.github.com/4142451.js?file=gistfile1.php"></script>
+<p>やっぱりRubyの方が簡潔で良いですね ^o<sup>;</sup></p>
+
+<p>まだ関数型の勉強を本格的にできてないのですが、<br/>
+余計な変数を一切宣言しなくて済むのが素敵だなぁと思いました。<br/>
+ループを再帰で書くのがまたカッコイイ！</p>
+
+<p><a href="https://gist.github.com/4696317.git">https://gist.github.com/4696317.git</a></p>
+
+<script src="https://gist.github.com/4696317.js"></script>
 
 
-<p></p>
 
-<p>※コードが表示されない場合はこちら<br/>
-<a href="https://gist.github.com/4142451">https://gist.github.com/4142451</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[traitを使ってObserverパターンを書いてみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/"/>
-    <updated>2012-09-16T16:43:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4</id>
-    <content type="html"><![CDATA[<p>php5.4の目玉機能の１つ、trait。<br/>
-RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
-
-<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
-使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。<br/>
-<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
-
-<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
-
-<!-- more -->
-
-
-<p>埋め込んだコードが表示されない方はこちら<br/>
-<a href="https://gist.github.com/3731335">https://gist.github.com/3731335</a></p>
-
-<script src="https://gist.github.com/3731335.js"> </script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP5.4でメソッドから返る配列の扱いが便利になったようです。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/"/>
-    <updated>2012-08-25T16:16:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4</id>
-    <content type="html"><![CDATA[<p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
-
-<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
-
-<!-- more -->
-
-
-<h2>PHP5.3以前</h2>
-
-<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
-わざわざ変数に入れる必要がありました。</p>
-
-<pre><code>&lt;?php
-$result_array = getSomethingArray();
-echo $result_array[1];  
-</code></pre>
-
-<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
-
-<h2>PHP5.4</h2>
-
-<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
-
-<pre><code>&lt;?php
-function hogefuga()
-{
-    return array('ho', 'ge', 'fu', 'ga');
-}
-echo hogefuga()[1];// 'ge'
-
-$str = "ho,ge,fu,ga";
-echo explode(",", $str)[2];// 'fu'
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP5.4でメソッドチェーンが便利になったようです。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/"/>
-    <updated>2012-08-14T01:39:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4</id>
-    <content type="html"><![CDATA[<h2>PHP5.0〜5.3</h2>
-
-<p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
-面倒ですよね(；´∀｀)</p>
-
-<!-- more -->
-
-
-<pre><code>Hoge::create('Hello')-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    private function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public static function create($message)
-    {
-        return new self($message);
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>PHP5.4〜</h2>
-
-<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
-
-<pre><code>(new Hoge('Hello'))-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    public function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
-
-<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
 ]]></content>
   </entry>
   

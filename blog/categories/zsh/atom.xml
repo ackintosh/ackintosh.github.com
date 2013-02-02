@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-02T20:14:45+09:00</updated>
+  <updated>2013-02-02T21:03:56+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/cant-create-post/"/>
+    <updated>2013-02-02T20:19:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/cant-create-post</id>
+    <content type="html"><![CDATA[<p>zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。</p>
+
+<pre><code>$ rake new_post[hoge]
+zsh: no matches found: new_post[hoge]
+</code></pre>
+
+<!-- more -->
+
+
+<p>ググったら２つ解決策を発見。<br/>
+<a href="https://github.com/imathis/octopress/issues/117">https://github.com/imathis/octopress/issues/117</a></p>
+
+<h4>1. aliasを設定する</h4>
+
+<pre><code>$ alias rake="noglob rake"
+</code></pre>
+
+<h4>2. クォーテーションで囲む</h4>
+
+<pre><code>$ rake "new_post[hoge]"
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[シェルをzshに変更]]></title>

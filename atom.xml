@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-02T20:14:45+09:00</updated>
+  <updated>2013-02-02T21:03:56+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/cant-create-post/"/>
+    <updated>2013-02-02T20:19:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/cant-create-post</id>
+    <content type="html"><![CDATA[<p>zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。</p>
+
+<pre><code>$ rake new_post[hoge]
+zsh: no matches found: new_post[hoge]
+</code></pre>
+
+<!-- more -->
+
+
+<p>ググったら２つ解決策を発見。<br/>
+<a href="https://github.com/imathis/octopress/issues/117">https://github.com/imathis/octopress/issues/117</a></p>
+
+<h4>1. aliasを設定する</h4>
+
+<pre><code>$ alias rake="noglob rake"
+</code></pre>
+
+<h4>2. クォーテーションで囲む</h4>
+
+<pre><code>$ rake "new_post[hoge]"
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[シェルをzshに変更]]></title>
@@ -64,11 +93,29 @@ ZSH_THEME="テーマ名"
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[functional programming in php]]></title>
+    <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
     <link href="http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php/"/>
     <updated>2013-02-02T19:57:00+09:00</updated>
     <id>http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>ある日、こちらの記事を読んでいて<br/>
+<a href="http://melborne.github.com/2013/01/21/why-fp-with-ruby/">Rubyを使って「なぜ関数プログラミングは重要か」を読み解く（改定）─ 前編 ─ 但し後編の予定なし</a><br/>
+PHPにもクロージャあるし、PHPで出来そうだ！ということで書いてみました。</p>
+
+<!-- more -->
+
+
+<p>やっぱりRubyの方が簡潔で良いですね ^o<sup>;</sup></p>
+
+<p>まだ関数型の勉強を本格的にできてないのですが、<br/>
+余計な変数を一切宣言しなくて済むのが素敵だなぁと思いました。<br/>
+ループを再帰で書くのがまたカッコイイ！</p>
+
+<p><a href="https://gist.github.com/4696317.git">https://gist.github.com/4696317.git</a></p>
+
+<script src="https://gist.github.com/4696317.js"></script>
+
+
+
 ]]></content>
   </entry>
   
@@ -897,21 +944,6 @@ script: phpunit --coverage-text
 <p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
 
 <p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPでWebアプリフレームワーク作ってみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/12/developed-php-framework/"/>
-    <updated>2012-08-12T11:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/12/developed-php-framework</id>
-    <content type="html"><![CDATA[<p>Anote(アノート)という名前にしました。</p>
-
-<p><a href="https://github.com/ackintosh/Anote">https://github.com/ackintosh/Anote</a></p>
-
-<p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
-
-<p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
 ]]></content>
   </entry>
   
