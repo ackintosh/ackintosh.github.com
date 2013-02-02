@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-01-04T01:07:16+09:00</updated>
+  <updated>2013-02-02T20:14:45+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[シェルをzshに変更]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/using-zsh/"/>
+    <updated>2013-02-02T20:05:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/using-zsh</id>
+    <content type="html"><![CDATA[<h2>現在のシェルを確認</h2>
+
+<pre><code>$ echo $SHELL
+</code></pre>
+
+<h2>使えるシェルを確認</h2>
+
+<pre><code>$ cat /etc/shells
+</code></pre>
+
+<!-- more-->
+
+
+<h2>zshに変更</h2>
+
+<pre><code>$ chsh -s /bin/zsh
+</code></pre>
+
+<h2>oh-my-zshのインストール</h2>
+
+<pre><code>$ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+</code></pre>
+
+<h3>テーマ変更</h3>
+
+<pre><code>$ vi ~/.zshrc
+ZSH_THEME="テーマ名"
+</code></pre>
+
+<h3>テーマ一覧</h3>
+
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">https://github.com/robbyrussell/oh-my-zsh/wiki/themes</a></p>
+
+<h2>Git の作業コピーに変更があるかどうかをプロンプトに表示する</h2>
+
+<p><a href="http://mollifier.hatenablog.com/entry/20100906/p1">http://mollifier.hatenablog.com/entry/20100906/p1</a></p>
+
+<h3>※oh-my-zshのアンインストール</h3>
+
+<pre><code>$ uninstall_oh_my_zsh
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[functional programming in php]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php/"/>
+    <updated>2013-02-02T19:57:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
@@ -853,91 +912,6 @@ script: phpunit --coverage-text
 <p>アノテーションを使って何かやりたいと思ったのと、フレームワークの習作を兼ねて作りはじめました。</p>
 
 <p>まだまだお粗末な実装なので(；´∀｀)ガンガンforkしてください(・∀・)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MAMPでPHPUnitを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/"/>
-    <updated>2012-08-04T16:39:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp</id>
-    <content type="html"><![CDATA[<p>既にMAMPにインストールされている。</p>
-
-<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
-PHPUnit 3.6.10 by Sebastian Bergmann.  
-</code></pre>
-
-<p>下記のようにインクルードして使う。</p>
-
-<pre><code>require_once('PHPUnit/Autoload.php');
-class HogeTest extends PHPUnit_Framework_TestCase
-{
-}
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MacにphpDocumentorをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor/"/>
-    <updated>2012-07-28T18:02:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/28/install-phpdocumentor</id>
-    <content type="html"><![CDATA[<h2>phpDocumentor</h2>
-
-<p><a href="http://www.phpdoc.org/">http://www.phpdoc.org/</a></p>
-
-<p>現時点では、php5.3.3以上が必須。</p>
-
-<!-- more -->
-
-
-<h2>インストール</h2>
-
-<pre><code>$ php -v
-PHP 5.3.10 with Suhosin-Patch (cli) (built: Feb 20 2012 22:55:53) 
-</code></pre>
-
-<p>githubからダウンロード<br/>
-<a href="https://github.com/phpDocumentor/phpDocumentor2">phpDocumentor / phpDocumentor2</a></p>
-
-<p>解凍したファイル群中のREADME.mdを参考にインストールする。</p>
-
-<h3>pearを使う方法が推奨されているようだが、今回は手動でインストール。</h3>
-
-<pre><code>$ sudo php ./installer.php
-</code></pre>
-
-<p>※ここで、php.iniの設定が必要との警告が表示された</p>
-
-<pre><code>The detect_unicode setting must be disabled.
-Add the following to the end of your `php.ini`:
-detect_unicode = Off  
-</code></pre>
-
-<h3>macのphp.iniを編集</h3>
-
-<pre><code>$ sudo cp /etc/php.ini.default /etc/php.ini
-$ sudo vi /etc/php.ini
-detect_unicode = Off
-date.timezone = Asia/Tokyo  
-</code></pre>
-
-<h3>installer再実行</h3>
-
-<pre><code>$ sudo php ./installer.php
-&gt; Thank you for installing phpDocumentor.
-&gt; You can run it using the command `php /{phpDocumentorの設置path}/bin/phpdoc.php`
-</code></pre>
-
-<h3>シンボリックリンク作成</h3>
-
-<pre><code>$ sudo ln -s /{phpDocumentorの設置path}/bin/phpdoc.php /usr/bin/phpdoc
-</code></pre>
-
-<h2>phpDocumentor実行</h2>
-
-<pre><code>$ phpdoc run -d {対象ソースディレクトリ} -t {保存先ディレクトリ}
-</code></pre>
 ]]></content>
   </entry>
   

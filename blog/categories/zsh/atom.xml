@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: zsh | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/zsh/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2013-02-02T20:14:45+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[シェルをzshに変更]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/02/using-zsh/"/>
+    <updated>2013-02-02T20:05:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/02/using-zsh</id>
+    <content type="html"><![CDATA[<h2>現在のシェルを確認</h2>
+
+<pre><code>$ echo $SHELL
+</code></pre>
+
+<h2>使えるシェルを確認</h2>
+
+<pre><code>$ cat /etc/shells
+</code></pre>
+
+<!-- more-->
+
+
+<h2>zshに変更</h2>
+
+<pre><code>$ chsh -s /bin/zsh
+</code></pre>
+
+<h2>oh-my-zshのインストール</h2>
+
+<pre><code>$ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+</code></pre>
+
+<h3>テーマ変更</h3>
+
+<pre><code>$ vi ~/.zshrc
+ZSH_THEME="テーマ名"
+</code></pre>
+
+<h3>テーマ一覧</h3>
+
+<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">https://github.com/robbyrussell/oh-my-zsh/wiki/themes</a></p>
+
+<h2>Git の作業コピーに変更があるかどうかをプロンプトに表示する</h2>
+
+<p><a href="http://mollifier.hatenablog.com/entry/20100906/p1">http://mollifier.hatenablog.com/entry/20100906/p1</a></p>
+
+<h3>※oh-my-zshのアンインストール</h3>
+
+<pre><code>$ uninstall_oh_my_zsh
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
