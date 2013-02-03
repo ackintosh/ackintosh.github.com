@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zsh | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/zsh/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-02T21:05:16+09:00</updated>
+  <updated>2013-02-03T14:15:46+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -47,7 +47,9 @@ zsh: no matches found: new_post[hoge]
     <link href="http://ackintosh.github.com/blog/2013/02/02/using-zsh/"/>
     <updated>2013-02-02T20:05:00+09:00</updated>
     <id>http://ackintosh.github.com/blog/2013/02/02/using-zsh</id>
-    <content type="html"><![CDATA[<h2>現在のシェルを確認</h2>
+    <content type="html"><![CDATA[<p>※随時更新予定です。</p>
+
+<h2>現在のシェルを確認</h2>
 
 <pre><code>$ echo $SHELL
 </code></pre>
@@ -88,6 +90,15 @@ ZSH_THEME="テーマ名"
 <h3>※oh-my-zshのアンインストール</h3>
 
 <pre><code>$ uninstall_oh_my_zsh
+</code></pre>
+
+<h2>ターミナルからSublime Textを起動する設定</h2>
+
+<pre><code>$ vi ~/.zshrc
+
+alias st="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+
+$ source ~/.zshrc
 </code></pre>
 ]]></content>
   </entry>
