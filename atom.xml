@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-03T14:15:46+09:00</updated>
+  <updated>2013-02-03T19:26:10+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでObserverパターン]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby/"/>
+    <updated>2013-02-03T19:11:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
+
+<p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
+オブジェクト同士を結合させることがないので、スパゲッティにならずにすむ。<br/>
+情報を通知するクラスをサブジェクト(Subject)、情報を受け取るクラスをオブザーバ(Observer)と呼ぶ。</p>
+
+<!-- more -->
+
+
+<h4>gistfile1.rb</h4>
+
+<p>Subject: Employee<br/>
+Observer: Payroll, TaxMan<br/>
+Subjectの機能をモジュールとして実装。</p>
+
+<h4>gistfile2.rb</h4>
+
+<p>Ruby標準のObservableモジュールを使った場合。</p>
+
+<h4>gistfile3.rb</h4>
+
+<p>Observerをコードブロックで実装した場合。</p>
+
+<p><a href="https://gist.github.com/4701126">https://gist.github.com/4701126</a></p>
+
+<script src="https://gist.github.com/4701126.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
@@ -895,66 +930,6 @@ class Hoge
 <h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
 
 <p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[TravisCIを使ってみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/"/>
-    <updated>2012-08-12T15:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/12/using-travis-ci</id>
-    <content type="html"><![CDATA[<p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
-一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
-
-<p><strong>Travis CI</strong><br/>
-<a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
-
-<p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
-
-<!-- more -->
-
-
-<h2>githubと連携する</h2>
-
-<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
-
-<p>自分はこんな風に書きました。</p>
-
-<pre><code>language: php
-php:
-  - 5.3
-script: sh testrunner.sh
-</code></pre>
-
-<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
-僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
-
-<h3>Travisにサインアップ</h3>
-
-<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
-
-<p>右側のスイッチをONにするだけで連携されます。</p>
-
-<h2>コードカバレッジを表示する</h2>
-
-<p>.travis.yml</p>
-
-<pre><code>language: php
-php:
-  - 5.3
-script: phpunit --coverage-text
-</code></pre>
-
-<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
-
-<h2>参考にさせていただきました</h2>
-
-<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
-
-<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-03T14:15:46+09:00</updated>
+  <updated>2013-02-03T19:26:10+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでObserverパターン]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby/"/>
+    <updated>2013-02-03T19:11:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
+
+<p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
+オブジェクト同士を結合させることがないので、スパゲッティにならずにすむ。<br/>
+情報を通知するクラスをサブジェクト(Subject)、情報を受け取るクラスをオブザーバ(Observer)と呼ぶ。</p>
+
+<!-- more -->
+
+
+<h4>gistfile1.rb</h4>
+
+<p>Subject: Employee<br/>
+Observer: Payroll, TaxMan<br/>
+Subjectの機能をモジュールとして実装。</p>
+
+<h4>gistfile2.rb</h4>
+
+<p>Ruby標準のObservableモジュールを使った場合。</p>
+
+<h4>gistfile3.rb</h4>
+
+<p>Observerをコードブロックで実装した場合。</p>
+
+<p><a href="https://gist.github.com/4701126">https://gist.github.com/4701126</a></p>
+
+<script src="https://gist.github.com/4701126.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
@@ -188,29 +223,6 @@ heroku psの出力の2行目が</p>
 </code></pre>
 
 <p>になっていたら設定を見なおしてみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rubyで日本語を扱う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby/"/>
-    <updated>2012-07-14T17:30:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/14/use-japanese-in-ruby</id>
-    <content type="html"><![CDATA[<p>Ruby1.9以降では</p>
-
-<pre><code># encoding : 文字コード
-</code></pre>
-
-<p>をスクリプトの１行目に書いて文字コードを指定する。</p>
-
-<p>実際のファイルの文字コードと一致していなければならない。</p>
-
-<pre><code># encoding : utf-8
-# encoding : shift_jis
-# encoding : euc-jp
-</code></pre>
-
-<p>shift_jisだけアンダースコア…</p>
 ]]></content>
   </entry>
   
