@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-03T20:07:01+09:00</updated>
+  <updated>2013-02-17T00:56:03+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[群馬でアルゴリズムを学んできました]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/17/learn-the-algorithm-in-gunma/"/>
+    <updated>2013-02-17T00:01:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/17/learn-the-algorithm-in-gunma</id>
+    <content type="html"><![CDATA[<p>まさか邑楽町で勉強会をやることになるなんて・・・夢にも思いませんでした。</p>
+
+<p><a href="http://atnd.org/events/36390">群馬でアルゴリズムを学ぼう - 第1回 アルゴリズムと計算量</a></p>
+
+<!-- more -->
+
+
+<p>１人で勉強してる場合、分からないことにぶつかると、、<br/>
+「これはこーゆーモノだ！」と取り敢えず自分に思い込ませて先に進まないといけなかったりしたのですが、<br/>
+勉強会だと「その場で不明点を挙げる -> 理解できるまで落とし込んでいく」という流れがあって<br/>
+すごく濃い時間が過ごせていたなぁと感じました。</p>
+
+<p>まるで、目の前に立ちはだかっていた巨大な氷山が徐々に溶けていくような感覚がありました。</p>
+
+<p>それと、自分が引っかかっていたポイントって他の方達も一緒だったりして、<br/>
+妙な安心感(？)みたいなものもあったり・・・ｗ</p>
+
+<p>ツルマウ先生、参加者のみなさまありがとうございました。<br/>
+(遠方からありがとうございました)</p>
+
+<p>ちなみにこの日書いた(写経した)コードはこちらです。<br/>
+ペチパーな僕はPHPで書いてました。<br/>
+<a href="https://gist.github.com/ackintosh/4760829">ackintosh / gist:4760829</a></p>
+
+<script src="https://gist.github.com/ackintosh/4760829.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RubyでObserverパターン]]></title>
@@ -866,70 +900,6 @@ echo hogefuga()[1];// 'ge'
 $str = "ho,ge,fu,ga";
 echo explode(",", $str)[2];// 'fu'
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP5.4でメソッドチェーンが便利になったようです。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/"/>
-    <updated>2012-08-14T01:39:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4</id>
-    <content type="html"><![CDATA[<h2>PHP5.0〜5.3</h2>
-
-<p>インスタンス生成から直接メソッドチェーンを実行するために、Creation Methodを定義する必要がありました。<br/>
-面倒ですよね(；´∀｀)</p>
-
-<!-- more -->
-
-
-<pre><code>Hoge::create('Hello')-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    private function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public static function create($message)
-    {
-        return new self($message);
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>PHP5.4〜</h2>
-
-<p>Creation Method を定義せず、コンストラクタから直接メソッドチェーンが実行できます。</p>
-
-<pre><code>(new Hoge('Hello'))-&gt;fuga();
-
-class Hoge
-{
-    private $message;
-
-    public function __construct($message)
-    {
-        $this-&gt;message = $message;
-    }
-
-    public function fuga()
-    {
-        echo $this-&gt;message;
-    }
-}
-</code></pre>
-
-<h2>MacへのPHP5.4インストールでこちらを参考にさせていただきました</h2>
-
-<p><a href="http://www.1x1.jp/blog/2012/05/php_54_for_mac_os_x_as_binary_package.html">Macで一番簡単にPHP5.4をインストールする方法</a></p>
 ]]></content>
   </entry>
   
