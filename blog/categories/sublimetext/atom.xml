@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SublimeText | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.com/blog/categories/sublimetext/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.com/"/>
+  <updated>2013-02-24T15:58:34+09:00</updated>
+  <id>http://ackintosh.github.com/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2/"/>
+    <updated>2013-02-24T15:23:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2</id>
+    <content type="html"><![CDATA[<p>こんな素敵なブログ記事がありましたので試してみました。<br/>
+<a href="http://www.calmtech.net/2012/12/18/st2-mamp-xdebug/" target="_blank">Sublime Text 2 + MAMP + Xdebug でPHPデバッグをする方法</a></p>
+
+<p>自分用にメモを残しておきます。</p>
+
+<!-- more -->
+
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/st2_xdebug.png" alt="ST2+Xdebug" /></p>
+
+<h2>Package ControlでSublimeXdebugをインストール</h2>
+
+<ul>
+<li>Ctrl + Shift + p でコマンドパレットを表示</li>
+<li>install とタイプするとPackage Control: Install PackageがハイライトされるのでEnter</li>
+<li>xdebug とタイプするとSublimeXDebugがハイライトされるのでEnter</li>
+</ul>
+
+
+<h2>php.iniに設定追加</h2>
+
+<script src="https://gist.github.com/ackintosh/5022883.js"></script>
+
+
+<p>dbgpをクォーテーションで囲った状態だとエラーになりました。</p>
+
+<pre><code>xdebug.remote_handler="dbgp"
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/xdebug_error.png" alt="Xdebug Error" /></p>
+]]></content>
+  </entry>
+  
+</feed>

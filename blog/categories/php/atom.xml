@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-18T00:41:53+09:00</updated>
+  <updated>2013-02-24T15:58:34+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2/"/>
+    <updated>2013-02-24T15:23:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2</id>
+    <content type="html"><![CDATA[<p>こんな素敵なブログ記事がありましたので試してみました。<br/>
+<a href="http://www.calmtech.net/2012/12/18/st2-mamp-xdebug/" target="_blank">Sublime Text 2 + MAMP + Xdebug でPHPデバッグをする方法</a></p>
+
+<p>自分用にメモを残しておきます。</p>
+
+<!-- more -->
+
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/st2_xdebug.png" alt="ST2+Xdebug" /></p>
+
+<h2>Package ControlでSublimeXdebugをインストール</h2>
+
+<ul>
+<li>Ctrl + Shift + p でコマンドパレットを表示</li>
+<li>install とタイプするとPackage Control: Install PackageがハイライトされるのでEnter</li>
+<li>xdebug とタイプするとSublimeXDebugがハイライトされるのでEnter</li>
+</ul>
+
+
+<h2>php.iniに設定追加</h2>
+
+<script src="https://gist.github.com/ackintosh/5022883.js"></script>
+
+
+<p>dbgpをクォーテーションで囲った状態だとエラーになりました。</p>
+
+<pre><code>xdebug.remote_handler="dbgp"
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/xdebug_error.png" alt="Xdebug Error" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
@@ -153,47 +191,6 @@ RubyのMix-in的なことができると噂は聞いていたのですが、今�
 
 <script src="https://gist.github.com/3731335.js"> </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHP5.4でメソッドから返る配列の扱いが便利になったようです。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4/"/>
-    <updated>2012-08-25T16:16:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/25/array-is-useful-in-php5-dot-4</id>
-    <content type="html"><![CDATA[<p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
-
-<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
-
-<!-- more -->
-
-
-<h2>PHP5.3以前</h2>
-
-<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
-わざわざ変数に入れる必要がありました。</p>
-
-<pre><code>&lt;?php
-$result_array = getSomethingArray();
-echo $result_array[1];  
-</code></pre>
-
-<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
-
-<h2>PHP5.4</h2>
-
-<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
-
-<pre><code>&lt;?php
-function hogefuga()
-{
-    return array('ho', 'ge', 'fu', 'ga');
-}
-echo hogefuga()[1];// 'ge'
-
-$str = "ho,ge,fu,ga";
-echo explode(",", $str)[2];// 'fu'
-</code></pre>
 ]]></content>
   </entry>
   
