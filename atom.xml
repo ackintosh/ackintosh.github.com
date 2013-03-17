@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-24T16:34:49+09:00</updated>
+  <updated>2013-03-17T21:10:19+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPでマージソート]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php/"/>
+    <updated>2013-03-17T21:03:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php</id>
+    <content type="html"><![CDATA[<p>1から自分で実装してみたかったので、
+あえてarray系関数は使わないようにしてます。</p>
+
+<!-- more -->
+
+
+
+
+<script src="https://gist.github.com/ackintosh/5180548.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
@@ -825,80 +843,6 @@ heroku psの出力の2行目が</p>
 </code></pre>
 
 <p>になっていたら設定を見なおしてみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MySQLでインデックスあり・なしの検索速度を比較してみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/26/compared-the-index-with-and-without/"/>
-    <updated>2012-08-26T11:14:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/26/compared-the-index-with-and-without</id>
-    <content type="html"><![CDATA[<p>usersとfavoritesが１対多になるようにして、
-indexの設定あり・なしの2つのDBを用意して比較しました。<br/>
-予め、<br/>
-usersは 100,000件<br/>
-favoritesに300,000件のレコードを用意しました。</p>
-
-<!-- more -->
-
-
-<h2>indexなし</h2>
-
-<p>・テーブル作成</p>
-
-<pre><code>create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null
-) engine=innodb;
-</code></pre>
-
-<p>・select<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png" alt="select結果(indexなし)" /></p>
-
-<p>・explain<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png" alt="explain(indexなし)" /></p>
-
-<h2>indexあり</h2>
-
-<p>・テーブル作成</p>
-
-<pre><code>create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null,
-foreign key(user_id) references users(id)
-) engine=innodb;
-</code></pre>
-
-<p>・select<br/>
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png" alt="select結果(indexあり)" /></p>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index_phpmyadmin.png" alt="select結果(phpmyadmin)" /></p>
-
-<p>・explain
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png" alt="explain(indexあり)" /></p>
-
-<h2>結果</h2>
-
-<ul>
-<li>indexなし<br/>
-クエリ実行時間 0.38  秒</li>
-<li>indexあり<br/>
-クエリ実行時間 0.0005秒</li>
-</ul>
-
-
-<p>explainの結果から、indexがないと
-テーブルのフルスキャンが発生してしまっていることがわかりました。</p>
 ]]></content>
   </entry>
   

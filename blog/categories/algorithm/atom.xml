@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-02-24T16:34:49+09:00</updated>
+  <updated>2013-03-17T21:10:19+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPでマージソート]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php/"/>
+    <updated>2013-03-17T21:03:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php</id>
+    <content type="html"><![CDATA[<p>1から自分で実装してみたかったので、
+あえてarray系関数は使わないようにしてます。</p>
+
+<!-- more -->
+
+
+
+
+<script src="https://gist.github.com/ackintosh/5180548.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[群馬でアルゴリズムを学んできました]]></title>
