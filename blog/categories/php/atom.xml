@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-18T08:46:09+09:00</updated>
+  <updated>2013-04-19T19:25:31+09:00</updated>
   <id>http://ackintosh.github.com/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPでTCPサーバー]]></title>
+    <link href="http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php/"/>
+    <updated>2013-04-18T22:57:00+09:00</updated>
+    <id>http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php</id>
+    <content type="html"><![CDATA[<p>PHPでTCPサーバーを書いてみました。</p>
+
+<p>pcntl関数を使うには、phpソースをbuildする時に--enable-pcntlを付けないといけません。</p>
+
+<!-- more -->
+
+
+<p>個人的には、pcntl_fork()したあとswitch文で分岐する流れが、
+理解するのに苦労しました。</p>
+
+<p>ちょうどRubyで並列処理を勉強していたのですが、
+やっぱりRubyの方が直感的で書きやすいですね。  <br/>
+<a href="http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/">irbから学ぶRubyの並列処理 ~ forkからWebSocketまで</a></p>
+
+<script src="https://gist.github.com/ackintosh/5381925.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHPでマージソート]]></title>
@@ -166,26 +190,6 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
 <p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
 <a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
 <a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[__callの使いどころ]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/25/using-the-call/"/>
-    <updated>2012-11-25T13:44:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/25/using-the-call</id>
-    <content type="html"><![CDATA[<p>既存クラスをラップしたい時とか、委譲をたくさん使いたい時に有用です。</p>
-
-<!-- more -->
-
-
-<script src="https://gist.github.com/4142451.js?file=gistfile1.php"></script>
-
-
-<p></p>
-
-<p>※コードが表示されない場合はこちら<br/>
-<a href="https://gist.github.com/4142451">https://gist.github.com/4142451</a></p>
 ]]></content>
   </entry>
   
