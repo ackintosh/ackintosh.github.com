@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: TravisCI | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/travisci/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/travisci/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[TravisCIを使ってみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/12/using-travis-ci/"/>
+    <link href="http://ackintosh.github.io/blog/2012/08/12/using-travis-ci/"/>
     <updated>2012-08-12T15:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/12/using-travis-ci</id>
+    <id>http://ackintosh.github.io/blog/2012/08/12/using-travis-ci</id>
     <content type="html"><![CDATA[<p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
 一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RubyでObserverパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby/"/>
     <updated>2013-02-03T19:11:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby</id>
     <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
 
 <p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
@@ -50,9 +50,9 @@ Subjectの機能をモジュールとして実装。</p>
   
   <entry>
     <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby/"/>
     <updated>2012-11-04T17:04:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby</id>
     <content type="html"><![CDATA[<h3>Strategyパターン</h3>
 
 <ul>
@@ -102,9 +102,9 @@ Subjectの機能をモジュールとして実装。</p>
   
   <entry>
     <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/"/>
     <updated>2012-10-24T20:45:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby</id>
     <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
 
 <p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
@@ -128,9 +128,9 @@ Subjectの機能をモジュールとして実装。</p>
   
   <entry>
     <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby/"/>
     <updated>2012-10-23T20:30:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby</id>
     <content type="html"><![CDATA[<p>Rubyは抽象クラス／メソッドをサポートしていない。<br/>
 これらは、Rubyの手軽で動的な考え方にそぐわないから。</p>
 
@@ -151,9 +151,9 @@ Subjectの機能をモジュールとして実装。</p>
   
   <entry>
     <title type="html"><![CDATA[HerokuのWebサーバーをUnicornに変更する]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/"/>
+    <link href="http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/"/>
     <updated>2012-08-28T01:34:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku</id>
+    <id>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku</id>
     <content type="html"><![CDATA[<p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br/>
 RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Rails | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/rails/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HerokuのWebサーバーをUnicornに変更する]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku/"/>
+    <link href="http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/"/>
     <updated>2012-08-28T01:34:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/28/using-the-unicorn-in-heroku</id>
+    <id>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku</id>
     <content type="html"><![CDATA[<p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br/>
 RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
 
@@ -92,9 +92,9 @@ heroku psの出力の2行目が</p>
   
   <entry>
     <title type="html"><![CDATA[Herokuでアプリを作る]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku/"/>
+    <link href="http://ackintosh.github.io/blog/2012/07/09/make-an-app-in-heroku/"/>
     <updated>2012-07-09T23:04:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/09/make-an-app-in-heroku</id>
+    <id>http://ackintosh.github.io/blog/2012/07/09/make-an-app-in-heroku</id>
     <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/heroku.jpeg" alt="heroku" /></p>
 
 <p><strong>Heroku</strong><br/>

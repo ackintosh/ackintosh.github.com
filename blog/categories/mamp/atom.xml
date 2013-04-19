@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MAMP | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/mamp/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/mamp/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MAMPでPHPUnitを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp/"/>
+    <link href="http://ackintosh.github.io/blog/2012/08/04/using-phpunit-with-mamp/"/>
     <updated>2012-08-04T16:39:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/08/04/using-phpunit-with-mamp</id>
+    <id>http://ackintosh.github.io/blog/2012/08/04/using-phpunit-with-mamp</id>
     <content type="html"><![CDATA[<p>既にMAMPにインストールされている。</p>
 
 <pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version

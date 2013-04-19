@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Blog | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/blog/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[2012年振り返り]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012/"/>
     <updated>2013-01-01T18:25:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012</id>
+    <id>http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012</id>
     <content type="html"><![CDATA[<p>新年あけましておめでとうございます。<br/>
 2012年の振り返りです。<br/>
 2012年は色々なことを始めました。</p>
@@ -104,9 +104,9 @@ Clean Coderに「毎年１つ言語を習得すること」とありますが、
   
   <entry>
     <title type="html"><![CDATA[devlove2012に行って来ました]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/12/17/devlove2012/"/>
+    <link href="http://ackintosh.github.io/blog/2012/12/17/devlove2012/"/>
     <updated>2012-12-17T23:53:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/12/17/devlove2012</id>
+    <id>http://ackintosh.github.io/blog/2012/12/17/devlove2012</id>
     <content type="html"><![CDATA[<p>devlove2012にいってきました。
 初参加です。<br/>
 <a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>

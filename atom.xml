@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHPでTCPサーバー]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/"/>
     <updated>2013-04-18T22:57:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php</id>
     <content type="html"><![CDATA[<p>PHPでTCPサーバーを書いてみました。</p>
 
 <p>pcntl関数を使うには、phpソースをbuildする時に&#8211;enable-pcntlを付けないといけません。</p>
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[ラムダ・クロージャ・部分適用・カリー化を一言でいうと？]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/04/18/lambda/"/>
+    <link href="http://ackintosh.github.io/blog/2013/04/18/lambda/"/>
     <updated>2013-04-18T08:07:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/04/18/lambda</id>
+    <id>http://ackintosh.github.io/blog/2013/04/18/lambda</id>
     <content type="html"><![CDATA[<p>すぐに混乱してしまうので、端的にまとめてみました。
 間違がありましたらごめんなさい。<br/>
 (こっそりご指摘ください)</p>
@@ -83,9 +83,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHPでマージソート]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php/"/>
     <updated>2013-03-17T21:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php</id>
     <content type="html"><![CDATA[<p>1から自分で実装してみたかったので、
 あえてarray系関数は使わないようにしてます。</p>
 
@@ -101,9 +101,9 @@
   
   <entry>
     <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2/"/>
     <updated>2013-02-24T15:23:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2</id>
+    <id>http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2</id>
     <content type="html"><![CDATA[<p>こんな素敵なブログ記事がありましたので試してみました。<br/>
 <a href="http://www.calmtech.net/2012/12/18/st2-mamp-xdebug/" target="_blank">Sublime Text 2 + MAMP + Xdebug でPHPデバッグをする方法</a></p>
 
@@ -141,9 +141,9 @@
   
   <entry>
     <title type="html"><![CDATA[群馬でアルゴリズムを学んできました]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/17/learn-the-algorithm-in-gunma/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/17/learn-the-algorithm-in-gunma/"/>
     <updated>2013-02-17T00:01:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/17/learn-the-algorithm-in-gunma</id>
+    <id>http://ackintosh.github.io/blog/2013/02/17/learn-the-algorithm-in-gunma</id>
     <content type="html"><![CDATA[<p>まさか邑楽町で勉強会をやることになるなんて・・・夢にも思いませんでした。</p>
 
 <p><a href="http://atnd.org/events/36390">群馬でアルゴリズムを学ぼう - 第1回 アルゴリズムと計算量</a></p>
@@ -175,9 +175,9 @@
   
   <entry>
     <title type="html"><![CDATA[RubyでObserverパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby/"/>
     <updated>2013-02-03T19:11:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/03/observer-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby</id>
     <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
 
 <p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
@@ -210,9 +210,9 @@ Subjectの機能をモジュールとして実装。</p>
   
   <entry>
     <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/02/cant-create-post/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/02/cant-create-post/"/>
     <updated>2013-02-02T20:19:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/02/cant-create-post</id>
+    <id>http://ackintosh.github.io/blog/2013/02/02/cant-create-post</id>
     <content type="html"><![CDATA[<p>zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。</p>
 
 <pre><code>$ rake new_post[hoge]
@@ -239,9 +239,9 @@ zsh: no matches found: new_post[hoge]
   
   <entry>
     <title type="html"><![CDATA[シェルをzshに変更]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/02/using-zsh/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/02/using-zsh/"/>
     <updated>2013-02-02T20:05:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/02/using-zsh</id>
+    <id>http://ackintosh.github.io/blog/2013/02/02/using-zsh</id>
     <content type="html"><![CDATA[<p>※随時更新予定です。</p>
 
 <h2>現在のシェルを確認</h2>
@@ -300,9 +300,9 @@ $ source ~/.zshrc
   
   <entry>
     <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php/"/>
     <updated>2013-02-02T19:57:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php</id>
     <content type="html"><![CDATA[<p>ある日、こちらの記事を読んでいて<br/>
 <a href="http://melborne.github.com/2013/01/21/why-fp-with-ruby/">Rubyを使って「なぜ関数プログラミングは重要か」を読み解く（改定）─ 前編 ─ 但し後編の予定なし</a><br/>
 PHPにもクロージャあるし、PHPで出来そうだ！ということで書いてみました。</p>
@@ -327,9 +327,9 @@ PHPにもクロージャあるし、PHPで出来そうだ！ということで�
   
   <entry>
     <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/"/>
     <updated>2013-01-03T22:58:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php</id>
+    <id>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php</id>
     <content type="html"><![CDATA[<h3>Kestrel</h3>
 
 <p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
@@ -398,9 +398,9 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
   
   <entry>
     <title type="html"><![CDATA[MacにMemcacheQをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/03/install-memcacheq/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/03/install-memcacheq/"/>
     <updated>2013-01-03T17:36:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/03/install-memcacheq</id>
+    <id>http://ackintosh.github.io/blog/2013/01/03/install-memcacheq</id>
     <content type="html"><![CDATA[<p><em>MemcacheQ - Simple Queue Service over Memcache</em><br/>
 <a href="http://memcachedb.org/memcacheq/">http://memcachedb.org/memcacheq/</a></p>
 
@@ -427,9 +427,9 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
   
   <entry>
     <title type="html"><![CDATA[2012年振り返り]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012/"/>
     <updated>2013-01-01T18:25:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/01/looking-back-on-2012</id>
+    <id>http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012</id>
     <content type="html"><![CDATA[<p>新年あけましておめでとうございます。<br/>
 2012年の振り返りです。<br/>
 2012年は色々なことを始めました。</p>
@@ -516,9 +516,9 @@ Clean Coderに「毎年１つ言語を習得すること」とありますが、
   
   <entry>
     <title type="html"><![CDATA[devlove2012に行って来ました]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/12/17/devlove2012/"/>
+    <link href="http://ackintosh.github.io/blog/2012/12/17/devlove2012/"/>
     <updated>2012-12-17T23:53:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/12/17/devlove2012</id>
+    <id>http://ackintosh.github.io/blog/2012/12/17/devlove2012</id>
     <content type="html"><![CDATA[<p>devlove2012にいってきました。
 初参加です。<br/>
 <a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
@@ -595,9 +595,9 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
   
   <entry>
     <title type="html"><![CDATA[__callの使いどころ]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/25/using-the-call/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/25/using-the-call/"/>
     <updated>2012-11-25T13:44:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/25/using-the-call</id>
+    <id>http://ackintosh.github.io/blog/2012/11/25/using-the-call</id>
     <content type="html"><![CDATA[<p>既存クラスをラップしたい時とか、委譲をたくさん使いたい時に有用です。</p>
 
 <!-- more -->
@@ -615,9 +615,9 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
   
   <entry>
     <title type="html"><![CDATA[jQuery MasonryでTOP記事を整列しました]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/10/introduced-jquery-dot-masonry/"/>
     <updated>2012-11-10T14:32:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/10/introduced-jquery-dot-masonry</id>
+    <id>http://ackintosh.github.io/blog/2012/11/10/introduced-jquery-dot-masonry</id>
     <content type="html"><![CDATA[<p>当ブログTOPページに新着記事を並べているのですが、<br/>
 ゴチャってたのですごく不満でした。</p>
 
@@ -649,9 +649,9 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
   
   <entry>
     <title type="html"><![CDATA[MacにScalaをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/10/install-the-scala/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/10/install-the-scala/"/>
     <updated>2012-11-10T13:22:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/10/install-the-scala</id>
+    <id>http://ackintosh.github.io/blog/2012/11/10/install-the-scala</id>
     <content type="html"><![CDATA[<p>いままでLLしか書いたことないし、話題の関数型言語が気になるなぁという想いからScalaを勉強しようと思いました。</p>
 
 <p>とりあえずAmazonでScalaの本を買いつつ、Macにインストール。</p>
@@ -685,9 +685,9 @@ Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
   
   <entry>
     <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby/"/>
     <updated>2012-11-04T17:04:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/04/strategy-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby</id>
     <content type="html"><![CDATA[<h3>Strategyパターン</h3>
 
 <ul>
@@ -737,9 +737,9 @@ Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
   
   <entry>
     <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/"/>
     <updated>2012-10-24T20:45:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/10/24/template-method-pattern-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby</id>
     <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
 
 <p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
@@ -763,9 +763,9 @@ Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
   
   <entry>
     <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby/"/>
+    <link href="http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby/"/>
     <updated>2012-10-23T20:30:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/10/23/abstract-method-in-ruby</id>
+    <id>http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby</id>
     <content type="html"><![CDATA[<p>Rubyは抽象クラス／メソッドをサポートしていない。<br/>
 これらは、Rubyの手軽で動的な考え方にそぐわないから。</p>
 
@@ -786,9 +786,9 @@ Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
   
   <entry>
     <title type="html"><![CDATA[traitを使ってObserverパターンを書いてみました。]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/"/>
+    <link href="http://ackintosh.github.io/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/"/>
     <updated>2012-09-16T16:43:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4</id>
+    <id>http://ackintosh.github.io/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4</id>
     <content type="html"><![CDATA[<p>php5.4の目玉機能の１つ、trait。<br/>
 RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
 

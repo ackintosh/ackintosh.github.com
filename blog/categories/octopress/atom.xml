@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: octopress | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/02/cant-create-post/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/02/cant-create-post/"/>
     <updated>2013-02-02T20:19:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/02/cant-create-post</id>
+    <id>http://ackintosh.github.io/blog/2013/02/02/cant-create-post</id>
     <content type="html"><![CDATA[<p>zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。</p>
 
 <pre><code>$ rake new_post[hoge]

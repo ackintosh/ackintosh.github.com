@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Markdown | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/markdown/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/markdown/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Markdown記法のパーサー　markdown-jsを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js/"/>
+    <link href="http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/"/>
     <updated>2012-07-10T22:38:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/07/10/use-the-markdown-js</id>
+    <id>http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js</id>
     <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
 
 <p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>

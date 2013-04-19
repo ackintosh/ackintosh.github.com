@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Mac | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[MacにMemcacheQをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/03/install-memcacheq/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/03/install-memcacheq/"/>
     <updated>2013-01-03T17:36:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/03/install-memcacheq</id>
+    <id>http://ackintosh.github.io/blog/2013/01/03/install-memcacheq</id>
     <content type="html"><![CDATA[<p><em>MemcacheQ - Simple Queue Service over Memcache</em><br/>
 <a href="http://memcachedb.org/memcacheq/">http://memcachedb.org/memcacheq/</a></p>
 
@@ -44,9 +44,9 @@
   
   <entry>
     <title type="html"><![CDATA[MacにScalaをインストール]]></title>
-    <link href="http://ackintosh.github.com/blog/2012/11/10/install-the-scala/"/>
+    <link href="http://ackintosh.github.io/blog/2012/11/10/install-the-scala/"/>
     <updated>2012-11-10T13:22:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2012/11/10/install-the-scala</id>
+    <id>http://ackintosh.github.io/blog/2012/11/10/install-the-scala</id>
     <content type="html"><![CDATA[<p>いままでLLしか書いたことないし、話題の関数型言語が気になるなぁという想いからScalaを勉強しようと思いました。</p>
 
 <p>とりあえずAmazonでScalaの本を買いつつ、Macにインストール。</p>

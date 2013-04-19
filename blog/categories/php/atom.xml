@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
-  <link href="http://ackintosh.github.com/blog/categories/php/atom.xml" rel="self"/>
-  <link href="http://ackintosh.github.com/"/>
-  <updated>2013-04-19T19:34:36+09:00</updated>
-  <id>http://ackintosh.github.com/</id>
+  <link href="http://ackintosh.github.io/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-04-19T19:36:51+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHPでTCPサーバー]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/"/>
     <updated>2013-04-18T22:57:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/04/18/tcp-server-written-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php</id>
     <content type="html"><![CDATA[<p>PHPでTCPサーバーを書いてみました。</p>
 
 <p>pcntl関数を使うには、phpソースをbuildする時に--enable-pcntlを付けないといけません。</p>
@@ -39,9 +39,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHPでマージソート]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php/"/>
     <updated>2013-03-17T21:03:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/03/17/mergesort-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php</id>
     <content type="html"><![CDATA[<p>1から自分で実装してみたかったので、
 あえてarray系関数は使わないようにしてます。</p>
 
@@ -57,9 +57,9 @@
   
   <entry>
     <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2/"/>
     <updated>2013-02-24T15:23:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/24/using-xdebug-on-st2</id>
+    <id>http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2</id>
     <content type="html"><![CDATA[<p>こんな素敵なブログ記事がありましたので試してみました。<br/>
 <a href="http://www.calmtech.net/2012/12/18/st2-mamp-xdebug/" target="_blank">Sublime Text 2 + MAMP + Xdebug でPHPデバッグをする方法</a></p>
 
@@ -97,9 +97,9 @@
   
   <entry>
     <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php/"/>
     <updated>2013-02-02T19:57:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/02/02/functional-programming-in-php</id>
+    <id>http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php</id>
     <content type="html"><![CDATA[<p>ある日、こちらの記事を読んでいて<br/>
 <a href="http://melborne.github.com/2013/01/21/why-fp-with-ruby/">Rubyを使って「なぜ関数プログラミングは重要か」を読み解く（改定）─ 前編 ─ 但し後編の予定なし</a><br/>
 PHPにもクロージャあるし、PHPで出来そうだ！ということで書いてみました。</p>
@@ -124,9 +124,9 @@ PHPにもクロージャあるし、PHPで出来そうだ！ということで�
   
   <entry>
     <title type="html"><![CDATA[ZendQueueとKestrelでメッセージキューサーバーを体験]]></title>
-    <link href="http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php/"/>
+    <link href="http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/"/>
     <updated>2013-01-03T22:58:00+09:00</updated>
-    <id>http://ackintosh.github.com/blog/2013/01/03/message-queue-server-with-php</id>
+    <id>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php</id>
     <content type="html"><![CDATA[<h3>Kestrel</h3>
 
 <p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br/>
