@@ -14,8 +14,8 @@
     
   
   <meta name="description" content=" すぐに混乱してしまうので、端的にまとめてみました。
-間違がありましたらごめんなさい。
-(こっそりご指摘ください) ">
+勉強しながら少しづつ修正しています。
+間違いがありましたら、ご指摘いただけると幸いです。 ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -32,8 +32,8 @@
   <meta name="og:site_name" content="暁 [stfuawsc]" />
   <meta name="og:title" content="ラムダ・クロージャ・部分適用・カリー化を一言でいうと？" />
   <meta name="og:description" content=" すぐに混乱してしまうので、端的にまとめてみました。
-間違がありましたらごめんなさい。
-(こっそりご指摘ください) " />
+勉強しながら少しづつ修正しています。
+間違いがありましたら、ご指摘いただけると幸いです。 " />
   <meta name="og:url" content="http://ackintosh.github.io/blog/2013/04/18/lambda/" />
   <meta property="og:image" content="http://ackintosh.github.io/favicon.gif" />
   <meta name="url" content="http://ackintosh.github.io/blog/2013/04/18/lambda/">
@@ -143,9 +143,9 @@
   </header>
 
 
-  <div class="entry-content"><p>すぐに混乱してしまうので、端的にまとめてみました。
-間違がありましたらごめんなさい。<br/>
-(こっそりご指摘ください)</p>
+  <div class="entry-content"><p>すぐに混乱してしまうので、端的にまとめてみました。<br/>
+勉強しながら少しづつ修正しています。<br/>
+間違いがありましたら、ご指摘いただけると幸いです。</p>
 
 <!-- more -->
 
@@ -160,25 +160,33 @@
 
 <p>関数を返す関数の中で、 変数を束縛(bind/capture)する関数。</p>
 
-<h5>※クロージャと関数を返す関数の違い</h5>
-
-<p>変数を束縛するかしないか。</p>
+<h5>※クロージャと関数を返す関数の違い → 変数を束縛するかしないか。</h5>
 
 <h2>部分適用とカリー化</h2>
 
 <h3>部分適用</h3>
 
-<p>クロージャ等を利用して引数の数の少ない関数を作ること。</p>
+<p>クロージャ等を利用して引数の数の少ない関数を作ること。<br/>
+(下記Rubyコードのうち、invを導出すること)</p>
 
 <h3>カリー化</h3>
 
-<p>部分適用の中でも、関数の引数をひとつだけにすること。</p>
+<p><strike>部分適用の中でも、関数の引数をひとつだけにすること。</strike><br/>
+複数の引数をとる関数を、引数が「もとの関数の最初の引数」で戻り値が「もとの関数の残りの引数を取り結果を返す関数」であるような関数にすること。<br/>
+(下記Rubyコードのうち、cdivを導出すること)</p>
+
+<script src="https://gist.github.com/ackintosh/5431663.js"></script>
+
 
 <hr />
 
 <h4>参考にさせていただきました。</h4>
 
-<p><a href="http://prezi.com/9brwewgcxtr2/javascript/">javascript で遊ぶラムダ式、クロージャ、カリー化</a></p>
+<ul>
+<li><a href="http://prezi.com/9brwewgcxtr2/javascript/" target="_blank">javascript で遊ぶラムダ式、クロージャ、カリー化</a></li>
+<li><a href="http://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96" target="_blank">カリー化 - Wikipedia</a></li>
+</ul>
+
 </div>
 
 
