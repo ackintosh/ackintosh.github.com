@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: VirtualBox - 暁 [stfuawsc]</title>
+  <title>FuelPHPに独自のバリデーションルールを追加する - 暁 [stfuawsc]</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,9 @@
   
     
   
-  <meta name="description" content=" Category: VirtualBox ">
+  <meta name="description" content="FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.
+FuelPHP.JP 日本語ドキュメント 実際の開発では、独自のバリデーションルールがいくつか必要になります。
+FuelPHPで追加する方法のメモです。φ &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,18 +23,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.ioblog/categories/virtualbox/">
+  <link rel="canonical" href="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁 [stfuawsc]" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁 [stfuawsc]" />
-  <meta name="og:title" content="Category: VirtualBox" />
-  <meta name="og:description" content=" Category: VirtualBox " />
-  <meta name="og:url" content="http://ackintosh.github.ioblog/categories/virtualbox/index.html" />
+  <meta name="og:title" content="FuelPHPに独自のバリデーションルールを追加する" />
+  <meta name="og:description" content="FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.
+FuelPHP.JP 日本語ドキュメント 実際の開発では、独自のバリデーションルールがいくつか必要になります。
+FuelPHPで追加する方法のメモです。φ &hellip;" />
+  <meta name="og:url" content="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/" />
   <meta property="og:image" content="http://ackintosh.github.io/favicon.gif" />
-  <meta name="url" content="http://ackintosh.github.ioblog/categories/virtualbox/index.html">
+  <meta name="url" content="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/">
+  
+  <meta name="subject" content="PHP"/>
+  <meta name="category" content="PHP"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -55,7 +62,8 @@
 
 </head>
 
-<nav role="navigation"><div class="navbar">
+<body   >
+  <nav role="navigation"><div class="navbar">
   <div class="navbar-inner">
     <a class="brand" href="/">暁 [stfuawsc]</a>
     <ul class="nav">
@@ -79,44 +87,156 @@
   </div>
 </div>
 </nav>
-<div class="wrapper_single">
-  <div class="container">
-    <div class="span8 offset2">
-      <article class="article-format" role="div">
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">FuelPHPに独自のバリデーションルールを追加する</h1>
+    
+    
+      <p class="meta">
         
-        <header>
-          <h1 class="entry-title">Category: VirtualBox</h1>
-          
-        </header>
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
         
-          <div id="blog-archives" class="category">
+
+
+
+
+
 
 
 
   
-  <h2>2012</h2>
 
-<article class="archive-article-format">
+
+<time datetime="2013-04-29T16:08:00+09:00" pubdate data-updated="true">Apr 29<span>th</span>, 2013</time> - 
+        
+
+posted in
+<span class="categories">
   
-<h1><a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a></h1>
-<time datetime="2012-07-22T20:53:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>22</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories meta">posted in <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/jenkins/'>Jenkins</a>, <a class='category' href='/blog/categories/virtualbox/'>VirtualBox</a></span>
-</footer>
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
 
 
-</article>
+        
+      </p>
+    
+    <p><div class="sharing">
+  
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+  
+  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+</p>
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
+<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
+
+<p>実際の開発では、独自のバリデーションルールがいくつか必要になります。<br/>
+FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
+
+<!-- more -->
+
+
+<h3>バリデーションルールを定義する</h3>
+
+<p>gistfile1.php</p>
+
+<h3>定義したルールのテストを書く</h3>
+
+<p>gistfile2.php</p>
+
+<h3>ルールを適用する</h3>
+
+<p>gistfile3.php</p>
+
+<h3>エラーメッセージを定義する</h3>
+
+<p>gistfile4.php</p>
+
+<script src="https://gist.github.com/ackintosh/5479927.js"></script>
 
 </div>
 
-        
-      </article>
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-29T16:08:00+09:00" pubdate data-updated="true">Apr 29<span>th</span>, 2013</time>
+      
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+    </p>
     
+      <a class="pull-left" href="/blog/2013/04/18/tcp-server-written-in-php/" title="Previous Post: PHPでTCPサーバー">&laquo; PHPでTCPサーバー</a>
+    
+    
+  </footer>
+
+</div>
+
+
+      </article>
+    </div>
+    <div class="container">	
+      
+        <section>
+          <h1>Comments</h1>
+          <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </section>
+      
     </div>
   </div>
-</div>
-<div id="footer-widgets">
+  <div id="footer-widgets">
   <div class="container">
     <div class="row">
   <div class="span3">
@@ -180,7 +300,7 @@
   </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 <script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
 <script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
 <script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
@@ -200,7 +320,10 @@ $(function() {
       var disqus_shortname = 'akihito-myoctopressblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/';
+        var disqus_url = 'http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -212,3 +335,5 @@ $(function() {
 
 
 
+</body>
+</html>
