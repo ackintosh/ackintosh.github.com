@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-04-29T16:24:18+09:00</updated>
+  <updated>2013-04-29T17:58:09+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FuelPHPに独自の設定ファイルを追加する]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/"/>
+    <updated>2013-04-29T16:37:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp</id>
+    <content type="html"><![CDATA[<p>FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
+
+<p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
+<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
+
+<!-- more -->
+
+
+<h3>設定ファイルを作成</h3>
+
+<p>gistfile1.php</p>
+
+<h3>設定を読み込む</h3>
+
+<p>gistfile2.php</p>
+
+<p><code>Config::load()</code>の第2引数に文字列を渡すと、任意のグループ名を指定できる。</p>
+
+<script src="https://gist.github.com/ackintosh/5480241.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[FuelPHPに独自のバリデーションルールを追加する]]></title>
@@ -127,33 +155,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 </code></pre>
 
 <p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/xdebug_error.png" alt="Xdebug Error" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPで関数型プログラミング]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php/"/>
-    <updated>2013-02-02T19:57:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/02/functional-programming-in-php</id>
-    <content type="html"><![CDATA[<p>ある日、こちらの記事を読んでいて<br/>
-<a href="http://melborne.github.com/2013/01/21/why-fp-with-ruby/">Rubyを使って「なぜ関数プログラミングは重要か」を読み解く（改定）─ 前編 ─ 但し後編の予定なし</a><br/>
-PHPにもクロージャあるし、PHPで出来そうだ！ということで書いてみました。</p>
-
-<!-- more -->
-
-
-<p>やっぱりRubyの方が簡潔で良いですね ^_^ ;</p>
-
-<p>まだ関数型の勉強を本格的にできてないのですが、<br/>
-余計な変数を一切宣言しなくて済むのが素敵だなぁと思いました。<br/>
-ループを再帰で書くのがまたカッコイイ！</p>
-
-<p><a href="https://gist.github.com/4696317.git">https://gist.github.com/4696317.git</a></p>
-
-<script src="https://gist.github.com/4696317.js"></script>
-
-
-
 ]]></content>
   </entry>
   
