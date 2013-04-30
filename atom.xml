@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-04-29T17:58:09+09:00</updated>
+  <updated>2013-04-30T21:00:08+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FuelPHPでファイルアップロード]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/04/30/fileupload-in-fuelphp/"/>
+    <updated>2013-04-30T20:53:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/04/30/fileupload-in-fuelphp</id>
+    <content type="html"><![CDATA[<p>FuelPHPでファイルアップロードするときのメモです。φ(..)メモメモ</p>
+
+<p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
+<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
+
+<!-- more -->
+
+
+<h3>設定ファイルをappディレクトリにコピー</h3>
+
+<pre><code>$ cp core/config/upload.php app/config/
+</code></pre>
+
+<h3>viewを作成</h3>
+
+<p>gistfile1.php</p>
+
+<h3>controllerを作成</h3>
+
+<p>gistfile2.php</p>
+
+<script src="https://gist.github.com/ackintosh/5488231.js"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[FuelPHPに独自の設定ファイルを追加する]]></title>
@@ -803,32 +834,6 @@ Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
 
 <p>埋め込んだコードが表示されない場合はこちら<br/>
 → <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/"/>
-    <updated>2012-10-24T20:45:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby</id>
-    <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
-
-<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
-
-<!-- more -->
-
-
-<p><em>output_start</em> メソッドや <em>output_end</em> メソッドのように、<br/>
-<em>Template Methodの具象クラスによってオーバーライドできる非抽象メソッド</em><br/>
-を<strong>フックメソッド</strong> という。</p>
-
-<script src="https://gist.github.com/3945597.js?file=gistfile1.rb"></script>
-
-
-<p></p>
-
-<p>埋め込んだコードが表示されない場合はこちら
-→ <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
 ]]></content>
   </entry>
   
