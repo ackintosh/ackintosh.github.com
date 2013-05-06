@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Chef | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-05-06T16:59:34+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ChefでPHPをインストール]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef/"/>
+    <updated>2013-05-06T16:45:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef</id>
+    <content type="html"><![CDATA[<p>Opscode Communiityでレシピが提供されていますが、練習のために自分で作成します。</p>
+
+<p><a href="http://community.opscode.com/cookbooks/php" target="_blank">Chef Cookbook: php - Opscode Community</a></p>
+
+<ul>
+<li><em>対象ノードを192.168.50.12で設定しています。</em></li>
+<li><em>実運用では、Template Resouceを利用してphp.iniを設定する等が必要になります。</em></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>クックブック作成</h3>
+
+<pre><code>$ knife cookbook create php
+
+** Creating cookbook php
+** Creating README for cookbook: php
+** Creating CHANGELOG for cookbook: php
+** Creating metadata for cookbook: php
+</code></pre>
+
+<h3>レシピを編集</h3>
+
+<p><code>cookbooks/php/recipes/default.rb</code></p>
+
+<pre><code>package "php" do
+  action :install
+end
+</code></pre>
+
+<h3>jsonのrun_listに追加</h3>
+
+<p><code>nodes/192.168.50.12.json</code></p>
+
+<pre><code>{
+  "run_list" : [
+    "php"
+  ]
+}
+</code></pre>
+
+<h3>レシピをノードに適用</h3>
+
+<pre><code>$ knife solo cook 192.168.50.12
+
+Recipe: php::default
+  * package[php] action install
+    - install version 5.3.3-22.el6 of package php
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
