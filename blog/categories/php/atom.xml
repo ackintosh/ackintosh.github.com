@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: PHP | 暁 [stfuawsc]]]></title>
+  <title><![CDATA[Category: php | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-05-24T00:10:16+09:00</updated>
+  <updated>2013-06-11T21:19:02+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -14,179 +14,122 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ChefでPHPをインストール]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef/"/>
-    <updated>2013-05-06T16:45:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef</id>
-    <content type="html"><![CDATA[<p>Opscode Communiityでレシピが提供されていますが、練習のために自分で作成します。</p>
+    <title type="html"><![CDATA[PHP用のベンチマークツールを作った]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/"/>
+    <updated>2013-06-11T20:30:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool</id>
+    <content type="html"><![CDATA[<p>こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。</p>
 
-<p><a href="http://community.opscode.com/cookbooks/php" target="_blank">Chef Cookbook: php - Opscode Community</a></p>
+<p><a href="http://blog.yuyat.jp/archives/1063" target="_blank">PHP 用ベンチマーキングフレームワーク Joshimane というのを作った http://blog.yuyat.jp/archives/1063</a></p>
 
-<ul>
-<li><em>対象ノードを192.168.50.12で設定しています。</em></li>
-<li><em>実運用では、Template Resouceを利用してphp.iniを設定する等が必要になります。</em></li>
-</ul>
+<p>自分はなかなかいい名前が思いつかなかったので Benchy にしました。</p>
 
+<p><a href="https://github.com/ackintosh/benchy" target="_blank">https://github.com/ackintosh/benchy</a></p>
+
+<p>PEAR::Benchmarkと比べるとモダンな感じかなぁと思っています。
+シンプルさと拡張性の高さをウリにできるように考えました。</p>
 
 <!-- more -->
 
 
-<h3>クックブック作成</h3>
+<h2>インストール</h2>
 
-<pre><code>$ knife cookbook create php
+<p>もちろん<a href="http://getcomposer.org/" target="_blank">Composer</a>でインストールできます。</p>
 
-** Creating cookbook php
-** Creating README for cookbook: php
-** Creating CHANGELOG for cookbook: php
-** Creating metadata for cookbook: php
-</code></pre>
+<p>```composer.json
+{</p>
 
-<h3>レシピを編集</h3>
-
-<p><code>cookbooks/php/recipes/default.rb</code></p>
-
-<pre><code>package "php" do
-  action :install
-end
-</code></pre>
-
-<h3>jsonのrun_listに追加</h3>
-
-<p><code>nodes/192.168.50.12.json</code></p>
-
-<pre><code>{
-  "run_list" : [
-    "php"
-  ]
+<pre><code>"require": {
+    "ackintosh/benchy": "dev-master"
 }
 </code></pre>
 
-<h3>レシピをノードに適用</h3>
+<p>}
+```</p>
 
-<pre><code>$ knife solo cook 192.168.50.12
+<p><code>
+$ php composer.phar install
+</code></p>
 
-Recipe: php::default
-  * package[php] action install
-    - install version 5.3.3-22.el6 of package php
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FuelPHPでファイルアップロード]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/04/30/fileupload-in-fuelphp/"/>
-    <updated>2013-04-30T20:53:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/04/30/fileupload-in-fuelphp</id>
-    <content type="html"><![CDATA[<p>FuelPHPでファイルアップロードするときのメモです。φ(..)メモメモ</p>
+<h2>使い方</h2>
 
-<p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
-<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
+<p>```
+&lt;?php
+require_once 'vendor/autoload.php';</p>
 
-<!-- more -->
+<p>$reporter = Ackintosh\Benchy::run(function ($reporter) {</p>
 
+<pre><code>// do something
 
-<h3>設定ファイルをappディレクトリにコピー</h3>
+echo $reporter-&gt;time-&gt;elapsed() . PHP_EOL;
 
-<pre><code>$ cp core/config/upload.php app/config/
+// do something
+
+echo $reporter-&gt;time-&gt;elapsed() . PHP_EOL;
 </code></pre>
 
-<h3>viewを作成</h3>
+<p>}, 1000); // runs 1,000 times.(default : 1 )</p>
 
-<p>gistfile1.php</p>
+<p>echo 'total : ' . $reporter->time->total() . PHP_EOL;
+echo 'average : ' . $reporter->time->average() . PHP_EOL;
+```</p>
 
-<h3>controllerを作成</h3>
+<p>これで途中経過の時間と、合計・平均時間がわかります。</p>
 
-<p>gistfile2.php</p>
+<h2>拡張性</h2>
 
-<script src="https://gist.github.com/ackintosh/5488231.js"></script>
+<p><code>Ackintosh/Bechy/Marker</code> ディレクトリにクラスを配置してください。</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FuelPHPに独自の設定ファイルを追加する]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/"/>
-    <updated>2013-04-29T16:37:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp</id>
-    <content type="html"><![CDATA[<p>FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
+<p>```Ackintosh/Benchy/Marker/Example.php
+&lt;?php
+class Example extends AbstractMarker
+{</p>
 
-<p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
-<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
+<pre><code>public function hoge() { 'fuga'; }
+</code></pre>
 
-<!-- more -->
+<p>}
+```</p>
 
+<p>そうするとReporterクラスで使えるようになります。</p>
 
-<h3>設定ファイルを作成</h3>
+<p>```
+&lt;?php
+$reporter = Ackintosh\Benchy::run(function ($reporter) {</p>
 
-<p>gistfile1.php</p>
+<pre><code>// do something
+echo $reporter-&gt;example-&gt;hoge();// fuga
+</code></pre>
 
-<h3>設定を読み込む</h3>
+<p>});</p>
 
-<p>gistfile2.php</p>
+<p>echo $reporter->example->hoge();// fuga
+```</p>
 
-<p><code>Config::load()</code>の第2引数に文字列を渡すと、任意のグループ名を指定できる。</p>
+<h2>フックポイント</h2>
 
-<script src="https://gist.github.com/ackintosh/5480241.js"></script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FuelPHPに独自のバリデーションルールを追加する]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/"/>
-    <updated>2013-04-29T16:08:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp</id>
-    <content type="html"><![CDATA[<p><a href="http://fuelphp.com/" target="_blank">FuelPHP &raquo; A simple, flexible, community driven PHP5.3 framework.</a><br/>
-<a href="http://fuelphp.jp/" target="_blank">FuelPHP.JP 日本語ドキュメント</a></p>
-
-<p>実際の開発では、独自のバリデーションルールがいくつか必要になります。<br/>
-FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
-
-<!-- more -->
+<ul>
+<li>before：　ベンチマーク開始前</li>
+<li>after：　ベンチマーク終了後</li>
+<li>before_per_laps：　ベンチマーク前（毎回）</li>
+<li>after_per_laps：　ベンチマーク後（毎回）</li>
+</ul>
 
 
-<h3>バリデーションルールを定義する</h3>
+<p>```Ackintosh/Benchy/Marker/Example.php
+&lt;?php
+class Example extends AbstractMarker
+{</p>
 
-<p>gistfile1.php</p>
+<pre><code>// override
+public function before()
+{
+    // runs before benchmarking
+}
+</code></pre>
 
-<h3>定義したルールのテストを書く</h3>
-
-<p>gistfile2.php</p>
-
-<h3>ルールを適用する</h3>
-
-<p>gistfile3.php</p>
-
-<h3>エラーメッセージを定義する</h3>
-
-<p>gistfile4.php</p>
-
-<script src="https://gist.github.com/ackintosh/5479927.js"></script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPでTCPサーバー]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/"/>
-    <updated>2013-04-18T22:57:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php</id>
-    <content type="html"><![CDATA[<p>PHPでTCPサーバーを書いてみました。</p>
-
-<p>pcntl関数を使うには、phpソースをbuildする時に--enable-pcntlを付けないといけません。</p>
-
-<!-- more -->
-
-
-<p>個人的には、pcntl_fork()したあとswitch文で分岐する流れが、
-理解するのに苦労しました。</p>
-
-<p>ちょうどRubyで並列処理を勉強していたのですが、
-やっぱりRubyの方が直感的で書きやすいですね。  <br/>
-<a href="http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/">irbから学ぶRubyの並列処理 ~ forkからWebSocketまで</a></p>
-
-<script src="https://gist.github.com/ackintosh/5381925.js"></script>
-
+<p>}
+```</p>
 ]]></content>
   </entry>
   
