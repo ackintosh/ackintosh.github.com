@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: test | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2013-06-11T23:50:13+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[DateTimeクラス等に依存したクラスをテストする]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/06/11/testing-the-object-that-depend-to-datetime/"/>
+    <updated>2013-06-11T22:29:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/06/11/testing-the-object-that-depend-to-datetime</id>
+    <content type="html"><![CDATA[<p>DateTimeクラス等に依存したクラスをテストするのは難しい。</p>
+
+<p>オブジェクトが生成された日時を正確に知らないといけないから。</p>
+
+<!-- more -->
+
+
+<p>例えば本の貸出しを表現したコード</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=before.php"></script>
+
+
+<p>このクラスをテストしたい場合。</p>
+
+<p>DateTimeクラスへの依存を下げるためにコンストラクタで渡すようにすると・・・</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=bad.php"></script>
+
+
+<p>依存度が下がってテストもできるようになったけど、コンストラクタの第２引数はテストの時しか使わない。プロダクトコードには不要なもの。。。</p>
+
+<p>後々、貸出冊数も渡そうとすると更に酷いことに。</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=too_bad.php"></script>
+
+
+<p>そこで、DateTimeを差し替えられるようにstaticメソッドを用意しておくのはどうだろう。</p>
+
+<p>こんな感じ。</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=after.php"></script>
+
+
+<p>DIを勉強すればもっと良い方法があるのかな。</p>
+
+<p>まだまだ勉強不足です。</p>
+]]></content>
+  </entry>
+  
+</feed>

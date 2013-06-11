@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-06-11T21:42:30+09:00</updated>
+  <updated>2013-06-11T23:50:13+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DateTimeクラス等に依存したクラスをテストする]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/06/11/testing-the-object-that-depend-to-datetime/"/>
+    <updated>2013-06-11T22:29:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/06/11/testing-the-object-that-depend-to-datetime</id>
+    <content type="html"><![CDATA[<p>DateTimeクラス等に依存したクラスをテストするのは難しい。</p>
+
+<p>オブジェクトが生成された日時を正確に知らないといけないから。</p>
+
+<!-- more -->
+
+
+<p>例えば本の貸出しを表現したコード</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=before.php"></script>
+
+
+<p>このクラスをテストしたい場合。</p>
+
+<p>DateTimeクラスへの依存を下げるためにコンストラクタで渡すようにすると・・・</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=bad.php"></script>
+
+
+<p>依存度が下がってテストもできるようになったけど、コンストラクタの第２引数はテストの時しか使わない。プロダクトコードには不要なもの。。。</p>
+
+<p>後々、貸出冊数も渡そうとすると更に酷いことに。</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=too_bad.php"></script>
+
+
+<p>そこで、DateTimeを差し替えられるようにstaticメソッドを用意しておくのはどうだろう。</p>
+
+<p>こんな感じ。</p>
+
+<script src="https://gist.github.com/ackintosh/5748987.js?file=after.php"></script>
+
+
+<p>DIを勉強すればもっと良い方法があるのかな。</p>
+
+<p>まだまだ勉強不足です。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP用のベンチマークツールを作りました]]></title>
@@ -830,40 +874,6 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
 
 <p>※コードが表示されない場合はこちら<br/>
 <a href="https://gist.github.com/4142451">https://gist.github.com/4142451</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[jQuery MasonryでTOP記事を整列しました]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/11/10/introduced-jquery-dot-masonry/"/>
-    <updated>2012-11-10T14:32:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/11/10/introduced-jquery-dot-masonry</id>
-    <content type="html"><![CDATA[<p>当ブログTOPページに新着記事を並べているのですが、<br/>
-ゴチャってたのですごく不満でした。</p>
-
-<!-- more -->
-
-
-<p>こんな感じです↓
-<img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_before.png" alt="top_before" /></p>
-
-<h3>jQuery Masonry</h3>
-
-<p><a href="http://pinterest.com/">pinterest</a>みたいに並べようと調べていたら、jQuery Masonryとやらで出来るとのことなので試してみました。</p>
-
-<p><a href="http://masonry.desandro.com/">jQuery Masonry</a></p>
-
-<script src="https://gist.github.com/4050100.js?file=masonry.html"></script>
-
-
-<p></p>
-
-<p>※コードが表示されない場合はこちら<br/>
-<a href="https://gist.github.com/4050100">https://gist.github.com/4050100</a></p>
-
-<p>綺麗に並びました！</p>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_after.png" alt="top_after" /></p>
 ]]></content>
   </entry>
   
