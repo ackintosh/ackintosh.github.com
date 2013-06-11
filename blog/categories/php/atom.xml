@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-06-11T21:19:02+09:00</updated>
+  <updated>2013-06-11T21:39:08+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[PHP用のベンチマークツールを作った]]></title>
+    <title type="html"><![CDATA[PHP用のベンチマークツールを作りました]]></title>
     <link href="http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/"/>
     <updated>2013-06-11T20:30:00+09:00</updated>
     <id>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool</id>
@@ -36,43 +36,14 @@
 
 <p>もちろん<a href="http://getcomposer.org/" target="_blank">Composer</a>でインストールできます。</p>
 
-<p>```composer.json
-{</p>
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=composer.json"></script></p>
 
-<pre><code>"require": {
-    "ackintosh/benchy": "dev-master"
-}
+<pre><code>$ php composer.phar install
 </code></pre>
-
-<p>}
-```</p>
-
-<p><code>
-$ php composer.phar install
-</code></p>
 
 <h2>使い方</h2>
 
-<p>```
-&lt;?php
-require_once 'vendor/autoload.php';</p>
-
-<p>$reporter = Ackintosh\Benchy::run(function ($reporter) {</p>
-
-<pre><code>// do something
-
-echo $reporter-&gt;time-&gt;elapsed() . PHP_EOL;
-
-// do something
-
-echo $reporter-&gt;time-&gt;elapsed() . PHP_EOL;
-</code></pre>
-
-<p>}, 1000); // runs 1,000 times.(default : 1 )</p>
-
-<p>echo 'total : ' . $reporter->time->total() . PHP_EOL;
-echo 'average : ' . $reporter->time->average() . PHP_EOL;
-```</p>
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=sample.php"></script></p>
 
 <p>これで途中経過の時間と、合計・平均時間がわかります。</p>
 
@@ -80,31 +51,11 @@ echo 'average : ' . $reporter->time->average() . PHP_EOL;
 
 <p><code>Ackintosh/Bechy/Marker</code> ディレクトリにクラスを配置してください。</p>
 
-<p>```Ackintosh/Benchy/Marker/Example.php
-&lt;?php
-class Example extends AbstractMarker
-{</p>
-
-<pre><code>public function hoge() { 'fuga'; }
-</code></pre>
-
-<p>}
-```</p>
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=Example.php"></script></p>
 
 <p>そうするとReporterクラスで使えるようになります。</p>
 
-<p>```
-&lt;?php
-$reporter = Ackintosh\Benchy::run(function ($reporter) {</p>
-
-<pre><code>// do something
-echo $reporter-&gt;example-&gt;hoge();// fuga
-</code></pre>
-
-<p>});</p>
-
-<p>echo $reporter->example->hoge();// fuga
-```</p>
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=sample2.php"></script></p>
 
 <h2>フックポイント</h2>
 
@@ -116,20 +67,7 @@ echo $reporter-&gt;example-&gt;hoge();// fuga
 </ul>
 
 
-<p>```Ackintosh/Benchy/Marker/Example.php
-&lt;?php
-class Example extends AbstractMarker
-{</p>
-
-<pre><code>// override
-public function before()
-{
-    // runs before benchmarking
-}
-</code></pre>
-
-<p>}
-```</p>
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=AnotherExample.php"></script></p>
 ]]></content>
   </entry>
   

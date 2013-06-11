@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-05-24T00:10:16+09:00</updated>
+  <updated>2013-06-11T21:39:08+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHP用のベンチマークツールを作りました]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/"/>
+    <updated>2013-06-11T20:30:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool</id>
+    <content type="html"><![CDATA[<p>こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。</p>
+
+<p><a href="http://blog.yuyat.jp/archives/1063" target="_blank">PHP 用ベンチマーキングフレームワーク Joshimane というのを作った http://blog.yuyat.jp/archives/1063</a></p>
+
+<p>自分はなかなかいい名前が思いつかなかったので Benchy にしました。</p>
+
+<p><a href="https://github.com/ackintosh/benchy" target="_blank">https://github.com/ackintosh/benchy</a></p>
+
+<p>PEAR::Benchmarkと比べるとモダンな感じかなぁと思っています。
+シンプルさと拡張性の高さをウリにできるように考えました。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>もちろん<a href="http://getcomposer.org/" target="_blank">Composer</a>でインストールできます。</p>
+
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=composer.json"></script></p>
+
+<pre><code>$ php composer.phar install
+</code></pre>
+
+<h2>使い方</h2>
+
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=sample.php"></script></p>
+
+<p>これで途中経過の時間と、合計・平均時間がわかります。</p>
+
+<h2>拡張性</h2>
+
+<p><code>Ackintosh/Bechy/Marker</code> ディレクトリにクラスを配置してください。</p>
+
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=Example.php"></script></p>
+
+<p>そうするとReporterクラスで使えるようになります。</p>
+
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=sample2.php"></script></p>
+
+<h2>フックポイント</h2>
+
+<ul>
+<li>before：　ベンチマーク開始前</li>
+<li>after：　ベンチマーク終了後</li>
+<li>before_per_laps：　ベンチマーク前（毎回）</li>
+<li>after_per_laps：　ベンチマーク後（毎回）</li>
+</ul>
+
+
+<p> <script src="https://gist.github.com/ackintosh/5756449.js?file=AnotherExample.php"></script></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ChefでPHPをインストール]]></title>
@@ -805,42 +863,6 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
 <p>綺麗に並びました！</p>
 
 <p><img src="https://dl.dropbox.com/u/22083548/octopress/201211/top_after.png" alt="top_after" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MacにScalaをインストール]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/11/10/install-the-scala/"/>
-    <updated>2012-11-10T13:22:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/11/10/install-the-scala</id>
-    <content type="html"><![CDATA[<p>いままでLLしか書いたことないし、話題の関数型言語が気になるなぁという想いからScalaを勉強しようと思いました。</p>
-
-<p>とりあえずAmazonでScalaの本を買いつつ、Macにインストール。</p>
-
-<p><a href="http://www.amazon.co.jp/Scala%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%A9%E3%83%96%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88-%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0-Programming-Scala/dp/4844327453">Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]</a>
-<img src="http://ec2.images-amazon.com/images/I/41nFY0KbnfL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg" alt="Scalaスケーラブルプログラミング[コンセプト&amp;コーディング]" /> <br/>
-コップ本って呼ばれているみたいです。</p>
-
-<!-- more -->
-
-
-<h3>Scalaをインストール</h3>
-
-<p>homebrewでインストールしました。簡単〜</p>
-
-<pre><code>$ brew install scala
-==&gt; Downloading http://www.scala-lang.org/downloads/distrib/files/scala-2.9.2.tgz
-######################################################################## 100.0%
-==&gt; Downloading https://raw.github.com/scala/scala-dist/27bc0c25145a83691e3678c7dda602e765e13413/completion.d/2.9.1/scala
-######################################################################## 100.0%
-==&gt; Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==&gt; Summary
-/usr/local/Cellar/scala/2.9.2: 38 files, 26M, built in 115 seconds
-$ scala -version
-Scala code runner version 2.9.2 -- Copyright 2002-2011, LAMP/EPFL
-</code></pre>
 ]]></content>
   </entry>
   
