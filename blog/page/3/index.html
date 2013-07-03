@@ -101,6 +101,72 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/10/24/template-method-pattern-in-ruby/">RubyでTemplate Methodパターン</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-24T20:45:00+09:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>Design Pattern</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+        
+      </p>
+    
+    <p></p>
+  </header>
+
+
+  <div class="entry-content"><p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
+
+<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/24/template-method-pattern-in-ruby/">Continue reading</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4 masonry-brick">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/10/23/abstract-method-in-ruby/">Rubyで抽象クラス／メソッド</a></h1>
     
     
@@ -835,93 +901,6 @@ posted in
 
       </article>
     
-    
-      <article class="span4 masonry-brick">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/mysql/'>MySQL</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
-  
-</span>
-
-
-        
-      </p>
-    
-    <p></p>
-  </header>
-
-
-  <div class="entry-content"><h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
-
-<ul>
-<li><p>mysqli拡張モジュール<br/>
-<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
-<li><p>PDO_MYSQL<br/>
-<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
-</ul>
-
-
-<p>古いmysql関数も含めた3つの機能の比較表がありました。
-<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
-
-<p>新しいモジュールでは、
-* OOPインターフェース
-* プリペアドステートメント
-* ストアドプロシージャ
-* トランザクション<br/>
-をAPIレベルでサポートしている。</p>
-
-<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
-
-<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
-
-<pre><code>class OriginalMysqli extends mysqli
-{
-    …
-}
-</code></pre>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -949,6 +928,10 @@ posted in
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2013/07/03/pry/">pryでデバッグ</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/06/11/testing-the-object-that-depend-to-datetime/">DateTimeクラス等に依存したクラスをテストする</a>
         </li>
       
@@ -962,10 +945,6 @@ posted in
       
         <li>
           <a href="/blog/2013/04/30/fileupload-in-fuelphp/">FuelPHPでファイルアップロード</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/04/29/custom-configuration-file-for-fuelphp/">FuelPHPに独自の設定ファイルを追加する</a>
         </li>
       
     </ul>

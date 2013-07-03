@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-06-11T23:50:13+09:00</updated>
+  <updated>2013-07-03T21:21:02+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[pryでデバッグ]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/07/03/pry/"/>
+    <updated>2013-07-03T20:54:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/07/03/pry</id>
+    <content type="html"><![CDATA[<p>いいかげんプリントデバッグは疲れるのでpryを使ってみます。</p>
+
+<p><a href="https://github.com/pry/pry" target="_blank">https://github.com/pry/pry</a></p>
+
+<p>φ(..)メモメモ</p>
+
+<!-- more -->
+
+
+<h2>pry</h2>
+
+<h3>インストール</h3>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=install.sh"></script>
+
+
+<h3>デバッグ</h3>
+
+<p><code>binding.pry</code> でREPLが起動する。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=debug.rb"></script>
+
+
+<h2>pry-nav</h2>
+
+<p>pry-navというgemを入れるとステップ実行ができる。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=install_nav.sh"></script>
+
+
+<p>下記のように<code>~/.pryrc</code>にエイリアスを設定しておくと便利。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=.pryrc"></script>
+
+
+<h2>参考URL</h2>
+
+<ul>
+<li><a href="http://blog.ainam.me/2012/03/20/summary-of-pry-plugins/" target="_blank">http://blog.ainam.me/2012/03/20/summary-of-pry-plugins/</a></li>
+<li><a href="http://shirusu-ni-tarazu.hatenablog.jp/entry/2012/06/24/051114" target="_blank">http://shirusu-ni-tarazu.hatenablog.jp/entry/2012/06/24/051114</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DateTimeクラス等に依存したクラスをテストする]]></title>
@@ -854,26 +904,6 @@ guRubyに参加（群馬在住ですので）して、コネクションを少�
 それと、自分が何に対して情熱とか達成感とかを感じるのかをちゃんと定期的に整理しなければ、と思いました。</p>
 
 <p>また、今回の反省点として、Macの電源を忘れてしまったのが痛かったです・・・</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[__callの使いどころ]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/11/25/using-the-call/"/>
-    <updated>2012-11-25T13:44:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/11/25/using-the-call</id>
-    <content type="html"><![CDATA[<p>既存クラスをラップしたい時とか、委譲をたくさん使いたい時に有用です。</p>
-
-<!-- more -->
-
-
-<script src="https://gist.github.com/4142451.js?file=gistfile1.php"></script>
-
-
-<p></p>
-
-<p>※コードが表示されない場合はこちら<br/>
-<a href="https://gist.github.com/4142451">https://gist.github.com/4142451</a></p>
 ]]></content>
   </entry>
   
