@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-07-03T21:21:02+09:00</updated>
+  <updated>2013-08-05T20:27:20+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PHPで関数合成を書いてみる]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/"/>
+    <updated>2013-08-05T20:20:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php</id>
+    <content type="html"><![CDATA[<p><a href="http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8" target="_blank">PHP で関数合成 - Qiita [キータ]</a></p>
+
+<p>こちらの投稿がとても興味深かったので、自分なりに書いてみました。</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Compose</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">_</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$callables</span> <span class="o">=</span> <span class="nb">func_get_args</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">array_reduce</span><span class="p">(</span><span class="nv">$callables</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">===</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="k">return</span> <span class="nb">call_user_func_array</span><span class="p">(</span><span class="nv">$b</span><span class="p">,</span> <span class="nb">func_get_args</span><span class="p">());</span>
+</span><span class='line'>                <span class="p">};</span>
+</span><span class='line'>            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                    <span class="k">return</span> <span class="nb">call_user_func</span><span class="p">(</span><span class="nv">$b</span><span class="p">,</span> <span class="nv">$a</span><span class="p">(</span><span class="nv">$arg</span><span class="p">));</span>
+</span><span class='line'>                <span class="p">};</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$mapUcfirst</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">array_map</span><span class="p">(</span><span class="s1">&#39;ucfirst&#39;</span><span class="p">,</span> <span class="nv">$arg</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$splitWithUnderscore</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$arg</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="nv">$arg</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$camelize</span> <span class="o">=</span> <span class="nx">Compose</span><span class="o">::</span><span class="na">_</span><span class="p">(</span><span class="nv">$splitWithUnderscore</span><span class="p">,</span> <span class="nv">$mapUcfirst</span><span class="p">,</span> <span class="s1">&#39;join&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nb">var_dump</span><span class="p">(</span><span class="nv">$camelize</span><span class="p">(</span><span class="s1">&#39;man_with_a_mission&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="c1">// ManWithAMission</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[pryでデバッグ]]></title>
@@ -825,85 +914,6 @@ Clean Coderに「毎年１つ言語を習得すること」とありますが、
 
 <p>2012年に始めたことを継続していきます！
 あとScalaの勉強したいです。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[devlove2012に行って来ました]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/12/17/devlove2012/"/>
-    <updated>2012-12-17T23:53:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/12/17/devlove2012</id>
-    <content type="html"><![CDATA[<p>devlove2012にいってきました。
-初参加です。<br/>
-<a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
-
-<p>群馬からの参加ということもあり、１日目のあと帰るのが面倒だったので<br/>
-渋谷のカプセルホテルを予め予約していきました。<br/>
-カプセルホテルは初めてでしたが、サウナ付きでなかなか良かったと思います。
-…</p>
-
-<p>今回のテーマは「自分戦略」</p>
-
-<p>自分の能力やキャリア・環境に悩みながらいつもモヤモヤしている日々をなんとかしたい。<br/>
-Web業界の先輩方のお話をきいて何か得られれば、という思いで参加しました。</p>
-
-<!-- more -->
-
-
-<pre><code>■自分戦略
-戦略って？
-{
-  ・「何にどれだけ時間を費やすのか」
-  →取捨選択が必要。
-  ・これまでやってきたことと、これからやりたいことを繋ぐこと
-}
-
-何のための戦略？
-{
-  ・やりたいことをやるため
-  （やりたくないことをやらないため）
-  ・一緒に仕事したい人とするため
-  ・収入を上げるため
-}
-
-■やるべき事
-整理
-{
-    1. 危機感を持って勉強
-    2. アウトプット
-    3. 何が自分の情熱なのか
-    4. どうすればそれが実現するのか
-}
-
-アウトプット
-{
-  Blog
-  github
-  勉強会
-}    
-
-自分をプロモーション
-{
-  twitter, facebook
-  勉強会で発表する
-}
-
-コネクション
-{
-  コミュニティ
-  勉強会
-}
-
-■今後のトレンド
-・マルチコアの活用
-・コンピュータサイエンスの地位向上
-</code></pre>
-
-<p>今後はインプット／アウトプットを更に加速しつつ、
-guRubyに参加（群馬在住ですので）して、コネクションを少しづつでも広げていきます。<br/>
-それと、自分が何に対して情熱とか達成感とかを感じるのかをちゃんと定期的に整理しなければ、と思いました。</p>
-
-<p>また、今回の反省点として、Macの電源を忘れてしまったのが痛かったです・・・</p>
 ]]></content>
   </entry>
   
