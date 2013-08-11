@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-08-05T20:27:20+09:00</updated>
+  <updated>2013-08-11T15:18:50+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ハイフンとアンダースコアの使い分け]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/"/>
+    <updated>2013-08-11T14:32:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score</id>
+    <content type="html"><![CDATA[<p>ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。</p>
+
+<p>言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。</p>
+
+<!-- more -->
+
+
+<h2>Eric Hodel氏の推奨するネーミングルール</h2>
+
+<p>RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。</p>
+
+<p><a href="http://blog.segment7.net/2010/11/15/how-to-name-gems" target="_blank">How to Name Gems</a></p>
+
+<blockquote><p>Here is my <em>STRONG</em> recommendation on how to name gems:</p>
+
+<h2>Use underscores</h2>
+
+<p>・fancy_require<br>
+・newrelic_rpm<br>
+・ruby_parser<br>
+This matches the file the user will require and makes it easier for the user to start using your gem. gem install my_gem will be loaded by require 'my_gem'.</p>
+
+<h2>Use dashes for extensions</h2>
+
+<p>・net-http-persistent<br>
+・rdoc-chm<br>
+・autotest-growl<br>
+If you're adding functionality to another gem use a dash. The dash is different-enough from an underscore to be noticeable. If you tilt the dash a bit it becomes a slash as well, making it easier for the user to know what to require. gem install net-http-persistent becomes require 'net/http/persistent'</p></blockquote>
+
+<p>要するに</p>
+
+<ul>
+<li>ハイフン -> パスの区切り</li>
+<li>アンダースコア -> 単語の区切り</li>
+</ul>
+
+
+<p>といったところでしょうか。</p>
+
+<h2>試してみる</h2>
+
+<h3>ハイフン区切り</h3>
+
+<p><code>
+$ bundle gem ackintosh-tiny-progressbar
+</code></p>
+
+<p>```ruby
+module Ackintosh
+  module Tiny</p>
+
+<pre><code>module Progressbar
+  # Your code goes here ...
+end
+</code></pre>
+
+<p>  end
+end
+```
+全て別のモジュールに分かれています。</p>
+
+<h3>アンダースコア区切り</h3>
+
+<p><code>
+$ bundle gem ackintosh-tiny_progressbar
+</code></p>
+
+<p>```ruby
+module Ackintosh
+  module TinyProgressbar</p>
+
+<pre><code># Your code goes here…
+</code></pre>
+
+<p>  end
+end
+```
+「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[pryでデバッグ]]></title>
@@ -173,29 +259,6 @@ Subjectの機能をモジュールとして実装。</p>
 
 <p>埋め込んだコードが表示されない場合はこちら
 → <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rubyで抽象クラス／メソッド]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby/"/>
-    <updated>2012-10-23T20:30:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/10/23/abstract-method-in-ruby</id>
-    <content type="html"><![CDATA[<p>Rubyは抽象クラス／メソッドをサポートしていない。<br/>
-これらは、Rubyの手軽で動的な考え方にそぐわないから。</p>
-
-<!-- more -->
-
-
-<p>でも、どうしても同様のことを実装したい場合は、例外を投げるだけのメソッドを定義すれば一応可能。</p>
-
-<p>※ 下記のようなコードはダックタイピングの哲学に反するかもしれない。</p>
-
-<p>※ 埋め込んだコードが表示されない場合
-こちら→ <a href="https://gist.github.com/3938364">gist: 3938364</a></p>
-
-<script src="https://gist.github.com/3938364.js?file=gistfile1.rb"></script>
-
 ]]></content>
   </entry>
   

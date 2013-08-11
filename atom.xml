@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-08-05T20:27:20+09:00</updated>
+  <updated>2013-08-11T15:18:50+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ハイフンとアンダースコアの使い分け]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/"/>
+    <updated>2013-08-11T14:32:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score</id>
+    <content type="html"><![CDATA[<p>ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。</p>
+
+<p>言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。</p>
+
+<!-- more -->
+
+
+<h2>Eric Hodel氏の推奨するネーミングルール</h2>
+
+<p>RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。</p>
+
+<p><a href="http://blog.segment7.net/2010/11/15/how-to-name-gems" target="_blank">How to Name Gems</a></p>
+
+<blockquote><p>Here is my <em>STRONG</em> recommendation on how to name gems:</p>
+
+<h2>Use underscores</h2>
+
+<p>・fancy_require<br>
+・newrelic_rpm<br>
+・ruby_parser<br>
+This matches the file the user will require and makes it easier for the user to start using your gem. gem install my_gem will be loaded by require &#8216;my_gem&#8217;.</p>
+
+<h2>Use dashes for extensions</h2>
+
+<p>・net-http-persistent<br>
+・rdoc-chm<br>
+・autotest-growl<br>
+If you&#8217;re adding functionality to another gem use a dash. The dash is different-enough from an underscore to be noticeable. If you tilt the dash a bit it becomes a slash as well, making it easier for the user to know what to require. gem install net-http-persistent becomes require &#8216;net/http/persistent&#8217;</p></blockquote>
+
+<p>要するに</p>
+
+<ul>
+<li>ハイフン -> パスの区切り</li>
+<li>アンダースコア -> 単語の区切り</li>
+</ul>
+
+
+<p>といったところでしょうか。</p>
+
+<h2>試してみる</h2>
+
+<h3>ハイフン区切り</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle gem ackintosh-tiny-progressbar</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Ackintosh</span>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">Tiny</span>
+</span><span class='line'>    <span class="k">module</span> <span class="nn">Progressbar</span>
+</span><span class='line'>      <span class="c1"># Your code goes here ...</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>全て別のモジュールに分かれています。</p>
+
+<h3>アンダースコア区切り</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">bundle</span> <span class="n">gem</span> <span class="n">ackintosh</span><span class="o">-</span><span class="n">tiny_progressbar</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Ackintosh</span>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">TinyProgressbar</span>
+</span><span class='line'>    <span class="c1"># Your code goes here…</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PHPで関数合成を書いてみる]]></title>
@@ -825,95 +924,6 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
 
 <pre><code>$ memcacheq -H ./
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2012年振り返り]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012/"/>
-    <updated>2013-01-01T18:25:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/01/01/looking-back-on-2012</id>
-    <content type="html"><![CDATA[<p>新年あけましておめでとうございます。<br/>
-2012年の振り返りです。<br/>
-2012年は色々なことを始めました。</p>
-
-<!-- more -->
-
-
-<h3>ブログ</h3>
-
-<p>当ブログを2012/07/08から始めました。<br/>
-<a href="http://octopress.org/">Octopress</a> + github Pages で作っています。<br/>
-ブログを書くこと(アウトプット)を意識したインプットをするようになってきたかな・・？と思います。単なる情報ではなく、知識をアウトプットできるように継続していきたいです。<br/>
-このブログをきっかけにMarkdownを知りました。楽に書けて良いですね。<br/>
-Markdownエディタはあまり試してないのですがkobitoを使っています。kobitoのファイル連携機能を使うとOctopressの記事更新がかなり快適になります。<br/>
-あとはブログ自体に、プログラマらしい仕掛けを何か作りたいなぁと。</p>
-
-<h3>勉強会に参加</h3>
-
-<p>内気で人見知りな私ですが、勇気を振り絞って勉強会に参加しました。<br/>
-いまでも参加するときはガチガチに緊張してしまいます。</p>
-
-<h4>6/23 Agile渋谷「The GitHub poweredby Agile渋谷」</h4>
-
-<p><a href="http://atnd.org/events/30016">http://atnd.org/events/30016</a></p>
-
-<h4>6/26 渋谷Rails勉強会</h4>
-
-<p><a href="http://atnd.org/events/27691">http://atnd.org/events/27691</a></p>
-
-<h4>7/27 Developers [Social Enterprise] Summit 2012</h4>
-
-<p><a href="http://codezine.jp/devsumi/2012/social/">http://codezine.jp/devsumi/2012/social/</a></p>
-
-<h4>10/13 Web API勉強会「イベント × 位置情報 マッシュアップワークショップ」</h4>
-
-<p><a href="http://atnd.org/event/E0009968/0">http://atnd.org/event/E0009968/0</a></p>
-
-<h4>12/15〜16 DevLOVE2012</h4>
-
-<p><a href="http://devlove2012.devlove.org/">http://devlove2012.devlove.org/</a></p>
-
-<h3>github</h3>
-
-<p>ソーシャルコーディング時代。<br/>
-プログラマだったら、コード書いて公開してなんぼですよね！<br/>
-・・・という内容のブログ記事やtweetをいたるところで見かけたのがきっかけです。</p>
-
-<p>6/23のAgile渋谷に参加した日、WEB+DB Press(github特集)を片手に始めました。<br/>
-自分に手頃そうなリポジトリを探してforkして、緊張して手に汗をかきながら pull request したのを覚えています。<br/>
-mergeされたときはメチャクチャ嬉しかったです。</p>
-
-<h3>Ruby</h3>
-
-<p>phpばっかり書いててもなぁ・・・。ということでRubyを勉強し始めました。(いつ頃からかは忘れてしまいました)<br/>
-２年半程前にプログラマーになってから、phpしか知らなかった自分にとって、とても興味深いことばかりです。<br/>
-最初は「文字列とかも全部オブジェクト？どゆこと？？」って感じだったのですが、勉強するほど面白さがわかってくるというか、自分のプログラミングの幅が広がっていくような感覚があります。  <br/>
-いろんな言語のパラダイムを吸収して、もっともっと成長しないとですね。。。<br/>
-Clean Coderに「毎年１つ言語を習得すること」とありますが、まさにこのことなのかなぁと体感しています。</p>
-
-<h3>Rails, Heroku</h3>
-
-<p>Rubyを始めたからにはRailsをさわりたい！Herokuをさわりたい！ということで、Rubyの文法もままならない状態でしたが２つほどWebアプリを作ってみました。<br/>
-<strong>Markdownエディタ。Evernoteに保存できます。</strong><br/>
-<a href="http://md2note.herokuapp.com/">http://md2note.herokuapp.com/</a><br/>
-<strong>感謝の言葉を投稿。Facebookアカウントを使います</strong><br/>
-<a href="http://thankyou.heroku.com/">http://thankyou.heroku.com/</a></p>
-
-<h3>コミュニティ</h3>
-
-<p>Ruby関連の勉強会やらコミュニティについて調べていたときに、地元の群馬(しかも隣り町！)の勉強会を見つけました。<br/>
-(職場が埼玉県さいたま市なので、どう頑張っても開始時刻に間に合わないのが悔しいところです T_T)<br/>
-<em>guRuby</em><br/>
-<a href="http://qwik.jp/guruby/">http://qwik.jp/guruby/</a><br/>
-さっそく勇気を振り絞って、緊張と寒さでガチガチになりながらも参加させていただきました。(年内最後の勉強会でした)<br/>
-まだ、お会いできていない方もいらっしゃいますが、優しい方々で本当によかったです。<br/>
-自分も貢献できるように頑張ります。</p>
-
-<h2>2013年は</h2>
-
-<p>2012年に始めたことを継続していきます！
-あとScalaの勉強したいです。</p>
 ]]></content>
   </entry>
   
