@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>PHP5.4でメソッドから返る配列の扱いが便利になったようです。 - 暁 [stfuawsc]</title>
+  <title>[PHP5.4]PDOのhostにlocalhostを指定するとエラー - 暁 [stfuawsc]</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,10 @@
   
     
   
-  <meta name="description" content=" 以前書いた、PHP5.4でメソッドチェーンが便利になったようです。 の配列版みたいなものです。 もう知ってるよ！という方は、光よりも速く読み飛ばしてください。 ">
+  <meta name="description" content=" 手元の環境でエラーになっただけで、他の環境は未検証です。 1
+2
+$ php -v
+PHP 5.4.5 (cli) (built: Jul 21 2012 11:09:19) ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,18 +24,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/">
+  <link rel="canonical" href="http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁 [stfuawsc]" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁 [stfuawsc]" />
-  <meta name="og:title" content="PHP5.4でメソッドから返る配列の扱いが便利になったようです。" />
-  <meta name="og:description" content=" 以前書いた、PHP5.4でメソッドチェーンが便利になったようです。 の配列版みたいなものです。 もう知ってるよ！という方は、光よりも速く読み飛ばしてください。 " />
-  <meta name="og:url" content="http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/" />
+  <meta name="og:title" content="[PHP5.4]PDOのhostにlocalhostを指定するとエラー" />
+  <meta name="og:description" content=" 手元の環境でエラーになっただけで、他の環境は未検証です。 1
+2
+$ php -v
+PHP 5.4.5 (cli) (built: Jul 21 2012 11:09:19) " />
+  <meta name="og:url" content="http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/" />
   <meta property="og:image" content="http://ackintosh.github.io/favicon.gif" />
-  <meta name="url" content="http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/">
+  <meta name="url" content="http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/">
   
   <meta name="subject" content="PHP"/>
   <meta name="category" content="PHP"/>
@@ -90,7 +96,7 @@
 
   <header>
     
-      <h1 class="entry-title">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</h1>
+      <h1 class="entry-title">[PHP5.4]PDOのhostにlocalhostを指定するとエラー</h1>
     
     
       <p class="meta">
@@ -115,7 +121,7 @@
   
 
 
-<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time> - 
+<time datetime="2013-08-26T00:21:00+09:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time> - 
         
 
 posted in
@@ -131,11 +137,11 @@ posted in
     
     <p><div class="sharing">
   
-    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
   
-  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -146,39 +152,50 @@ posted in
   </header>
 
 
-  <div class="entry-content"><p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
+  <div class="entry-content"><p>手元の環境でエラーになっただけで、他の環境は未検証です。</p>
 
-<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ php -v
+</span><span class='line'>PHP 5.4.5 (cli) (built: Jul 21 2012 11:09:19)</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <!-- more -->
 
 
-<h2>PHP5.3以前</h2>
 
-<p>メソッドから返ってくる配列にアクセスする場合、PHP5.3以前では<br/>
-わざわざ変数に入れる必要がありました。</p>
 
-<pre><code>&lt;?php
-$result_array = getSomethingArray();
-echo $result_array[1];  
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;mysql:dbname=active_record;host=localhost&#39;</span><span class="p">,</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;root&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">die</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// SQLSTATE[HY000] [2002] No such file or directory</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>特定の要素だけが欲しい時はこれがストレスになってしょうがないです。</p>
 
-<h2>PHP5.4</h2>
+<p>hostをIPアドレスで指定したらでなくなりました。</p>
 
-<p>関数やメソッドの実行に続けてブラケットで要素を指定できるようになりました！</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s1">&#39;mysql:dbname=active_record;host=127.0.0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="s1">&#39;root&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>&lt;?php
-function hogefuga()
-{
-    return array('ho', 'ge', 'fu', 'ga');
-}
-echo hogefuga()[1];// 'ge'
 
-$str = "ho,ge,fu,ga";
-echo explode(",", $str)[2];// 'fu'
-</code></pre>
+
 </div>
 
 
@@ -205,7 +222,7 @@ echo explode(",", $str)[2];// 'fu'
   
 
 
-<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time>
+<time datetime="2013-08-26T00:21:00+09:00" pubdate data-updated="true">Aug 26<span>th</span>, 2013</time>
       
 
 posted in
@@ -218,10 +235,8 @@ posted in
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/" title="Previous Post: PHP5.4でメソッドチェーンが便利になったようです。">&laquo; PHP5.4でメソッドチェーンが便利になったようです。</a>
+      <a class="pull-left" href="/blog/2013/08/25/late-static-binding/" title="Previous Post: 遅延静的束縛は何が嬉しいのか">&laquo; 遅延静的束縛は何が嬉しいのか</a>
     
-    
-      <a class="pull-right" href="/blog/2012/08/26/compared-the-index-with-and-without/" title="Next Post: MySQLでインデックスあり・なしの検索速度を比較してみました。">MySQLでインデックスあり・なしの検索速度を比較してみました。 &raquo;</a>
     
   </footer>
 
@@ -325,8 +340,8 @@ $(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/';
-        var disqus_url = 'http://ackintosh.github.io/blog/2012/08/25/array-is-useful-in-php5-dot-4/';
+        var disqus_identifier = 'http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/';
+        var disqus_url = 'http://ackintosh.github.io/blog/2013/08/26/pdo-error-php5-dot-4/';
         var disqus_script = 'embed.js';
       
     (function () {
