@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-08-11T15:18:50+09:00</updated>
+  <updated>2013-08-25T16:52:34+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[遅延静的束縛は何が嬉しいのか]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/08/25/late-static-binding/"/>
+    <updated>2013-08-25T15:31:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/08/25/late-static-binding</id>
+    <content type="html"><![CDATA[<p>名前は見かけていたものの、いまいち理解していなかった。</p>
+
+<p><a href="http://php.net/manual/ja/language.oop5.late-static-bindings.php" target="_blank">PHP: 遅延静的束縛 (Late Static Bindings) - Manual</a></p>
+
+<!-- more -->
+
+
+<blockquote><p>PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。 これを使用すると、静的継承のコンテキストで呼び出し元のクラスを参照できるようになります。</p>
+
+<p>より正確に言うと、遅延静的束縛は直近の &#8220;非転送コール&#8221; のクラス名を保存します。 静的メソッドの場合、これは明示的に指定されたクラス (通常は :: 演算子の左側に書かれたもの) となります。静的メソッド以外の場合は、そのオブジェクトのクラスとなります。 &#8220;転送コール&#8221; とは、self:: や parent::、static:: による静的なコール、 あるいはクラス階層の中での forward_static_call() によるコールのことです。 get_called_class() 関数を使うとコール元のクラス名を文字列で取得できます。 static:: はこのクラスのスコープとなります。</p></blockquote>
+
+<h2>遅延静的束縛が無いと困るとき</h2>
+
+<script src="https://gist.github.com/ackintosh/6332540.js?file=1.php"></script>
+
+
+<p>1,400,000が出力されるかと思いきや、0でした。<br/>
+・・・期待していたのと違う。</p>
+
+<h3>selfについて</h3>
+
+<p>PHP Manualにはこう書かれています。</p>
+
+<blockquote><p>self:: あるいは <strong>CLASS</strong> による現在のクラスへの静的参照は、 そのメソッドが属するクラス (つまり、 そのメソッドが定義されているクラス) に解決されます。</p></blockquote>
+
+<p>つまり上記のコードでいうと、getFormattedPriceメソッドはCarクラスで定義されているので、<br/>
+<code>self::$price</code> は常に <code>Car::$price</code> に解決されることになります。</p>
+
+<p>これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。</p>
+
+<h2>遅延静的束縛を使う</h2>
+
+<p>selfの代わりにstaticを使います。</p>
+
+<script src="https://gist.github.com/ackintosh/6332540.js?file=2.php"></script>
+
+
+<p>これで期待した通りの結果になりました。</p>
+
+<h3>staticについて</h3>
+
+<p>PHP Manualより</p>
+
+<blockquote><p>実行時に最初にコールされたクラスを参照するようにしています。</p></blockquote>
+
+<p>これにより、<code>static::$price</code> が <code>NissanNote::$price</code> に解決されたことになります。</p>
+
+<h3>もう少し深く</h3>
+
+<p>ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。
+Manualには下記のようにも書かれています。</p>
+
+<blockquote><p>より正確に言うと、遅延静的束縛は直近の &#8220;非転送コール&#8221; のクラス名を保存します。</p></blockquote>
+
+<p>例えば、</p>
+
+<script src="https://gist.github.com/ackintosh/6332540.js?file=3.php"></script>
+
+
+<p>上記コードだと、staticキーワードが「 <em>最初にコールされたクラス</em> 」を参照しているならば<br/>
+<code>NissanNote::getDescription();</code>メソッド呼び出しの結果、<code>static::$price</code> は <code>NissanNote::$price</code> に解決されるはずですが<br/>
+実際には <code>Car::$price</code> に解決されています。</p>
+
+<p>これは、「 <em>遅延静的束縛は直近の &#8220;非転送コール&#8221; のクラス名を保存する</em> 」と考えると理解できます。</p>
+
+<p>つまり、static::$priceの直近の非転送コールは <code>Car::getFormattedPrice()</code> なので<br/>
+<code>static::$price</code> は <code>Car::$price</code> に解決されたことになります。</p>
+
+<p>非転送コールについては、下記リンクが大変参考になりました。</p>
+
+<h2>参考にさせていただきました。</h2>
+
+<p><a href="http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings" target="_blank">PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～</a></p>
+
+<p><a href="http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/" target="_blank">PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ハイフンとアンダースコアの使い分け]]></title>
@@ -895,35 +978,6 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
 <p><a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel :侍ズム#samuraism</a><br/>
 <a href="http://blog.asial.co.jp/875">PHP+Kestrel+Supervisorでお手軽タスクキューイング :アシアルブログ</a><br/>
 <a href="http://codezine.jp/article/detail/5744">PHPアプリでメッセージキューサーバを活用する - Zend_Queue - :CodeZine</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MacにMemcacheQをインストール]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/01/03/install-memcacheq/"/>
-    <updated>2013-01-03T17:36:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/01/03/install-memcacheq</id>
-    <content type="html"><![CDATA[<p><em>MemcacheQ - Simple Queue Service over Memcache</em><br/>
-<a href="http://memcachedb.org/memcacheq/">http://memcachedb.org/memcacheq/</a></p>
-
-<!-- more -->
-
-
-<p>homebrewで一発でした (・∀・)<br/>
-もちろん、依存するBerkeley DBとlibeventも自動でインストールしてくれます。</p>
-
-<pre><code>$ brew install memcacheq
-</code></pre>
-
-<p>ヘルプ確認</p>
-
-<pre><code>$ memcacheq -h
-</code></pre>
-
-<p>とりあえず起動してみる</p>
-
-<pre><code>$ memcacheq -H ./
-</code></pre>
 ]]></content>
   </entry>
   
