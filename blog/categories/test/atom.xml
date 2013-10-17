@@ -4,7 +4,7 @@
   <title><![CDATA[Category: test | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/test/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-08-26T00:32:56+09:00</updated>
+  <updated>2013-10-18T00:55:28+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[グローバル関数への依存を排除してテスタビリティを上げる]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/10/18/php-testability/"/>
+    <updated>2013-10-18T00:14:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/10/18/php-testability</id>
+    <content type="html"><![CDATA[<p>テストしにくい状況って色々な原因があると思いますが、
+今回はグローバル関数への依存について。</p>
+
+<!-- more -->
+
+
+<p>例えば下記のコードでは receiveDataメソッドの中でmail関数を呼び出しているので
+テストしにくくなっています。
+（テストは書けるけどテスト走らせる度にメールが飛ぶのはアレですね）</p>
+
+<script src="https://gist.github.com/ackintosh/7026140.js?file=1.php"></script>
+
+
+<p><a href="http://www.amazon.co.jp/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89-Object-Oriented-SELECTION-%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BBC%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B6%E3%83%BC%E3%82%BA/dp/4798116831" target="_blank">レガシーコード改善ガイド</a>では
+グローバル関数の部分をインスタンスメソッドにして、処理をグローバル関数にまるっと委譲することで、接合部を作る方法が紹介されています。
+例えばこんな感じでしょうか。</p>
+
+<script src="https://gist.github.com/ackintosh/7026140.js?file=2.php"></script>
+
+
+<p>接合部となったメソッドをサブクラスでオーバーライドしてテストしてます。</p>
+
+<p>ただ、わざわざサブクラスを定義するのも面倒な気もするし
+もう少しカジュアルな方法がないかなということで</p>
+
+<script src="https://gist.github.com/ackintosh/7026140.js?file=3.php"></script>
+
+
+<p>テストのためにややプロダクションコードが増えますがメソッドの差し替えができるようになりました。</p>
+
+<p>ちなみに、無名関数の中でアサーションが書けるのでmail関数が受け取る引数をアサートすることもできます。</p>
+
+<p>こんな感じです。</p>
+
+<script src="https://gist.github.com/ackintosh/7026140.js?file=4.php"></script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DateTimeクラス等に依存したクラスをテストする]]></title>
