@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>PHP5.3以降、mysql拡張モジュールは非推奨 - 暁 [stfuawsc]</title>
+  <title>ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン - 暁 [stfuawsc]</title>
   <meta name="author" content="Ackintosh">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,10 +13,8 @@
   
     
   
-  <meta name="description" content="代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。 mysqli拡張モジュール
-http://php.net/manual/ja/book.mysqli.php
-PDO_MYSQL
-http://www.php.net/manual/ja/ &hellip;">
+  <meta name="description" content=" 前回、グローバル関数への依存について書いたので
+その流れでWordPressプラグインのテストについて。 ">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -24,24 +22,22 @@ http://www.php.net/manual/ja/ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/">
+  <link rel="canonical" href="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/">
   <link href="/favicon.gif" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="暁 [stfuawsc]" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="暁 [stfuawsc]" />
-  <meta name="og:title" content="PHP5.3以降、mysql拡張モジュールは非推奨" />
-  <meta name="og:description" content="代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。 mysqli拡張モジュール
-http://php.net/manual/ja/book.mysqli.php
-PDO_MYSQL
-http://www.php.net/manual/ja/ &hellip;" />
-  <meta name="og:url" content="http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/" />
+  <meta name="og:title" content="ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン" />
+  <meta name="og:description" content=" 前回、グローバル関数への依存について書いたので
+その流れでWordPressプラグインのテストについて。 " />
+  <meta name="og:url" content="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/" />
   <meta property="og:image" content="http://ackintosh.github.io/favicon.gif" />
-  <meta name="url" content="http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/">
+  <meta name="url" content="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/">
   
-  <meta name="subject" content="MySQLPHP"/>
-  <meta name="category" content="MySQLPHP"/>
+  <meta name="subject" content="PHPtest"/>
+  <meta name="category" content="PHPtest"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -96,7 +92,7 @@ http://www.php.net/manual/ja/ &hellip;" />
 
   <header>
     
-      <h1 class="entry-title">PHP5.3以降、mysql拡張モジュールは非推奨</h1>
+      <h1 class="entry-title">ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン</h1>
     
     
       <p class="meta">
@@ -121,13 +117,13 @@ http://www.php.net/manual/ja/ &hellip;" />
   
 
 
-<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time> - 
+<time datetime="2013-10-20T04:02:00+09:00" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/mysql/'>MySQL</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>, <a class='category' href='/blog/categories/test/'>test</a>
   
 </span>
 
@@ -137,11 +133,11 @@ posted in
     
     <p><div class="sharing">
   
-    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http://ackintosh.github.io/blog/2013/10/20/wrapper-object/&layout=button_count&show_faces=false&width=100&action=like&colorscheme=light&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
   
-  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://ackintosh.github.io/blog/2013/10/20/wrapper-object/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/" data-via="NAKANO_Akihito" data-counturl="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -152,35 +148,55 @@ posted in
   </header>
 
 
-  <div class="entry-content"><h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
+  <div class="entry-content"><p><a href="http://ackintosh.github.io/blog/2013/10/18/php-testability/">前回</a>、グローバル関数への依存について書いたので
+その流れでWordPressプラグインのテストについて。</p>
+
+<!-- more -->
+
+
+<p>投稿やコメント等を取得するためにWordPressが用意してる関数は
+グローバル関数がほとんどです。</p>
+
+<p>なので、テーマのカスタマイズやらプラグインを作る時に
+テスタビリティを意識しないとグローバル関数に依存しまくったコードになっちゃいます。</p>
+
+<p>例えば、下記は新着投稿を表示するプラグインなんかでよくあるコードだと思います。</p>
+
+<script src="https://gist.github.com/ackintosh/7060084.js?file=1.php"></script>
+
+
+<p>これをテストコードで保護するには最低限下記パターンが必要です。</p>
 
 <ul>
-<li><p>mysqli拡張モジュール<br/>
-<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
-<li><p>PDO_MYSQL<br/>
-<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
+<li>get_postsの戻り値が配列でなければ(新着投稿がなければ)、nullを返す</li>
+<li>get_postsの戻り値が配列であれば(新着投稿があれば)、その後の処理をして値を返す</li>
 </ul>
 
 
-<p>古いmysql関数も含めた3つの機能の比較表がありました。
-<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
+<p>ですがグローバル関数に依存していると、これを実現するのは難しい。</p>
 
-<p>新しいモジュールでは、
-* OOPインターフェース
-* プリペアドステートメント
-* ストアドプロシージャ
-* トランザクション<br/>
-をAPIレベルでサポートしている。</p>
+<p>そこで、関数のラッパーオブジェクト(Proxy)を使います。</p>
 
-<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
+<script src="https://gist.github.com/ackintosh/7060084.js?file=2.php"></script>
 
-<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
 
-<pre><code>class OriginalMysqli extends mysqli
-{
-    …
-}
-</code></pre>
+<p>FooクラスはコンストラクタでFooProxyクラスを受け取っていて、
+FooProxyクラスはグローバル関数に処理を委譲しているだけです。</p>
+
+<p>で、テストコードではFooProxyクラスをモックに差し替えればOKです。
+例えば</p>
+
+<blockquote><p>・get_postsの戻り値が配列でなければ(新着投稿がなければ)、nullを返す</p></blockquote>
+
+<p>のパターンのテストコードは下記のようになります。</p>
+
+<script src="https://gist.github.com/ackintosh/7060084.js?file=3.php"></script>
+
+
+<p>同様にして他パターンもテストできます。</p>
+
+<p>これで、モックによってget_postsが返す値を明示することで
+Foo::bar() の振る舞いを網羅的にテストできるようになりました。</p>
 </div>
 
 
@@ -207,23 +223,21 @@ posted in
   
 
 
-<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time>
+<time datetime="2013-10-20T04:02:00+09:00" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time>
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/mysql/'>MySQL</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+    <a class='category' href='/blog/categories/php/'>PHP</a>, <a class='category' href='/blog/categories/test/'>test</a>
   
 </span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/07/22/install-jenkins-to-centos/" title="Previous Post: VirtualBoxのCentOSにJenkinsをインストール">&laquo; VirtualBoxのCentOSにJenkinsをインストール</a>
+      <a class="pull-left" href="/blog/2013/10/18/php-testability/" title="Previous Post: グローバル関数への依存を排除してテスタビリティを上げる">&laquo; グローバル関数への依存を排除してテスタビリティを上げる</a>
     
-    
-      <a class="pull-right" href="/blog/2012/07/28/install-phpdocumentor/" title="Next Post: MacにphpDocumentorをインストール">MacにphpDocumentorをインストール &raquo;</a>
     
   </footer>
 
@@ -327,8 +341,8 @@ $(function() {
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/';
-        var disqus_url = 'http://ackintosh.github.io/blog/2012/07/27/deprecated-php-mysql-extension/';
+        var disqus_identifier = 'http://ackintosh.github.io/blog/2013/10/20/wrapper-object/';
+        var disqus_url = 'http://ackintosh.github.io/blog/2013/10/20/wrapper-object/';
         var disqus_script = 'embed.js';
       
     (function () {

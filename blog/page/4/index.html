@@ -101,6 +101,72 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">PHP5.4でメソッドから返る配列の扱いが便利になったようです。</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-25T16:16:00+09:00" pubdate data-updated="true">Aug 25<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+        
+      </p>
+    
+    <p></p>
+  </header>
+
+
+  <div class="entry-content"><p>以前書いた、<a href="http://ackintosh.github.com/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a> の配列版みたいなものです。</p>
+
+<p><em>もう知ってるよ！という方は、光よりも速く読み飛ばしてください。</em></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/08/25/array-is-useful-in-php5-dot-4/">Continue reading</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4 masonry-brick">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/08/14/method-chain-is-useful-in-php5-dot-4/">PHP5.4でメソッドチェーンが便利になったようです。</a></h1>
     
     
@@ -883,105 +949,6 @@ posted in
 
       </article>
     
-    
-      <article class="span4 masonry-brick">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/10/use-the-markdown-js/">Markdown記法のパーサー　markdown-jsを使う</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-10T22:38:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/markdown/'>Markdown</a>
-  
-</span>
-
-
-        
-      </p>
-    
-    <p></p>
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
-
-<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
-ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
-今回markdown-jsというのを使ってみました。</p>
-
-<p><strong>markdown-js</strong><br/>
-<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
-
-<h2>例</h2>
-
-<pre><code>var md = "#markdown";
-console.dir(window.markdown.toHTML(md));
-</code></pre>
-
-<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
-
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-    &lt;title&gt;markdown 2 html&lt;/title&gt;
-    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
-    &lt;div id="html"&gt;&lt;/div&gt;
-    &lt;script type="text/javascript"&gt;
-        $('#markdown').keyup(function (e){
-        $('#html').html(window.markdown.toHTML($('#markdown').val()));
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-</code></pre>
-
-<p></html></p>
-
-<h2>参考URL</h2>
-
-<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -1009,6 +976,10 @@ console.dir(window.markdown.toHTML(md));
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2013/10/20/wrapper-object/">ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/10/18/php-testability/">グローバル関数への依存を排除してテスタビリティを上げる</a>
         </li>
       
@@ -1022,10 +993,6 @@ console.dir(window.markdown.toHTML(md));
       
         <li>
           <a href="/blog/2013/08/11/hypen-under-score/">ハイフンとアンダースコアの使い分け</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/08/05/compose-functions-in-php/">PHPで関数合成を書いてみる</a>
         </li>
       
     </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-10-18T00:55:28+09:00</updated>
+  <updated>2013-10-20T04:16:47+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/10/20/wrapper-object/"/>
+    <updated>2013-10-20T04:02:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/10/20/wrapper-object</id>
+    <content type="html"><![CDATA[<p><a href="http://ackintosh.github.io/blog/2013/10/18/php-testability/">前回</a>、グローバル関数への依存について書いたので
+その流れでWordPressプラグインのテストについて。</p>
+
+<!-- more -->
+
+
+<p>投稿やコメント等を取得するためにWordPressが用意してる関数は
+グローバル関数がほとんどです。</p>
+
+<p>なので、テーマのカスタマイズやらプラグインを作る時に
+テスタビリティを意識しないとグローバル関数に依存しまくったコードになっちゃいます。</p>
+
+<p>例えば、下記は新着投稿を表示するプラグインなんかでよくあるコードだと思います。</p>
+
+<script src="https://gist.github.com/ackintosh/7060084.js?file=1.php"></script>
+
+
+<p>これをテストコードで保護するには最低限下記パターンが必要です。</p>
+
+<ul>
+<li>get_postsの戻り値が配列でなければ(新着投稿がなければ)、nullを返す</li>
+<li>get_postsの戻り値が配列であれば(新着投稿があれば)、その後の処理をして値を返す</li>
+</ul>
+
+
+<p>ですがグローバル関数に依存していると、これを実現するのは難しい。</p>
+
+<p>そこで、関数のラッパーオブジェクト(Proxy)を使います。</p>
+
+<script src="https://gist.github.com/ackintosh/7060084.js?file=2.php"></script>
+
+
+<p>FooクラスはコンストラクタでFooProxyクラスを受け取っていて、
+FooProxyクラスはグローバル関数に処理を委譲しているだけです。</p>
+
+<p>で、テストコードではFooProxyクラスをモックに差し替えればOKです。
+例えば</p>
+
+<blockquote><p>・get_postsの戻り値が配列でなければ(新着投稿がなければ)、nullを返す</p></blockquote>
+
+<p>のパターンのテストコードは下記のようになります。</p>
+
+<script src="https://gist.github.com/ackintosh/7060084.js?file=3.php"></script>
+
+
+<p>同様にして他パターンもテストできます。</p>
+
+<p>これで、モックによってget_postsが返す値を明示することで
+Foo::bar() の振る舞いを網羅的にテストできるようになりました。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[グローバル関数への依存を排除してテスタビリティを上げる]]></title>
@@ -914,67 +971,6 @@ zsh: no matches found: new_post[hoge]
 <h4>2. クォーテーションで囲む</h4>
 
 <pre><code>$ rake "new_post[hoge]"
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[シェルをzshに変更]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/02/using-zsh/"/>
-    <updated>2013-02-02T20:05:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/02/using-zsh</id>
-    <content type="html"><![CDATA[<p>※随時更新予定です。</p>
-
-<h2>現在のシェルを確認</h2>
-
-<pre><code>$ echo $SHELL
-</code></pre>
-
-<h2>使えるシェルを確認</h2>
-
-<pre><code>$ cat /etc/shells
-</code></pre>
-
-<!-- more-->
-
-
-<h2>zshに変更</h2>
-
-<pre><code>$ chsh -s /bin/zsh
-</code></pre>
-
-<h2>oh-my-zshのインストール</h2>
-
-<pre><code>$ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-</code></pre>
-
-<h3>テーマ変更</h3>
-
-<pre><code>$ vi ~/.zshrc
-ZSH_THEME="テーマ名"
-</code></pre>
-
-<h3>テーマ一覧</h3>
-
-<p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">https://github.com/robbyrussell/oh-my-zsh/wiki/themes</a></p>
-
-<h2>Git の作業コピーに変更があるかどうかをプロンプトに表示する</h2>
-
-<p><a href="http://mollifier.hatenablog.com/entry/20100906/p1">http://mollifier.hatenablog.com/entry/20100906/p1</a></p>
-
-<h3>※oh-my-zshのアンインストール</h3>
-
-<pre><code>$ uninstall_oh_my_zsh
-</code></pre>
-
-<h2>ターミナルからSublime Textを起動する設定</h2>
-
-<pre><code>$ vi ~/.zshrc
-
-alias st="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
-
-$ source ~/.zshrc
 </code></pre>
 ]]></content>
   </entry>
