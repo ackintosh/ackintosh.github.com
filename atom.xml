@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-10-20T04:16:47+09:00</updated>
+  <updated>2013-10-22T00:52:58+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[spika hackathonに参加しました]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/"/>
+    <updated>2013-10-21T22:06:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon</id>
+    <content type="html"><![CDATA[<p>先日、<a href="http://connpass.com/event/3698/" target="_blank">spika hackathon</a>に参加してきました。</p>
+
+<p><a href="http://spikaapp.com/ja/" target="_blank">Spika - world first opensource messenger for ios/android</a></p>
+
+<p>今回のハッカソン関係者のみなさんもブログに書かれていますので、</p>
+
+<p>Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。</p>
+
+<p><a href="http://cloverstudioceo.hatenablog.com/entry/2013/10/21/033700" target="_blank">Spikaを公開して起こった事 - ヨーロッパで働く社長のブログ</a></p>
+
+<p><a href="http://kuzuha.hatenablog.com/entry/2013/10/21/214116" target="_blank">spika hackathon というのをやった - id:k-z-h</a></p>
+
+<p><a href="http://blog.yuyat.jp/" target="_blank">Spika Hackathon に参加してきた - Born Too Late</a></p>
+
+<p>要するに↑を見れば全てわかるので</p>
+
+<p>この記事に意味はありません。</p>
+
+<!-- more -->
+
+
+<h3>動機</h3>
+
+<p>この記事を見ている方はご存知だと思いますが、Spikaはコードの品質の低さで話題になりました。</p>
+
+<p>で、自分もSpikaのコードを見て同じような印象を持ったのですが、</p>
+
+<p><em>これなら、自分みたいにショボいプログラマでも何かできるんじゃないか…！？</em></p>
+
+<p>と思ったのがハッカソンに参加した動機です。</p>
+
+<p>（貢献したいというよりは、自分の経験値を上げたいという）</p>
+
+<p>趣味で一人でgithub使っててもつまらないし</p>
+
+<p>ソーシャルコーディングとかプルリクエストとか楽しそうだし</p>
+
+<p>なんかカッコイイなぁ、自分も参加したいなぁと思いながらリポジトリを見渡しても</p>
+
+<p>何か難しそうだし、英語ばっかりだし(当たり前か…)って感じで悶々とする日々が続いてました。</p>
+
+<p>なんていうか、高速道路の中央分離帯に立っているような感じで、</p>
+
+<p>流れに入りたいけど何も出来ない…みたいな(?)。</p>
+
+<p>なので、それを打破するチャンスかなと思ったので参加しました。</p>
+
+<h3>やったこと</h3>
+
+<p><em>二人の素晴らしいhackerの隣で黙々とテスト書いてました。</em></p>
+
+<p>テストを書こうと最初から決めていたのですが、</p>
+
+<p>ハッカソン直前にオーナーがSilexで書きなおしてたので、</p>
+
+<p>やべ！Silex触ったこと無い！</p>
+
+<p>と、かなり焦りましたがなんとかなりました。</p>
+
+<p>むしろテスト書きやすかったです。WebTestCaseっていうのがあったので使いました、素晴らしいですね。</p>
+
+<p>正直、ハッカソンに参加するまでプルリクエスト3回位しかやったことなかったので</p>
+
+<p>リポジトリの扱いでわからないことがあって参加者の皆さんにご迷惑をかけてしまいました。</p>
+
+<p>developブランチでSilexで書きなおしてたのに</p>
+
+<p>自分が間違ってmasterブランチにプルリクエストしてしてしまったり。</p>
+
+<p>（そしてそれがmergeされてしまったり）</p>
+
+<p>再度謝罪いたしますm(<em> </em>)m</p>
+
+<h3>まとめ</h3>
+
+<p>やっぱり自分が書いたコードがmergeされた時はちょっとした感動がありました。</p>
+
+<p>（ハッカソンでは一切表に出しませんでしたが、密かに感動してました）</p>
+
+<p>あと、自分みたいに高速道路の中央分離帯に立っている人って意外といるんじゃないかなぁと思いますので</p>
+
+<p>そういう人は、エイッと飛び込んでみると良いかもしれません。
+自分も引き続きがんばります。</p>
+
+<p>それと、自分は群馬在住なので1日目は都内のカプセルホテルに泊まりました。</p>
+
+<p><a href="http://travel.rakuten.co.jp/HOTEL/104580/">カプセルランド　湯島 【楽天トラベル】</a></p>
+
+<p>当日予約ができてサウナあり、無料モーニングパンサービスありで</p>
+
+<p>値段の割には良いと思います。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン]]></title>
@@ -943,35 +1042,6 @@ Subjectの機能をモジュールとして実装。</p>
 
 <script src="https://gist.github.com/4701126.js"></script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopressで記事が作れない(zsh)]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/02/cant-create-post/"/>
-    <updated>2013-02-02T20:19:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/02/cant-create-post</id>
-    <content type="html"><![CDATA[<p>zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。</p>
-
-<pre><code>$ rake new_post[hoge]
-zsh: no matches found: new_post[hoge]
-</code></pre>
-
-<!-- more -->
-
-
-<p>ググったら２つ解決策を発見。<br/>
-<a href="https://github.com/imathis/octopress/issues/117">https://github.com/imathis/octopress/issues/117</a></p>
-
-<h4>1. aliasを設定する</h4>
-
-<pre><code>$ alias rake="noglob rake"
-</code></pre>
-
-<h4>2. クォーテーションで囲む</h4>
-
-<pre><code>$ rake "new_post[hoge]"
-</code></pre>
 ]]></content>
   </entry>
   
