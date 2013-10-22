@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-10-22T01:02:33+09:00</updated>
+  <updated>2013-10-22T22:41:11+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -191,6 +191,9 @@ Foo::bar() の振る舞いを網羅的にテストできるようになりまし
 
 <script src="https://gist.github.com/ackintosh/7026140.js?file=4.php"></script>
 
+
+<p>こちらにもっと良い方法が解説されてます。<br/>
+<a href="http://phpmentors.jp/post/46982737824" target="_blank">PHPメンターズ -&gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める</a></p>
 ]]></content>
   </entry>
   
