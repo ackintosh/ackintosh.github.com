@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-10-22T22:41:11+09:00</updated>
+  <updated>2013-11-23T11:37:28+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[当たり前のことだけど自戒を込めて]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/11/23/a-matter-of-course/"/>
+    <updated>2013-11-23T11:21:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/11/23/a-matter-of-course</id>
+    <content type="html"><![CDATA[<p>当たり前のことだけど自戒を込めて。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;hoge&quot;</span> <span class="k">if</span> <span class="n">a?</span> <span class="o">||</span> <span class="n">b?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>if式の条件として、a? が先が良いのか、あるいは b? が先か。<br/>
+ちゃんと考えて実装しなくちゃいけない。</p>
+
+<!-- more -->
+
+
+<p>例えば</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">a?</span>
+</span><span class='line'>  <span class="nb">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># 重い処理</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">b?</span>
+</span><span class='line'>  <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この場合は b? が先の方が良いですよね。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[spika hackathonに参加しました]]></title>
@@ -990,41 +1033,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 <a href="https://gist.github.com/ackintosh/4760829">ackintosh / gist:4760829</a></p>
 
 <script src="https://gist.github.com/ackintosh/4760829.js"></script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[RubyでObserverパターン]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby/"/>
-    <updated>2013-02-03T19:11:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby</id>
-    <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
-
-<p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
-オブジェクト同士を結合させることがないので、スパゲッティにならずにすむ。<br/>
-情報を通知するクラスをサブジェクト(Subject)、情報を受け取るクラスをオブザーバ(Observer)と呼ぶ。</p>
-
-<!-- more -->
-
-
-<h4>gistfile1.rb</h4>
-
-<p>Subject: Employee<br/>
-Observer: Payroll, TaxMan<br/>
-Subjectの機能をモジュールとして実装。</p>
-
-<h4>gistfile2.rb</h4>
-
-<p>Ruby標準のObservableモジュールを使った場合。</p>
-
-<h4>gistfile3.rb</h4>
-
-<p>Observerをコードブロックで実装した場合。</p>
-
-<p><a href="https://gist.github.com/4701126">https://gist.github.com/4701126</a></p>
-
-<script src="https://gist.github.com/4701126.js"></script>
 
 ]]></content>
   </entry>
