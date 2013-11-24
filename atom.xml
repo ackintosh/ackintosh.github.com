@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-25T00:17:00+09:00</updated>
+  <updated>2013-11-25T01:02:30+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -91,6 +91,8 @@
 
 
 <p>composerに対応してますが、PHP5.2等の環境も考慮して名前空間は使っていません。</p>
+
+<p>そもそもこれを使わずに済めば良いんですが…(・_・;)</p>
 ]]></content>
   </entry>
   
