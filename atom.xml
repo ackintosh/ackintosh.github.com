@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-23T11:37:28+09:00</updated>
+  <updated>2013-11-24T16:19:23+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,141 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyの制御構造は式]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression/"/>
+    <updated>2013-11-24T15:58:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression</id>
+    <content type="html"><![CDATA[<blockquote><p>Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものがあります</p></blockquote>
+
+<p><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html" target="_blank">Ruby 2.0.0 リファレンスマニュアル > 制御構造</a></p>
+
+<p>PHP脳な自分には最初ピンとこなかったのでメモ代わりに。</p>
+
+<!-- more -->
+
+
+<h3>if</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mes</span> <span class="o">=</span> <span class="k">if</span> <span class="p">(</span><span class="kp">true</span><span class="p">)</span> <span class="k">then</span> <span class="s2">&quot;hoge&quot;</span> <span class="k">else</span> <span class="s2">&quot;fuga&quot;</span> <span class="k">end</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">mes</span>
+</span><span class='line'><span class="c1"># hoge</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span> <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;hoge&#39;</span><span class="p">;</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;fuga&#39;</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$mes</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// hoge</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>case</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="mi">29</span>
+</span><span class='line'><span class="n">mes</span> <span class="o">=</span> <span class="k">case</span> <span class="n">age</span>
+</span><span class='line'>      <span class="k">when</span> <span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">9</span>
+</span><span class='line'>        <span class="s2">&quot;child&quot;</span>
+</span><span class='line'>      <span class="k">when</span> <span class="mi">10</span><span class="o">.</span><span class="n">.</span><span class="mi">19</span>
+</span><span class='line'>        <span class="s2">&quot;teenager&quot;</span>
+</span><span class='line'>      <span class="k">when</span> <span class="mi">20</span><span class="o">.</span><span class="n">.</span><span class="mi">29</span>
+</span><span class='line'>        <span class="s2">&quot;adult&quot;</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="s2">&quot;other&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">mes</span>
+</span><span class='line'><span class="c1"># adult</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="nv">$age</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+</span><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="nv">$age</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="nb">in_array</span><span class="p">(</span><span class="nv">$age</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span><span class="o">:</span>
+</span><span class='line'>        <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;child&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="nb">in_array</span><span class="p">(</span><span class="nv">$age</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span><span class="o">:</span>
+</span><span class='line'>        <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;teenager&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">case</span> <span class="nb">in_array</span><span class="p">(</span><span class="nv">$age</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">))</span><span class="o">:</span>
+</span><span class='line'>        <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;adult&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">default</span><span class="o">:</span>
+</span><span class='line'>        <span class="nv">$mes</span> <span class="o">=</span> <span class="s1">&#39;other&#39;</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">echo</span> <span class="nv">$mes</span><span class="p">;</span>
+</span><span class='line'><span class="c1">// adult</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Rubyの方がシュッとしてます。</p>
+
+<p>caseについては下記が大変勉強になりました。<br/>
+<a href="http://melborne.github.io/2013/02/25/i-wanna-say-something-about-rubys-case/" target="_blank">Rubyのcaseを〇〇(言語名)のswitch文だと思っている人たちにぼくから一言ガツンと申し上げたい</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[当たり前のことだけど自戒を込めて]]></title>
@@ -1000,40 +1135,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 </code></pre>
 
 <p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/xdebug_error.png" alt="Xdebug Error" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[群馬でアルゴリズムを学んできました]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/17/learn-the-algorithm-in-gunma/"/>
-    <updated>2013-02-17T00:01:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/17/learn-the-algorithm-in-gunma</id>
-    <content type="html"><![CDATA[<p>まさか邑楽町で勉強会をやることになるなんて・・・夢にも思いませんでした。</p>
-
-<p><a href="http://atnd.org/events/36390">群馬でアルゴリズムを学ぼう - 第1回 アルゴリズムと計算量</a></p>
-
-<!-- more -->
-
-
-<p>１人で勉強してる場合、分からないことにぶつかると、、<br/>
-「これはこーゆーモノだ！」と取り敢えず自分に思い込ませて先に進まないといけなかったりしたのですが、<br/>
-勉強会だと「その場で不明点を挙げる -> 理解できるまで落とし込んでいく」という流れがあって<br/>
-すごく濃い時間が過ごせていたなぁと感じました。</p>
-
-<p>まるで、目の前に立ちはだかっていた巨大な氷山が徐々に溶けていくような感覚がありました。</p>
-
-<p>それと、自分が引っかかっていたポイントって他の方達も一緒だったりして、<br/>
-妙な安心感(？)みたいなものもあったり・・・ｗ</p>
-
-<p>ツルマウ先生、参加者のみなさまありがとうございました。<br/>
-(遠方からありがとうございました)</p>
-
-<p>ちなみにこの日書いた(写経した)コードはこちらです。<br/>
-ペチパーな僕はPHPで書いてました。<br/>
-<a href="https://gist.github.com/ackintosh/4760829">ackintosh / gist:4760829</a></p>
-
-<script src="https://gist.github.com/ackintosh/4760829.js"></script>
-
 ]]></content>
   </entry>
   

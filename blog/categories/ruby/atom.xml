@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-23T11:37:28+09:00</updated>
+  <updated>2013-11-24T16:19:23+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyの制御構造は式]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression/"/>
+    <updated>2013-11-24T15:58:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression</id>
+    <content type="html"><![CDATA[<blockquote><p>Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものがあります</p></blockquote>
+
+<p><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html" target="_blank">Ruby 2.0.0 リファレンスマニュアル > 制御構造</a></p>
+
+<p>PHP脳な自分には最初ピンとこなかったのでメモ代わりに。</p>
+
+<!-- more -->
+
+
+<h3>if</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<p>```ruby
+mes = if (true) then "hoge" else "fuga" end
+puts mes</p>
+
+<h1>hoge</h1>
+
+<p>```</p>
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<p><code>php
+&lt;?php
+if (true) { $mes = 'hoge'; } else { $mes = 'fuga'; }
+echo $mes;
+// hoge
+</code></p>
+
+<h3>case</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<p>```ruby
+age = 29
+mes = case age</p>
+
+<pre><code>  when 1..9
+    "child"
+  when 10..19
+    "teenager"
+  when 20..29
+    "adult"
+  else
+    "other"
+  end
+</code></pre>
+
+<p>puts mes</p>
+
+<h1>adult</h1>
+
+<p>```</p>
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<p>```php
+&lt;?php
+$age = 29;
+switch ($age) {</p>
+
+<pre><code>case in_array($age, range(1, 9)):
+    $mes = 'child';
+    break;
+case in_array($age, range(10, 19)):
+    $mes = 'teenager';
+    break;
+case in_array($age, range(20, 29)):
+    $mes = 'adult';
+    break;
+default:
+    $mes = 'other';
+    break;
+</code></pre>
+
+<p>}
+echo $mes;
+// adult
+```</p>
+
+<p>Rubyの方がシュッとしてます。</p>
+
+<p>caseについては下記が大変勉強になりました。<br/>
+<a href="http://melborne.github.io/2013/02/25/i-wanna-say-something-about-rubys-case/" target="_blank">Rubyのcaseを〇〇(言語名)のswitch文だと思っている人たちにぼくから一言ガツンと申し上げたい</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ハイフンとアンダースコアの使い分け]]></title>
@@ -233,32 +338,6 @@ Subjectの機能をモジュールとして実装。</p>
 
 <p>埋め込んだコードが表示されない場合はこちら<br/>
 → <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[RubyでTemplate Methodパターン]]></title>
-    <link href="http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/"/>
-    <updated>2012-10-24T20:45:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby</id>
-    <content type="html"><![CDATA[<p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
-
-<p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
-
-<!-- more -->
-
-
-<p><em>output_start</em> メソッドや <em>output_end</em> メソッドのように、<br/>
-<em>Template Methodの具象クラスによってオーバーライドできる非抽象メソッド</em><br/>
-を<strong>フックメソッド</strong> という。</p>
-
-<script src="https://gist.github.com/3945597.js?file=gistfile1.rb"></script>
-
-
-<p></p>
-
-<p>埋め込んだコードが表示されない場合はこちら
-→ <a href="https://gist.github.com/3945597">https://gist.github.com/3945597</a></p>
 ]]></content>
   </entry>
   
