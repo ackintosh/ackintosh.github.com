@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-24T16:19:23+09:00</updated>
+  <updated>2013-11-25T00:17:00+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[クラス／関数宣言だけをインクルードできるライブラリを作りました]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/11/24/toumi/"/>
+    <updated>2013-11-24T22:31:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/11/24/toumi</id>
+    <content type="html"><![CDATA[<p>クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、<br/>
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊)　という状況ありませんか？</p>
+
+<!-- more -->
+
+
+<p>例えば</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">require_once</span> <span class="s1">&#39;xxx.php&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> <span class="nf">hoge</span><span class="p">(</span><span class="nv">$arg</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="s1">&#39;hoge&#39;</span> <span class="o">.</span> <span class="nv">$arg</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">somefunction</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;hoge&#39;</span><span class="p">,</span> <span class="nx">hoge</span><span class="p">(</span><span class="s1">&#39;fuga&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;hoge.html&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">exit</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じのコードがあって、hoge()関数のテストを書きたい時<br/>
+関数宣言の部分だけインクルードできれば、既存コードに一切手を入れずにテスト書き始められます。</p>
+
+<p>ということで作りました。</p>
+
+<p><a href="https://github.com/ackintosh/toumi" target="_blank">ackintosh / toumi</a></p>
+
+<p>このライブラリを使って上記スクリプトをインクルードすれば、<br/>
+下記のようにテストが書けます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="c1">// Only function declaration is included.</span>
+</span><span class='line'><span class="nx">Ackintosh_Toumi</span><span class="o">::</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;legacy.php&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">LegacyTest</span> <span class="k">extends</span> <span class="nx">PHPUnit_Framework_TestCase</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">test_hoge</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="s1">&#39;hogefuga&#39;</span><span class="p">,</span> <span class="nx">hoge</span><span class="p">(</span><span class="s1">&#39;fuga&#39;</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>composerに対応してますが、PHP5.2等の環境も考慮して名前空間は使っていません。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyの制御構造は式]]></title>
@@ -1095,46 +1176,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 
 <script src="https://gist.github.com/ackintosh/5180548.js"></script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SublimeText2 + MAMPでXdebugを使う]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2/"/>
-    <updated>2013-02-24T15:23:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/02/24/using-xdebug-on-st2</id>
-    <content type="html"><![CDATA[<p>こんな素敵なブログ記事がありましたので試してみました。<br/>
-<a href="http://www.calmtech.net/2012/12/18/st2-mamp-xdebug/" target="_blank">Sublime Text 2 + MAMP + Xdebug でPHPデバッグをする方法</a></p>
-
-<p>自分用にメモを残しておきます。</p>
-
-<!-- more -->
-
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/st2_xdebug.png" alt="ST2+Xdebug" /></p>
-
-<h2>Package ControlでSublimeXdebugをインストール</h2>
-
-<p><a href="https://github.com/Kindari/SublimeXdebug" target="_blank">Kindari / SublimeXdebug</a></p>
-
-<ul>
-<li>Ctrl + Shift + p でコマンドパレットを表示</li>
-<li>install とタイプするとPackage Control: Install PackageがハイライトされるのでEnter</li>
-<li>xdebug とタイプするとSublimeXDebugがハイライトされるのでEnter</li>
-</ul>
-
-
-<h2>php.iniに設定追加</h2>
-
-<script src="https://gist.github.com/ackintosh/5022883.js"></script>
-
-
-<p>dbgpをクォーテーションで囲った状態だとエラーになりました。</p>
-
-<pre><code>xdebug.remote_handler="dbgp"
-</code></pre>
-
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/2013/02/xdebug_error.png" alt="Xdebug Error" /></p>
 ]]></content>
   </entry>
   

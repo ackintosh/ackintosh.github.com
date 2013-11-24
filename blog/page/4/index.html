@@ -101,6 +101,77 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">traitを使ってObserverパターンを書いてみました。</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-16T16:43:00+09:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+        
+      </p>
+    
+    <p></p>
+  </header>
+
+
+  <div class="entry-content"><p>php5.4の目玉機能の１つ、trait。<br/>
+RubyのMix-in的なことができると噂は聞いていたのですが、今までなんとなくスルーしてました・・・。</p>
+
+<p>そんな中、phpカンファレンス2012に行ってモチベーションアップしてきたので勉強！<br/>
+使い方はphpマニュアルにとても詳しく書いてあったので助かりました。感謝。<br/>
+<a href="http://php.net/manual/ja/language.oop5.traits.php">http://php.net/manual/ja/language.oop5.traits.php</a></p>
+
+<p>そんな学びたてホヤホヤのtraitを使ってObserverパターンを書いてみました。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/16/sample-of-observer-pattern-using-php5-dot-4/">Continue reading</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4 masonry-brick">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/09/02/md2note/">Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</a></h1>
     
     
@@ -861,93 +932,6 @@ posted in
 
       </article>
     
-    
-      <article class="span4 masonry-brick">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/18/benchmark-of-bulk-insert/">MySQL(InnoDB)でバルクinsertのベンチマークとってみました</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-18T00:33:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/mysql/'>MySQL</a>
-  
-</span>
-
-
-        
-      </p>
-    
-    <p></p>
-  </header>
-
-
-  <div class="entry-content"><h2>テーブル作成</h2>
-
-<pre><code>create table test (
-id int(11) unsigned auto_increment primary key,
-name varchar(255) not null,
-created datetime not null
-);
-</code></pre>
-
-<h2>通常のinsert文</h2>
-
-<pre><code>insert into test (name, created) values ('name1', now());
-insert into test (name, created) values ('name2', now());
-・・・ 10,000回
-</code></pre>
-
-<p>結果<br/>
-<em>6.39秒</em></p>
-
-<h2>バルクinsert</h2>
-
-<pre><code>insert into test (name, created) values ('name1', now()), ('name2', now()) ・・・
-・・・10,000回
-</code></pre>
-
-<p>結果<br/>
-<em>0.20秒</em></p>
-
-<p>全然違う(・∀・)</p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -975,6 +959,10 @@ insert into test (name, created) values ('name2', now());
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2013/11/24/toumi/">クラス／関数宣言だけをインクルードできるライブラリを作りました</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/11/24/control-structures-in-ruby-is-expression/">Rubyの制御構造は式</a>
         </li>
       
@@ -988,10 +976,6 @@ insert into test (name, created) values ('name2', now());
       
         <li>
           <a href="/blog/2013/10/20/wrapper-object/">ラッパーオブジェクトを使ってテスタビリティを上げる〜WordPressプラグイン</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/10/18/php-testability/">グローバル関数への依存を排除してテスタビリティを上げる</a>
         </li>
       
     </ul>
