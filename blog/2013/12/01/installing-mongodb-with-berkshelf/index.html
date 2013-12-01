@@ -159,6 +159,8 @@ posted in
 
 <h3>Berksfile</h3>
 
+<p>githubで公開されてるcookbookを使っています。</p>
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>cookbook 'mongodb', git:'git@github.com:edelight/chef-mongodb.git'</span></code></pre></td></tr></table></div></figure>
 
@@ -175,7 +177,7 @@ posted in
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>config.vm.provision :chef_solo do |chef|
-</span><span class='line'>  chef.run_list = ["hello", "mongodb"]
+</span><span class='line'>  chef.run_list = ["hello", "mongodb::10gen_repo", "mongodb"]
 </span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
 
 
