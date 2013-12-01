@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-25T01:02:30+09:00</updated>
+  <updated>2013-12-01T17:37:24+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Berkshelfを使ってMongoDBをインストール]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/12/01/installing-mongodb-with-berkshelf/"/>
+    <updated>2013-12-01T17:25:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/12/01/installing-mongodb-with-berkshelf</id>
+    <content type="html"><![CDATA[<p>メモ。<br/>
+下記チュートリアル後にやる前提です。</p>
+
+<p><a href="http://qiita.com/taiki45/items/b46a2f32248720ec2bae" target="_blank">
+今っぽい Vagrant + Chef Solo チュートリアル</a></p>
+
+<!-- more -->
+
+
+<h3>Berksfile</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cookbook 'mongodb', git:'git@github.com:edelight/chef-mongodb.git'</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>githubからcookbookと依存cookbookをインストール</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ berks --path=site-cookbooks</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Vagrantfile</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>config.vm.provision :chef_solo do |chef|
+</span><span class='line'>  chef.run_list = ["hello", "mongodb"]
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>仮想マシン起動</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ vagrant up</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>確認</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ mongo --version</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[クラス／関数宣言だけをインクルードできるライブラリを作りました]]></title>
@@ -1159,24 +1211,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 <li><a href="http://prezi.com/9brwewgcxtr2/javascript/" target="_blank">javascript で遊ぶラムダ式、クロージャ、カリー化</a></li>
 <li><a href="http://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96" target="_blank">カリー化 - Wikipedia</a></li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPでマージソート]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php/"/>
-    <updated>2013-03-17T21:03:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/03/17/mergesort-in-php</id>
-    <content type="html"><![CDATA[<p>1から自分で実装してみたかったので、
-あえてarray系関数は使わないようにしてます。</p>
-
-<!-- more -->
-
-
-
-
-<script src="https://gist.github.com/ackintosh/5180548.js"></script>
 
 ]]></content>
   </entry>

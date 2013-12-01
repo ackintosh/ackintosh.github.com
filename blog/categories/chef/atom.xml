@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Chef | 暁 [stfuawsc]]]></title>
+  <title><![CDATA[Category: chef | 暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/blog/categories/chef/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2013-11-25T01:02:30+09:00</updated>
+  <updated>2013-12-01T17:37:24+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -14,61 +14,50 @@
 
   
   <entry>
-    <title type="html"><![CDATA[ChefでPHPをインストール]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef/"/>
-    <updated>2013-05-06T16:45:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/05/06/install-php-by-chef</id>
-    <content type="html"><![CDATA[<p>Opscode Communiityでレシピが提供されていますが、練習のために自分で作成します。</p>
+    <title type="html"><![CDATA[Berkshelfを使ってMongoDBをインストール]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/12/01/installing-mongodb-with-berkshelf/"/>
+    <updated>2013-12-01T17:25:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/12/01/installing-mongodb-with-berkshelf</id>
+    <content type="html"><![CDATA[<p>メモ。<br/>
+下記チュートリアル後にやる前提です。</p>
 
-<p><a href="http://community.opscode.com/cookbooks/php" target="_blank">Chef Cookbook: php - Opscode Community</a></p>
-
-<ul>
-<li><em>対象ノードを192.168.50.12で設定しています。</em></li>
-<li><em>実運用では、Template Resouceを利用してphp.iniを設定する等が必要になります。</em></li>
-</ul>
-
+<p><a href="http://qiita.com/taiki45/items/b46a2f32248720ec2bae" target="_blank">
+今っぽい Vagrant + Chef Solo チュートリアル</a></p>
 
 <!-- more -->
 
 
-<h3>クックブック作成</h3>
+<h3>Berksfile</h3>
 
-<pre><code>$ knife cookbook create php
+<p><code>
+cookbook 'mongodb', git:'git@github.com:edelight/chef-mongodb.git'
+</code></p>
 
-** Creating cookbook php
-** Creating README for cookbook: php
-** Creating CHANGELOG for cookbook: php
-** Creating metadata for cookbook: php
-</code></pre>
+<h3>githubからcookbookと依存cookbookをインストール</h3>
 
-<h3>レシピを編集</h3>
+<p><code>
+$ berks --path=site-cookbooks
+</code></p>
 
-<p><code>cookbooks/php/recipes/default.rb</code></p>
+<h3>Vagrantfile</h3>
 
-<pre><code>package "php" do
-  action :install
+<p><code>
+config.vm.provision :chef_solo do |chef|
+  chef.run_list = ["hello", "mongodb"]
 end
-</code></pre>
+</code></p>
 
-<h3>jsonのrun_listに追加</h3>
+<h3>仮想マシン起動</h3>
 
-<p><code>nodes/192.168.50.12.json</code></p>
+<p><code>
+$ vagrant up
+</code></p>
 
-<pre><code>{
-  "run_list" : [
-    "php"
-  ]
-}
-</code></pre>
+<h3>確認</h3>
 
-<h3>レシピをノードに適用</h3>
-
-<pre><code>$ knife solo cook 192.168.50.12
-
-Recipe: php::default
-  * package[php] action install
-    - install version 5.3.3-22.el6 of package php
-</code></pre>
+<p><code>
+$ mongo --version
+</code></p>
 ]]></content>
   </entry>
   
