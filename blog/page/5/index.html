@@ -101,6 +101,93 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/07/27/deprecated-php-mysql-extension/">PHP5.3以降、mysql拡張モジュールは非推奨</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-27T19:37:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mysql/'>MySQL</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+        
+      </p>
+    
+    <p></p>
+  </header>
+
+
+  <div class="entry-content"><h2>代替として、mysqli拡張モジュールやPDO(PHP Data Object)ドライバが用意されている。</h2>
+
+<ul>
+<li><p>mysqli拡張モジュール<br/>
+<a href="http://php.net/manual/ja/book.mysqli.php">http://php.net/manual/ja/book.mysqli.php</a></p></li>
+<li><p>PDO_MYSQL<br/>
+<a href="http://www.php.net/manual/ja/ref.pdo-mysql.php">http://www.php.net/manual/ja/ref.pdo-mysql.php</a></p></li>
+</ul>
+
+
+<p>古いmysql関数も含めた3つの機能の比較表がありました。
+<a href="http://www.php.net/manual/ja/mysqlinfo.api.choosing.php">http://www.php.net/manual/ja/mysqlinfo.api.choosing.php</a></p>
+
+<p>新しいモジュールでは、
+* OOPインターフェース
+* プリペアドステートメント
+* ストアドプロシージャ
+* トランザクション<br/>
+をAPIレベルでサポートしている。</p>
+
+<h2>オブジェクト指向型が使えるのでラッパークラスを定義できる</h2>
+
+<p><a href="http://php.net/manual/ja/mysqli.real-connect.php">http://php.net/manual/ja/mysqli.real-connect.php</a></p>
+
+<pre><code>class OriginalMysqli extends mysqli
+{
+    …
+}
+</code></pre>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4 masonry-brick">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/22/install-jenkins-to-centos/">VirtualBoxのCentOSにJenkinsをインストール</a></h1>
     
     
@@ -942,6 +1029,10 @@ make: *** [mkmain.sh] Error 1</p>
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2014/02/01/is-binary-in-php/">phpでバイナリ/テキストファイルの判定</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/12/01/installing-mongodb-with-berkshelf/">Berkshelfを使ってMongoDBをインストール</a>
         </li>
       
@@ -955,10 +1046,6 @@ make: *** [mkmain.sh] Error 1</p>
       
         <li>
           <a href="/blog/2013/11/23/a-matter-of-course/">当たり前のことだけど自戒を込めて</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/10/21/spika-hackathon/">spika hackathonに参加しました</a>
         </li>
       
     </ul>
@@ -989,7 +1076,7 @@ make: *** [mkmain.sh] Error 1</p>
   <div class="container">
     <p class="pull-left">
   <a href="/">暁 [stfuawsc]</a>
-  - Copyright &copy; 2013 - Ackintosh
+  - Copyright &copy; 2014 - Ackintosh
 </p>
 <p class="pull-right">
   Powered by <a href="http://octopress.org/" target="_blank">Octopress</a>. Designed by <a href="http://www.AdrianArtiles.com" target="_blank">Adrian Artiles</a>.
