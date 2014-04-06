@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2014-04-06T16:03:06+09:00</updated>
+  <updated>2014-04-06T16:49:58+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordPressの本文から制御文字を除去するプラグイン]]></title>
+    <link href="http://ackintosh.github.io/blog/2014/04/06/wp-remove-control-character/"/>
+    <updated>2014-04-06T16:35:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2014/04/06/wp-remove-control-character</id>
+    <content type="html"><![CDATA[<p>久々に WordPress のプラグインを作りました。</p>
+
+<p><a href="https://github.com/ackintosh/wp-remove-control-character" target="_blank">https://github.com/ackintosh/wp-remove-control-character</a></p>
+
+<!-- more -->
+
+
+<p>とあるサイトのRSSフィードで下記エラーが出ていて、<br/>
+調べたら記事本文に制御文字が入っていたのが原因だった。というのが作ったきっかけです。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>This page contains the following errors:
+</span><span class='line'>error on line xx at column xx: Input is not proper UTF-8, indicate encoding ! Bytes: 0x0B 0x0B 0×33 0x2E</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[phpでバイナリ/テキストファイルの判定]]></title>
@@ -1238,30 +1263,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…</p>
 <p>gistfile4.php</p>
 
 <script src="https://gist.github.com/ackintosh/5479927.js"></script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PHPでTCPサーバー]]></title>
-    <link href="http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/"/>
-    <updated>2013-04-18T22:57:00+09:00</updated>
-    <id>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php</id>
-    <content type="html"><![CDATA[<p>PHPでTCPサーバーを書いてみました。</p>
-
-<p>pcntl関数を使うには、phpソースをbuildする時に&#8211;enable-pcntlを付けないといけません。</p>
-
-<!-- more -->
-
-
-<p>個人的には、pcntl_fork()したあとswitch文で分岐する流れが、
-理解するのに苦労しました。</p>
-
-<p>ちょうどRubyで並列処理を勉強していたのですが、
-やっぱりRubyの方が直感的で書きやすいですね。  <br/>
-<a href="http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/">irbから学ぶRubyの並列処理 ~ forkからWebSocketまで</a></p>
-
-<script src="https://gist.github.com/ackintosh/5381925.js"></script>
 
 ]]></content>
   </entry>
