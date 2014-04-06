@@ -62,3 +62,7 @@ h2 {
 p {
 	font-size: 14px;
 }
+
+div.entry-content ul {
+  list-style-type: disc;
+}

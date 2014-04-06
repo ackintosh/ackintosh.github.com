@@ -4,7 +4,7 @@
   <title><![CDATA[暁 [stfuawsc]]]></title>
   <link href="http://ackintosh.github.io/atom.xml" rel="self"/>
   <link href="http://ackintosh.github.io/"/>
-  <updated>2014-02-01T17:47:59+09:00</updated>
+  <updated>2014-04-06T16:03:06+09:00</updated>
   <id>http://ackintosh.github.io/</id>
   <author>
     <name><![CDATA[Ackintosh]]></name>
@@ -34,17 +34,83 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
+<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
 </span><span class='line'><span class="nv">$result</span> <span class="o">=</span> <span class="nb">preg_match</span><span class="p">(</span><span class="s1">&#39;#\0#&#39;</span><span class="p">,</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">));</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;binary&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="k">elseif</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="k">echo</span> <span class="s1">&#39;text&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>より良い方法がありましたらご教授ください m(＿ ＿)m</p>
+
+<h3>2014-04-06 追記</h3>
+
+<p>はてブでコメントいただいた方法を試しました。</p>
+
+<ul>
+<li>NULLバイトを含むかの判定だけなので strpos で事足りる。</li>
+<li>対象ファイルのサイズが大きいと色々と困るので stream を使う。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'><span class="k">function</span> <span class="nf">is_binary</span><span class="p">(</span><span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">while</span> <span class="p">(</span><span class="nv">$line</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="nv">$fp</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$line</span><span class="p">,</span> <span class="s1">&#39;\0&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$fp</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>900MB のバイナリファイルを使って、最初のスクリプトと実行時間を比較しました。</p>
+
+<p>最初のスクリプト</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$ time php 1.php</span>
+</span><span class='line'><span class="x">php 1.php  0.37s user 2.09s system 6% cpu 35.830 total</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改善後</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">$ time php 2.php</span>
+</span><span class='line'><span class="x">php 2.php  0.04s user 0.02s system 49% cpu 0.116 total</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>全然違う…！(・∀・)<br/>
+最初のなんか、時間を測る以前に Allowed memory size エラーが出ちゃいました。。</p>
+
+<p>大変勉強になりました m(＿ ＿)m</p>
 ]]></content>
   </entry>
   
