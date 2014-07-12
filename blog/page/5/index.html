@@ -101,6 +101,77 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/08/04/using-phpunit-with-mamp/">MAMPでPHPUnitを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T16:39:00+09:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mamp/'>MAMP</a>, <a class='category' href='/blog/categories/php/'>PHP</a>
+  
+</span>
+
+
+        
+      </p>
+    
+    <p></p>
+  </header>
+
+
+  <div class="entry-content"><p>既にMAMPにインストールされている。</p>
+
+<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann.  
+</code></pre>
+
+<p>下記のようにインクルードして使う。</p>
+
+<pre><code>require_once('PHPUnit/Autoload.php');
+class HogeTest extends PHPUnit_Framework_TestCase
+{
+}
+</code></pre>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4 masonry-brick">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/28/install-phpdocumentor/">MacにphpDocumentorをインストール</a></h1>
     
     
@@ -932,78 +1003,6 @@ $ rbenv rehash</p>
 
       </article>
     
-    
-      <article class="span4 masonry-brick">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/08/octopress-plus-github/">Octopress + github でブログを始める</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Ackintosh</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-08T01:56:00+09:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time> - 
-        
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/github/'>github</a>
-  
-</span>
-
-
-        
-      </p>
-    
-    <p></p>
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
-
-<p><strong>Octopress</strong></p>
-
-<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
-
-<p><strong>github</strong></p>
-
-<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/07/08/octopress-plus-github/">Continue reading</a>
-    </footer>
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -1031,6 +1030,10 @@ posted in
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2014/07/12/php-activerecord/">php-activerecord</a>
+        </li>
+      
+        <li>
           <a href="/blog/2014/04/06/wp-remove-control-character/">WordPressの本文から制御文字を除去するプラグイン</a>
         </li>
       
@@ -1044,10 +1047,6 @@ posted in
       
         <li>
           <a href="/blog/2013/11/24/toumi/">クラス／関数宣言だけをインクルードできるライブラリを作りました</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/11/24/control-structures-in-ruby-is-expression/">Rubyの制御構造は式</a>
         </li>
       
     </ul>
