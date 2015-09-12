@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on 暁</title>
-    <link>http://ackintosh.github.io/tags/test/</link>
+    <link>http://localhost:1313/tags/test/</link>
     <description>Recent content in Test on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sun, 24 Nov 2013 15:35:00 +0900</lastBuildDate>
-    <atom:link href="http://ackintosh.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/test/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <link>http://localhost:1313/blog/2013/11/24/toumi/</link>
       <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <guid>http://localhost:1313/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
 
@@ -66,10 +66,10 @@ class LegacyTest extends PHPUnit_Framework_TestCase
     
     <item>
       <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <link>http://localhost:1313/blog/2013/10/18/php-testability/</link>
       <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <guid>http://localhost:1313/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
 

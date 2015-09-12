@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 暁</title>
-    <link>http://ackintosh.github.io/post/</link>
+    <link>http://localhost:1313/post/</link>
     <description>Recent content in Posts on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sat, 01 Feb 2014 16:25:32 +0900</lastBuildDate>
-    <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>phpでバイナリ / テキストファイルの判定</title>
-      <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
+      <link>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</link>
       <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
+      <guid>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</guid>
       <description>
 
 &lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
@@ -82,10 +82,10 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
     
     <item>
       <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <link>http://localhost:1313/blog/2013/11/24/toumi/</link>
       <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <guid>http://localhost:1313/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
 
@@ -136,10 +136,10 @@ class LegacyTest extends PHPUnit_Framework_TestCase
     
     <item>
       <title>spika hackathonに参加しました</title>
-      <link>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</link>
+      <link>http://localhost:1313/blog/2013/10/21/spika-hackathon/</link>
       <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</guid>
+      <guid>http://localhost:1313/blog/2013/10/21/spika-hackathon/</guid>
       <description>
 
 &lt;p&gt;先日、&lt;a href=&#34;http://connpass.com/event/3698/&#34; target=&#34;_blank&#34;&gt;spika hackathon&lt;/a&gt;に参加してきました。&lt;/p&gt;
@@ -219,10 +219,10 @@ target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル�
     
     <item>
       <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <link>http://localhost:1313/blog/2013/10/18/php-testability/</link>
       <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <guid>http://localhost:1313/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
 
@@ -263,10 +263,10 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
     
     <item>
       <title>遅延静的束縛は何が嬉しいのか</title>
-      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
+      <link>http://localhost:1313/blog/2013/08/25/late-static-binding/</link>
       <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
+      <guid>http://localhost:1313/blog/2013/08/25/late-static-binding/</guid>
       <description>
 
 &lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
@@ -367,10 +367,10 @@ target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: お
     
     <item>
       <title>ハイフンとアンダースコアの使い分け</title>
-      <link>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</link>
+      <link>http://localhost:1313/blog/2013/08/11/hypen-under-score/</link>
       <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</guid>
+      <guid>http://localhost:1313/blog/2013/08/11/hypen-under-score/</guid>
       <description>
 
 &lt;p&gt;ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。&lt;/p&gt;
@@ -445,10 +445,10 @@ end
     
     <item>
       <title>PHPで関数合成を書いてみる</title>
-      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
+      <link>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</link>
       <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
+      <guid>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
@@ -495,10 +495,10 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
     
     <item>
       <title>PHP用のベンチマークツールを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</link>
+      <link>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</link>
       <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
+      <guid>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</guid>
       <description>
 
 &lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
@@ -577,10 +577,10 @@ echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
     
     <item>
       <title>FuelPHPに独自のバリデーションルールを追加する</title>
-      <link>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
+      <link>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</link>
       <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
+      <guid>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
@@ -609,11 +609,32 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
     </item>
     
     <item>
+      <title>FuelPHPに独自の設定ファイルを追加する</title>
+      <link>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
+      <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
+      
+      <guid>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
+      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple, flexible, community driven PHP5.3 framework.&lt;/a&gt;
+&lt;a href=&#34;http://fuelphp.jp/&#34; target=&#34;_blank&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;設定ファイルを作成
+&lt;script src=&#34;https://gist.github.com/ackintosh/5480241.js?file=gistfile1.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;設定を読み込む
+&lt;script src=&#34;https://gist.github.com/ackintosh/5480241.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Config::load()&lt;/code&gt; の第2引数に文字列を渡すと、任意のグループ名を指定できる。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>ラムダ・クロージャ・部分適用・カリー化を一言でいうと？</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/lambda/</link>
+      <link>http://localhost:1313/blog/2013/04/18/lambda/</link>
       <pubDate>Thu, 18 Apr 2013 17:04:42 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
+      <guid>http://localhost:1313/blog/2013/04/18/lambda/</guid>
       <description>
 
 &lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
@@ -660,10 +681,10 @@ target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
     
     <item>
       <title>PHPでTCPサーバー</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
+      <link>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</link>
       <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
+      <guid>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</guid>
       <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
 
 &lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
@@ -684,10 +705,10 @@ target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSoc
     
     <item>
       <title>Octopressで記事が作れない(zsh)</title>
-      <link>http://ackintosh.github.io/blog/2013/02/02/cant-create-post/</link>
+      <link>http://localhost:1313/blog/2013/02/02/cant-create-post/</link>
       <pubDate>Sat, 02 Feb 2013 17:11:18 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/02/02/cant-create-post/</guid>
+      <guid>http://localhost:1313/blog/2013/02/02/cant-create-post/</guid>
       <description>
 
 &lt;p&gt;zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。&lt;/p&gt;
@@ -713,10 +734,10 @@ zsh: no matches found: new_post[hoge]
     
     <item>
       <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
-      <link>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
+      <link>http://localhost:1313/blog/2013/01/03/message-queue-server-with-php/</link>
       <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
+      <guid>http://localhost:1313/blog/2013/01/03/message-queue-server-with-php/</guid>
       <description>
 
 &lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;
@@ -775,10 +796,10 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
     
     <item>
       <title>RubyでTemplate Methodパターン</title>
-      <link>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</link>
+      <link>http://localhost:1313/blog/2012/10/24/template-method-pattern-in-ruby/</link>
       <pubDate>Wed, 24 Oct 2012 17:21:33 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
+      <guid>http://localhost:1313/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
       <description>&lt;p&gt;Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。&lt;/p&gt;
 
 &lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
@@ -787,29 +808,6 @@ worker.phpを実行するターミナルを増やしたりするとなお楽し�
 Template Methodの具象クラスによってオーバーライドできる非抽象メソッドをフックメソッド という。&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/ackintosh/3945597.js&#34;&gt;&lt;/script&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</title>
-      <link>http://ackintosh.github.io/blog/2012/09/02/md2note/</link>
-      <pubDate>Sun, 02 Sep 2012 16:55:06 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2012/09/02/md2note/</guid>
-      <description>&lt;p&gt;最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。&lt;br /&gt;
-ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。&lt;/p&gt;
-
-&lt;p&gt;Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。&lt;br /&gt;
-(RubyとRailsの勉強を兼ねて φ(..))&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://md2note.herokuapp.com/&#34; target=&#34;_blank&#34;&gt;Md2Note &lt;a href=&#34;http://md2note.herokuapp.com/&#34;&gt;http://md2note.herokuapp.com/&lt;/a&gt;&lt;/a&gt;&lt;br /&gt;
-上記に当てはまる方は是非使ってみてください。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png&#34; alt=&#34;https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Evernoteにログインすると、ノート一覧がでますので&lt;br /&gt;
-保存先のノートを選択してください。&lt;/p&gt;
 </description>
     </item>
     
