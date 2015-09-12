@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on 暁</title>
+    <link>http://ackintosh.github.io/tags/php/</link>
+    <description>Recent content in Php on 暁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2012</copyright>
+    <lastBuildDate>Sat, 01 Feb 2014 16:25:32 +0900</lastBuildDate>
+    <atom:link href="http://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>phpでバイナリ / テキストファイルの判定</title>
+      <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
+      <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
+      <description>
+
+&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
+
+&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+$result = preg_match(&#39;#\0#&#39;, file_get_contents($file));
+
+if ($result === 1) {
+    echo &#39;binary&#39;;
+} elseif ($result === 0) {
+    echo &#39;text&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;より良い方法がありましたらご教授ください m(＿ ＿)m&lt;/p&gt;
+
+&lt;h4 id=&#34;2014-04-06-追記:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;2014-04-06 追記&lt;/h4&gt;
+
+&lt;p&gt;はてブでコメントいただいた方法を試しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NULLバイトを含むかの判定だけなので strpos で事足りる。&lt;/li&gt;
+&lt;li&gt;対象ファイルのサイズが大きいと色々と困るので stream を使う。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+function is_binary($file) {
+    $fp = fopen($file, &#39;r&#39;);
+    while ($line = fgets($fp)) {
+        if (strpos($line, &#39;\0&#39;) !== false) {
+            fclose($fp);
+            return true;
+        }
+    }
+
+    fclose($fp);
+    return false;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;900MB のバイナリファイルを使って、最初のスクリプトと実行時間を比較しました。&lt;/p&gt;
+
+&lt;h5 id=&#34;最初のスクリプト:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;最初のスクリプト&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ time php 1.php
+php 1.php  0.37s user 2.09s system 6% cpu 35.830 total
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;改善後:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;改善後&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ time php 2.php
+php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;全然違う…！(・∀・)&lt;br /&gt;
+最初のなんか、時間を測る以前に Allowed memory size&lt;br /&gt;
+エラーが出ちゃいました。。&lt;/p&gt;
+
+&lt;p&gt;大変勉強になりました m(＿ ＿)m&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
+      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+require_once &#39;xxx.php&#39;;
+
+function hoge($arg)
+{
+    return &#39;hoge&#39; . $arg;
+}
+
+somefunction(1234);
+
+set(&#39;hoge&#39;, hoge(&#39;fuga&#39;));
+render(&#39;hoge.html&#39;);
+exit;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じのコードがあって、hoge()関数のテストを書きたい時
+関数宣言の部分だけインクルードできれば、既存コードに一切手を入れずにテスト書き始められます。&lt;/p&gt;
+
+&lt;p&gt;ということで作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/toumi&#34; target=&#34;_blank&#34;&gt;ackintosh /
+toumi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このライブラリを使って上記スクリプトをインクルードすれば、
+下記のようにテストが書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+// Only the function declaration is included.
+Ackintosh_Toumi::load(&#39;legacy.php&#39;);
+
+class LegacyTest extends PHPUnit_Framework_TestCase
+{
+    public function test_hoge()
+    {
+        $this-&amp;gt;assertSame(&#39;hogefuga&#39;, hoge(&#39;fuga&#39;));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
+      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
+今回はグローバル関数への依存について。&lt;/p&gt;
+
+&lt;p&gt;例えば下記のコードでは&lt;br /&gt;
+receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
+テストしにくくなっています。&lt;br /&gt;
+（テストは書けるけどテスト走らせる度にメールが飛ぶのはアレですね）&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=1.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a
+href=&#34;http://www.amazon.co.jp/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89-Object-Oriented-SELECTION-%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BBC%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B6%E3%83%BC%E3%82%BA/dp/4798116831&#34;
+target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&lt;br /&gt;
+グローバル関数の部分をインスタンスメソッドにして、処理をグローバル関数にまるっと委譲することで、接合部を作る方法が紹介されています。&lt;br /&gt;
+例えばこんな感じでしょうか。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=2.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;接合部となったメソッドをサブクラスでオーバーライドしてテストしてます。&lt;/p&gt;
+
+&lt;p&gt;ただ、わざわざサブクラスを定義するのも面倒な気もするし&lt;br /&gt;
+もう少しカジュアルな方法がないかなということで&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=3.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;テストのためにややプロダクションコードが増えますがメソッドの差し替えができるようになりました。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、無名関数の中でアサーションが書けるのでmail関数が受け取る引数をアサートすることもできます。&lt;/p&gt;
+
+&lt;p&gt;こんな感じです。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
+&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>遅延静的束縛は何が嬉しいのか</title>
+      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
+      <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
+      <description>
+
+&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
+target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。
+これを使用すると、静的継承のコンテキストで呼び出し元のクラスを参照できるようになります。
+より正確に言うと、遅延静的束縛は直近の “非転送コール”
+のクラス名を保存します。
+静的メソッドの場合、これは明示的に指定されたクラス (通常は ::
+演算子の左側に書かれたもの)
+となります。静的メソッド以外の場合は、そのオブジェクトのクラスとなります。
+“転送コール” とは、self:: や parent::、static:: による静的なコール、
+あるいはクラス階層の中での forward_static_call()
+によるコールのことです。 get_called_class()
+関数を使うとコール元のクラス名を文字列で取得できます。 static::
+はこのクラスのスコープとなります。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;遅延静的束縛が無いと困るとき:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛が無いと困るとき&lt;/h4&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=1.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;1,400,000が出力されるかと思いきや、0でした。&lt;br /&gt;
+・・・期待していたのと違う。&lt;/p&gt;
+
+&lt;h4 id=&#34;selfについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;selfについて&lt;/h4&gt;
+
+&lt;p&gt;PHP Manualにはこう書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;self:: あるいは CLASS による現在のクラスへの静的参照は、
+そのメソッドが属するクラス (つまり、 そのメソッドが定義されているクラス)
+に解決されます。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;つまり上記のコードでいうと、getFormattedPriceメソッドはCarクラスで定義されているので、&lt;br /&gt;
+&lt;code&gt;self::$price&lt;/code&gt; は常に &lt;code&gt;Car::$price&lt;/code&gt; に解決されることになります。&lt;/p&gt;
+
+&lt;p&gt;これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。&lt;/p&gt;
+
+&lt;h4 id=&#34;遅延静的束縛を使う:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛を使う&lt;/h4&gt;
+
+&lt;p&gt;selfの代わりにstaticを使います。
+&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;これで期待した通りの結果になりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;staticについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;staticについて&lt;/h4&gt;
+
+&lt;p&gt;PHP Manualより&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;実行時に最初にコールされたクラスを参照するようにしています。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;これにより、&lt;code&gt;static::$price&lt;/code&gt; が &lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
+
+&lt;h4 id=&#34;もう少し深く:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;もう少し深く&lt;/h4&gt;
+
+&lt;p&gt;ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。&lt;br /&gt;
+Manualには下記のようにも書かれています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;より正確に言うと、遅延静的束縛は直近の “非転送コール” のクラス名を保存します。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;例えば、
+&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=3.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;上記コードだと、staticキーワードが「 最初にコールされたクラス 」を参照しているならば&lt;br /&gt;
+&lt;code&gt;NissanNote::getDescription();&lt;/code&gt; メソッド呼び出しの結果、&lt;code&gt;static::$price&lt;/code&gt; は
+&lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されるはずですが&lt;br /&gt;
+実際には &lt;code&gt;Car::$price&lt;/code&gt; に解決されています。&lt;/p&gt;
+
+&lt;p&gt;これは、「 遅延静的束縛は直近の “非転送コール” のクラス名を保存する 」と考えると理解できます。&lt;/p&gt;
+
+&lt;p&gt;つまり、&lt;br /&gt;
+&lt;code&gt;static::$price&lt;/code&gt; の直近の非転送コールは &lt;code&gt;Car::getFormattedPrice()&lt;/code&gt;&lt;br /&gt;
+なので&lt;br /&gt;
+&lt;code&gt;static::$price&lt;/code&gt; は &lt;code&gt;Car::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
+
+&lt;p&gt;非転送コールについては、下記リンクが大変参考になりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;参考にさせていただきました:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;参考にさせていただきました。&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+href=&#34;http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings&#34;
+target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/&#34; target=&#34;_blank&#34;&gt;PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHPで関数合成を書いてみる</title>
+      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
+      <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
+target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+class Compose
+{
+    public static function _()
+    {
+        $callables = func_get_args();
+
+        return array_reduce($callables, function ($a, $b) {
+            if ($a === null) {
+                return function () use ($b) {
+                    return call_user_func_array($b, func_get_args());
+                };
+            } else {
+                return function ($arg) use ($a, $b) {
+                    return call_user_func($b, $a($arg));
+                };
+            }
+        });
+
+    }
+}
+
+
+$mapUcfirst = function ($arg) {
+    return array_map(&#39;ucfirst&#39;, $arg);
+};
+
+$splitWithUnderscore = function ($arg) {
+    return explode(&#39;_&#39;, $arg);
+};
+
+
+$camelize = Compose::_($splitWithUnderscore, $mapUcfirst, &#39;join&#39;);
+var_dump($camelize(&#39;man_with_a_mission&#39;));
+// ManWithAMission
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP用のベンチマークツールを作りました</title>
+      <link>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</link>
+      <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
+      <description>
+
+&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;自分はなかなかいい名前が思いつかなかったので Benchy にしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/benchy&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://github.com/ackintosh/benchy&#34;&gt;https://github.com/ackintosh/benchy&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PEAR::Benchmarkと比べるとモダンな感じかなぁと思っています。&lt;/p&gt;
+
+&lt;p&gt;シンプルさと拡張性の高さをウリにできるように考えました。&lt;/p&gt;
+
+&lt;h4 id=&#34;インストール:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;インストール&lt;/h4&gt;
+
+&lt;p&gt;もちろんComposerでインストールできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-composer.json&#34;&gt;{
+  &amp;quot;require&amp;quot;: {
+    &amp;quot;ackintosh/benchy&amp;quot;: &amp;quot;dev-master&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ php composer.phar install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;使い方:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;使い方&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+require_once &#39;vendor/autoload.php&#39;;
+$reporter = Ackintosh\Benchy::run(function ($reporter) {
+    // do something
+    echo $reporter-&amp;gt;time-&amp;gt;elapsed() . PHP_EOL;
+    // do something
+    echo $reporter-&amp;gt;time-&amp;gt;elapsed() . PHP_EOL;
+}, 1000); // runs 1,000 times.(default : 1 )
+echo &#39;total : &#39; . $reporter-&amp;gt;time-&amp;gt;total() . PHP_EOL;
+echo &#39;average : &#39; . $reporter-&amp;gt;time-&amp;gt;average() . PHP_EOL;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで途中経過の時間と、合計・平均時間がわかります。&lt;/p&gt;
+
+&lt;h3 id=&#34;拡張性:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;拡張性&lt;/h3&gt;
+
+&lt;p&gt;Ackintosh/Bechy/Marker ディレクトリにクラスを配置してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+class Example extends AbstractMarker
+{
+        public function hoge() { &#39;fuga&#39;; }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そうするとReporterクラスで使えるようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+$reporter = Ackintosh\Benchy::run(function ($reporter) {
+    // do something
+    echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
+});
+echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フックポイント:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;フックポイント&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;before：　ベンチマーク開始前&lt;/li&gt;
+&lt;li&gt;after：　ベンチマーク終了後&lt;/li&gt;
+&lt;li&gt;before_per_laps：　ベンチマーク前（毎回）&lt;/li&gt;
+&lt;li&gt;after_per_laps：　ベンチマーク後（毎回）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FuelPHPに独自のバリデーションルールを追加する</title>
+      <link>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
+      <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
+flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
+FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
+
+&lt;h4 id=&#34;バリデーションルールを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;バリデーションルールを定義する&lt;/h4&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile1.php&#34;&gt;&lt;/script&gt;
+
+&lt;h4 id=&#34;定義したルールのテストを書く:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;定義したルールのテストを書く&lt;/h4&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;
+
+&lt;h4 id=&#34;ルールを適用する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;ルールを適用する&lt;/h4&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile3.php&#34;&gt;&lt;/script&gt;
+
+&lt;h4 id=&#34;エラーメッセージを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;エラーメッセージを定義する&lt;/h4&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile4.php&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHPでTCPサーバー</title>
+      <link>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
+      <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
+      <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
+
+&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
+
+&lt;p&gt;個人的には、pcntl_fork()したあとswitch文で分岐する流れが、&lt;br /&gt;
+理解するのに苦労しました。&lt;/p&gt;
+
+&lt;p&gt;ちょうどRubyで並列処理を勉強していたのですが、&lt;br /&gt;
+やっぱりRubyの方が直感的で書きやすいですね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a
+href=&#34;http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/&#34;
+target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSocketまで&lt;/a&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/5381925.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
+      <link>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
+      <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
+      <description>
+
+&lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;
+
+&lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
+&lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
+:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;インストールと起動:d50f8189626da1b347580b9d83fb329b&#34;&gt;インストールと起動&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
+$ unzip kestrel-2.4.1.zip
+$ cd kestrel-2.4.1
+$ sudo java -jar kestrel_2.9.2-2.4.1.jar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;zendqueue:d50f8189626da1b347580b9d83fb329b&#34;&gt;ZendQueue&lt;/h4&gt;
+
+&lt;p&gt;Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34;&gt;https://github.com/zendframework/ZendQueue&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;メッセージを格納する方法によって複数のアダプタが用意されています。&lt;br /&gt;
+Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。&lt;/p&gt;
+
+&lt;h4 id=&#34;memcache:d50f8189626da1b347580b9d83fb329b&#34;&gt;Memcache&lt;/h4&gt;
+
+&lt;p&gt;あらかじめMemcachedライブラリもインストールしておいて下さい。&lt;br /&gt;
+Macの場合はHomebrewを使うと簡単にインストールできます♪&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install memcached
+$ brew install memcache-php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;メッセージキューサーバーを体験:d50f8189626da1b347580b9d83fb329b&#34;&gt;メッセージキューサーバーを体験&lt;/h4&gt;
+
+&lt;p&gt;２つのスクリプトを用意してください。&lt;br /&gt;
+・worker.php :
+ワーカープロセス。キューからメッセージを取得して表示する。
+&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=worker.php&#34;&gt;&lt;/script&gt;
+・front.php : キューにメッセージを送信する。
+&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=front.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;ターミナルを２つたちあげてください。&lt;br /&gt;
+・ターミナル１でworker.phpを実行&lt;br /&gt;
+プロンプトが返ってこない → Kestrelのキューを監視してくれています。&lt;/p&gt;
+
+&lt;p&gt;・ターミナル２でfront.phpを実行すると…&lt;br /&gt;
+ターミナル１に「Hello, World!」と表示されます！&lt;/p&gt;
+
+&lt;p&gt;簡単ですが以上です。&lt;br /&gt;
+Hello, Worldが表示された時には感動しますね (・∀・)&lt;br /&gt;
+worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

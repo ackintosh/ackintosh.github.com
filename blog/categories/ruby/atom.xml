@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyの制御構造は式]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression/"/>
+    <updated>2013-11-24T15:58:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/11/24/control-structures-in-ruby-is-expression</id>
+    <content type="html"><![CDATA[<blockquote><p>Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものがあります</p></blockquote>
+
+<p><a href="http://docs.ruby-lang.org/ja/2.0.0/doc/spec=2fcontrol.html" target="_blank">Ruby 2.0.0 リファレンスマニュアル > 制御構造</a></p>
+
+<p>PHP脳な自分には最初ピンとこなかったのでメモ代わりに。</p>
+
+<!-- more -->
+
+
+<h3>if</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<p>```ruby
+mes = if (true) then "hoge" else "fuga" end
+puts mes</p>
+
+<h1>hoge</h1>
+
+<p>```</p>
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<p><code>php
+&lt;?php
+if (true) { $mes = 'hoge'; } else { $mes = 'fuga'; }
+echo $mes;
+// hoge
+</code></p>
+
+<h3>case</h3>
+
+<ul>
+<li>Ruby</li>
+</ul>
+
+
+<p>```ruby
+age = 29
+mes = case age</p>
+
+<pre><code>  when 1..9
+    "child"
+  when 10..19
+    "teenager"
+  when 20..29
+    "adult"
+  else
+    "other"
+  end
+</code></pre>
+
+<p>puts mes</p>
+
+<h1>adult</h1>
+
+<p>```</p>
+
+<ul>
+<li>PHP</li>
+</ul>
+
+
+<p>```php
+&lt;?php
+$age = 29;
+switch ($age) {</p>
+
+<pre><code>case in_array($age, range(1, 9)):
+    $mes = 'child';
+    break;
+case in_array($age, range(10, 19)):
+    $mes = 'teenager';
+    break;
+case in_array($age, range(20, 29)):
+    $mes = 'adult';
+    break;
+default:
+    $mes = 'other';
+    break;
+</code></pre>
+
+<p>}
+echo $mes;
+// adult
+```</p>
+
+<p>Rubyの方がシュッとしてます。</p>
+
+<p>caseについては下記が大変勉強になりました。<br/>
+<a href="http://melborne.github.io/2013/02/25/i-wanna-say-something-about-rubys-case/" target="_blank">Rubyのcaseを〇〇(言語名)のswitch文だと思っている人たちにぼくから一言ガツンと申し上げたい</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ハイフンとアンダースコアの使い分け]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/"/>
+    <updated>2013-08-11T14:32:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score</id>
+    <content type="html"><![CDATA[<p>ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。</p>
+
+<p>言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。</p>
+
+<!-- more -->
+
+
+<h2>Eric Hodel氏の推奨するネーミングルール</h2>
+
+<p>RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。</p>
+
+<p><a href="http://blog.segment7.net/2010/11/15/how-to-name-gems" target="_blank">How to Name Gems</a></p>
+
+<blockquote><p>Here is my <em>STRONG</em> recommendation on how to name gems:</p>
+
+<h2>Use underscores</h2>
+
+<p>・fancy_require<br>
+・newrelic_rpm<br>
+・ruby_parser<br>
+This matches the file the user will require and makes it easier for the user to start using your gem. gem install my_gem will be loaded by require 'my_gem'.</p>
+
+<h2>Use dashes for extensions</h2>
+
+<p>・net-http-persistent<br>
+・rdoc-chm<br>
+・autotest-growl<br>
+If you're adding functionality to another gem use a dash. The dash is different-enough from an underscore to be noticeable. If you tilt the dash a bit it becomes a slash as well, making it easier for the user to know what to require. gem install net-http-persistent becomes require 'net/http/persistent'</p></blockquote>
+
+<p>要するに</p>
+
+<ul>
+<li>ハイフン -> パスの区切り</li>
+<li>アンダースコア -> 単語の区切り</li>
+</ul>
+
+
+<p>といったところでしょうか。</p>
+
+<h2>試してみる</h2>
+
+<h3>ハイフン区切り</h3>
+
+<p><code>
+$ bundle gem ackintosh-tiny-progressbar
+</code></p>
+
+<p>```ruby
+module Ackintosh
+  module Tiny</p>
+
+<pre><code>module Progressbar
+  # Your code goes here ...
+end
+</code></pre>
+
+<p>  end
+end
+```
+全て別のモジュールに分かれています。</p>
+
+<h3>アンダースコア区切り</h3>
+
+<p><code>
+$ bundle gem ackintosh-tiny_progressbar
+</code></p>
+
+<p>```ruby
+module Ackintosh
+  module TinyProgressbar</p>
+
+<pre><code># Your code goes here…
+</code></pre>
+
+<p>  end
+end
+```
+「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[pryでデバッグ]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/07/03/pry/"/>
+    <updated>2013-07-03T20:54:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/07/03/pry</id>
+    <content type="html"><![CDATA[<p>いいかげんプリントデバッグは疲れるのでpryを使ってみます。</p>
+
+<p><a href="https://github.com/pry/pry" target="_blank">https://github.com/pry/pry</a></p>
+
+<p>φ(..)メモメモ</p>
+
+<!-- more -->
+
+
+<h2>pry</h2>
+
+<h3>インストール</h3>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=install.sh"></script>
+
+
+<h3>デバッグ</h3>
+
+<p><code>binding.pry</code> でREPLが起動する。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=debug.rb"></script>
+
+
+<h2>pry-nav</h2>
+
+<p>pry-navというgemを入れるとステップ実行ができる。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=install_nav.sh"></script>
+
+
+<p>下記のように<code>~/.pryrc</code>にエイリアスを設定しておくと便利。</p>
+
+<script src="https://gist.github.com/ackintosh/5917386.js?file=.pryrc"></script>
+
+
+<h2>参考URL</h2>
+
+<ul>
+<li><a href="http://blog.ainam.me/2012/03/20/summary-of-pry-plugins/" target="_blank">http://blog.ainam.me/2012/03/20/summary-of-pry-plugins/</a></li>
+<li><a href="http://shirusu-ni-tarazu.hatenablog.jp/entry/2012/06/24/051114" target="_blank">http://shirusu-ni-tarazu.hatenablog.jp/entry/2012/06/24/051114</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでObserverパターン]]></title>
+    <link href="http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby/"/>
+    <updated>2013-02-03T19:11:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2013/02/03/observer-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<h2>Observerパターン メモ</h2>
+
+<p>他のコンポーネントの動きを監視するコンポーネントを作ることが出来る。<br/>
+オブジェクト同士を結合させることがないので、スパゲッティにならずにすむ。<br/>
+情報を通知するクラスをサブジェクト(Subject)、情報を受け取るクラスをオブザーバ(Observer)と呼ぶ。</p>
+
+<!-- more -->
+
+
+<h4>gistfile1.rb</h4>
+
+<p>Subject: Employee<br/>
+Observer: Payroll, TaxMan<br/>
+Subjectの機能をモジュールとして実装。</p>
+
+<h4>gistfile2.rb</h4>
+
+<p>Ruby標準のObservableモジュールを使った場合。</p>
+
+<h4>gistfile3.rb</h4>
+
+<p>Observerをコードブロックで実装した場合。</p>
+
+<p><a href="https://gist.github.com/4701126">https://gist.github.com/4701126</a></p>
+
+<script src="https://gist.github.com/4701126.js"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RubyでStrategyパターン]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby/"/>
+    <updated>2012-11-04T17:04:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/11/04/strategy-pattern-in-ruby</id>
+    <content type="html"><![CDATA[<h3>Strategyパターン</h3>
+
+<ul>
+<li><p>アルゴリズムに多態性を持たせたい場合の、委譲ベースのアプローチ。</p></li>
+<li><p>コンテキストとストラテジオブジェクト間のインターフェースに注意して設計する。</p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h3>Rubyで書く</h3>
+
+<ul>
+<li><p>基底クラスFormatterはoutput_reportメソッドで例外を投げているだけなので、<br/>
+この場合、基底クラスを定義せずに書く具象クラスを書いていったほうがRuby的。(ダックタイピング哲学)</p></li>
+<li><p>Report#output_reportの引数がオブジェクトの参照なので、データの流れをシンプルにするが、クラス間の結合度が上がってしまっている。<br/>
+→必要な引数の数が少なければ、オブジェクトでなくても良い。<br/>
+(コンテキスト - ストラテジオブジェクト間のインターフェースの検討)</p></li>
+</ul>
+
+
+<script src="https://gist.github.com/4010809.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010809">https://gist.github.com/4010809</a></p>
+
+<h3>コードブロック(Procオブジェクト)を使って書く</h3>
+
+<ul>
+<li>コード例のように、ストラテジオブジェクトの実装がシンプルな場合には、ストラテジをコードブロックに置き換えることでシンプル且つRuby的になる。</li>
+</ul>
+
+
+<script src="https://gist.github.com/4010931.js?file=gistfile1.rb"></script>
+
+
+<p></p>
+
+<p>埋め込んだコードが表示されない場合はこちら<br/>
+→ <a href="https://gist.github.com/4010931">https://gist.github.com/4010931</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heroku on 暁</title>
+    <link>http://ackintosh.github.io/tags/heroku/</link>
+    <description>Recent content in Heroku on 暁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2012</copyright>
+    <lastBuildDate>Tue, 28 Aug 2012 16:18:32 +0900</lastBuildDate>
+    <atom:link href="http://ackintosh.github.io/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HerokuのWebサーバーをUnicornに変更する</title>
+      <link>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</link>
+      <pubDate>Tue, 28 Aug 2012 16:18:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
+      <description>
+
+&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904&#34;
+target=&#34;_blank&#34;&gt;WEB+DB PRESS Vol.70&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg&#34; alt=&#34;WEB+DB PRESS
+Vol.70&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。&lt;br /&gt;
+普段Railsで開発するときはherokuを使っているので&lt;br /&gt;
+herokuでUnicornを使ってみたいと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;heroku-ps-を確認:efe676b81146b18a9904db35f4708df9&#34;&gt;heroku ps を確認&lt;/h4&gt;
+
+&lt;p&gt;まずはherokuで現在使われているWebサーバーを確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku ps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png&#34; alt=&#34;heroku_ps&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;herokuのデフォルトはthinなのでしょうか？？&lt;br /&gt;
+以下、Unicornのインストールを進めていきます。&lt;/p&gt;
+
+&lt;h4 id=&#34;gemfileに追加:efe676b81146b18a9904db35f4708df9&#34;&gt;Gemfileに追加&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;gem &#39;unicorn&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;config-unicorn-rbを作成:efe676b81146b18a9904db35f4708df9&#34;&gt;config/unicorn.rbを作成&lt;/h4&gt;
+
+&lt;p&gt;とりあえず設定内容は下記にしました。&lt;br /&gt;
+詳しいことは勉強中です。すみません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;worker_processes 2
+timeout 20
+preload_app false
+stdout_path &amp;quot;log/unicorn-out.log&amp;quot;
+stderr_path &amp;quot;log/unicorn-err.log&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;procfileを作成:efe676b81146b18a9904db35f4708df9&#34;&gt;Procfileを作成&lt;/h4&gt;
+
+&lt;p&gt;Railsのルートディレクトリ直下にProcfileを作成します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;herokuにpush:efe676b81146b18a9904db35f4708df9&#34;&gt;herokuにpush&lt;/h4&gt;
+
+&lt;p&gt;いつものようにherokuにpushします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git push heroku master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;heroku-ps-で確認:efe676b81146b18a9904db35f4708df9&#34;&gt;heroku ps で確認&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku ps
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png&#34; alt=&#34;heroku_ps_unicorn&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;bundle exec unicorn …となっていれば成功です。
+heroku psの出力の2行目が&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;web.1: crashed for…
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;になっていたら設定を見なおしてみてください。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

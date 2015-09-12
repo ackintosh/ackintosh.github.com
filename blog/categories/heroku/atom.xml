@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Heroku | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/heroku/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HerokuのWebサーバーをUnicornに変更する]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/"/>
+    <updated>2012-08-28T01:34:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku</id>
+    <content type="html"><![CDATA[<p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br/>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
+
+<p><a href="http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904">WEB+DB PRESS Vol.70</a><br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg" alt="WEB+DB PRESS Vol.70" /><br/>
+WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。<br/>
+普段Railsで開発するときはherokuを使っているので<br/>
+herokuでUnicornを使ってみたいと思います。</p>
+
+<!-- more -->
+
+
+<h2>heroku ps を確認</h2>
+
+<p>まずはherokuで現在使われているWebサーバーを確認します。</p>
+
+<pre><code>$ heroku ps
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png" alt="heroku_ps" /></p>
+
+<p>herokuのデフォルトはthinなのでしょうか？？<br/>
+以下、Unicornのインストールを進めていきます。</p>
+
+<h2>Gemfileに追加</h2>
+
+<pre><code>gem 'unicorn'
+</code></pre>
+
+<h2>config/unicorn.rbを作成</h2>
+
+<p>とりあえず設定内容は下記にしました。<br/>
+詳しいことは勉強中です。すみません。</p>
+
+<pre><code>worker_processes 2
+timeout 20
+preload_app false
+stdout_path "log/unicorn-out.log"
+stderr_path "log/unicorn-err.log"
+</code></pre>
+
+<h2>Procfileを作成</h2>
+
+<p>Railsのルートディレクトリ直下にProcfileを作成します。</p>
+
+<pre><code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb  
+</code></pre>
+
+<h2>herokuにpush</h2>
+
+<p>いつものようにherokuにpushします。</p>
+
+<pre><code>$ git push heroku master
+</code></pre>
+
+<h2>heroku ps で確認</h2>
+
+<pre><code>$ heroku ps
+</code></pre>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png" alt="heroku_ps_unicorn" /></p>
+
+<p>bundle exec unicorn …となっていれば成功です。<br/>
+heroku psの出力の2行目が</p>
+
+<pre><code>web.1: crashed for…
+</code></pre>
+
+<p>になっていたら設定を見なおしてみてください。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Herokuでアプリを作る]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/07/09/make-an-app-in-heroku/"/>
+    <updated>2012-07-09T23:04:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/07/09/make-an-app-in-heroku</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/heroku.jpeg" alt="heroku" /></p>
+
+<p><strong>Heroku</strong><br/>
+<a href="http://www.heroku.com/">http://www.heroku.com/</a></p>
+
+<p>ユーザー登録後、Herokuのgemをインストールする。</p>
+
+<!-- more -->
+
+
+<pre><code>$ gem install heroku
+</code></pre>
+
+<p>herokuの利用に必要なコマンドがインストールされる。</p>
+
+<h2>作成したアプリ一覧を確認</h2>
+
+<pre><code>$ heroku list
+</code></pre>
+
+<h2>新規Railsアプリを作成</h2>
+
+<pre><code>$ rails new newApp
+</code></pre>
+
+<h2>アプリの起動確認</h2>
+
+<pre><code>$ cd newApp
+$ rails s
+</code></pre>
+
+<h2>git初期化</h2>
+
+<pre><code>$ git init
+$ git add .
+$ git commit -m "initialize"
+</code></pre>
+
+<h2>Herokuで動かす</h2>
+
+<pre><code>$ heroku create appname
+</code></pre>
+
+<p><a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a> から引用させていただきます。<br/>
+必要最低限のgemを記述。</p>
+
+<pre><code>$ curl https://raw.github.com/gist/1970532/376b6a26ed936ac43cad0b17a64512f5c0216a50/Gemifile &gt; Gemfile
+$ rm -f Gemfile.lock
+$ bundle install --without production
+$ git add -A
+$ git commit -m 'Update Gemfile'
+</code></pre>
+
+<p>中身はこんな感じ。<br/>
+herokuでは、PostgreSQL使うので、pgを指定したり、developmentでしか使わないものはそこに移動とかです。</p>
+
+<pre><code>source 'https://rubygems.org'
+
+gem 'rails', '3.2.2'
+gem 'jquery-rails'
+
+group :assets do
+  gem 'sass-rails',   '~&gt; 3.2.3'
+  gem 'coffee-rails', '~&gt; 3.2.1'
+  gem 'uglifier', '&gt;= 1.0.3'
+end
+
+group :test, :development do
+  gem 'sqlite3'
+  gem 'heroku'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+</code></pre>
+
+<p>Herokuにデプロイ</p>
+
+<pre><code>$ git push heroku master
+$ heroku open
+</code></pre>
+
+<p>参考URL<br/>
+<a href="http://ppworks.hatenablog.jp/entry/2012/03/04/141951">macを買って、今すぐherokuでruby1.9.3 + rails3.2しよう！</a><br/>
+<a href="http://gihyo.jp/dev/serial/01/heroku/0002?page=2">Herokuで作るFacebookアプリ</a></p>
+]]></content>
+  </entry>
+  
+</feed>

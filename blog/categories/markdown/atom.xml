@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Markdown | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/markdown/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown記法のパーサー　markdown-jsを使う]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/"/>
+    <updated>2012-07-10T22:38:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="markdown2HTML" /></p>
+
+<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br/>
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。</p>
+
+<p><strong>markdown-js</strong><br/>
+<a href="https://github.com/evilstreak/markdown-js">https://github.com/evilstreak/markdown-js</a></p>
+
+<h2>例</h2>
+
+<pre><code>var md = "#markdown";
+console.dir(window.markdown.toHTML(md));
+</code></pre>
+
+<h2>リアルタイムにmarkdown→HTMLに変換してみる</h2>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;markdown 2 html&lt;/title&gt;
+    &lt;script type="text/javascript" src="./lib/markdown.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;textarea id="markdown"&gt;&lt;/textarea&gt;
+    &lt;div id="html"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        $('#markdown').keyup(function (e){
+        $('#html').html(window.markdown.toHTML($('#markdown').val()));
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p></html></p>
+
+<h2>参考URL</h2>
+
+<p>にのせき日記　<a href="http://d.hatena.ne.jp/ninoseki/20110620/1308574793">Javascript製Markdown記法パーサー、markdown-js</a></p>
+]]></content>
+  </entry>
+  
+</feed>

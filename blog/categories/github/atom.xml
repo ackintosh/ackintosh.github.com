@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: github | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TravisCIを使ってみました。]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/08/12/using-travis-ci/"/>
+    <updated>2012-08-12T15:03:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/08/12/using-travis-ci</id>
+    <content type="html"><![CDATA[<p>先日githubで、<a href="https://github.com/ackintosh/Anote">Anote(アノート)</a>というPHPフレームワークを公開しました。<br/>
+一応テストコードっぽいのも書いたので、CIをやってみようと思っていたところ辿り着いたのがTravisCIです。</p>
+
+<p><strong>Travis CI</strong><br/>
+<a href="http://travis-ci.org/">http://travis-ci.org/</a></p>
+
+<p>クラウド版Jenkinsみたいな感じでしょうか？？</p>
+
+<!-- more -->
+
+
+<h2>githubと連携する</h2>
+
+<h3>githubリポジトリのルートに.travis.ymlを作成</h3>
+
+<p>自分はこんな風に書きました。</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: sh testrunner.sh
+</code></pre>
+
+<p>script行を省略すれば、デフォルトでphpunitを実行してくれるみたいです。<br/>
+僕はわけあって、シェルスクリプトの中で実行しています・・・。</p>
+
+<h3>Travisにサインアップ</h3>
+
+<p>githubアカウントでサインアップすると、マイページのReposに自分のリポジトリが表示されます。</p>
+
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-1.png" alt="TravisCI Repos" /></p>
+
+<p>右側のスイッチをONにするだけで連携されます。</p>
+
+<h2>コードカバレッジを表示する</h2>
+
+<p>.travis.yml</p>
+
+<pre><code>language: php
+php:
+  - 5.3
+script: phpunit --coverage-text
+</code></pre>
+
+<p>phpunit のオプションを指定するとコードカバレッジが表示されます。<br/>
+<img src="https://dl.dropbox.com/u/22083548/octopress/howto_travis-2.png" alt="TravisCIコードカバレッジ" /></p>
+
+<h2>参考にさせていただきました</h2>
+
+<p><a href="http://project-p.jp/halt/?p=1718">Travis CIを使ってPHP-5.2, 5.3, 5.4でテストを実行しコードカバレッジを表示する</a></p>
+
+<p><a href="http://blog.yuyat.jp/archives/1540">Travis CI で PHP 5.4 も CI する, PHPUnit も Behat もやる</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress + github でブログを始める]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/07/08/octopress-plus-github/"/>
+    <updated>2012-07-08T01:56:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/07/08/octopress-plus-github</id>
+    <content type="html"><![CDATA[<p><img src="https://dl.dropbox.com/u/22083548/octopress/octopress.png" alt="OCTOPRESS" /></p>
+
+<p><strong>Octopress</strong></p>
+
+<p><a href="http://octopress.org/" title="Octopress">http://octopress.org/</a></p>
+
+<p><strong>github</strong></p>
+
+<p><a href="https://github.com/" title="Octopress">https://github.com/</a></p>
+
+<!-- more -->
+
+
+<h2>githubでリポジトリを作成</h2>
+
+<p>リポジトリ名がURLになる。</p>
+
+<p>http://{ユーザー名}.github.com/{リポジトリ名}/</p>
+
+<h2>Octopressインストール</h2>
+
+<ul>
+<li><p>2012/07/08 時点ではRuby 1.9.2でしか動作しないようなので
+rbenv等で環境を用意する。</p></li>
+<li><p>Octopress用のディレクトリで使うRubyのバージョンを固定する</p></li>
+</ul>
+
+
+<p>$ rubyenv local 1.9.2-p320
+→ .rbenv-version ファイルが作られて、その中に選択したバージョンが書き込まれる</p>
+
+<p><em>Octopress Setup</em></p>
+
+<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
+
+<h2>Octpressの設定</h2>
+
+<p>_config.yml を編集する</p>
+
+<h2>Github Pagesにデプロイ</h2>
+
+<p><em>Deploying to Github Pages</em></p>
+
+<p><a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a></p>
+
+<ul>
+<li>投稿作成</li>
+</ul>
+
+
+<p>$ rake new_post["投稿タイトル"]</p>
+
+<p>source/_posts/YYYY-MM-DD-{投稿タイトル}.markdown を編集</p>
+
+<ul>
+<li>HTML生成</li>
+</ul>
+
+
+<p>$ rake generate</p>
+
+<ul>
+<li>プレビュー(localhost:4000)</li>
+</ul>
+
+
+<p>$ rake preview</p>
+
+<p>編集内容は即時反映される</p>
+
+<ul>
+<li>ブログにアップ</li>
+</ul>
+
+
+<p>$ rake deploy</p>
+]]></content>
+  </entry>
+  
+</feed>

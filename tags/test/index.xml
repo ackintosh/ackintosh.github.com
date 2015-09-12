@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on 暁</title>
+    <link>http://ackintosh.github.io/tags/test/</link>
+    <description>Recent content in Test on 暁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2012</copyright>
+    <lastBuildDate>Sun, 24 Nov 2013 15:35:00 +0900</lastBuildDate>
+    <atom:link href="http://ackintosh.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
+      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
+
+&lt;p&gt;例えば&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+require_once &#39;xxx.php&#39;;
+
+function hoge($arg)
+{
+    return &#39;hoge&#39; . $arg;
+}
+
+somefunction(1234);
+
+set(&#39;hoge&#39;, hoge(&#39;fuga&#39;));
+render(&#39;hoge.html&#39;);
+exit;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じのコードがあって、hoge()関数のテストを書きたい時
+関数宣言の部分だけインクルードできれば、既存コードに一切手を入れずにテスト書き始められます。&lt;/p&gt;
+
+&lt;p&gt;ということで作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/toumi&#34; target=&#34;_blank&#34;&gt;ackintosh /
+toumi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このライブラリを使って上記スクリプトをインクルードすれば、
+下記のようにテストが書けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+// Only the function declaration is included.
+Ackintosh_Toumi::load(&#39;legacy.php&#39;);
+
+class LegacyTest extends PHPUnit_Framework_TestCase
+{
+    public function test_hoge()
+    {
+        $this-&amp;gt;assertSame(&#39;hogefuga&#39;, hoge(&#39;fuga&#39;));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
+      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
+今回はグローバル関数への依存について。&lt;/p&gt;
+
+&lt;p&gt;例えば下記のコードでは&lt;br /&gt;
+receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
+テストしにくくなっています。&lt;br /&gt;
+（テストは書けるけどテスト走らせる度にメールが飛ぶのはアレですね）&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=1.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a
+href=&#34;http://www.amazon.co.jp/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89-Object-Oriented-SELECTION-%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BBC%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B6%E3%83%BC%E3%82%BA/dp/4798116831&#34;
+target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&lt;br /&gt;
+グローバル関数の部分をインスタンスメソッドにして、処理をグローバル関数にまるっと委譲することで、接合部を作る方法が紹介されています。&lt;br /&gt;
+例えばこんな感じでしょうか。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=2.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;接合部となったメソッドをサブクラスでオーバーライドしてテストしてます。&lt;/p&gt;
+
+&lt;p&gt;ただ、わざわざサブクラスを定義するのも面倒な気もするし&lt;br /&gt;
+もう少しカジュアルな方法がないかなということで&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=3.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;テストのためにややプロダクションコードが増えますがメソッドの差し替えができるようになりました。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、無名関数の中でアサーションが書けるのでmail関数が受け取る引数をアサートすることもできます。&lt;/p&gt;
+
+&lt;p&gt;こんな感じです。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
+&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

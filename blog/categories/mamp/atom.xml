@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MAMP | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/mamp/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MAMPでPHPUnitを使う]]></title>
+    <link href="http://ackintosh.github.io/blog/2012/08/04/using-phpunit-with-mamp/"/>
+    <updated>2012-08-04T16:39:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2012/08/04/using-phpunit-with-mamp</id>
+    <content type="html"><![CDATA[<p>既にMAMPにインストールされている。</p>
+
+<pre><code>$ /Applications/MAMP/bin/php/php5.3.6/bin/phpunit --version
+PHPUnit 3.6.10 by Sebastian Bergmann.  
+</code></pre>
+
+<p>下記のようにインクルードして使う。</p>
+
+<pre><code>require_once('PHPUnit/Autoload.php');
+class HogeTest extends PHPUnit_Framework_TestCase
+{
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

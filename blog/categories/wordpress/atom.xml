@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: WordPress | 暁 [stfuawsc]]]></title>
+  <link href="http://ackintosh.github.io/blog/categories/wordpress/atom.xml" rel="self"/>
+  <link href="http://ackintosh.github.io/"/>
+  <updated>2014-07-12T21:02:24+09:00</updated>
+  <id>http://ackintosh.github.io/</id>
+  <author>
+    <name><![CDATA[Ackintosh]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WordPressの本文から制御文字を除去するプラグイン]]></title>
+    <link href="http://ackintosh.github.io/blog/2014/04/06/wp-remove-control-character/"/>
+    <updated>2014-04-06T16:35:00+09:00</updated>
+    <id>http://ackintosh.github.io/blog/2014/04/06/wp-remove-control-character</id>
+    <content type="html"><![CDATA[<p>久々に WordPress のプラグインを作りました。</p>
+
+<p><a href="https://github.com/ackintosh/wp-remove-control-character" target="_blank">https://github.com/ackintosh/wp-remove-control-character</a></p>
+
+<!-- more -->
+
+
+<p>とあるサイトのRSSフィードで下記エラーが出ていて、<br/>
+調べたら記事本文に制御文字が入っていたのが原因だった。というのが作ったきっかけです。</p>
+
+<p><code>
+This page contains the following errors:
+error on line xx at column xx: Input is not proper UTF-8, indicate encoding ! Bytes: 0x0B 0x0B 0×33 0x2E
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
