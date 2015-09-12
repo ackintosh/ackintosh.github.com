@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on 暁</title>
-    <link>http://localhost:1313/tags/php/</link>
+    <link>http://ackintosh.github.io/tags/php/</link>
     <description>Recent content in Php on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sat, 01 Feb 2014 16:25:32 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>phpでバイナリ / テキストファイルの判定</title>
-      <link>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</link>
+      <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
       <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</guid>
+      <guid>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
       <description>
 
 &lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
@@ -82,10 +82,10 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
     
     <item>
       <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
-      <link>http://localhost:1313/blog/2013/11/24/toumi/</link>
+      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
       <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/11/24/toumi/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
 
@@ -136,10 +136,10 @@ class LegacyTest extends PHPUnit_Framework_TestCase
     
     <item>
       <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://localhost:1313/blog/2013/10/18/php-testability/</link>
+      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
       <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/10/18/php-testability/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
 
@@ -180,10 +180,10 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
     
     <item>
       <title>遅延静的束縛は何が嬉しいのか</title>
-      <link>http://localhost:1313/blog/2013/08/25/late-static-binding/</link>
+      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
       <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/08/25/late-static-binding/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
       <description>
 
 &lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
@@ -284,10 +284,10 @@ target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: お
     
     <item>
       <title>PHPで関数合成を書いてみる</title>
-      <link>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</link>
+      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
       <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
@@ -334,10 +334,10 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
     
     <item>
       <title>PHP用のベンチマークツールを作りました</title>
-      <link>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</link>
+      <link>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</link>
       <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
       <description>
 
 &lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
@@ -416,10 +416,10 @@ echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
     
     <item>
       <title>FuelPHPに独自のバリデーションルールを追加する</title>
-      <link>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</link>
+      <link>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
       <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
@@ -449,10 +449,10 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
     
     <item>
       <title>FuelPHPに独自の設定ファイルを追加する</title>
-      <link>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
+      <link>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
       <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
       <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple, flexible, community driven PHP5.3 framework.&lt;/a&gt;
@@ -470,10 +470,10 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
     
     <item>
       <title>PHPでTCPサーバー</title>
-      <link>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</link>
+      <link>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
       <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
       <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
 
 &lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
@@ -494,10 +494,10 @@ target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSoc
     
     <item>
       <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
-      <link>http://localhost:1313/blog/2013/01/03/message-queue-server-with-php/</link>
+      <link>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
       <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/01/03/message-queue-server-with-php/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
       <description>
 
 &lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;

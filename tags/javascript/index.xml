@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on 暁</title>
-    <link>http://localhost:1313/tags/javascript/</link>
+    <link>http://ackintosh.github.io/tags/javascript/</link>
     <description>Recent content in Javascript on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Tue, 10 Jul 2012 16:59:25 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ackintosh.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Markdown記法のパーサー　markdown-jsを使う</title>
-      <link>http://localhost:1313/blog/2012/07/10/use-the-markdown-js/</link>
+      <link>http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/</link>
       <pubDate>Tue, 10 Jul 2012 16:59:25 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2012/07/10/use-the-markdown-js/</guid>
+      <guid>http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/</guid>
       <description>
 
 &lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg&#34; alt=&#34;&#34; /&gt;
