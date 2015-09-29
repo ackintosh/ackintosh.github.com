@@ -5,24 +5,22 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" クラス / 関数宣言だけをインクルードできるライブラリを作りました &middot;  暁" />
+  	<meta property="og:title" content=" php で手軽に並列処理をするライブラリ Snidel を作りました &middot;  暁" />
   	<meta property="og:site_name" content="暁" />
-  	<meta property="og:url" content="http://localhost:1313/blog/2013/11/24/toumi/" />
+  	<meta property="og:url" content="http://localhost:1313/blog/2015/09/29/snidel/" />
     
     
   	<meta property="og:type" content="article" />
 
-    <meta property="og:article:published_time" content="2013-11-24T15:35:00&#43;09:00" />
+    <meta property="og:article:published_time" content="2015-09-29T14:24:34&#43;09:00" />
 
     
     <meta property="og:article:tag" content="php" />
     
-    <meta property="og:article:tag" content="test" />
-    
     
 
   <title>
-     クラス / 関数宣言だけをインクルードできるライブラリを作りました &middot;  暁
+     php で手軽に並列処理をするライブラリ Snidel を作りました &middot;  暁
   </title>
 
     <meta name="description" content="" />
@@ -46,7 +44,7 @@
     
     <meta name="generator" content="Hugo 0.14" />
 
-    <link rel="canonical" href="http://localhost:1313/blog/2013/11/24/toumi/" />
+    <link rel="canonical" href="http://localhost:1313/blog/2015/09/29/snidel/" />
 
     
     <script>
@@ -127,69 +125,109 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">クラス / 関数宣言だけをインクルードできるライブラリを作りました</h1>
+        <h1 class="post-title">php で手軽に並列処理をするライブラリ Snidel を作りました</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2013-11-24T15:35:00&#43;09:00">
-            Nov 24, 2013
+          <time class="post-date" datetime="2015-09-29T14:24:34&#43;09:00">
+            Sep 29, 2015
           </time>
         
          
           <span class="post-tag small"><a href="http://localhost:1313/tags/php/">#php</a></span>
          
-          <span class="post-tag small"><a href="http://localhost:1313/tags/test/">#test</a></span>
-         
         </section>
     </header>
   
     <section class="post-content">
-      <p>クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、<br />
-リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？</p>
+      
 
-<p>例えば</p>
+<p>シルバーウィーク中に php のライブラリを作りました。</p>
 
-<pre><code class="language-php">&lt;?php
-require_once 'xxx.php';
+<p><a href="https://github.com/ackintosh/snidel" target="_blank">ackintosh / snidel</a></p>
 
-function hoge($arg)
-{
-    return 'hoge' . $arg;
-}
+<h3 id="snidel-スナイデル-について:6059c22da48c7213647847cb35fc5a38">Snidel (スナイデル) について</h3>
 
-somefunction(1234);
+<p>他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
+php で手軽に並列処理をする。というのがコンセプトです。</p>
 
-set('hoge', hoge('fuga'));
-render('hoge.html');
-exit;
+<p>子プロセス数の制御に <a href="http://php.net/manual/ja/function.msg-get-queue.php" target="_blank">メッセージキュー</a>
+プロセス間のデータのやりとりに <a href="http://php.net/manual/ja/ref.shmop.php" target="_blank">共有メモリ</a>
+を使っています。</p>
+
+<p>命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。
+ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&hellip;。</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png" alt="snidel_translate" />
+</p>
+
+<p>proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、
+Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。</p>
+
+<pre><code class="language-php">$func = function ($str) {
+    sleep(3);
+    return $str;
+};
+
+$s = time();
+$snidel = new Snidel();
+$snidel-&gt;fork($func, 'foo');
+$snidel-&gt;fork($func, 'bar');
+$snidel-&gt;fork($func, 'baz');
+
+var_dump($snidel-&gt;get());
+// * the order of results is not guaranteed. *
+// array(3) {
+//   [0]=&gt;
+//   string(3) &quot;bar&quot;
+//   [1]=&gt;
+//   string(3) &quot;foo&quot;
+//   [2]=&gt;
+//   string(3) &quot;baz&quot;
+// }
+
+echo (time() - $s) . 'sec elapsed' . PHP_EOL;
+// 3sec elapsed.
+
 </code></pre>
 
-<p>こんな感じのコードがあって、hoge()関数のテストを書きたい時
-関数宣言の部分だけインクルードできれば、既存コードに一切手を入れずにテスト書き始められます。</p>
+<h3 id="作り始めたきっかけ:6059c22da48c7213647847cb35fc5a38">作り始めたきっかけ</h3>
 
-<p>ということで作りました。</p>
+<p>仕事で携わっているプロジェクトでは <a href="https://github.com/squizlabs/PHP_CodeSniffer" target="_balnk">PHP_CodeSniffer</a> を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。</p>
 
-<p><a href="https://github.com/ackintosh/toumi" target="_blank">ackintosh /
-toumi</a></p>
+<p>その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。
+php じゃなくても良かったのですが勉強のため。
+いい感じにできれば他のプロジェクトでも使えるかもですし。</p>
 
-<p>このライブラリを使って上記スクリプトをインクルードすれば、
-下記のようにテストが書けます。</p>
+<h3 id="結果:6059c22da48c7213647847cb35fc5a38">結果</h3>
 
-<pre><code class="language-php">&lt;?php
-// Only the function declaration is included.
-Ackintosh_Toumi::load('legacy.php');
+<p>集計処理の時間が下記のように改善しました。</p>
 
-class LegacyTest extends PHPUnit_Framework_TestCase
-{
-    public function test_hoge()
-    {
-        $this-&gt;assertSame('hogefuga', hoge('fuga'));
-    }
-}
+<ul>
+<li>ビフォー</li>
+</ul>
+
+<pre><code>real 5m9.580s
+user 3m3.123s
+sys  0m14.849s
 </code></pre>
 
-<p>そもそもこれを使わずに済めば良いんですが…(・_・;)</p>
+<ul>
+<li>アフター</li>
+</ul>
+
+<pre><code>real 2m44.248s
+user 3m1.867s
+sys  0m20.341s
+</code></pre>
+
+<p>実行時間が45%くらい削減できました。
+また、実行時間よりユーザーCPU時間の方が長くなっているので
+複数のCPUが使えてることがわかります。</p>
+
+<p>ライブラリの出来としては、github の issues に挙げていますが
+まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。</p>
 
     </section>
 
@@ -224,15 +262,15 @@ written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKA
     
     <section class="share">
       <h4>Share this post</h4>
-      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%e3%82%af%e3%83%a9%e3%82%b9%20%2f%20%e9%96%a2%e6%95%b0%e5%ae%a3%e8%a8%80%e3%81%a0%e3%81%91%e3%82%92%e3%82%a4%e3%83%b3%e3%82%af%e3%83%ab%e3%83%bc%e3%83%89%e3%81%a7%e3%81%8d%e3%82%8b%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%9c%e3%82%8a%e3%81%be%e3%81%97%e3%81%9f&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2f2013%2f11%2f24%2ftoumi%2f"
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=php%20%e3%81%a7%e6%89%8b%e8%bb%bd%e3%81%ab%e4%b8%a6%e5%88%97%e5%87%a6%e7%90%86%e3%82%92%e3%81%99%e3%82%8b%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%20Snidel%20%e3%82%92%e4%bd%9c%e3%82%8a%e3%81%be%e3%81%97%e3%81%9f&amp;url=http%3a%2f%2flocalhost%3a1313%2fblog%2f2015%2f09%2f29%2fsnidel%2f"
           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <span class="hidden">Twitter</span>
       </a>
-      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fblog%2f2013%2f11%2f24%2ftoumi%2f"
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fblog%2f2015%2f09%2f29%2fsnidel%2f"
           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
           <span class="hidden">Facebook</span>
       </a>
-      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fblog%2f2013%2f11%2f24%2ftoumi%2f"
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%3a1313%2fblog%2f2015%2f09%2f29%2fsnidel%2f"
          onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
           <span class="hidden">Google+</span>
       </a>

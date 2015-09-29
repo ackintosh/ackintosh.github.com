@@ -2,20 +2,116 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>暁</title>
-    <link>http://ackintosh.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Sep 2015 14:24:34 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>php で手軽に並列処理をするライブラリ Snidel を作りました</title>
+      <link>http://localhost:1313/blog/2015/09/29/snidel/</link>
+      <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
+      
+      <guid>http://localhost:1313/blog/2015/09/29/snidel/</guid>
+      <description>
+
+&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34; target=&#34;_blank&#34;&gt;ackintosh / snidel&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;snidel-スナイデル-について:6059c22da48c7213647847cb35fc5a38&#34;&gt;Snidel (スナイデル) について&lt;/h3&gt;
+
+&lt;p&gt;他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
+php で手軽に並列処理をする。というのがコンセプトです。&lt;/p&gt;
+
+&lt;p&gt;子プロセス数の制御に &lt;a href=&#34;http://php.net/manual/ja/function.msg-get-queue.php&#34; target=&#34;_blank&#34;&gt;メッセージキュー&lt;/a&gt;
+プロセス間のデータのやりとりに &lt;a href=&#34;http://php.net/manual/ja/ref.shmop.php&#34; target=&#34;_blank&#34;&gt;共有メモリ&lt;/a&gt;
+を使っています。&lt;/p&gt;
+
+&lt;p&gt;命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。
+ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&amp;hellip;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png&#34; alt=&#34;snidel_translate&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、
+Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$func = function ($str) {
+    sleep(3);
+    return $str;
+};
+
+$s = time();
+$snidel = new Snidel();
+$snidel-&amp;gt;fork($func, &#39;foo&#39;);
+$snidel-&amp;gt;fork($func, &#39;bar&#39;);
+$snidel-&amp;gt;fork($func, &#39;baz&#39;);
+
+var_dump($snidel-&amp;gt;get());
+// * the order of results is not guaranteed. *
+// array(3) {
+//   [0]=&amp;gt;
+//   string(3) &amp;quot;bar&amp;quot;
+//   [1]=&amp;gt;
+//   string(3) &amp;quot;foo&amp;quot;
+//   [2]=&amp;gt;
+//   string(3) &amp;quot;baz&amp;quot;
+// }
+
+echo (time() - $s) . &#39;sec elapsed&#39; . PHP_EOL;
+// 3sec elapsed.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;作り始めたきっかけ:6059c22da48c7213647847cb35fc5a38&#34;&gt;作り始めたきっかけ&lt;/h3&gt;
+
+&lt;p&gt;仕事で携わっているプロジェクトでは &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34; target=&#34;_balnk&#34;&gt;PHP_CodeSniffer&lt;/a&gt; を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。&lt;/p&gt;
+
+&lt;p&gt;その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。
+php じゃなくても良かったのですが勉強のため。
+いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
+
+&lt;h3 id=&#34;結果:6059c22da48c7213647847cb35fc5a38&#34;&gt;結果&lt;/h3&gt;
+
+&lt;p&gt;集計処理の時間が下記のように改善しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ビフォー&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;real 5m9.580s
+user 3m3.123s
+sys  0m14.849s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アフター&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;real 2m44.248s
+user 3m1.867s
+sys  0m20.341s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行時間が45%くらい削減できました。
+また、実行時間よりユーザーCPU時間の方が長くなっているので
+複数のCPUが使えてることがわかります。&lt;/p&gt;
+
+&lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが
+まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About Hugo</title>
-      <link>http://ackintosh.github.io/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://ackintosh.github.io/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>
 
 &lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
@@ -50,10 +146,10 @@
     
     <item>
       <title>phpでバイナリ / テキストファイルの判定</title>
-      <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
+      <link>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</link>
       <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
+      <guid>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</guid>
       <description>
 
 &lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
@@ -120,10 +216,10 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
     
     <item>
       <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <link>http://localhost:1313/blog/2013/11/24/toumi/</link>
       <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <guid>http://localhost:1313/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
 
@@ -174,10 +270,10 @@ class LegacyTest extends PHPUnit_Framework_TestCase
     
     <item>
       <title>spika hackathonに参加しました</title>
-      <link>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</link>
+      <link>http://localhost:1313/blog/2013/10/21/spika-hackathon/</link>
       <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</guid>
+      <guid>http://localhost:1313/blog/2013/10/21/spika-hackathon/</guid>
       <description>
 
 &lt;p&gt;先日、&lt;a href=&#34;http://connpass.com/event/3698/&#34; target=&#34;_blank&#34;&gt;spika hackathon&lt;/a&gt;に参加してきました。&lt;/p&gt;
@@ -257,10 +353,10 @@ target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル�
     
     <item>
       <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <link>http://localhost:1313/blog/2013/10/18/php-testability/</link>
       <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <guid>http://localhost:1313/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
 
@@ -301,10 +397,10 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
     
     <item>
       <title>遅延静的束縛は何が嬉しいのか</title>
-      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
+      <link>http://localhost:1313/blog/2013/08/25/late-static-binding/</link>
       <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
+      <guid>http://localhost:1313/blog/2013/08/25/late-static-binding/</guid>
       <description>
 
 &lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
@@ -405,10 +501,10 @@ target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: お
     
     <item>
       <title>ハイフンとアンダースコアの使い分け</title>
-      <link>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</link>
+      <link>http://localhost:1313/blog/2013/08/11/hypen-under-score/</link>
       <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</guid>
+      <guid>http://localhost:1313/blog/2013/08/11/hypen-under-score/</guid>
       <description>
 
 &lt;p&gt;ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。&lt;/p&gt;
@@ -483,10 +579,10 @@ end
     
     <item>
       <title>PHPで関数合成を書いてみる</title>
-      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
+      <link>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</link>
       <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
+      <guid>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
@@ -533,10 +629,10 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
     
     <item>
       <title>PHP用のベンチマークツールを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</link>
+      <link>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</link>
       <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
+      <guid>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</guid>
       <description>
 
 &lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
@@ -615,10 +711,10 @@ echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
     
     <item>
       <title>FuelPHPに独自のバリデーションルールを追加する</title>
-      <link>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
+      <link>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</link>
       <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
+      <guid>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
@@ -648,10 +744,10 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
     
     <item>
       <title>FuelPHPに独自の設定ファイルを追加する</title>
-      <link>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
+      <link>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
       <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
+      <guid>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
       <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple, flexible, community driven PHP5.3 framework.&lt;/a&gt;
@@ -669,10 +765,10 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
     
     <item>
       <title>ラムダ・クロージャ・部分適用・カリー化を一言でいうと？</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/lambda/</link>
+      <link>http://localhost:1313/blog/2013/04/18/lambda/</link>
       <pubDate>Thu, 18 Apr 2013 17:04:42 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
+      <guid>http://localhost:1313/blog/2013/04/18/lambda/</guid>
       <description>
 
 &lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
@@ -719,10 +815,10 @@ target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
     
     <item>
       <title>PHPでTCPサーバー</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
+      <link>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</link>
       <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
+      <guid>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</guid>
       <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
 
 &lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
@@ -743,10 +839,10 @@ target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSoc
     
     <item>
       <title>Octopressで記事が作れない(zsh)</title>
-      <link>http://ackintosh.github.io/blog/2013/02/02/cant-create-post/</link>
+      <link>http://localhost:1313/blog/2013/02/02/cant-create-post/</link>
       <pubDate>Sat, 02 Feb 2013 17:11:18 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2013/02/02/cant-create-post/</guid>
+      <guid>http://localhost:1313/blog/2013/02/02/cant-create-post/</guid>
       <description>
 
 &lt;p&gt;zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。&lt;/p&gt;
@@ -767,68 +863,6 @@ zsh: no matches found: new_post[hoge]
 
 &lt;pre&gt;&lt;code&gt;$ rake &amp;quot;new_post[hoge]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
-      <link>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
-      <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
-      <description>
-
-&lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;
-
-&lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
-&lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
-:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;インストールと起動:d50f8189626da1b347580b9d83fb329b&#34;&gt;インストールと起動&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
-$ unzip kestrel-2.4.1.zip
-$ cd kestrel-2.4.1
-$ sudo java -jar kestrel_2.9.2-2.4.1.jar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;zendqueue:d50f8189626da1b347580b9d83fb329b&#34;&gt;ZendQueue&lt;/h4&gt;
-
-&lt;p&gt;Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34;&gt;https://github.com/zendframework/ZendQueue&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;メッセージを格納する方法によって複数のアダプタが用意されています。&lt;br /&gt;
-Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。&lt;/p&gt;
-
-&lt;h4 id=&#34;memcache:d50f8189626da1b347580b9d83fb329b&#34;&gt;Memcache&lt;/h4&gt;
-
-&lt;p&gt;あらかじめMemcachedライブラリもインストールしておいて下さい。&lt;br /&gt;
-Macの場合はHomebrewを使うと簡単にインストールできます♪&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install memcached
-$ brew install memcache-php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;メッセージキューサーバーを体験:d50f8189626da1b347580b9d83fb329b&#34;&gt;メッセージキューサーバーを体験&lt;/h4&gt;
-
-&lt;p&gt;２つのスクリプトを用意してください。&lt;br /&gt;
-・worker.php :
-ワーカープロセス。キューからメッセージを取得して表示する。
-&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=worker.php&#34;&gt;&lt;/script&gt;
-・front.php : キューにメッセージを送信する。
-&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=front.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;ターミナルを２つたちあげてください。&lt;br /&gt;
-・ターミナル１でworker.phpを実行&lt;br /&gt;
-プロンプトが返ってこない → Kestrelのキューを監視してくれています。&lt;/p&gt;
-
-&lt;p&gt;・ターミナル２でfront.phpを実行すると…&lt;br /&gt;
-ターミナル１に「Hello, World!」と表示されます！&lt;/p&gt;
-
-&lt;p&gt;簡単ですが以上です。&lt;br /&gt;
-Hello, Worldが表示された時には感動しますね (・∀・)&lt;br /&gt;
-worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪&lt;/p&gt;
 </description>
     </item>
     

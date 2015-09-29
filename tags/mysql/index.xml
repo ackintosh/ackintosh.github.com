@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on 暁</title>
-    <link>http://ackintosh.github.io/tags/mysql/</link>
+    <link>http://localhost:1313/tags/mysql/</link>
     <description>Recent content in Mysql on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sun, 26 Aug 2012 17:34:34 +0900</lastBuildDate>
-    <atom:link href="http://ackintosh.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MySQLでインデックスあり・なしの検索速度を比較してみました。</title>
-      <link>http://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</link>
+      <link>http://localhost:1313/blog/2012/08/26/compared-the-index-with-and-without/</link>
       <pubDate>Sun, 26 Aug 2012 17:34:34 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</guid>
+      <guid>http://localhost:1313/blog/2012/08/26/compared-the-index-with-and-without/</guid>
       <description>
 
 &lt;p&gt;usersとfavoritesが１対多になるようにして、&lt;br /&gt;
