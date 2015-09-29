@@ -27,17 +27,17 @@
 &lt;p&gt;他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
 php で手軽に並列処理をする。というのがコンセプトです。&lt;/p&gt;
 
-&lt;p&gt;子プロセス数の制御に &lt;a href=&#34;http://php.net/manual/ja/function.msg-get-queue.php&#34; target=&#34;_blank&#34;&gt;メッセージキュー&lt;/a&gt;
-プロセス間のデータのやりとりに &lt;a href=&#34;http://php.net/manual/ja/ref.shmop.php&#34; target=&#34;_blank&#34;&gt;共有メモリ&lt;/a&gt;
+&lt;p&gt;子プロセス数の制御に &lt;a href=&#34;http://php.net/manual/ja/function.msg-get-queue.php&#34; target=&#34;_blank&#34;&gt;メッセージキュー&lt;/a&gt;&lt;br /&gt;
+プロセス間のデータのやりとりに &lt;a href=&#34;http://php.net/manual/ja/ref.shmop.php&#34; target=&#34;_blank&#34;&gt;共有メモリ&lt;/a&gt;&lt;br /&gt;
 を使っています。&lt;/p&gt;
 
-&lt;p&gt;命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。
+&lt;p&gt;命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。&lt;br /&gt;
 ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&amp;hellip;。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png&#34; alt=&#34;snidel_translate&#34; /&gt;
 &lt;/p&gt;
 
-&lt;p&gt;proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、
+&lt;p&gt;proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、&lt;br /&gt;
 Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$func = function ($str) {
@@ -71,8 +71,8 @@ echo (time() - $s) . &#39;sec elapsed&#39; . PHP_EOL;
 
 &lt;p&gt;仕事で携わっているプロジェクトでは &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34; target=&#34;_balnk&#34;&gt;PHP_CodeSniffer&lt;/a&gt; を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。&lt;/p&gt;
 
-&lt;p&gt;その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。
-php じゃなくても良かったのですが勉強のため。
+&lt;p&gt;その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。&lt;br /&gt;
+php じゃなくても良かったのですが勉強のため。&lt;br /&gt;
 いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
 
 &lt;h3 id=&#34;結果:6059c22da48c7213647847cb35fc5a38&#34;&gt;結果&lt;/h3&gt;
@@ -97,11 +97,11 @@ user 3m1.867s
 sys  0m20.341s
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;実行時間が45%くらい削減できました。
+&lt;p&gt;実行時間が45%くらい削減できました。&lt;br /&gt;
 また、実行時間よりユーザーCPU時間の方が長くなっているので
 複数のCPUが使えてることがわかります。&lt;/p&gt;
 
-&lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが
+&lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが&lt;br /&gt;
 まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
 </description>
     </item>

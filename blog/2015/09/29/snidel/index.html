@@ -152,17 +152,17 @@
 <p>他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
 php で手軽に並列処理をする。というのがコンセプトです。</p>
 
-<p>子プロセス数の制御に <a href="http://php.net/manual/ja/function.msg-get-queue.php" target="_blank">メッセージキュー</a>
-プロセス間のデータのやりとりに <a href="http://php.net/manual/ja/ref.shmop.php" target="_blank">共有メモリ</a>
+<p>子プロセス数の制御に <a href="http://php.net/manual/ja/function.msg-get-queue.php" target="_blank">メッセージキュー</a><br />
+プロセス間のデータのやりとりに <a href="http://php.net/manual/ja/ref.shmop.php" target="_blank">共有メモリ</a><br />
 を使っています。</p>
 
-<p>命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。
+<p>命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。<br />
 ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&hellip;。</p>
 
 <p><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png" alt="snidel_translate" />
 </p>
 
-<p>proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、
+<p>proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、<br />
 Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。</p>
 
 <pre><code class="language-php">$func = function ($str) {
@@ -196,8 +196,8 @@ echo (time() - $s) . 'sec elapsed' . PHP_EOL;
 
 <p>仕事で携わっているプロジェクトでは <a href="https://github.com/squizlabs/PHP_CodeSniffer" target="_balnk">PHP_CodeSniffer</a> を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。</p>
 
-<p>その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。
-php じゃなくても良かったのですが勉強のため。
+<p>その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。<br />
+php じゃなくても良かったのですが勉強のため。<br />
 いい感じにできれば他のプロジェクトでも使えるかもですし。</p>
 
 <h3 id="結果:6059c22da48c7213647847cb35fc5a38">結果</h3>
@@ -222,11 +222,11 @@ user 3m1.867s
 sys  0m20.341s
 </code></pre>
 
-<p>実行時間が45%くらい削減できました。
+<p>実行時間が45%くらい削減できました。<br />
 また、実行時間よりユーザーCPU時間の方が長くなっているので
 複数のCPUが使えてることがわかります。</p>
 
-<p>ライブラリの出来としては、github の issues に挙げていますが
+<p>ライブラリの出来としては、github の issues に挙げていますが<br />
 まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。</p>
 
     </section>
