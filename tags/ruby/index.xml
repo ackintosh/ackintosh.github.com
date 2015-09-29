@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on 暁</title>
-    <link>http://localhost:1313/tags/ruby/</link>
+    <link>http://ackintosh.github.io/tags/ruby/</link>
     <description>Recent content in Ruby on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sun, 11 Aug 2013 16:10:19 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ackintosh.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ハイフンとアンダースコアの使い分け</title>
-      <link>http://localhost:1313/blog/2013/08/11/hypen-under-score/</link>
+      <link>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</link>
       <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/08/11/hypen-under-score/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</guid>
       <description>
 
 &lt;p&gt;ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。&lt;/p&gt;
@@ -90,10 +90,10 @@ end
     
     <item>
       <title>RubyでTemplate Methodパターン</title>
-      <link>http://localhost:1313/blog/2012/10/24/template-method-pattern-in-ruby/</link>
+      <link>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</link>
       <pubDate>Wed, 24 Oct 2012 17:21:33 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
+      <guid>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
       <description>&lt;p&gt;Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。&lt;/p&gt;
 
 &lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
@@ -107,10 +107,10 @@ Template Methodの具象クラスによってオーバーライドできる非�
     
     <item>
       <title>HerokuのWebサーバーをUnicornに変更する</title>
-      <link>http://localhost:1313/blog/2012/08/28/using-the-unicorn-in-heroku/</link>
+      <link>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</link>
       <pubDate>Tue, 28 Aug 2012 16:18:32 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
+      <guid>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
       <description>
 
 &lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;

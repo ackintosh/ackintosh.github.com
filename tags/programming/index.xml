@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on 暁</title>
-    <link>http://localhost:1313/tags/programming/</link>
+    <link>http://ackintosh.github.io/tags/programming/</link>
     <description>Recent content in Programming on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Mon, 21 Oct 2013 15:59:43 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ackintosh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>spika hackathonに参加しました</title>
-      <link>http://localhost:1313/blog/2013/10/21/spika-hackathon/</link>
+      <link>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</link>
       <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/10/21/spika-hackathon/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</guid>
       <description>
 
 &lt;p&gt;先日、&lt;a href=&#34;http://connpass.com/event/3698/&#34; target=&#34;_blank&#34;&gt;spika hackathon&lt;/a&gt;に参加してきました。&lt;/p&gt;
@@ -95,10 +95,10 @@ target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル�
     
     <item>
       <title>ラムダ・クロージャ・部分適用・カリー化を一言でいうと？</title>
-      <link>http://localhost:1313/blog/2013/04/18/lambda/</link>
+      <link>http://ackintosh.github.io/blog/2013/04/18/lambda/</link>
       <pubDate>Thu, 18 Apr 2013 17:04:42 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2013/04/18/lambda/</guid>
+      <guid>http://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
       <description>
 
 &lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
@@ -145,10 +145,10 @@ target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
     
     <item>
       <title>Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</title>
-      <link>http://localhost:1313/blog/2012/09/02/md2note/</link>
+      <link>http://ackintosh.github.io/blog/2012/09/02/md2note/</link>
       <pubDate>Sun, 02 Sep 2012 16:55:06 +0900</pubDate>
       
-      <guid>http://localhost:1313/blog/2012/09/02/md2note/</guid>
+      <guid>http://ackintosh.github.io/blog/2012/09/02/md2note/</guid>
       <description>&lt;p&gt;最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。&lt;br /&gt;
 ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。&lt;/p&gt;
 

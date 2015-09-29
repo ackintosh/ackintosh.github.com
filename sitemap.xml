@@ -2,113 +2,113 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://ackintosh.github.io/</loc>
     <lastmod>2015-09-29T14:24:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2015/09/29/snidel/</loc>
+    <loc>http://ackintosh.github.io/blog/2015/09/29/snidel/</loc>
     <lastmod>2015-09-29T14:24:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://ackintosh.github.io/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2014/02/01/is-binary-in-php/</loc>
+    <loc>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</loc>
     <lastmod>2014-02-01T16:25:32+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/11/24/toumi/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/11/24/toumi/</loc>
     <lastmod>2013-11-24T15:35:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/10/21/spika-hackathon/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</loc>
     <lastmod>2013-10-21T15:59:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/10/18/php-testability/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/10/18/php-testability/</loc>
     <lastmod>2013-10-18T17:14:32+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/08/25/late-static-binding/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</loc>
     <lastmod>2013-08-25T17:23:38+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/08/11/hypen-under-score/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</loc>
     <lastmod>2013-08-11T16:10:19+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/08/05/compose-functions-in-php/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</loc>
     <lastmod>2013-08-05T17:42:28+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/06/11/developed-a-benchmark-tool/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</loc>
     <lastmod>2013-06-11T16:41:31+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/04/29/custom-validation-for-fuelphp/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</loc>
     <lastmod>2013-04-29T15:51:23+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/04/29/custom-configuration-file-for-fuelphp/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</loc>
     <lastmod>2013-04-29T12:33:40+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/04/18/lambda/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/04/18/lambda/</loc>
     <lastmod>2013-04-18T17:04:42+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/04/18/tcp-server-written-in-php/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</loc>
     <lastmod>2013-04-18T16:31:56+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/02/02/cant-create-post/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/02/02/cant-create-post/</loc>
     <lastmod>2013-02-02T17:11:18+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2013/01/03/message-queue-server-with-php/</loc>
+    <loc>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</loc>
     <lastmod>2013-01-03T16:47:11+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2012/10/24/template-method-pattern-in-ruby/</loc>
+    <loc>http://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</loc>
     <lastmod>2012-10-24T17:21:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2012/09/02/md2note/</loc>
+    <loc>http://ackintosh.github.io/blog/2012/09/02/md2note/</loc>
     <lastmod>2012-09-02T16:55:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2012/08/28/using-the-unicorn-in-heroku/</loc>
+    <loc>http://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</loc>
     <lastmod>2012-08-28T16:18:32+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2012/08/26/compared-the-index-with-and-without/</loc>
+    <loc>http://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</loc>
     <lastmod>2012-08-26T17:34:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/blog/2012/07/10/use-the-markdown-js/</loc>
+    <loc>http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/</loc>
     <lastmod>2012-07-10T16:59:25+09:00</lastmod>
   </url>
   
