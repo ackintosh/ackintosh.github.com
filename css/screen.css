@@ -363,6 +363,7 @@ pre code, pre tt {
     background: transparent;
     border: none;
     padding: 0;
+    line-height: 1.2em;
 }
 
 kbd {
