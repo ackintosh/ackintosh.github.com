@@ -20,8 +20,8 @@
 
 &lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
 
-&lt;iframe class=&#34;hatena-parts&#34;
-src=&#34;http://hatenablog-parts.com/embed?url=https://github.com/ackintosh/snidel&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a class=&#34;embedly-card&#34; href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;snidel-スナイデル-について:6059c22da48c7213647847cb35fc5a38&#34;&gt;Snidel (スナイデル) について&lt;/h3&gt;
 
