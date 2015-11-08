@@ -7,8 +7,203 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 29 Sep 2015 14:24:34 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2015 16:05:24 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Snidel 0.2 をリリースしました</title>
+      <link>http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/</link>
+      <pubDate>Sun, 08 Nov 2015 16:05:24 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; バージョン 0.2 をリリースしました。&lt;br /&gt;
+この記事は、&lt;br /&gt;
+追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。&lt;/p&gt;
+
+&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id=&#34;特定の処理結果を取得:ee76cbb32354dec37a8e590548214889&#34;&gt;特定の処理結果を取得&lt;/h3&gt;
+
+&lt;p&gt;処理結果を取得するメソッドとして &lt;code&gt;Snidel::get()&lt;/code&gt; を用意していますが&lt;br /&gt;
+並列に処理する関係で、 &lt;code&gt;Shidel::get()&lt;/code&gt; で得られる結果の順番は保証されません。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$snidel-&amp;gt;fork($func, &#39;foo&#39;);
+$snidel-&amp;gt;fork($func, &#39;bar&#39;);
+$snidel-&amp;gt;fork($func, &#39;baz&#39;);
+
+var_dump($snidel-&amp;gt;get());
+// * the order of results is not guaranteed. *
+// array(3) {
+//   [0]=&amp;gt;
+//   string(3) &amp;quot;bar&amp;quot;
+//   [1]=&amp;gt;
+//   string(3) &amp;quot;foo&amp;quot;
+//   [2]=&amp;gt;
+//   string(3) &amp;quot;baz&amp;quot;
+// }
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ですので、特定（１つまたは複数）の処理結果を取得したいケースに対応できるように&lt;br /&gt;
+処理をフォークする時／結果を取得する時にタグを指定できるようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$snidel-&amp;gt;fork($func, &#39;foo&#39;, &#39;tag1&#39;);
+$snidel-&amp;gt;fork($func, &#39;bar&#39;, &#39;tag1&#39;);
+$snidel-&amp;gt;fork($func, &#39;baz&#39;, &#39;tag2&#39;);
+
+var_dump($snidel-&amp;gt;get(&#39;tag1&#39;));
+// array(2) {
+//   [0]=&amp;gt;
+//   string(3) &amp;quot;foo&amp;quot;
+//   [1]=&amp;gt;
+//   string(3) &amp;quot;bar&amp;quot;
+// }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記サンプルコードでは &lt;code&gt;tag1&lt;/code&gt; を指定した処理の結果だけを取得しています。&lt;/p&gt;
+
+&lt;h3 id=&#34;ログの出力:ee76cbb32354dec37a8e590548214889&#34;&gt;ログの出力&lt;/h3&gt;
+
+&lt;p&gt;これは Snidel 自体の開発で必要性を感じて実装しました。&lt;/p&gt;
+
+&lt;p&gt;なかなか意図した動作をしない時に、どのプロセスが・どの順番で・いつ生成されたのかを&lt;br /&gt;
+追跡する手段がないと辛いですよね。&lt;/p&gt;
+
+&lt;p&gt;最低限の機能しかない頃は echo しまくるだけで間に合ってたのですが&lt;br /&gt;
+機能追加を重ねるごとに辛くなってきたので、ログの出力先として resource をセットできるようにしました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$fp = fopen(&#39;php://stdout&#39;, &#39;w&#39;);
+$snidel-&amp;gt;setLoggingDestination($fp);
+
+$snidel-&amp;gt;fork($func, &#39;foo&#39;);
+// [info][26304(p)] created child process. pid: 26306
+// [info][26306(c)] waiting for the token to come around.
+// ...
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記サンプルコードでは標準出力にプロセス生成などのログが出力されています。&lt;/p&gt;
+
+&lt;h3 id=&#34;複数の処理を並列につなげて実行:ee76cbb32354dec37a8e590548214889&#34;&gt;複数の処理を並列につなげて実行&lt;/h3&gt;
+
+&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能です。&lt;/p&gt;
+
+&lt;p&gt;A、B、C ３つの処理を続けて処理する（Aの結果をBが処理し、Bの結果をCが処理する）ケースで&lt;br /&gt;
+３つの処理それぞれを並列に実行することができます。&lt;br /&gt;
+↑を読んでも、いまいちイメージが伝わらないと思いますがとりあえず使い方を書いていきます。&lt;/p&gt;
+
+&lt;p&gt;まず &lt;code&gt;Snidel::map()&lt;/code&gt; に最初の処理Aと、処理Aを適用する配列を渡します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$map = $snidel-&amp;gt;map($args, function ($arg) {
+    // do something. (A)
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして &lt;code&gt;then()&lt;/code&gt; で後続の処理を指定していきます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$map-&amp;gt;then(function ($arg) {
+    // do something. (B)
+})-&amp;gt;then(function ($arg) {
+    // do something. (C)
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後に &lt;code&gt;Snidel::run()&lt;/code&gt; で、定義した処理を実行します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$snidel-&amp;gt;run($map);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例として、スペース区切りの文字列をキャメルケースに変換する処理を記載します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$args = [
+    &#39;BRING ME THE HORIZON&#39;,
+    &#39;ARCH ENEMY&#39;,
+    &#39;BULLET FOR MY VALENTINE&#39;,
+    &#39;RACER X&#39;,
+    &#39;OF MICE AND MEN&#39;,
+    &#39;AT THE GATES&#39;,
+];
+
+$snidel = new Snidel($maxProcs = 2);
+
+// each of the functions are performed in parallel.
+$camelize = $snidel-&amp;gt;map($args, function ($arg) {
+    return explode(&#39; &#39;, strtolower($arg));
+})-&amp;gt;then(function ($arg) {
+    return array_map(&#39;ucfirst&#39;, $arg);
+})-&amp;gt;then(function ($arg) {
+    return implode(&#39;&#39;, $arg);
+});
+
+var_dump($snidel-&amp;gt;run($camelize));
+// array(6) {
+//   [0] =&amp;gt;
+//   string(6) &amp;quot;RacerX&amp;quot;
+//   [1] =&amp;gt;
+//   string(20) &amp;quot;BulletForMyValentine&amp;quot;
+//   [2] =&amp;gt;
+//   string(9) &amp;quot;ArchEnemy&amp;quot;
+//   [3] =&amp;gt;
+//   string(17) &amp;quot;BringMeTheHorizon&amp;quot;
+//   [4] =&amp;gt;
+//   string(10) &amp;quot;AtTheGates&amp;quot;
+//   [5] =&amp;gt;
+//   string(12) &amp;quot;OfMiceAndMen&amp;quot;
+// }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じの実行イメージです。&lt;br /&gt;
+青 : 処理A (explode)&lt;br /&gt;
+緑 : 処理B (ucfirst)&lt;br /&gt;
+黄 : 処理C (implode)&lt;br /&gt;
+&lt;iframe src=&#34;https://player.vimeo.com/video/144969743&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;処理Aが並列数2で開始して 結果を処理Bに渡した後、&lt;br /&gt;
+処理Bの開始と同時に、次の処理Aも開始します。
+（文章が下手ですいません&amp;hellip;）&lt;/p&gt;
+
+&lt;p&gt;なお、 &lt;strong&gt;下記ではありません&lt;/strong&gt; 。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://player.vimeo.com/video/145030564&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;各処理が1秒かかる場合、&lt;br /&gt;
+前者が 5秒 で終了するのに対して、後者は 9秒 かかってしまいます。&lt;/p&gt;
+
+&lt;p&gt;ただ、処理は早く終わりますが実際の並列実行数は Snidel のコンストラクタで指定する数より多くなります。&lt;br /&gt;
+（例でいえば最大 6になります）&lt;/p&gt;
+
+&lt;p&gt;以上が追加した機能になります。&lt;/p&gt;
+
+&lt;h3 id=&#34;社内で使ってもらえました:ee76cbb32354dec37a8e590548214889&#34;&gt;社内で使ってもらえました!&lt;/h3&gt;
+
+&lt;p&gt;初回リリース時の記事で&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;と書いていたのですが、社内slackで作ってみました〜と静かにアピールしたら&lt;br /&gt;
+実際に使ってもらえて、けっこう成果が出たみたいでめっちゃ嬉しかったです。&lt;br /&gt;
+モチベーションになります。&lt;/p&gt;
+
+&lt;p&gt;この記事で紹介した機能は、このモチベーションで実装しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;初回リリース時の記事
+&lt;a class=&#34;embedly-card&#34; href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;php で手軽に並列処理をするライブラリ Snidel を作りました · 暁&lt;/a&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今後は&amp;hellip;&lt;br /&gt;
+初回リリースから１ヶ月ちょっと経って、実装したい機能は一通り終わったのですが、&lt;br /&gt;
+テストコードが少なくてちょっと恥ずかしい感じなので&lt;br /&gt;
+引き続きそのへんをいじっていきたいと思っています。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>php で手軽に並列処理をするライブラリ Snidel を作りました</title>
@@ -826,68 +1021,6 @@ zsh: no matches found: new_post[hoge]
 
 &lt;pre&gt;&lt;code&gt;$ rake &amp;quot;new_post[hoge]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
-      <link>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
-      <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
-      <description>
-
-&lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;
-
-&lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
-&lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
-:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;インストールと起動:d50f8189626da1b347580b9d83fb329b&#34;&gt;インストールと起動&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
-$ unzip kestrel-2.4.1.zip
-$ cd kestrel-2.4.1
-$ sudo java -jar kestrel_2.9.2-2.4.1.jar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;zendqueue:d50f8189626da1b347580b9d83fb329b&#34;&gt;ZendQueue&lt;/h4&gt;
-
-&lt;p&gt;Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://github.com/zendframework/ZendQueue&#34;&gt;https://github.com/zendframework/ZendQueue&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;メッセージを格納する方法によって複数のアダプタが用意されています。&lt;br /&gt;
-Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。&lt;/p&gt;
-
-&lt;h4 id=&#34;memcache:d50f8189626da1b347580b9d83fb329b&#34;&gt;Memcache&lt;/h4&gt;
-
-&lt;p&gt;あらかじめMemcachedライブラリもインストールしておいて下さい。&lt;br /&gt;
-Macの場合はHomebrewを使うと簡単にインストールできます♪&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install memcached
-$ brew install memcache-php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;メッセージキューサーバーを体験:d50f8189626da1b347580b9d83fb329b&#34;&gt;メッセージキューサーバーを体験&lt;/h4&gt;
-
-&lt;p&gt;２つのスクリプトを用意してください。&lt;br /&gt;
-・worker.php :
-ワーカープロセス。キューからメッセージを取得して表示する。
-&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=worker.php&#34;&gt;&lt;/script&gt;
-・front.php : キューにメッセージを送信する。
-&lt;script src=&#34;https://gist.github.com/ackintosh/4444078.js?file=front.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;ターミナルを２つたちあげてください。&lt;br /&gt;
-・ターミナル１でworker.phpを実行&lt;br /&gt;
-プロンプトが返ってこない → Kestrelのキューを監視してくれています。&lt;/p&gt;
-
-&lt;p&gt;・ターミナル２でfront.phpを実行すると…&lt;br /&gt;
-ターミナル１に「Hello, World!」と表示されます！&lt;/p&gt;
-
-&lt;p&gt;簡単ですが以上です。&lt;br /&gt;
-Hello, Worldが表示された時には感動しますね (・∀・)&lt;br /&gt;
-worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪&lt;/p&gt;
 </description>
     </item>
     

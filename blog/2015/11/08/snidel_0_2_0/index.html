@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Snidel 0.2 をリリースしました &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2015-11-08T16:05:24&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     Snidel 0.2 をリリースしました &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif">
+	  <link rel="apple-touch-icon" href="http://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/about">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="http://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://dl.dropboxusercontent.com/u/22083548/octopress/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="http://ackintosh.github.io/"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Snidel 0.2 をリリースしました</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2015-11-08T16:05:24&#43;09:00">
+            Nov 8, 2015
+          </time>
+        
+         
+          <span class="post-tag small"><a href="http://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      
+
+<p><a href="https://github.com/ackintosh/snidel" target="_blank">Snidel</a> バージョン 0.2 をリリースしました。<br />
+この記事は、<br />
+追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。</p>
+
+<p>個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。</p>
+
+<!-- more -->
+
+<h3 id="特定の処理結果を取得:ee76cbb32354dec37a8e590548214889">特定の処理結果を取得</h3>
+
+<p>処理結果を取得するメソッドとして <code>Snidel::get()</code> を用意していますが<br />
+並列に処理する関係で、 <code>Shidel::get()</code> で得られる結果の順番は保証されません。</p>
+
+<pre><code class="language-php">$snidel-&gt;fork($func, 'foo');
+$snidel-&gt;fork($func, 'bar');
+$snidel-&gt;fork($func, 'baz');
+
+var_dump($snidel-&gt;get());
+// * the order of results is not guaranteed. *
+// array(3) {
+//   [0]=&gt;
+//   string(3) &quot;bar&quot;
+//   [1]=&gt;
+//   string(3) &quot;foo&quot;
+//   [2]=&gt;
+//   string(3) &quot;baz&quot;
+// }
+
+</code></pre>
+
+<p>ですので、特定（１つまたは複数）の処理結果を取得したいケースに対応できるように<br />
+処理をフォークする時／結果を取得する時にタグを指定できるようにしました。</p>
+
+<pre><code class="language-php">$snidel-&gt;fork($func, 'foo', 'tag1');
+$snidel-&gt;fork($func, 'bar', 'tag1');
+$snidel-&gt;fork($func, 'baz', 'tag2');
+
+var_dump($snidel-&gt;get('tag1'));
+// array(2) {
+//   [0]=&gt;
+//   string(3) &quot;foo&quot;
+//   [1]=&gt;
+//   string(3) &quot;bar&quot;
+// }
+</code></pre>
+
+<p>上記サンプルコードでは <code>tag1</code> を指定した処理の結果だけを取得しています。</p>
+
+<h3 id="ログの出力:ee76cbb32354dec37a8e590548214889">ログの出力</h3>
+
+<p>これは Snidel 自体の開発で必要性を感じて実装しました。</p>
+
+<p>なかなか意図した動作をしない時に、どのプロセスが・どの順番で・いつ生成されたのかを<br />
+追跡する手段がないと辛いですよね。</p>
+
+<p>最低限の機能しかない頃は echo しまくるだけで間に合ってたのですが<br />
+機能追加を重ねるごとに辛くなってきたので、ログの出力先として resource をセットできるようにしました。</p>
+
+<pre><code class="language-php">$fp = fopen('php://stdout', 'w');
+$snidel-&gt;setLoggingDestination($fp);
+
+$snidel-&gt;fork($func, 'foo');
+// [info][26304(p)] created child process. pid: 26306
+// [info][26306(c)] waiting for the token to come around.
+// ...
+
+</code></pre>
+
+<p>上記サンプルコードでは標準出力にプロセス生成などのログが出力されています。</p>
+
+<h3 id="複数の処理を並列につなげて実行:ee76cbb32354dec37a8e590548214889">複数の処理を並列につなげて実行</h3>
+
+<p>個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能です。</p>
+
+<p>A、B、C ３つの処理を続けて処理する（Aの結果をBが処理し、Bの結果をCが処理する）ケースで<br />
+３つの処理それぞれを並列に実行することができます。<br />
+↑を読んでも、いまいちイメージが伝わらないと思いますがとりあえず使い方を書いていきます。</p>
+
+<p>まず <code>Snidel::map()</code> に最初の処理Aと、処理Aを適用する配列を渡します。</p>
+
+<pre><code class="language-php">$map = $snidel-&gt;map($args, function ($arg) {
+    // do something. (A)
+});
+</code></pre>
+
+<p>そして <code>then()</code> で後続の処理を指定していきます。</p>
+
+<pre><code class="language-php">$map-&gt;then(function ($arg) {
+    // do something. (B)
+})-&gt;then(function ($arg) {
+    // do something. (C)
+});
+</code></pre>
+
+<p>最後に <code>Snidel::run()</code> で、定義した処理を実行します。</p>
+
+<pre><code class="language-php">$snidel-&gt;run($map);
+</code></pre>
+
+<p>例として、スペース区切りの文字列をキャメルケースに変換する処理を記載します。</p>
+
+<pre><code class="language-php">$args = [
+    'BRING ME THE HORIZON',
+    'ARCH ENEMY',
+    'BULLET FOR MY VALENTINE',
+    'RACER X',
+    'OF MICE AND MEN',
+    'AT THE GATES',
+];
+
+$snidel = new Snidel($maxProcs = 2);
+
+// each of the functions are performed in parallel.
+$camelize = $snidel-&gt;map($args, function ($arg) {
+    return explode(' ', strtolower($arg));
+})-&gt;then(function ($arg) {
+    return array_map('ucfirst', $arg);
+})-&gt;then(function ($arg) {
+    return implode('', $arg);
+});
+
+var_dump($snidel-&gt;run($camelize));
+// array(6) {
+//   [0] =&gt;
+//   string(6) &quot;RacerX&quot;
+//   [1] =&gt;
+//   string(20) &quot;BulletForMyValentine&quot;
+//   [2] =&gt;
+//   string(9) &quot;ArchEnemy&quot;
+//   [3] =&gt;
+//   string(17) &quot;BringMeTheHorizon&quot;
+//   [4] =&gt;
+//   string(10) &quot;AtTheGates&quot;
+//   [5] =&gt;
+//   string(12) &quot;OfMiceAndMen&quot;
+// }
+</code></pre>
+
+<p>こんな感じの実行イメージです。<br />
+青 : 処理A (explode)<br />
+緑 : 処理B (ucfirst)<br />
+黄 : 処理C (implode)<br />
+<iframe src="https://player.vimeo.com/video/144969743" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+
+<p>処理Aが並列数2で開始して 結果を処理Bに渡した後、<br />
+処理Bの開始と同時に、次の処理Aも開始します。
+（文章が下手ですいません&hellip;）</p>
+
+<p>なお、 <strong>下記ではありません</strong> 。</p>
+
+<iframe src="https://player.vimeo.com/video/145030564" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>各処理が1秒かかる場合、<br />
+前者が 5秒 で終了するのに対して、後者は 9秒 かかってしまいます。</p>
+
+<p>ただ、処理は早く終わりますが実際の並列実行数は Snidel のコンストラクタで指定する数より多くなります。<br />
+（例でいえば最大 6になります）</p>
+
+<p>以上が追加した機能になります。</p>
+
+<h3 id="社内で使ってもらえました:ee76cbb32354dec37a8e590548214889">社内で使ってもらえました!</h3>
+
+<p>初回リリース時の記事で</p>
+
+<blockquote>
+<p>いい感じにできれば他のプロジェクトでも使えるかもですし。</p>
+</blockquote>
+
+<p>と書いていたのですが、社内slackで作ってみました〜と静かにアピールしたら<br />
+実際に使ってもらえて、けっこう成果が出たみたいでめっちゃ嬉しかったです。<br />
+モチベーションになります。</p>
+
+<p>この記事で紹介した機能は、このモチベーションで実装しました。</p>
+
+<ul>
+<li>初回リリース時の記事
+<a class="embedly-card" href="http://ackintosh.github.io/blog/2015/09/29/snidel/">php で手軽に並列処理をするライブラリ Snidel を作りました · 暁</a>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></li>
+</ul>
+
+<p>今後は&hellip;<br />
+初回リリースから１ヶ月ちょっと経って、実装したい機能は一通り終わったのですが、<br />
+テストコードが少なくてちょっと恥ずかしい感じなので<br />
+引き続きそのへんをいじっていきたいと思っています。</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/prof.jpeg" /></a>
+  <p>Read <a href="http://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Snidel%200.2%20%e3%82%92%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%97%e3%81%be%e3%81%97%e3%81%9f&amp;url=http%3a%2f%2fackintosh.github.io%2fblog%2f2015%2f11%2f08%2fsnidel_0_2_0%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fackintosh.github.io%2fblog%2f2015%2f11%2f08%2fsnidel_0_2_0%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fackintosh.github.io%2fblog%2f2015%2f11%2f08%2fsnidel_0_2_0%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/index.js"></script>
+
+</body>
+</html>
+

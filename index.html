@@ -135,11 +135,36 @@
     <div class="extra-pagination inner">
         <nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 of 1</span>
+	<span class="page-number">Page 1 of 2</span>
+	
+	    <a class="older-posts" href="http://ackintosh.github.io/page/2/">Older Posts &rarr;</a>
 	
 </nav>
 
     </div>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0">Snidel 0.2 をリリースしました</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Snidel バージョン 0.2 をリリースしました。 この記事は、 追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。 個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。 特定の処理結果を取得 処理結果を取得するメソッドとして Snidel::get() を用意していますが 並列に処理する関係で、 Shidel::get() で得られる結果の順番は保証されません。 $snidel-&gt;fork($func, 'foo'); $snidel-&gt;fork($func, 'bar'); $snidel-&gt;fork($func, 'baz'); var_dump($snidel-&gt;get()); // * the order of results is not guaranteed. * // array(3) { // [0]=&gt; // string(3) &quot;bar&quot; // [1]=&gt; // string(3) &quot;foo&quot; // [2]=&gt; // string(3) &quot;baz&quot; // } ですので、特定（１つまたは複数）の処理結果を取得したいケースに対応できるように 処理をフォークする時／結果を取得する時にタグを指定できるようにしました。 $snidel-&gt;fork($func, 'foo', 'tag1'); $snidel-&gt;fork($func, 'bar', 'tag1'); $snidel-&gt;fork($func, 'baz', 'tag2'); var_dump($snidel-&gt;get('tag1')); // array(2) { // [0]=&gt; // string(3) &quot;foo&quot; // [1]=&gt; // string(3) &quot;bar&quot; // } 上記サンプルコードでは tag1 を指定した処理の結果だけを取得しています。 ログの出力 これは Snidel 自体の開発で必要性を感じて実装しました。 なかなか意図した動作をしない時に、どのプロセスが・どの順番で・いつ生成されたのかを 追跡する手段がないと辛いですよね。 最低限の機能しかない頃は echo しまくるだけで間に合ってたのですが 機能追加を重ねるごとに辛くなってきたので、ログの出力先として resource をセットできるようにしました。 $fp = fopen('php://stdout', 'w'); $snidel-&gt;setLoggingDestination($fp); $snidel-&gt;fork($func, 'foo'); // [info][26304(p)] created child process. <a class="read-more" href="http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0">more&nbsp;&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        
+        on
+            
+                <a href="http://ackintosh.github.io/tags/php/">#php</a>,
+            
+        
+        <time class="post-date" datetime="2015-11-08T16:05:24&#43;09:00">
+            8 Nov 2015
+        </time>
+    </footer>
+</article>
 
     
         
@@ -656,39 +681,12 @@ indexの設定あり・なしの2つのDBを用意して比較しました。</p
 </article>
 
     
-        
-<article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js">Markdown記法のパーサー　markdown-jsを使う</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p><p><img src="https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg" alt="" />
-</p>
-
-<p>最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。<br />
-ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
-今回markdown-jsというのを使ってみました。</p>
- <a class="read-more" href="http://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js">more&nbsp;&raquo;</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        
-        on
-            
-                <a href="http://ackintosh.github.io/tags/javascript/">#javascript</a>,
-            
-        
-        <time class="post-date" datetime="2012-07-10T16:59:25&#43;09:00">
-            10 Jul 2012
-        </time>
-    </footer>
-</article>
-
-    
 
     <nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 of 1</span>
+	<span class="page-number">Page 1 of 2</span>
+	
+	    <a class="older-posts" href="http://ackintosh.github.io/page/2/">Older Posts &rarr;</a>
 	
 </nav>
 
