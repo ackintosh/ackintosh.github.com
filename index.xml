@@ -7,8 +7,68 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 08 Nov 2015 16:05:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2015 17:27:08 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ペパボテックカンファレンス EC編に行ってきました</title>
+      <link>http://ackintosh.github.io/blog/2015/11/15/pbtech_4/</link>
+      <pubDate>Sun, 15 Nov 2015 17:27:08 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2015/11/15/pbtech_4/</guid>
+      <description>
+
+&lt;p&gt;いま仕事でECに携わっているのもあって気になったので行ってきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&#34;embedly-card&#34; href=&#34;http://eventdots.jp/event/573086&#34;&gt;国内No.1 ECサービス開発のすべてを語り尽くします！〜第4回ペパボテックカンファレンスEC編 - dots. [ドッツ]&lt;/a&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;事情で途中退席してしまったのですが、&lt;br /&gt;
+EC以外でも役に立つ内容でとても刺激になりました。&lt;/p&gt;
+
+&lt;p&gt;途中退席した関係で以下、最初の２つのお話についてしか書けていませんが&lt;br /&gt;
+ブログを書くまでが&amp;hellip;ということで。&lt;/p&gt;
+
+&lt;h2 id=&#34;jwtを使った簡易ssoで-徐々にシステムをリニューアルしている話:e2bea448186c875775664c97d0ab5124&#34;&gt;JWTを使った簡易SSOで、徐々にシステムをリニューアルしている話&lt;/h2&gt;
+
+&lt;p&gt;PHPのモノリシックなアプリケーションのカート部分を Angular + Rails API で作りなおして、&lt;br /&gt;
+サービス間の認証情報をJWT(ジョット)を使って共有している、というお話。&lt;/p&gt;
+
+&lt;p&gt;JWTを使うことで、わざわざトークンと認証情報の組をストレージに保存したりせず、&lt;br /&gt;
+手軽でセキュアに情報を共有できるのは良いなと思いました。&lt;/p&gt;
+
+&lt;p&gt;自分の仕事では、&lt;br /&gt;
+音楽系アーティストのファンクラブサイトとECサイトを別システムで展開しているので、&lt;br /&gt;
+ログイン情報を共有するのに使えるかなと思いました。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/kRQfq0XOSom6q9&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34;&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/TsuchiKazu/jwt-ssopepabotech&#34; title=&#34;JWTを使った簡易SSOで、徐々にシステムをリニューアルしている話&#34; target=&#34;_blank&#34;&gt;JWTを使った簡易SSOで、徐々にシステムをリニューアルしている話&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/TsuchiKazu&#34; target=&#34;_blank&#34;&gt;Kazuyoshi Tsuchiya&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ネクストステージに繋がるインフラ基盤づくり:e2bea448186c875775664c97d0ab5124&#34;&gt;ネクストステージに繋がるインフラ基盤づくり&lt;/h2&gt;
+
+&lt;p&gt;オンプレのレガシー環境をクラウド化したお話。&lt;br /&gt;
+最新バージョンに追従できるようになったり属人性が解消して
+モチベーション↑↑↑した開発担当者さんの爽やかな笑顔(スライド参照)が印象的でした。&lt;/p&gt;
+
+&lt;p&gt;自分の仕事の環境は まさに改善前の状態に近いので、&lt;br /&gt;
+自分（自社）が抱えてる課題を解決した素敵な事例でした。&lt;/p&gt;
+
+&lt;p&gt;Nyah とか Bayt を知らなかったのでググッてみます。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;6b3d59d8b9e44e378b7043e18ad6a4c1&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;h2 id=&#34;感想:e2bea448186c875775664c97d0ab5124&#34;&gt;感想&lt;/h2&gt;
+
+&lt;p&gt;３番目の鹿さんのお話あたりで退席してしまい最後まで聞けなかったのが残念でしたが、&lt;br /&gt;
+みなさんのサービスにかける情熱が伝わってきてとても刺激になりました。&lt;br /&gt;
+10年も続くサービスの裏で、登壇された方たちのような素晴らしいチームが継続的に改善を続けてたのかぁと思いを馳せながら聞いていました。&lt;/p&gt;
+
+&lt;p&gt;カート作りなおすときに、ボトルネックにならないようにEC特有の注意点とかがあったのか、とか、&lt;br /&gt;
+yano3さんが発表の節々で、「歯を食いしばって頑張った」と仰っていたので&lt;br /&gt;
+機会があれば、その辺の大変だったところとかも具体的に聞いてみたいです。&lt;/p&gt;
+
+&lt;p&gt;あと、カレーたべたかった…&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Snidel 0.2 をリリースしました</title>
@@ -1003,30 +1063,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 href=&#34;http://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96&#34;
 target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PHPでTCPサーバー</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
-      <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
-      <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
-
-&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
-
-&lt;p&gt;個人的には、pcntl_fork()したあとswitch文で分岐する流れが、&lt;br /&gt;
-理解するのに苦労しました。&lt;/p&gt;
-
-&lt;p&gt;ちょうどRubyで並列処理を勉強していたのですが、&lt;br /&gt;
-やっぱりRubyの方が直感的で書きやすいですね。&lt;/p&gt;
-
-&lt;p&gt;&lt;a
-href=&#34;http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/&#34;
-target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSocketまで&lt;/a&gt;&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5381925.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
