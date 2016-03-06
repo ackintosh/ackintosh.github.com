@@ -7,8 +7,101 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 15 Nov 2015 17:27:08 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2016 21:16:42 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CloudFrontでURL振り分けをするときの注意点</title>
+      <link>http://ackintosh.github.io/blog/2016/02/24/l7switching-with-cf/</link>
+      <pubDate>Wed, 24 Feb 2016 21:16:42 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/02/24/l7switching-with-cf/</guid>
+      <description>
+
+&lt;p&gt;最近仕事で担当しているサービスをオンプレからAWSに移行しました。&lt;/p&gt;
+
+&lt;p&gt;ビジネスの都合で短期間で移行しなければいけなかったり、&lt;br /&gt;
+AWSに関しては、&lt;br /&gt;
+個人的に趣味で少し触った程度だったり、&lt;br /&gt;
+会社としてもこれからノウハウを溜めていこうという段階だったので手探り状態で&lt;br /&gt;
+大変でしたが周りの方々にフォローしていただきながらなんとか完了することができました。&lt;/p&gt;
+
+&lt;p&gt;この記事では移行の際にハマったことを共有します。&lt;/p&gt;
+
+&lt;h2 id=&#34;cloudfront-で-url振り分けをする:ca709987244aa21a0352b3870aa9a35d&#34;&gt;CloudFront で URL振り分けをする&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://example.com/aaa&#34;&gt;http://example.com/aaa&lt;/a&gt; のアクセスはサーバー(群)A&lt;br /&gt;
+&lt;a href=&#34;http://example.com/bbb&#34;&gt;http://example.com/bbb&lt;/a&gt; のアクセスはサーバー(群)B&lt;br /&gt;
+といったかたちで処理を分けたい場合、通常はL7ロードバランサの機能を利用しますが&lt;br /&gt;
+ELB にはURLで振り分ける機能がありません。&lt;/p&gt;
+
+&lt;p&gt;そのため、代わりに CloudFront に オリジンやビヘイビアを複数設定することで&lt;br /&gt;
+L7 スイッチとして使うのが手軽で運用も楽です。&lt;/p&gt;
+
+&lt;p&gt;設定についての詳細は参考URLをご参照ください。&lt;/p&gt;
+
+&lt;h4 id=&#34;参考url:ca709987244aa21a0352b3870aa9a35d&#34;&gt;参考URL&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mil-o.jp/yb/elb-l7/&#34; target=&#34;_blank&#34;&gt;[AWS]ELBがURLで振り分けできない問題はCloudFrontでなんとかする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://forums.aws.amazon.com/thread.jspa?threadID=137123&#34; target=&#34;_blank&#34;&gt;ELBでURLごとにサーバー振り分け&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;注意点:ca709987244aa21a0352b3870aa9a35d&#34;&gt;注意点&lt;/h2&gt;
+
+&lt;p&gt;ですがこの方法だと フィーチャーフォン で HTTPS ページが閲覧できなくなります。&lt;br /&gt;
+（全ての機種で閲覧できなくなるかはわかりませんが、10機種ほどで確認したら全滅でした）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フィーチャーフォンはサポートしていない&lt;/li&gt;
+&lt;li&gt;HTTPS は利用していない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;といった場合は該当しません。&lt;/p&gt;
+
+&lt;p&gt;CloudFront はデフォルトではネームベース( SNI )の独自SSL機能を提供していて&lt;br /&gt;
+これにはクライアント側も SNI に対応している必要がありますが&lt;br /&gt;
+フィーチャーフォンは対応していないようです。&lt;br /&gt;
+※ 実際にはフィーチャーフォン以外にも IE6 等の古いブラウザも対応していません。&lt;br /&gt;
+　→ &lt;a href=&#34;https://ja.wikipedia.org/wiki/Server_Name_Indication#.E5.AF.BE.E5.BF.9C.E7.8A.B6.E6.B3.81&#34; target=&#34;_blank&#34;&gt;Wikipedia に対応状況がまとまっています&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;SNI とは SSL/TLS の拡張仕様で、サーバー側が１つのグローバルIPアドレスで複数の証明書を扱えるようになるメリットがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/Server_Name_Indication&#34; target=&#34;_blank&#34;&gt;Server Name Indication - Wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;回避方法:ca709987244aa21a0352b3870aa9a35d&#34;&gt;回避方法&lt;/h4&gt;
+
+&lt;p&gt;AWSドキュメントにいくつか紹介されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#cnames-https-dedicated-ip-or-sni&#34; target=&#34;_blank&#34;&gt;CloudFront で HTTPS リクエストを供給する方法の選択&lt;/a&gt;&lt;br /&gt;
+　→ SNI を使用した HTTPS リクエストの供給（ほとんどのクライアントで動作）&lt;/p&gt;
+
+&lt;p&gt;SNI ではなく専用 IPアドレス を利用する方法がありますが、月額で 600 USD(執筆時点) かかるので、フィーチャーフォン対応のために払うにはだいぶ高い金額なのかなと思います。&lt;/p&gt;
+
+&lt;p&gt;あとは、ユースケース次第ですが、フィーチャーフォン用のサブドメインを用意して&lt;br /&gt;
+フィーチャーフォンでは CloudFront を使わない(URLで振り分けをしない)のも有りだと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;どうしたか:ca709987244aa21a0352b3870aa9a35d&#34;&gt;どうしたか&lt;/h4&gt;
+
+&lt;p&gt;URLで振り分けるのをやめました。&lt;/p&gt;
+
+&lt;p&gt;もともと、オンプレ環境の限られたリソースで&lt;br /&gt;
+&amp;ldquo;aaa にアクセスが集中した場合に bbb に影響を出さないように&amp;rdquo; という目的で振り分けしていました。&lt;br /&gt;
+ですので サーバーA も サーバーB も同じアプリケーションが動いています。&lt;/p&gt;
+
+&lt;p&gt;クラウドならスケールアップ／スケールアウトが自由自在なので&lt;br /&gt;
+&amp;ldquo;やばかったら増強すればいい&amp;rdquo; ということで振り分けるのをやめました。&lt;/p&gt;
+
+&lt;h3 id=&#34;書籍紹介:ca709987244aa21a0352b3870aa9a35d&#34;&gt;書籍紹介&lt;/h3&gt;
+
+&lt;p&gt;こちらの本で AWS の基礎を勉強しました。&lt;br /&gt;
+各サービスの概要からバックアップ等の実際の運用について書かれていて、&lt;br /&gt;
+知りたいところだけをピックアップして読める構成になっているので大変助かりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.amazon.co.jp/o/ASIN/4774176737/gihyojp-22&#34;&gt;Amazon Web Services実践入門 (WEB+DB PRESS plus)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Amazon公式サイトでAmazon Web Services実践入門 (WEB+DB PRESS plus)を購入すると、Amazon配送商品なら、配送料無料でお届け。Amazonポイント還元本も多数。Amazon.co.jpをお探しなら豊富な品ぞろえのAmazon.co.jp&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ペパボテックカンファレンス EC編に行ってきました</title>
@@ -1013,56 +1106,6 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 &lt;script src=&#34;https://gist.github.com/ackintosh/5480241.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;Config::load()&lt;/code&gt; の第2引数に文字列を渡すと、任意のグループ名を指定できる。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ラムダ・クロージャ・部分適用・カリー化を一言でいうと？</title>
-      <link>http://ackintosh.github.io/blog/2013/04/18/lambda/</link>
-      <pubDate>Thu, 18 Apr 2013 17:04:42 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
-      <description>
-
-&lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
-勉強しながら少しづつ修正しています。&lt;br /&gt;
-間違いがありましたら、ご指摘いただけると幸いです。&lt;/p&gt;
-
-&lt;h3 id=&#34;ラムダとクロージャ:a6408af6302a629c7ff19b61853afb76&#34;&gt;ラムダとクロージャ&lt;/h3&gt;
-
-&lt;h4 id=&#34;ラムダ-無名関数:a6408af6302a629c7ff19b61853afb76&#34;&gt;ラムダ(無名関数)&lt;/h4&gt;
-
-&lt;p&gt;使い捨ての名前のない関数。&lt;/p&gt;
-
-&lt;h4 id=&#34;クロージャ:a6408af6302a629c7ff19b61853afb76&#34;&gt;クロージャ&lt;/h4&gt;
-
-&lt;p&gt;関数を返す関数の中で、 変数を束縛(bind/capture)する関数。&lt;/p&gt;
-
-&lt;p&gt;※クロージャと関数を返す関数の違い → 変数を束縛するかしないか。&lt;/p&gt;
-
-&lt;h3 id=&#34;部分適用とカリー化:a6408af6302a629c7ff19b61853afb76&#34;&gt;部分適用とカリー化&lt;/h3&gt;
-
-&lt;h4 id=&#34;部分適用:a6408af6302a629c7ff19b61853afb76&#34;&gt;部分適用&lt;/h4&gt;
-
-&lt;p&gt;クロージャ等を利用して引数の数の少ない関数を作ること。&lt;br /&gt;
-(下記Rubyコードのうち、invを導出すること)&lt;/p&gt;
-
-&lt;h4 id=&#34;カリー化:a6408af6302a629c7ff19b61853afb76&#34;&gt;カリー化&lt;/h4&gt;
-
-&lt;p&gt;部分適用の中でも、関数の引数をひとつだけにすること。&lt;br /&gt;
-複数の引数をとる関数を、引数が「もとの関数の最初の引数」で戻り値が「もとの関数の残りの引数を取り結果を返す関数」であるような関数にすること。&lt;br /&gt;
-(下記Rubyコードのうち、cdivを導出すること)&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5431663.js&#34;&gt;&lt;/script&gt;
-
-&lt;h5 id=&#34;参考にさせていただきました:a6408af6302a629c7ff19b61853afb76&#34;&gt;参考にさせていただきました。&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://prezi.com/9brwewgcxtr2/javascript/&#34; target=&#34;_blank&#34;&gt;javascript で遊ぶラムダ式、クロージャ、カリー化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-href=&#34;http://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96&#34;
-target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
