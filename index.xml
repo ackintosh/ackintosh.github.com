@@ -7,8 +7,58 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Mon, 04 Apr 2016 12:14:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Apr 2016 12:44:06 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Snidel 0.5 をリリースしました</title>
+      <link>http://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0/</link>
+      <pubDate>Mon, 04 Apr 2016 12:44:06 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0/</guid>
+      <description>&lt;p&gt;引き続き内部のリファクタリングに加えて、&lt;br /&gt;
+今回のリリースでは Snidel::get() の返り値を変更しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.5.0&#34; target=&#34;_blank&#34;&gt;Release 0.5.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまでは子プロセス群が返す値を単純に配列で返していたのですが&lt;br /&gt;
+バージョン 0.5 では配列の代わりに Snidel\ForkCollection のインスタンスを返します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Snidel::get() returns instance of Snidel\ForkCollection
+$forkCollection = $snidel-&amp;gt;get();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Snidel\ForkCollection は Snidel\Fork の集合で、&lt;br /&gt;
+Snidel\Fork が子プロセスの実行結果についての詳細を把握しています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Snidel\ForkCollection implements \Iterator
+foreach ($forkCollection as $fork) {
+    echo $fork-&amp;gt;getPid();// プロセスID
+    echo $fork-&amp;gt;getOutput();// 標準出力
+    echo $fork-&amp;gt;getReturn();// 返り値
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Snidel\ForkCollection::toArray() を使えばこれまで通り、返り値だけを配列で取得することもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var_dump($forkCollection-&amp;gt;toArray());
+// array(3) {
+//   [0]=&amp;gt;
+//   string(3) &amp;quot;bar&amp;quot;
+//   [1]=&amp;gt;
+//   string(3) &amp;quot;foo&amp;quot;
+//   [2]=&amp;gt;
+//   string(3) &amp;quot;baz&amp;quot;
+// }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、ソースコードの静的解析ツール Scrutinizer のスコアが&lt;br /&gt;
+9.56 まで改善したのでこの場で静かにアピールしておきたいと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_0_5_0.png&#34; alt=&#34;scrutinizer&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Snidel 0.4 をリリースしました</title>
@@ -1073,39 +1123,6 @@ echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
 &lt;li&gt;before_per_laps：　ベンチマーク前（毎回）&lt;/li&gt;
 &lt;li&gt;after_per_laps：　ベンチマーク後（毎回）&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>FuelPHPに独自のバリデーションルールを追加する</title>
-      <link>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
-      <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
-flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
-FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
-
-&lt;h4 id=&#34;バリデーションルールを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;バリデーションルールを定義する&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile1.php&#34;&gt;&lt;/script&gt;
-
-&lt;h4 id=&#34;定義したルールのテストを書く:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;定義したルールのテストを書く&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;
-
-&lt;h4 id=&#34;ルールを適用する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;ルールを適用する&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile3.php&#34;&gt;&lt;/script&gt;
-
-&lt;h4 id=&#34;エラーメッセージを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;エラーメッセージを定義する&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile4.php&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
