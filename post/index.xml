@@ -25,6 +25,9 @@
 
 &lt;h3 id=&#34;従来のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;従来のアーキテクチャ&lt;/h3&gt;
 
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ackintosh/snidel/master/images/original_architecture.png&#34; alt=&#34;original_architecture.png&#34; /&gt;
+&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Snidel::fork() を実行したタイミングで子プロセスを fork し、
 生成された子プロセスはトークンが回ってくるまで待機する&lt;br /&gt;
@@ -69,12 +72,12 @@
 &lt;p&gt;これにより、親プロセス(内部的には Owner プロセスと呼んでいます)は&lt;br /&gt;
 実行したい処理をキューに追加するだけで良くなって、&lt;br /&gt;
 あとは Master プロセスが Worker の同時起動数に気を配りながらイイ感じに進めてくれます。&lt;br /&gt;
-もちろん、Master-Worker が働いている間、Owner は他の仕事ができます。&lt;/p&gt;
+もちろん、Master-Worker が働いている間 Owner は他の仕事ができます。&lt;/p&gt;
 
 &lt;p&gt;改善内容については以上になります。&lt;/p&gt;
 
 &lt;p&gt;ただ現状、従来のアーキテクチャを完全に置き換えたわけではなく、&lt;br /&gt;
-Snidel::map() に関連する処理の中で内部的に利用されています。&lt;br /&gt;
+Snidel::map() に関連する処理の中で内部的に利用されていて、今後こちらも置き換える予定です。&lt;br /&gt;
 Snidel::map() はバージョン0.2で実装した機能で、リリース時の記事で「複数の処理を並列につなげて実行」という項目で紹介しています。&lt;br /&gt;
 &lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/&#34;&gt;Snidel 0.2 をリリースしました&lt;/a&gt;&lt;/p&gt;
 </description>
