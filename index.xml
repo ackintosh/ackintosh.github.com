@@ -7,8 +7,78 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 01 May 2016 19:03:34 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 04 May 2016 02:16:17 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Snidel 0.6 をリリースしました</title>
+      <link>http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</link>
+      <pubDate>Wed, 04 May 2016 02:16:17 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</guid>
+      <description>
+
+&lt;p&gt;外部的なインターフェースは変わっていませんが、&lt;br /&gt;
+内部的なアーキテクチャを大幅に変更しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.6.0&#34;&gt;Release 0.6.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;従来のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;従来のアーキテクチャ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Snidel::fork() を実行したタイミングで子プロセスを fork し、
+生成された子プロセスはトークンが回ってくるまで待機する&lt;br /&gt;
+（同時実行数を制御するために Snidel\Token オブジェクトを使用）&lt;/li&gt;
+&lt;li&gt;予め設定された同時実行数以下までの子プロセスは即座に処理が開始されるが、それ以降の子プロセスは先に実行中のプロセスが完了するまでは待機状態になる&lt;/li&gt;
+&lt;li&gt;子プロセスは処理を実行して結果を共有メモリに保存し、最後に(Snidel::__destruct()で)トークンを返却する&lt;/li&gt;
+&lt;li&gt;Snidel::wait() または Snidel::get() を実行することで、各子プロセスと対になる共有メモリから実行結果を取得する&lt;br /&gt;
+(実行中・待機中の子プロセスがあれば、それらが完了するまで待機する)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;問題点:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;問題点&lt;/h3&gt;
+
+&lt;p&gt;Snidel::fork() で即座に子プロセスを fork するため、&lt;br /&gt;
+場合によっては瞬間的に大量の fork が発生するため下記の問題がありました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fork の負荷&lt;/li&gt;
+&lt;li&gt;大量の待機プロセスが発生するためプロセス数の上限に達してしまう可能性&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記を避けるために単純に fork 数をコントロールしようとすると&lt;br /&gt;
+同時実行数を超えた Snidel::fork() 呼び出しの際に親プロセス(Snidel を利用する側)を&lt;br /&gt;
+子プロセスが終了するまで待機させなければいけません。&lt;/p&gt;
+
+&lt;h3 id=&#34;改善後のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;改善後のアーキテクチャ&lt;/h3&gt;
+
+&lt;p&gt;Master-Workerモデルに変更しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ackintosh/snidel/master/images/master_worker.png&#34; alt=&#34;master_worker.png&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;初回の Snidel::fork() を実行したタイミングで Master プロセスを fork する&lt;/li&gt;
+&lt;li&gt;実行したい処理は専用のキュー(Task Queue)に追加する&lt;/li&gt;
+&lt;li&gt;Master プロセスが Task Queue から処理を取り出し、それを実行する Worker プロセスを fork する&lt;br /&gt;
+（Worker の同時起動数を制御するために Snidel\Token オブジェクトを使用）&lt;/li&gt;
+&lt;li&gt;Worker プロセスが実行結果を専用のキュー(Result Queue)に追加し、トークンを返却する&lt;/li&gt;
+&lt;li&gt;Snidel::wait() または Snidel::get() を実行することで、Result Queue から実行結果を取得する&lt;br /&gt;
+(実行中・未実行のタスクがあれば、それらが完了するまで待機する)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これにより、親プロセス(内部的には Owner プロセスと呼んでいます)は&lt;br /&gt;
+実行したい処理をキューに追加するだけで良くなって、&lt;br /&gt;
+あとは Master プロセスが Worker の同時起動数に気を配りながらイイ感じに進めてくれます。&lt;br /&gt;
+もちろん、Master-Worker が働いている間、Owner は他の仕事ができます。&lt;/p&gt;
+
+&lt;p&gt;改善内容については以上になります。&lt;/p&gt;
+
+&lt;p&gt;ただ現状、従来のアーキテクチャを完全に置き換えたわけではなく、&lt;br /&gt;
+Snidel::map() に関連する処理の中で内部的に利用されています。&lt;br /&gt;
+Snidel::map() はバージョン0.2で実装した機能で、リリース時の記事で「複数の処理を並列につなげて実行」という項目で紹介しています。&lt;br /&gt;
+&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/&#34;&gt;Snidel 0.2 をリリースしました&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>最近読んだ本 (〜2016/04)</title>
@@ -1046,56 +1116,6 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PHPで関数合成を書いてみる</title>
-      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
-      <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
-target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-class Compose
-{
-    public static function _()
-    {
-        $callables = func_get_args();
-
-        return array_reduce($callables, function ($a, $b) {
-            if ($a === null) {
-                return function () use ($b) {
-                    return call_user_func_array($b, func_get_args());
-                };
-            } else {
-                return function ($arg) use ($a, $b) {
-                    return call_user_func($b, $a($arg));
-                };
-            }
-        });
-
-    }
-}
-
-
-$mapUcfirst = function ($arg) {
-    return array_map(&#39;ucfirst&#39;, $arg);
-};
-
-$splitWithUnderscore = function ($arg) {
-    return explode(&#39;_&#39;, $arg);
-};
-
-
-$camelize = Compose::_($splitWithUnderscore, $mapUcfirst, &#39;join&#39;);
-var_dump($camelize(&#39;man_with_a_mission&#39;));
-// ManWithAMission
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
