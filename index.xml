@@ -530,7 +530,7 @@ var_dump($snidel-&amp;gt;run($camelize));
 
 &lt;h3 id=&#34;社内で使ってもらえました:ee76cbb32354dec37a8e590548214889&#34;&gt;社内で使ってもらえました!&lt;/h3&gt;
 
-&lt;p&gt;初回リリース時の記事で&lt;/p&gt;
+&lt;p&gt;初回リリース時の記事 (&lt;a href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;php で手軽に並列処理をするライブラリ Snidel を作りました&lt;/a&gt;) で&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
@@ -538,14 +538,7 @@ var_dump($snidel-&amp;gt;run($camelize));
 
 &lt;p&gt;と書いていたのですが、社内slackで作ってみました〜と静かにアピールしたら&lt;br /&gt;
 実際に使ってもらえて、けっこう成果が出たみたいでめっちゃ嬉しかったです。&lt;br /&gt;
-モチベーションになります。&lt;/p&gt;
-
-&lt;p&gt;この記事で紹介した機能は、このモチベーションで実装しました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;初回リリース時の記事&lt;br /&gt;
-&lt;a href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;php で手軽に並列処理をするライブラリ Snidel を作りました&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+この記事で紹介した機能はその勢いで実装しました。&lt;/p&gt;
 
 &lt;p&gt;今後は&amp;hellip;&lt;br /&gt;
 初回リリースから１ヶ月ちょっと経って、実装したい機能は一通り終わったのですが、&lt;br /&gt;
