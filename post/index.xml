@@ -7,8 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 04 May 2016 02:16:17 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 May 2016 13:52:40 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Martin Fowler&#39;s Bliki (ja) の翻訳に参加しました</title>
+      <link>http://ackintosh.github.io/blog/2016/05/10/bliki-ja/</link>
+      <pubDate>Tue, 10 May 2016 13:52:40 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/05/10/bliki-ja/</guid>
+      <description>
+
+&lt;p&gt;こちらを翻訳しました。&lt;br /&gt;
+&lt;a href=&#34;http://bliki-ja.github.io/CircuitBreaker/&#34; target=&#34;_blank&#34;&gt;CircuitBreaker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;プルリクエスト&lt;br /&gt;
+&lt;a href=&#34;https://github.com/bliki-ja/bliki-ja.github.io/pull/3&#34; target=&#34;_blank&#34;&gt;Add CircuitBreaker #3&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;martin-fowler-s-bliki-ja-とは:59baca9f8f508e41c235a53f53ac3866&#34;&gt;Martin Fowler&amp;rsquo;s Bliki (ja) とは&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://bliki-ja.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://bliki-ja.github.io/&#34;&gt;http://bliki-ja.github.io/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ここは、Martin Fowler&amp;rsquo;s Blikiの日本語翻訳サイトです。Martin Fowler氏本人の許可を得て公開しています（本家右下のtranslationsを参照）。データはGithubで管理していますので、どなたでも翻訳に参加することが可能です。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;動機-きっかけ:59baca9f8f508e41c235a53f53ac3866&#34;&gt;動機・きっかけ&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;英語をもっとできるようになりたい&lt;br /&gt;
+勉強したいことは他にも色々あって英語にガッツリ時間をかける程の余裕はないので、せめて読み書きをできるようになりたい。&lt;br /&gt;
+技術系の記事の翻訳なら一石二鳥感がある。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CircuitBreaker パターンについて日本語で解説されてる記事がほしかった&lt;br /&gt;
+仕事で CircuitBreaker パターンを実装する機会があり、その時に参考にさせていただいてた記事(日本語)がいつのまにか消えていた。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;感想:59baca9f8f508e41c235a53f53ac3866&#34;&gt;感想&lt;/h3&gt;
+
+&lt;p&gt;予め理解している技術についての翻訳だし、一つ一つの文章が短いので翻訳しやすい方なのかなとは思っていたのですが、中学レベルの英語スキルしかなく、慣れない作業だったのでかなり体力・精神力を消耗しましたが、めちゃくちゃ達成感がありました。&lt;br /&gt;
+時間でいうと15ポモドーロくらい使いました。&lt;br /&gt;
+あとは英語を読むことの自分の中のハードルがだいぶ下がったのと、読み方が少しわかった気がします。（感覚的に掴んだだけで、体系的に学習したわけではないので何がどうわかったのかを明文化できないのが辛いところです）&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Snidel 0.6 をリリースしました</title>
@@ -1074,56 +1115,6 @@ end
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PHPで関数合成を書いてみる</title>
-      <link>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
-      <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
-target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-class Compose
-{
-    public static function _()
-    {
-        $callables = func_get_args();
-
-        return array_reduce($callables, function ($a, $b) {
-            if ($a === null) {
-                return function () use ($b) {
-                    return call_user_func_array($b, func_get_args());
-                };
-            } else {
-                return function ($arg) use ($a, $b) {
-                    return call_user_func($b, $a($arg));
-                };
-            }
-        });
-
-    }
-}
-
-
-$mapUcfirst = function ($arg) {
-    return array_map(&#39;ucfirst&#39;, $arg);
-};
-
-$splitWithUnderscore = function ($arg) {
-    return explode(&#39;_&#39;, $arg);
-};
-
-
-$camelize = Compose::_($splitWithUnderscore, $mapUcfirst, &#39;join&#39;);
-var_dump($camelize(&#39;man_with_a_mission&#39;));
-// ManWithAMission
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
