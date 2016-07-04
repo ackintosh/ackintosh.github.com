@@ -7,8 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 10 May 2016 13:52:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jun 2016 21:07:16 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>転職して１ヶ月</title>
+      <link>http://ackintosh.github.io/blog/2016/06/18/pepabo/</link>
+      <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
+      <description>
+
+&lt;h2 id=&#34;転職:7a3904fca23102476b4b37a837af6344&#34;&gt;転職&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://pepabo.com/&#34; target=&#34;_blank&#34;&gt;GMOペパボ&lt;/a&gt;という会社に転職しました。&lt;br /&gt;
+&lt;sup&gt;5&lt;/sup&gt;&amp;frasl;&lt;sub&gt;16&lt;/sub&gt; 入社なので１ヶ月くらい経ったところです。&lt;/p&gt;
+
+&lt;p&gt;きっかけは &lt;a href=&#34;http://eventdots.jp/event/573086&#34; target=&#34;_blank&#34;&gt;ペパボテックカンファレンスEC編&lt;/a&gt; への参加で、&lt;br /&gt;
+初めは &amp;ldquo;他社のECはどんなことやってるのかなぁ&amp;rdquo; と気になってフラっと行ってみたのですが&lt;br /&gt;
+発表の内容に刺激をうけてペパボに興味を持って、そこから話が進んでいき運良く入社できた感じです。&lt;/p&gt;
+
+&lt;h2 id=&#34;環境:7a3904fca23102476b4b37a837af6344&#34;&gt;環境&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34; target=&#34;_blank&#34;&gt;テックカンファレンスに参加した時の感想&lt;/a&gt;でも書いてるのですが、
+サービスの改善に対するモチベーションが高く、改善のための技術的なチャレンジも積極的に取り組んでいます。&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;(土), 3(日)に開催される &lt;a href=&#34;http://yapcasia8oji-2016mid.hachiojipm.org/&#34; target=&#34;_blank&#34;&gt;YAPC::ASIA HACHIOJI&lt;/a&gt; のトークでGMOペパボのエンジニアが５人(!!)採択されたようですので、諸々普段の取り組みがが披露されるようです。とても楽しみです。&lt;/p&gt;
+
+&lt;p&gt;あとはレベル高いひとたちばかりです。&lt;br /&gt;
+前職では中野は技術的に尖ってる方の人、みたいに見られることがあって、少なからずその状況にあぐらをかいてる的な気持ちはあったと思う(そうならないように努めていましたが)ので大変良い刺激をいただいています。&lt;br /&gt;
+「オレ、大丈夫かな（やっていけるかな）」という不安がよぎることもありましたが、今は不安になってる暇があったら努力しようという気持ちです。日々、積み重ねていきます。&lt;br /&gt;
+それが目的で転職したんですから。恵まれた環境に感謝しつつ、価値を出していかないと。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;他人と自分を比べるな。自分より凄い人に劣等感を覚え嫉妬する行為も自分より劣っている人を見下し安心する行為も君にとってはマイナスの影響しか持たない。比べるなら過去の自分だ。過去の自分に打ち勝ち続ける事で人は成長するし、努力によって確実に倒し超えていけるのは過去の自分だけだ。&lt;/p&gt;&amp;mdash; Testosterone (@badassceo) &lt;a href=&#34;https://twitter.com/badassceo/status/744109449351041025&#34;&gt;2016年6月18日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;近況:7a3904fca23102476b4b37a837af6344&#34;&gt;近況&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://shop-pro.jp/&#34; target=&#34;_blank&#34;&gt;カラーミーショップ&lt;/a&gt;のチームに所属して頑張っています&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech.pepabo.com/2015/11/17/pepabo-tech-blog-has-started/&#34; target=&#34;_blank&#34;&gt;「いるだけで成長できる環境」&lt;/a&gt;にあるとおり、成長できるチャンスがたくさんあるので活用していく次第&lt;/li&gt;
+&lt;li&gt;マスタリングTCP/IP読書会、プログラミング言語Go読書会に参加中&lt;/li&gt;
+&lt;li&gt;PHPBLTをペパボ主催でやります。LTします！&lt;/li&gt;
+&lt;li&gt;渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Martin Fowler&#39;s Bliki (ja) の翻訳に参加しました</title>
@@ -971,110 +1015,6 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
 
 &lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
 &lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>遅延静的束縛は何が嬉しいのか</title>
-      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
-      <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
-      <description>
-
-&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
-target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。
-これを使用すると、静的継承のコンテキストで呼び出し元のクラスを参照できるようになります。
-より正確に言うと、遅延静的束縛は直近の “非転送コール”
-のクラス名を保存します。
-静的メソッドの場合、これは明示的に指定されたクラス (通常は ::
-演算子の左側に書かれたもの)
-となります。静的メソッド以外の場合は、そのオブジェクトのクラスとなります。
-“転送コール” とは、self:: や parent::、static:: による静的なコール、
-あるいはクラス階層の中での forward_static_call()
-によるコールのことです。 get_called_class()
-関数を使うとコール元のクラス名を文字列で取得できます。 static::
-はこのクラスのスコープとなります。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;遅延静的束縛が無いと困るとき:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛が無いと困るとき&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=1.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;1,400,000が出力されるかと思いきや、0でした。&lt;br /&gt;
-・・・期待していたのと違う。&lt;/p&gt;
-
-&lt;h4 id=&#34;selfについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;selfについて&lt;/h4&gt;
-
-&lt;p&gt;PHP Manualにはこう書かれています。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;self:: あるいは CLASS による現在のクラスへの静的参照は、
-そのメソッドが属するクラス (つまり、 そのメソッドが定義されているクラス)
-に解決されます。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;つまり上記のコードでいうと、getFormattedPriceメソッドはCarクラスで定義されているので、&lt;br /&gt;
-&lt;code&gt;self::$price&lt;/code&gt; は常に &lt;code&gt;Car::$price&lt;/code&gt; に解決されることになります。&lt;/p&gt;
-
-&lt;p&gt;これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。&lt;/p&gt;
-
-&lt;h4 id=&#34;遅延静的束縛を使う:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛を使う&lt;/h4&gt;
-
-&lt;p&gt;selfの代わりにstaticを使います。
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;これで期待した通りの結果になりました。&lt;/p&gt;
-
-&lt;h4 id=&#34;staticについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;staticについて&lt;/h4&gt;
-
-&lt;p&gt;PHP Manualより&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;実行時に最初にコールされたクラスを参照するようにしています。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;これにより、&lt;code&gt;static::$price&lt;/code&gt; が &lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
-
-&lt;h4 id=&#34;もう少し深く:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;もう少し深く&lt;/h4&gt;
-
-&lt;p&gt;ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。&lt;br /&gt;
-Manualには下記のようにも書かれています。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;より正確に言うと、遅延静的束縛は直近の “非転送コール” のクラス名を保存します。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;例えば、
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=3.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;上記コードだと、staticキーワードが「 最初にコールされたクラス 」を参照しているならば&lt;br /&gt;
-&lt;code&gt;NissanNote::getDescription();&lt;/code&gt; メソッド呼び出しの結果、&lt;code&gt;static::$price&lt;/code&gt; は
-&lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されるはずですが&lt;br /&gt;
-実際には &lt;code&gt;Car::$price&lt;/code&gt; に解決されています。&lt;/p&gt;
-
-&lt;p&gt;これは、「 遅延静的束縛は直近の “非転送コール” のクラス名を保存する 」と考えると理解できます。&lt;/p&gt;
-
-&lt;p&gt;つまり、&lt;br /&gt;
-&lt;code&gt;static::$price&lt;/code&gt; の直近の非転送コールは &lt;code&gt;Car::getFormattedPrice()&lt;/code&gt;&lt;br /&gt;
-なので&lt;br /&gt;
-&lt;code&gt;static::$price&lt;/code&gt; は &lt;code&gt;Car::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
-
-&lt;p&gt;非転送コールについては、下記リンクが大変参考になりました。&lt;/p&gt;
-
-&lt;h4 id=&#34;参考にさせていただきました:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;参考にさせていただきました。&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a
-href=&#34;http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings&#34;
-target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/&#34; target=&#34;_blank&#34;&gt;PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

@@ -7,8 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 10 May 2016 13:52:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jun 2016 21:07:16 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>転職して１ヶ月</title>
+      <link>http://ackintosh.github.io/blog/2016/06/18/pepabo/</link>
+      <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
+      <description>
+
+&lt;h2 id=&#34;転職:7a3904fca23102476b4b37a837af6344&#34;&gt;転職&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://pepabo.com/&#34; target=&#34;_blank&#34;&gt;GMOペパボ&lt;/a&gt;という会社に転職しました。&lt;br /&gt;
+&lt;sup&gt;5&lt;/sup&gt;&amp;frasl;&lt;sub&gt;16&lt;/sub&gt; 入社なので１ヶ月くらい経ったところです。&lt;/p&gt;
+
+&lt;p&gt;きっかけは &lt;a href=&#34;http://eventdots.jp/event/573086&#34; target=&#34;_blank&#34;&gt;ペパボテックカンファレンスEC編&lt;/a&gt; への参加で、&lt;br /&gt;
+初めは &amp;ldquo;他社のECはどんなことやってるのかなぁ&amp;rdquo; と気になってフラっと行ってみたのですが&lt;br /&gt;
+発表の内容に刺激をうけてペパボに興味を持って、そこから話が進んでいき運良く入社できた感じです。&lt;/p&gt;
+
+&lt;h2 id=&#34;環境:7a3904fca23102476b4b37a837af6344&#34;&gt;環境&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34; target=&#34;_blank&#34;&gt;テックカンファレンスに参加した時の感想&lt;/a&gt;でも書いてるのですが、
+サービスの改善に対するモチベーションが高く、改善のための技術的なチャレンジも積極的に取り組んでいます。&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;(土), 3(日)に開催される &lt;a href=&#34;http://yapcasia8oji-2016mid.hachiojipm.org/&#34; target=&#34;_blank&#34;&gt;YAPC::ASIA HACHIOJI&lt;/a&gt; のトークでGMOペパボのエンジニアが５人(!!)採択されたようですので、諸々普段の取り組みがが披露されるようです。とても楽しみです。&lt;/p&gt;
+
+&lt;p&gt;あとはレベル高いひとたちばかりです。&lt;br /&gt;
+前職では中野は技術的に尖ってる方の人、みたいに見られることがあって、少なからずその状況にあぐらをかいてる的な気持ちはあったと思う(そうならないように努めていましたが)ので大変良い刺激をいただいています。&lt;br /&gt;
+「オレ、大丈夫かな（やっていけるかな）」という不安がよぎることもありましたが、今は不安になってる暇があったら努力しようという気持ちです。日々、積み重ねていきます。&lt;br /&gt;
+それが目的で転職したんですから。恵まれた環境に感謝しつつ、価値を出していかないと。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;他人と自分を比べるな。自分より凄い人に劣等感を覚え嫉妬する行為も自分より劣っている人を見下し安心する行為も君にとってはマイナスの影響しか持たない。比べるなら過去の自分だ。過去の自分に打ち勝ち続ける事で人は成長するし、努力によって確実に倒し超えていけるのは過去の自分だけだ。&lt;/p&gt;&amp;mdash; Testosterone (@badassceo) &lt;a href=&#34;https://twitter.com/badassceo/status/744109449351041025&#34;&gt;2016年6月18日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;近況:7a3904fca23102476b4b37a837af6344&#34;&gt;近況&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://shop-pro.jp/&#34; target=&#34;_blank&#34;&gt;カラーミーショップ&lt;/a&gt;のチームに所属して頑張っています&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech.pepabo.com/2015/11/17/pepabo-tech-blog-has-started/&#34; target=&#34;_blank&#34;&gt;「いるだけで成長できる環境」&lt;/a&gt;にあるとおり、成長できるチャンスがたくさんあるので活用していく次第&lt;/li&gt;
+&lt;li&gt;マスタリングTCP/IP読書会、プログラミング言語Go読書会に参加中&lt;/li&gt;
+&lt;li&gt;PHPBLTをペパボ主催でやります。LTします！&lt;/li&gt;
+&lt;li&gt;渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Martin Fowler&#39;s Bliki (ja) の翻訳に参加しました</title>
@@ -1037,84 +1081,6 @@ href=&#34;http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings&#34;
 target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/&#34; target=&#34;_blank&#34;&gt;PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ハイフンとアンダースコアの使い分け</title>
-      <link>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</link>
-      <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</guid>
-      <description>
-
-&lt;p&gt;ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。&lt;/p&gt;
-
-&lt;p&gt;言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。&lt;/p&gt;
-
-&lt;h4 id=&#34;eric-hodel氏の推奨するネーミングルール:9f67e2a979143e636a28a8963816fa9d&#34;&gt;Eric Hodel氏の推奨するネーミングルール&lt;/h4&gt;
-
-&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.segment7.net/2010/11/15/how-to-name-gems&#34;
-target=&#34;_blank&#34;&gt;How to Name Gems&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Here is my STRONG recommendation on how to name gems:
-Use underscores
-・fancy_require
-・newrelic_rpm
-・ruby_parser
-This matches the file the user will require and makes it easier for the
-user to start using your gem. gem install my_gem will be loaded by
-require ‘my_gem’.
-Use dashes for extensions
-・net-http-persistent
-・rdoc-chm
-・autotest-growl
-If you’re adding functionality to another gem use a dash. The dash is
-different-enough from an underscore to be noticeable. If you tilt the
-dash a bit it becomes a slash as well, making it easier for the user to
-know what to require. gem install net-http-persistent becomes require
-‘net/http/persistent’
-要するに&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ハイフン -&amp;gt; パスの区切り&lt;br /&gt;
-アンダースコア -&amp;gt; 単語の区切り&lt;br /&gt;
-といったところでしょうか。&lt;/p&gt;
-
-&lt;h4 id=&#34;試してみる:9f67e2a979143e636a28a8963816fa9d&#34;&gt;試してみる&lt;/h4&gt;
-
-&lt;h5 id=&#34;ハイフン区切り:9f67e2a979143e636a28a8963816fa9d&#34;&gt;ハイフン区切り&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ bundle gem ackintosh-tiny-progressbar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;module Ackintosh
-  module Tiny
-    module Progressbar
-      # Your code goes here ...
-    end
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;全て別のモジュールに分かれています。&lt;/p&gt;
-
-&lt;h5 id=&#34;アンダースコア区切り:9f67e2a979143e636a28a8963816fa9d&#34;&gt;アンダースコア区切り&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ bundle gem ackintosh-tiny_progressbar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;module Ackintosh
-  module TinyProgressbar
-    # Your code goes here…
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。&lt;/p&gt;
 </description>
     </item>
     
