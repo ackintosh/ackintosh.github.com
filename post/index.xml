@@ -7,8 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 18 Jun 2016 21:07:16 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jul 2016 20:36:31 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>転職イベントに登壇</title>
+      <link>http://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</link>
+      <pubDate>Wed, 13 Jul 2016 20:36:31 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</guid>
+      <description>&lt;p&gt;いままで人前でLTすらしたことないので、このようなイベントの登壇は自分のようなコミュ障には大変ハードルが高く感じますが、ちょうど入社したてということもあり、転職を考えている方に何か伝えられる事があるのではないかと思って勇気を出して臨みました。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://forkwell.connpass.com/event/35012/&#34;&gt;満員につき増席！「いるだけで成長できる環境とは？」GMOペパボに聞く事業会社に求められる人材とは。 (2016/07/13 19:45〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;イベント概要 エンジニア目線の求人サイト「Forkwell Jobs」主催イベント第18弾！ 今回は、「いるだけで成長できる環境」をコンセプトに エンジニアの人材育成や環境整備を積極的に行っているGMOペパボ社より 「事業会社での働き方」「評価されるエンジニアになるためには？」をテーマに、 企業側の視点と実際に転職された方からの視点でお話をいただきます。 &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;イベントは二部構成。&lt;/p&gt;
+
+&lt;p&gt;一部はサブマネージャーのライティさんから、ご自身の経歴・ペパボについて（環境、体制、評価）・どんなエンジニアと一緒に働きたいかといった内容を説明。
+経歴の話の中で、SIerに就職してからWeb系の事業会社にうつる理由で、「仕事の価値をスケールさせたかった」と仰ってたのが印象的でした。&lt;/p&gt;
+
+&lt;p&gt;二部はトーク形式で、主催のForkwellスタッフの方が進行、くまきさんと自分が登壇。
+経歴・ペパボ入社のきっかけ・転職のために勉強したこと等をお話させていただきました。&lt;/p&gt;
+
+&lt;p&gt;当日の詳細はペパボ採用担当ブログにレポートがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://pb-recruit.jugem.jp/?eid=28&#34;&gt;【転職イベント】「いるだけで成長できる環境とは？」GMOペパボに聞く事業会社に求められる人材とは。 | ペパボ採用担当ブログ&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;GMOペパボ株式会社の採用担当が求人に関するアレコレや仕事、はたらき方についてをつらつら綴ります。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;トークとはいっても大きな流れは事前に決めていて、用意していただいた質問事項について予め考えていて、自分の転職について振り返る良い機会になりました。&lt;/p&gt;
+
+&lt;p&gt;ご来場いただいた方々に少しでもペパボの雰囲気とか良さが伝われば幸いです。&lt;/p&gt;
+
+&lt;p&gt;(追記) 後日、ご来場いただいた方から twitter でメッセージをいただいて、転職活動の参考になったとのことで、大変嬉しかったです。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>転職して１ヶ月</title>
@@ -977,110 +1009,6 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
 
 &lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
 &lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>遅延静的束縛は何が嬉しいのか</title>
-      <link>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
-      <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
-      <description>
-
-&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
-target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。
-これを使用すると、静的継承のコンテキストで呼び出し元のクラスを参照できるようになります。
-より正確に言うと、遅延静的束縛は直近の “非転送コール”
-のクラス名を保存します。
-静的メソッドの場合、これは明示的に指定されたクラス (通常は ::
-演算子の左側に書かれたもの)
-となります。静的メソッド以外の場合は、そのオブジェクトのクラスとなります。
-“転送コール” とは、self:: や parent::、static:: による静的なコール、
-あるいはクラス階層の中での forward_static_call()
-によるコールのことです。 get_called_class()
-関数を使うとコール元のクラス名を文字列で取得できます。 static::
-はこのクラスのスコープとなります。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&#34;遅延静的束縛が無いと困るとき:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛が無いと困るとき&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=1.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;1,400,000が出力されるかと思いきや、0でした。&lt;br /&gt;
-・・・期待していたのと違う。&lt;/p&gt;
-
-&lt;h4 id=&#34;selfについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;selfについて&lt;/h4&gt;
-
-&lt;p&gt;PHP Manualにはこう書かれています。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;self:: あるいは CLASS による現在のクラスへの静的参照は、
-そのメソッドが属するクラス (つまり、 そのメソッドが定義されているクラス)
-に解決されます。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;つまり上記のコードでいうと、getFormattedPriceメソッドはCarクラスで定義されているので、&lt;br /&gt;
-&lt;code&gt;self::$price&lt;/code&gt; は常に &lt;code&gt;Car::$price&lt;/code&gt; に解決されることになります。&lt;/p&gt;
-
-&lt;p&gt;これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。&lt;/p&gt;
-
-&lt;h4 id=&#34;遅延静的束縛を使う:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛を使う&lt;/h4&gt;
-
-&lt;p&gt;selfの代わりにstaticを使います。
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;これで期待した通りの結果になりました。&lt;/p&gt;
-
-&lt;h4 id=&#34;staticについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;staticについて&lt;/h4&gt;
-
-&lt;p&gt;PHP Manualより&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;実行時に最初にコールされたクラスを参照するようにしています。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;これにより、&lt;code&gt;static::$price&lt;/code&gt; が &lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
-
-&lt;h4 id=&#34;もう少し深く:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;もう少し深く&lt;/h4&gt;
-
-&lt;p&gt;ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。&lt;br /&gt;
-Manualには下記のようにも書かれています。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;より正確に言うと、遅延静的束縛は直近の “非転送コール” のクラス名を保存します。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;例えば、
-&lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=3.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;上記コードだと、staticキーワードが「 最初にコールされたクラス 」を参照しているならば&lt;br /&gt;
-&lt;code&gt;NissanNote::getDescription();&lt;/code&gt; メソッド呼び出しの結果、&lt;code&gt;static::$price&lt;/code&gt; は
-&lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されるはずですが&lt;br /&gt;
-実際には &lt;code&gt;Car::$price&lt;/code&gt; に解決されています。&lt;/p&gt;
-
-&lt;p&gt;これは、「 遅延静的束縛は直近の “非転送コール” のクラス名を保存する 」と考えると理解できます。&lt;/p&gt;
-
-&lt;p&gt;つまり、&lt;br /&gt;
-&lt;code&gt;static::$price&lt;/code&gt; の直近の非転送コールは &lt;code&gt;Car::getFormattedPrice()&lt;/code&gt;&lt;br /&gt;
-なので&lt;br /&gt;
-&lt;code&gt;static::$price&lt;/code&gt; は &lt;code&gt;Car::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
-
-&lt;p&gt;非転送コールについては、下記リンクが大変参考になりました。&lt;/p&gt;
-
-&lt;h4 id=&#34;参考にさせていただきました:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;参考にさせていただきました。&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a
-href=&#34;http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings&#34;
-target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/&#34; target=&#34;_blank&#34;&gt;PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

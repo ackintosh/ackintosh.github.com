@@ -7,8 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 18 Jun 2016 21:07:16 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jul 2016 20:36:31 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>転職イベントに登壇</title>
+      <link>http://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</link>
+      <pubDate>Wed, 13 Jul 2016 20:36:31 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</guid>
+      <description>&lt;p&gt;いままで人前でLTすらしたことないので、このようなイベントの登壇は自分のようなコミュ障には大変ハードルが高く感じますが、ちょうど入社したてということもあり、転職を考えている方に何か伝えられる事があるのではないかと思って勇気を出して臨みました。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://forkwell.connpass.com/event/35012/&#34;&gt;満員につき増席！「いるだけで成長できる環境とは？」GMOペパボに聞く事業会社に求められる人材とは。 (2016/07/13 19:45〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;イベント概要 エンジニア目線の求人サイト「Forkwell Jobs」主催イベント第18弾！ 今回は、「いるだけで成長できる環境」をコンセプトに エンジニアの人材育成や環境整備を積極的に行っているGMOペパボ社より 「事業会社での働き方」「評価されるエンジニアになるためには？」をテーマに、 企業側の視点と実際に転職された方からの視点でお話をいただきます。 &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;イベントは二部構成。&lt;/p&gt;
+
+&lt;p&gt;一部はサブマネージャーのライティさんから、ご自身の経歴・ペパボについて（環境、体制、評価）・どんなエンジニアと一緒に働きたいかといった内容を説明。
+経歴の話の中で、SIerに就職してからWeb系の事業会社にうつる理由で、「仕事の価値をスケールさせたかった」と仰ってたのが印象的でした。&lt;/p&gt;
+
+&lt;p&gt;二部はトーク形式で、主催のForkwellスタッフの方が進行、くまきさんと自分が登壇。
+経歴・ペパボ入社のきっかけ・転職のために勉強したこと等をお話させていただきました。&lt;/p&gt;
+
+&lt;p&gt;当日の詳細はペパボ採用担当ブログにレポートがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://pb-recruit.jugem.jp/?eid=28&#34;&gt;【転職イベント】「いるだけで成長できる環境とは？」GMOペパボに聞く事業会社に求められる人材とは。 | ペパボ採用担当ブログ&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;GMOペパボ株式会社の採用担当が求人に関するアレコレや仕事、はたらき方についてをつらつら綴ります。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;トークとはいっても大きな流れは事前に決めていて、用意していただいた質問事項について予め考えていて、自分の転職について振り返る良い機会になりました。&lt;/p&gt;
+
+&lt;p&gt;ご来場いただいた方々に少しでもペパボの雰囲気とか良さが伝われば幸いです。&lt;/p&gt;
+
+&lt;p&gt;(追記) 後日、ご来場いただいた方から twitter でメッセージをいただいて、転職活動の参考になったとのことで、大変嬉しかったです。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>転職して１ヶ月</title>
@@ -971,50 +1003,6 @@ target=&#34;_blank&#34;&gt;spika hackathon というのをやった - id:k-z-h&l
 target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル】&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;サウナあり、無料モーニングパンサービスありで割と思います。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
-      <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
-      <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
-今回はグローバル関数への依存について。&lt;/p&gt;
-
-&lt;p&gt;例えば下記のコードでは&lt;br /&gt;
-receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
-テストしにくくなっています。&lt;br /&gt;
-（テストは書けるけどテスト走らせる度にメールが飛ぶのはアレですね）&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=1.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a
-href=&#34;http://www.amazon.co.jp/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89-Object-Oriented-SELECTION-%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BBC%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B6%E3%83%BC%E3%82%BA/dp/4798116831&#34;
-target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&lt;br /&gt;
-グローバル関数の部分をインスタンスメソッドにして、処理をグローバル関数にまるっと委譲することで、接合部を作る方法が紹介されています。&lt;br /&gt;
-例えばこんな感じでしょうか。&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=2.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;接合部となったメソッドをサブクラスでオーバーライドしてテストしてます。&lt;/p&gt;
-
-&lt;p&gt;ただ、わざわざサブクラスを定義するのも面倒な気もするし&lt;br /&gt;
-もう少しカジュアルな方法がないかなということで&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=3.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;テストのためにややプロダクションコードが増えますがメソッドの差し替えができるようになりました。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、無名関数の中でアサーションが書けるのでmail関数が受け取る引数をアサートすることもできます。&lt;/p&gt;
-
-&lt;p&gt;こんな感じです。&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
-&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
