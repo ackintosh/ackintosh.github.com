@@ -7,8 +7,80 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 13 Jul 2016 20:36:31 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jul 2016 23:51:41 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP BLT #5でLTデビュー</title>
+      <link>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</link>
+      <pubDate>Wed, 20 Jul 2016 23:51:41 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</guid>
+      <description>
+
+&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;
+
+&lt;p&gt;4回目まではメルカリさんが主催でしたが&lt;a href=&#34;https://twitter.com/sotarok&#34; target=&#34;_blank&#34;&gt;@sotarok&lt;/a&gt;さんの&lt;a href=&#34;https://twitter.com/sotarok/status/740847489310461952&#34; target=&#34;_blank&#34;&gt;粋な計らいにより主催企業を持ち回す&lt;/a&gt;ことになり、第１弾としてペパボが主催するかたちになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://phpblt.connpass.com/event/35070/&#34;&gt;PHP BLT #5 (2016/07/20 19:30〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;PHP BLTって？ PHP BLT は 参加者全員が Tips を発表(Lightning Talk)する というコンセプトの PHP 周辺エンジニア・Web/サーバーサイド全般の勉強会です (オーディエンス枠もありますのでご安心ください)。 PHP Burst Lightning Talk の略だってばあちゃんが言ってた。 * 1回目の様子 * 4回目の様子 ※ Potatotips をリスペクトしております！ ## 主催企業を持ち回すこととなりました 第1回目 ~ 第4回目まではメルカリさんが主催されていました。 第5回目からは、メルカリCTO @sota&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;「PHP BLT をペパボで主催するぞ！！！！１」と、社内で issue が立ってLTを募集していたので早速応募。したのはいいけど、今までLTしたことなかったので「LTやりたいです！」と issue にコメントした瞬間から、良い感じに不安と緊張に襲われました。&lt;/p&gt;
+
+&lt;p&gt;それから当日までの約3週間はLTの事で頭がいっぱいでした。。&lt;/p&gt;
+
+&lt;h4 id=&#34;発表資料:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;発表資料&lt;/h4&gt;
+
+&lt;p&gt;内容は、OSSとして公開している&lt;a href=&#34;https://github.com/ackintosh/snidel/&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; の紹介です。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9cb6a1eb77c145eba36301b9f21c26c3&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ペパボは全社共通のスライドテンプレート（Keynote用テーマ）があるので、スライド作りはサクサク進められて、内容を練るのと発表の練習に集中できました。テンプレート本当に便利です。&lt;/p&gt;
+
+&lt;h4 id=&#34;感想:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;感想&lt;/h4&gt;
+
+&lt;p&gt;見てくださった方から、「LT良かった」「Snidel便利そう」と言っていただけて本当に嬉しかったです。&lt;br /&gt;
+随所に散りばめた群馬ネタ（画像）もリアクションいただけてホッとしました。&lt;br /&gt;
+また、Snidelが解決する問題とか特徴について整理する良い機会になりました。今回話せなかった、現状の課題とか今後の展望についても機会があったら発表したいです。&lt;/p&gt;
+
+&lt;p&gt;局長さん、関係者のみなさま、お疲れ様でした！&lt;/p&gt;
+
+&lt;p&gt;（追記）&lt;a href=&#34;http://uzulla.hateblo.jp/entry/2016/07/21/012002&#34; target=&#34;_blank&#34;&gt;uzullaさんのブログで「Snidelおもしろそう！」とコメントいただいた！！！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;スライド作りのメモ:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;スライド作りのメモ&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.shin1x1.com/entry/improve-the-presentation-skills-for-beginners&#34; target=&#34;_blank&#34;&gt;ここを気をつけるともっと良くなる勉強会の発表&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;この辺を気をつけるともっと良くなる
+
+&lt;ul&gt;
+&lt;li&gt;言い訳や自己卑下を入れる&lt;/li&gt;
+&lt;li&gt;無理に笑いを取ろうとする&lt;/li&gt;
+&lt;li&gt;何を伝えたいか分かりにくい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://codeiq.jp/magazine/2014/12/19597/&#34; target=&#34;_blank&#34;&gt;ライトニングトークに使うスライドの役割は『情報提供ではない』─澤円のプレゼン塾（その15）&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;核を作る
+
+&lt;ul&gt;
+&lt;li&gt;LTで伝えたいことを1ワードに絞る&lt;/li&gt;
+&lt;li&gt;例: 製品説明の場合は、顧客が得られるメリットを厳選した1ワード&lt;/li&gt;
+&lt;li&gt;その1ワードにまつわるエピソードや考察を絡めてスライドを作る&lt;/li&gt;
+&lt;li&gt;LTの時間軸は未来を向く&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;スライドの作りかた
+
+&lt;ul&gt;
+&lt;li&gt;スライドの役割は「情報提供ではない」&lt;/li&gt;
+&lt;li&gt;文字が多いと、見ているひとが文字を追うことに集中してしまう&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>転職イベントに登壇</title>
@@ -920,89 +992,6 @@ class LegacyTest extends PHPUnit_Framework_TestCase
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>spika hackathonに参加しました</title>
-      <link>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</link>
-      <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</guid>
-      <description>
-
-&lt;p&gt;先日、&lt;a href=&#34;http://connpass.com/event/3698/&#34; target=&#34;_blank&#34;&gt;spika hackathon&lt;/a&gt;に参加してきました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://spikaapp.com/ja/&#34; target=&#34;_blank&#34;&gt;Spika - world first opensource messenger for ios/android&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回のハッカソン関係者のみなさんもブログに書かれていますので、
-Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cloverstudioceo.hatenablog.com/entry/2013/10/21/033700&#34;
-target=&#34;_blank&#34;&gt;Spikaを公開して起こった事 -
-ヨーロッパで働く社長のブログ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://kuzuha.hatenablog.com/entry/2013/10/21/214116&#34;
-target=&#34;_blank&#34;&gt;spika hackathon というのをやった - id:k-z-h&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/&#34; target=&#34;_blank&#34;&gt;Spika Hackathon に参加してきた - Born Too Late&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;要するに↑を見れば全てわかるので&lt;br /&gt;
-この記事に意味はありません。&lt;/p&gt;
-
-&lt;h4 id=&#34;動機:e043198ef61f2141ba7d1d24b84da36d&#34;&gt;動機&lt;/h4&gt;
-
-&lt;p&gt;この記事を見ている方はご存知だと思いますが、Spikaはコードの品質の低さで話題になりました。&lt;br /&gt;
-で、自分もSpikaのコードを見て同じような印象を持ったのですが、&lt;/p&gt;
-
-&lt;p&gt;これなら、自分みたいにショボいプログラマでも何かできるんじゃないか…！？&lt;/p&gt;
-
-&lt;p&gt;と思ったのがハッカソンに参加した動機です。&lt;br /&gt;
-（貢献したいというよりは、自分の経験値を上げたいという）&lt;/p&gt;
-
-&lt;p&gt;趣味で一人でgithub使っててもつまらないし&lt;br /&gt;
-ソーシャルコーディングとかプルリクエストとか楽しそうだし&lt;br /&gt;
-なんかカッコイイなぁ、自分も参加したいなぁと思いながらリポジトリを見渡しても&lt;br /&gt;
-何か難しそうだし、英語ばっかりだし(当たり前か…)って感じで悶々とする日々が続いてました。&lt;/p&gt;
-
-&lt;p&gt;なんていうか、高速道路の中央分離帯に立っているような感じで、&lt;br /&gt;
-流れに入りたいけど何も出来ない…みたいな(?)。&lt;br /&gt;
-なので、それを打破するチャンスかなと思ったので参加しました。&lt;/p&gt;
-
-&lt;h4 id=&#34;やったこと:e043198ef61f2141ba7d1d24b84da36d&#34;&gt;やったこと&lt;/h4&gt;
-
-&lt;p&gt;二人の素晴らしいhackerの隣で黙々とテスト書いてました。&lt;/p&gt;
-
-&lt;p&gt;テストを書こうと最初から決めていたのですが、&lt;br /&gt;
-ハッカソン直前にオーナーがSilexで書きなおしてたので、&lt;/p&gt;
-
-&lt;p&gt;やばい！Silex触ったこと無い！&lt;/p&gt;
-
-&lt;p&gt;と、かなり焦りましたがなんとかなりました。&lt;br /&gt;
-むしろテスト書きやすかったです。WebTestCaseっていうのがあったので使いました、素晴らしいですね。&lt;br /&gt;
-正直、ハッカソンに参加するまでプルリクエスト3回位しかやったことなかったので&lt;br /&gt;
-リポジトリの扱いでわからないことがあって参加者の皆さんにご迷惑をかけてしまいました。&lt;/p&gt;
-
-&lt;p&gt;developブランチでSilexで書きなおしてたのに&lt;br /&gt;
-自分が間違ってmasterブランチにプルリクエストしてしてしまったり。&lt;br /&gt;
-（そしてそれがmergeされてしまったり）&lt;br /&gt;
-再度謝罪いたしますm( )m&lt;/p&gt;
-
-&lt;h4 id=&#34;まとめ:e043198ef61f2141ba7d1d24b84da36d&#34;&gt;まとめ&lt;/h4&gt;
-
-&lt;p&gt;やっぱり自分が書いたコードがmergeされた時はちょっとした感動がありました。&lt;br /&gt;
-（ハッカソンでは一切表に出しませんでしたが、密かに感動してました）&lt;/p&gt;
-
-&lt;p&gt;あと、自分みたいに高速道路の中央分離帯に立っている人って意外といるんじゃないかなぁと思いますので&lt;br /&gt;
-そういう人は、エイッと飛び込んでみると良いかもしれません。&lt;br /&gt;
-自分も引き続きがんばります。&lt;/p&gt;
-
-&lt;p&gt;それと、自分は群馬在住なので1日目は都内のカプセルホテルに泊まりました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://travel.rakuten.co.jp/HOTEL/104580/&#34;
-target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;サウナあり、無料モーニングパンサービスありで割と思います。&lt;/p&gt;
 </description>
     </item>
     

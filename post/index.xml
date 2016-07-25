@@ -7,8 +7,80 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 13 Jul 2016 20:36:31 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Jul 2016 23:51:41 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PHP BLT #5でLTデビュー</title>
+      <link>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</link>
+      <pubDate>Wed, 20 Jul 2016 23:51:41 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</guid>
+      <description>
+
+&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;
+
+&lt;p&gt;4回目まではメルカリさんが主催でしたが&lt;a href=&#34;https://twitter.com/sotarok&#34; target=&#34;_blank&#34;&gt;@sotarok&lt;/a&gt;さんの&lt;a href=&#34;https://twitter.com/sotarok/status/740847489310461952&#34; target=&#34;_blank&#34;&gt;粋な計らいにより主催企業を持ち回す&lt;/a&gt;ことになり、第１弾としてペパボが主催するかたちになりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://phpblt.connpass.com/event/35070/&#34;&gt;PHP BLT #5 (2016/07/20 19:30〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;PHP BLTって？ PHP BLT は 参加者全員が Tips を発表(Lightning Talk)する というコンセプトの PHP 周辺エンジニア・Web/サーバーサイド全般の勉強会です (オーディエンス枠もありますのでご安心ください)。 PHP Burst Lightning Talk の略だってばあちゃんが言ってた。 * 1回目の様子 * 4回目の様子 ※ Potatotips をリスペクトしております！ ## 主催企業を持ち回すこととなりました 第1回目 ~ 第4回目まではメルカリさんが主催されていました。 第5回目からは、メルカリCTO @sota&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;「PHP BLT をペパボで主催するぞ！！！！１」と、社内で issue が立ってLTを募集していたので早速応募。したのはいいけど、今までLTしたことなかったので「LTやりたいです！」と issue にコメントした瞬間から、良い感じに不安と緊張に襲われました。&lt;/p&gt;
+
+&lt;p&gt;それから当日までの約3週間はLTの事で頭がいっぱいでした。。&lt;/p&gt;
+
+&lt;h4 id=&#34;発表資料:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;発表資料&lt;/h4&gt;
+
+&lt;p&gt;内容は、OSSとして公開している&lt;a href=&#34;https://github.com/ackintosh/snidel/&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; の紹介です。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9cb6a1eb77c145eba36301b9f21c26c3&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ペパボは全社共通のスライドテンプレート（Keynote用テーマ）があるので、スライド作りはサクサク進められて、内容を練るのと発表の練習に集中できました。テンプレート本当に便利です。&lt;/p&gt;
+
+&lt;h4 id=&#34;感想:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;感想&lt;/h4&gt;
+
+&lt;p&gt;見てくださった方から、「LT良かった」「Snidel便利そう」と言っていただけて本当に嬉しかったです。&lt;br /&gt;
+随所に散りばめた群馬ネタ（画像）もリアクションいただけてホッとしました。&lt;br /&gt;
+また、Snidelが解決する問題とか特徴について整理する良い機会になりました。今回話せなかった、現状の課題とか今後の展望についても機会があったら発表したいです。&lt;/p&gt;
+
+&lt;p&gt;局長さん、関係者のみなさま、お疲れ様でした！&lt;/p&gt;
+
+&lt;p&gt;（追記）&lt;a href=&#34;http://uzulla.hateblo.jp/entry/2016/07/21/012002&#34; target=&#34;_blank&#34;&gt;uzullaさんのブログで「Snidelおもしろそう！」とコメントいただいた！！！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;スライド作りのメモ:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;スライド作りのメモ&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.shin1x1.com/entry/improve-the-presentation-skills-for-beginners&#34; target=&#34;_blank&#34;&gt;ここを気をつけるともっと良くなる勉強会の発表&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;この辺を気をつけるともっと良くなる
+
+&lt;ul&gt;
+&lt;li&gt;言い訳や自己卑下を入れる&lt;/li&gt;
+&lt;li&gt;無理に笑いを取ろうとする&lt;/li&gt;
+&lt;li&gt;何を伝えたいか分かりにくい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://codeiq.jp/magazine/2014/12/19597/&#34; target=&#34;_blank&#34;&gt;ライトニングトークに使うスライドの役割は『情報提供ではない』─澤円のプレゼン塾（その15）&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;核を作る
+
+&lt;ul&gt;
+&lt;li&gt;LTで伝えたいことを1ワードに絞る&lt;/li&gt;
+&lt;li&gt;例: 製品説明の場合は、顧客が得られるメリットを厳選した1ワード&lt;/li&gt;
+&lt;li&gt;その1ワードにまつわるエピソードや考察を絡めてスライドを作る&lt;/li&gt;
+&lt;li&gt;LTの時間軸は未来を向く&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;スライドの作りかた
+
+&lt;ul&gt;
+&lt;li&gt;スライドの役割は「情報提供ではない」&lt;/li&gt;
+&lt;li&gt;文字が多いと、見ているひとが文字を追うことに集中してしまう&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>転職イベントに登壇</title>
@@ -965,50 +1037,6 @@ target=&#34;_blank&#34;&gt;spika hackathon というのをやった - id:k-z-h&l
 target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル】&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;サウナあり、無料モーニングパンサービスありで割と思います。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
-      <link>http://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
-      <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
-      <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
-今回はグローバル関数への依存について。&lt;/p&gt;
-
-&lt;p&gt;例えば下記のコードでは&lt;br /&gt;
-receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
-テストしにくくなっています。&lt;br /&gt;
-（テストは書けるけどテスト走らせる度にメールが飛ぶのはアレですね）&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=1.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a
-href=&#34;http://www.amazon.co.jp/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E6%94%B9%E5%96%84%E3%82%AC%E3%82%A4%E3%83%89-Object-Oriented-SELECTION-%E3%83%9E%E3%82%A4%E3%82%B1%E3%83%AB%E3%83%BBC%E3%83%BB%E3%83%95%E3%82%A7%E3%82%B6%E3%83%BC%E3%82%BA/dp/4798116831&#34;
-target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&lt;br /&gt;
-グローバル関数の部分をインスタンスメソッドにして、処理をグローバル関数にまるっと委譲することで、接合部を作る方法が紹介されています。&lt;br /&gt;
-例えばこんな感じでしょうか。&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=2.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;接合部となったメソッドをサブクラスでオーバーライドしてテストしてます。&lt;/p&gt;
-
-&lt;p&gt;ただ、わざわざサブクラスを定義するのも面倒な気もするし&lt;br /&gt;
-もう少しカジュアルな方法がないかなということで&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=3.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;テストのためにややプロダクションコードが増えますがメソッドの差し替えができるようになりました。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、無名関数の中でアサーションが書けるのでmail関数が受け取る引数をアサートすることもできます。&lt;/p&gt;
-
-&lt;p&gt;こんな感じです。&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
-&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
