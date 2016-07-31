@@ -7,8 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 20 Jul 2016 23:51:41 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jul 2016 16:24:17 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/07/29 送別会</title>
+      <link>http://ackintosh.github.io/blog/2016/07/29/2016-07-29/</link>
+      <pubDate>Fri, 29 Jul 2016 16:24:17 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/07/29/2016-07-29/</guid>
+      <description>&lt;p&gt;2年間、派遣社員としてサービス開発・保守で活躍されたかたの送別会。
+ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;
+
+&lt;p&gt;自分は5/16入社なので一緒に働いた期間はたった2ヶ月くらいだけど、その方の姿勢を見習うようにしていた。&lt;/p&gt;
+
+&lt;p&gt;送別会で、「ウチの社員になればいいのに」と言ってみたら&lt;/p&gt;
+
+&lt;p&gt;「いやぁ、社員って自分には合わないんですよね」&lt;/p&gt;
+
+&lt;p&gt;「(良くないところを見つけて) 会社を変えたくなっちゃうんですよ」&lt;/p&gt;
+
+&lt;p&gt;と仰ってたのが印象的だった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>PHP BLT #5でLTデビュー</title>
@@ -938,60 +959,6 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
 エラーが出ちゃいました。。&lt;/p&gt;
 
 &lt;p&gt;大変勉強になりました m(＿ ＿)m&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
-      <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
-      <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
-      <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
-リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
-
-&lt;p&gt;例えば&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-require_once &#39;xxx.php&#39;;
-
-function hoge($arg)
-{
-    return &#39;hoge&#39; . $arg;
-}
-
-somefunction(1234);
-
-set(&#39;hoge&#39;, hoge(&#39;fuga&#39;));
-render(&#39;hoge.html&#39;);
-exit;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;こんな感じのコードがあって、hoge()関数のテストを書きたい時
-関数宣言の部分だけインクルードできれば、既存コードに一切手を入れずにテスト書き始められます。&lt;/p&gt;
-
-&lt;p&gt;ということで作りました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/toumi&#34; target=&#34;_blank&#34;&gt;ackintosh /
-toumi&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;このライブラリを使って上記スクリプトをインクルードすれば、
-下記のようにテストが書けます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-// Only the function declaration is included.
-Ackintosh_Toumi::load(&#39;legacy.php&#39;);
-
-class LegacyTest extends PHPUnit_Framework_TestCase
-{
-    public function test_hoge()
-    {
-        $this-&amp;gt;assertSame(&#39;hogefuga&#39;, hoge(&#39;fuga&#39;));
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
 </description>
     </item>
     
