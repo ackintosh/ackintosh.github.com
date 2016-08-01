@@ -7,8 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 31 Jul 2016 16:53:50 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 02 Aug 2016 01:31:52 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/08/01 プログラミング言語Go</title>
+      <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
+      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
+      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
+
+&lt;p&gt;1.2 コマンドライン引数&lt;/p&gt;
+
+&lt;p&gt;echoを実装することを通して、スライス・ループ・文字列連結などを学んだ。&lt;/p&gt;
+
+&lt;p&gt;文字列変数の宣言方法についての解説をメモしておく。
+宣言方法はいくつかあるが、ケースによって最適な方法が異なる。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;関数内だけで使う(スコープが狭い)変数は省略変数宣言 ( s := &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
+&lt;li&gt;初期値が重要なことを伝えるには明示的な初期化 ( var s string = &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
+&lt;li&gt;初期値が問題とならないことを伝えるには暗黙の初期化 ( var s string )&lt;/li&gt;
+&lt;li&gt;(var s = &amp;ldquo;&amp;rdquo; ) は複数の変数を宣言する時を除いてほとんど使われない&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;本の内容とは関係ないけど、
+vim で .go ファイルを保存するときに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vim-go: goimports does not support srcdir.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というエラーがでてたけど&lt;/p&gt;
+
+&lt;p&gt;:GoUpdateBinaries&lt;/p&gt;
+
+&lt;p&gt;を実行したら解決した。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/07/31 コンプレックス</title>
@@ -874,76 +910,6 @@ sys  0m20.341s
 
 &lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが&lt;br /&gt;
 まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>phpでバイナリ / テキストファイルの判定</title>
-      <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
-      <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
-      <description>
-
-&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
-
-&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-$result = preg_match(&#39;#\0#&#39;, file_get_contents($file));
-
-if ($result === 1) {
-    echo &#39;binary&#39;;
-} elseif ($result === 0) {
-    echo &#39;text&#39;;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;より良い方法がありましたらご教授ください m(＿ ＿)m&lt;/p&gt;
-
-&lt;h4 id=&#34;2014-04-06-追記:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;2014-04-06 追記&lt;/h4&gt;
-
-&lt;p&gt;はてブでコメントいただいた方法を試しました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;NULLバイトを含むかの判定だけなので strpos で事足りる。&lt;/li&gt;
-&lt;li&gt;対象ファイルのサイズが大きいと色々と困るので stream を使う。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
-function is_binary($file) {
-    $fp = fopen($file, &#39;r&#39;);
-    while ($line = fgets($fp)) {
-        if (strpos($line, &#39;\0&#39;) !== false) {
-            fclose($fp);
-            return true;
-        }
-    }
-
-    fclose($fp);
-    return false;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;900MB のバイナリファイルを使って、最初のスクリプトと実行時間を比較しました。&lt;/p&gt;
-
-&lt;h5 id=&#34;最初のスクリプト:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;最初のスクリプト&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ time php 1.php
-php 1.php  0.37s user 2.09s system 6% cpu 35.830 total
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;改善後:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;改善後&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ time php 2.php
-php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;全然違う…！(・∀・)&lt;br /&gt;
-最初のなんか、時間を測る以前に Allowed memory size&lt;br /&gt;
-エラーが出ちゃいました。。&lt;/p&gt;
-
-&lt;p&gt;大変勉強になりました m(＿ ＿)m&lt;/p&gt;
 </description>
     </item>
     

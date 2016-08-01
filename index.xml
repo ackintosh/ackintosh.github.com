@@ -7,8 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 31 Jul 2016 16:53:50 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 02 Aug 2016 01:31:52 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/08/01 プログラミング言語Go</title>
+      <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
+      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
+      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
+
+&lt;p&gt;1.2 コマンドライン引数&lt;/p&gt;
+
+&lt;p&gt;echoを実装することを通して、スライス・ループ・文字列連結などを学んだ。&lt;/p&gt;
+
+&lt;p&gt;文字列変数の宣言方法についての解説をメモしておく。
+宣言方法はいくつかあるが、ケースによって最適な方法が異なる。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;関数内だけで使う(スコープが狭い)変数は省略変数宣言 ( s := &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
+&lt;li&gt;初期値が重要なことを伝えるには明示的な初期化 ( var s string = &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
+&lt;li&gt;初期値が問題とならないことを伝えるには暗黙の初期化 ( var s string )&lt;/li&gt;
+&lt;li&gt;(var s = &amp;ldquo;&amp;rdquo; ) は複数の変数を宣言する時を除いてほとんど使われない&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;本の内容とは関係ないけど、
+vim で .go ファイルを保存するときに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vim-go: goimports does not support srcdir.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というエラーがでてたけど&lt;/p&gt;
+
+&lt;p&gt;:GoUpdateBinaries&lt;/p&gt;
+
+&lt;p&gt;を実行したら解決した。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/07/31 コンプレックス</title>
@@ -874,44 +910,6 @@ sys  0m20.341s
 
 &lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが&lt;br /&gt;
 まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About Hugo</title>
-      <link>http://ackintosh.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://ackintosh.github.io/about/</guid>
-      <description>
-
-&lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
-
-&lt;p&gt;It makes use of a variety of open source projects including:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;Cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;Viper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/jWalterWeatherman&#34;&gt;J Walter Weatherman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/spf13&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;setup:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Setup&lt;/h2&gt;
-
-&lt;p&gt;Some fun facts about &lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Built in &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Loosely inspired by &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Primarily developed by &lt;a href=&#34;http://spf13.com/&#34;&gt;spf13&lt;/a&gt; on the train while commuting to and from Manhattan.&lt;/li&gt;
-&lt;li&gt;Coded in &lt;a href=&#34;http://vim.org&#34;&gt;Vim&lt;/a&gt; using &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;spf13-vim&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Have questions or suggestions? Feel free to &lt;a href=&#34;https://github.com/spf13/hugo/issues/new&#34;&gt;open an issue on GitHub&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/spf13&#34;&gt;ask me on Twitter&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
 </description>
     </item>
     
