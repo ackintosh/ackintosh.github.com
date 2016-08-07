@@ -199,9 +199,9 @@
 
 <p>なので最終的に、バックエンドにリクエストを複製するだけにしました。</p>
 
-<p>ngx_mruby には<a href="https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives" target="_blank">いろんなディレクティブ</a>があって nginx のフェーズにフックして制御できるようになっています。<br />
-<a href="https://github.com/ackintosh/mruby-ngx-shadow_proxy#example" target="_blank">README<a/>に例を載せていますが、
-mruby_log_handler というディレクティブを使って、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。</p>
+<p><a href="https://github.com/ackintosh/mruby-ngx-shadow_proxy#example" target="_blank">README<a/>に例を載せていますが、<br />
+ngx_mruby には<a href="https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives" target="_blank">いろんなディレクティブ</a>があって nginx のフェーズにフックして制御できるようになっているので、
+mruby_log_handler というディレクティブを使うことで、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。</p>
 
     </section>
 
