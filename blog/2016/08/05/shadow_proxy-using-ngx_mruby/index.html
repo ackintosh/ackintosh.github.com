@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" ngx_mruby でシャドウプロキシ &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-08-05T15:34:21&#43;09:00" />
+
+    
+    
+
+  <title>
+     ngx_mruby でシャドウプロキシ &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif">
+	  <link rel="apple-touch-icon" href="http://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/about">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="http://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://dl.dropboxusercontent.com/u/22083548/octopress/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="http://ackintosh.github.io/"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">ngx_mruby でシャドウプロキシ</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-08-05T15:34:21&#43;09:00">
+            Aug 5, 2016
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      
+
+<p>最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、<br />
+何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。</p>
+
+<p>とはいえシャドウプロキシが何なのかはよくわかっていなかったので予め下記を参考にさせていただきました。</p>
+
+<p><strong>シャドウプロキシサーバーの実装</strong></p>
+
+<ul>
+<li><a href="https://github.com/cookpad/kage" target="_blank">kage</a></li>
+<li><a href="https://github.com/kentaro/delta" target="_blank">delta</a></li>
+<li><a href="https://github.com/lestrrat/p5-Geest" target="_blank">Geest</a><br /></li>
+</ul>
+
+<p><strong>シャドウプロキシの仕組み</strong></p>
+
+<ul>
+<li><a href="http://qiita.com/toyama0919/items/ae4bc88423317e6668b1" target="_blank">fluentdで本番環境を再現する</a></li>
+<li><a href="http://qiita.com/kamatama_41/items/dc12d5127e7de9a1849b" target="_blank">Shadow Proxyのご紹介 at Quipper</a></li>
+</ul>
+
+<p>まとめると、</p>
+
+<ul>
+<li>本番のリクエストをバックエンド（Shadow環境）に複製することで、本番に限りなく近い状態を再現できる。</li>
+<li>それによって、いきなり本番投入するのが怖い何かを安全に試運転させてバグの検知ができる。</li>
+<li>心穏やかにリリースに臨める。</li>
+</ul>
+
+<h4 id="mruby-ngx-shadow-proxy:2a2046fa3e83942b1b485d7fe68a5a69">mruby-ngx-shadow_proxy</h4>
+
+<p>ざっくりした実装しかしていませんが、github で公開しています。</p>
+
+<p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b" data-card-type="article"><h4><a href="https://github.com/ackintosh/mruby-ngx-shadow_proxy">ackintosh/mruby-ngx-shadow_proxy</a></h4><p>mruby-ngx-shadow_proxy - HTTP shadow proxy using ngx_mruby.</p></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
+
+<p>mrbgem を作るのは初めてだったのですが、<a href="https://github.com/matsumoto-r/mruby-mrbgem-template" target="_blank">mruby-mrbgem-template</a> を使うと必要なディレクトリ構造やファイルを生成してくれるので便利でした。</p>
+
+<p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b" data-card-type="article-full"><h4><a href="http://blog.matsumoto-r.jp/?p=3923">mrubyの拡張モジュールであるmrbgemのテンプレートを自動で生成するmrbgem作った</a></h4></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
+
+<h5 id="試行錯誤:2a2046fa3e83942b1b485d7fe68a5a69">試行錯誤</h5>
+
+<p>実装を始めた当初は、上記に挙げたサーバーのように ngx_mruby で本番とバックエンドそれぞれに並列にリクエストを複製しようとしたのですが下記理由で別の方法にしました。</p>
+
+<ul>
+<li>漠然とした違和感（何か ngx_mruby らしい方法があるのではないか）</li>
+<li>できるだけフロントに手を入れたくない</li>
+<li>そもそも mruby がスレッドセーフではない
+
+<ul>
+<li>この辺がまだ理解できていないので語弊があるかもしれません</li>
+<li>参考 <a href="https://github.com/mruby/mruby/issues/1657">https://github.com/mruby/mruby/issues/1657</a></li>
+<li>実際に <a href="https://github.com/mattn/mruby-thread" target="_blank">mattn/mruby-thread</a> を使って試行錯誤していたのですがスレッド間のデータのやりとりがうまくできませんでした</li>
+</ul></li>
+</ul>
+
+<p>なので最終的に、バックエンドにリクエストを複製するだけにしました。</p>
+
+<p>ngx_mruby には<a href="https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives" target="_blank">いろんなディレクティブ</a>があって nginx のフェーズにフックして制御できるようになっています。<br />
+<a href="https://github.com/ackintosh/mruby-ngx-shadow_proxy#example" target="_blank">README<a/>に例を載せていますが、
+mruby_log_handler というディレクティブを使って、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/prof.jpeg" /></a>
+  <p>Read <a href="http://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=ngx_mruby%20%e3%81%a7%e3%82%b7%e3%83%a3%e3%83%89%e3%82%a6%e3%83%97%e3%83%ad%e3%82%ad%e3%82%b7&amp;url=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f05%2fshadow_proxy-using-ngx_mruby%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f05%2fshadow_proxy-using-ngx_mruby%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f05%2fshadow_proxy-using-ngx_mruby%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/index.js"></script>
+
+</body>
+</html>
+

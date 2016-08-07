@@ -7,8 +7,80 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 02 Aug 2016 01:31:52 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 05 Aug 2016 15:34:21 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ngx_mruby でシャドウプロキシ</title>
+      <link>http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/</link>
+      <pubDate>Fri, 05 Aug 2016 15:34:21 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/</guid>
+      <description>
+
+&lt;p&gt;最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、&lt;br /&gt;
+何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。&lt;/p&gt;
+
+&lt;p&gt;とはいえシャドウプロキシが何なのかはよくわかっていなかったので予め下記を参考にさせていただきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;シャドウプロキシサーバーの実装&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/cookpad/kage&#34; target=&#34;_blank&#34;&gt;kage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kentaro/delta&#34; target=&#34;_blank&#34;&gt;delta&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lestrrat/p5-Geest&#34; target=&#34;_blank&#34;&gt;Geest&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;シャドウプロキシの仕組み&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/toyama0919/items/ae4bc88423317e6668b1&#34; target=&#34;_blank&#34;&gt;fluentdで本番環境を再現する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/kamatama_41/items/dc12d5127e7de9a1849b&#34; target=&#34;_blank&#34;&gt;Shadow Proxyのご紹介 at Quipper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まとめると、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;本番のリクエストをバックエンド（Shadow環境）に複製することで、本番に限りなく近い状態を再現できる。&lt;/li&gt;
+&lt;li&gt;それによって、いきなり本番投入するのが怖い何かを安全に試運転させてバグの検知ができる。&lt;/li&gt;
+&lt;li&gt;心穏やかにリリースに臨める。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;mruby-ngx-shadow-proxy:2a2046fa3e83942b1b485d7fe68a5a69&#34;&gt;mruby-ngx-shadow_proxy&lt;/h4&gt;
+
+&lt;p&gt;ざっくりした実装しかしていませんが、github で公開しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy&#34;&gt;ackintosh/mruby-ngx-shadow_proxy&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;mruby-ngx-shadow_proxy - HTTP shadow proxy using ngx_mruby.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;mrbgem を作るのは初めてだったのですが、&lt;a href=&#34;https://github.com/matsumoto-r/mruby-mrbgem-template&#34; target=&#34;_blank&#34;&gt;mruby-mrbgem-template&lt;/a&gt; を使うと必要なディレクトリ構造やファイルを生成してくれるので便利でした。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://blog.matsumoto-r.jp/?p=3923&#34;&gt;mrubyの拡張モジュールであるmrbgemのテンプレートを自動で生成するmrbgem作った&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;試行錯誤:2a2046fa3e83942b1b485d7fe68a5a69&#34;&gt;試行錯誤&lt;/h5&gt;
+
+&lt;p&gt;実装を始めた当初は、上記に挙げたサーバーのように ngx_mruby で本番とバックエンドそれぞれに並列にリクエストを複製しようとしたのですが下記理由で別の方法にしました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;漠然とした違和感（何か ngx_mruby らしい方法があるのではないか）&lt;/li&gt;
+&lt;li&gt;できるだけフロントに手を入れたくない&lt;/li&gt;
+&lt;li&gt;そもそも mruby がスレッドセーフではない
+
+&lt;ul&gt;
+&lt;li&gt;この辺がまだ理解できていないので語弊があるかもしれません&lt;/li&gt;
+&lt;li&gt;参考 &lt;a href=&#34;https://github.com/mruby/mruby/issues/1657&#34;&gt;https://github.com/mruby/mruby/issues/1657&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;実際に &lt;a href=&#34;https://github.com/mattn/mruby-thread&#34; target=&#34;_blank&#34;&gt;mattn/mruby-thread&lt;/a&gt; を使って試行錯誤していたのですがスレッド間のデータのやりとりがうまくできませんでした&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なので最終的に、バックエンドにリクエストを複製するだけにしました。&lt;/p&gt;
+
+&lt;p&gt;ngx_mruby には&lt;a href=&#34;https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives&#34; target=&#34;_blank&#34;&gt;いろんなディレクティブ&lt;/a&gt;があって nginx のフェーズにフックして制御できるようになっています。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy#example&#34; target=&#34;_blank&#34;&gt;README&lt;a/&gt;に例を載せていますが、
+mruby_log_handler というディレクティブを使って、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/01 プログラミング言語Go</title>
@@ -815,103 +887,6 @@ var_dump($snidel-&amp;gt;run($camelize));
 初回リリースから１ヶ月ちょっと経って、実装したい機能は一通り終わったのですが、&lt;br /&gt;
 テストコードが少なくてちょっと恥ずかしい感じなので&lt;br /&gt;
 引き続きそのへんをいじっていきたいと思っています。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>php で手軽に並列処理をするライブラリ Snidel を作りました</title>
-      <link>http://ackintosh.github.io/blog/2015/09/29/snidel/</link>
-      <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2015/09/29/snidel/</guid>
-      <description>
-
-&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&#34;embedly-card&#34; href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;snidel-スナイデル-について:6059c22da48c7213647847cb35fc5a38&#34;&gt;Snidel (スナイデル) について&lt;/h3&gt;
-
-&lt;p&gt;他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
-php で手軽に並列処理をする。というのがコンセプトです。&lt;/p&gt;
-
-&lt;p&gt;子プロセス数の制御に &lt;a href=&#34;http://php.net/manual/ja/function.msg-get-queue.php&#34; target=&#34;_blank&#34;&gt;メッセージキュー&lt;/a&gt;&lt;br /&gt;
-プロセス間のデータのやりとりに &lt;a href=&#34;http://php.net/manual/ja/ref.shmop.php&#34; target=&#34;_blank&#34;&gt;共有メモリ&lt;/a&gt;&lt;br /&gt;
-を使っています。&lt;/p&gt;
-
-&lt;p&gt;命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。&lt;br /&gt;
-ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&amp;hellip;。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png&#34; alt=&#34;snidel_translate&#34; /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、&lt;br /&gt;
-Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;$func = function ($str) {
-    sleep(3);
-    return $str;
-};
-
-$s = time();
-$snidel = new Snidel();
-$snidel-&amp;gt;fork($func, &#39;foo&#39;);
-$snidel-&amp;gt;fork($func, &#39;bar&#39;);
-$snidel-&amp;gt;fork($func, &#39;baz&#39;);
-
-var_dump($snidel-&amp;gt;get());
-// * the order of results is not guaranteed. *
-// array(3) {
-//   [0]=&amp;gt;
-//   string(3) &amp;quot;bar&amp;quot;
-//   [1]=&amp;gt;
-//   string(3) &amp;quot;foo&amp;quot;
-//   [2]=&amp;gt;
-//   string(3) &amp;quot;baz&amp;quot;
-// }
-
-echo (time() - $s) . &#39;sec elapsed&#39; . PHP_EOL;
-// 3sec elapsed.
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;作り始めたきっかけ:6059c22da48c7213647847cb35fc5a38&#34;&gt;作り始めたきっかけ&lt;/h3&gt;
-
-&lt;p&gt;仕事で携わっているプロジェクトでは &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34; target=&#34;_balnk&#34;&gt;PHP_CodeSniffer&lt;/a&gt; を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。&lt;/p&gt;
-
-&lt;p&gt;その集計に5分くらいかかっていたので、もっと短時間で終わるようにしたいと思ったのがきっかけです。&lt;br /&gt;
-php じゃなくても良かったのですが勉強のため。&lt;br /&gt;
-いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
-
-&lt;h3 id=&#34;結果:6059c22da48c7213647847cb35fc5a38&#34;&gt;結果&lt;/h3&gt;
-
-&lt;p&gt;集計処理の時間が下記のように改善しました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ビフォー&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;real 5m9.580s
-user 3m3.123s
-sys  0m14.849s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;アフター&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;real 2m44.248s
-user 3m1.867s
-sys  0m20.341s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;実行時間が45%くらい削減できました。&lt;br /&gt;
-また、実行時間よりユーザーCPU時間の方が長くなっているので
-複数のCPUが使えてることがわかります。&lt;/p&gt;
-
-&lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが&lt;br /&gt;
-まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
 </description>
     </item>
     
