@@ -7,8 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 17 Aug 2016 12:40:37 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 17 Aug 2016 19:24:09 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2018/08/17 集中力, コンパイラ</title>
+      <link>http://ackintosh.github.io/blog/2016/08/17/2018-08-17/</link>
+      <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/17/2018-08-17/</guid>
+      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
+
+&lt;p&gt;Youtube でマリオメーカーの鬼畜ステージに挑戦している模様がライブ配信されていて、ステージの鬼畜っぷりとプレイヤーの超絶テクニックに見入ってしまった。高々とそびえ立つ針山を絶妙なタイミングの三段ジャンプでスレスレで飛び越えたり、バネを持った状態でジャンプして空中でそれを利用するというアクロバティックな動きに魅了された。&lt;/p&gt;
+
+&lt;p&gt;アクションを少しでもミスすれば即死。1周するのに150秒くらいかかるコースを3周して、ようやくステージクリアという鬼畜ステージにプレイヤーは1時間以上 挑戦し続けてもまるで集中力が切れる様子がない。というよりリラックスしてプレイするように努めているようにも感じた。&lt;/p&gt;
+
+&lt;p&gt;結局、見ている自分の集中力が切れた。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Head First C の1章をやった。LL言語、というか php ばかりの自分にとってはソースコードを自分でコンパイルする事すら新鮮でなんか楽しい。コンパイラを身近に感じられた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://rebuild.fm/153/&#34;&gt;rebuild.fm #153&lt;/a&gt; で Rui Ueyama さんがコンパイラを実装した話をされていてとても興味深い。システムプログラミングの話は聴いていてワクワクする。宇宙の話を聴いてるときのワクワクに近いかもしれない。&lt;/p&gt;
+
+&lt;p&gt;自分は、コンパイラを実装するのがどれほど大変なのかが理解できてない程度に無知なので、まずは大変さを理解する意味でコンパイラの実装に挑戦してみるのも良いかな。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Goアプリのデーモン化とデプロイの仕組み</title>
@@ -553,79 +577,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 &lt;p&gt;予め理解している技術についての翻訳だし、一つ一つの文章が短いので翻訳しやすい方なのかなとは思っていたのですが、中学レベルの英語スキルしかなく、慣れない作業だったのでかなり体力・精神力を消耗しましたが、めちゃくちゃ達成感がありました。&lt;br /&gt;
 時間でいうと15ポモドーロくらい使いました。&lt;br /&gt;
 あとは英語を読むことの自分の中のハードルがだいぶ下がったのと、読み方が少しわかった気がします。（感覚的に掴んだだけで、体系的に学習したわけではないので何がどうわかったのかを明文化できないのが辛いところです）&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Snidel 0.6 をリリースしました</title>
-      <link>http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</link>
-      <pubDate>Wed, 04 May 2016 02:16:17 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</guid>
-      <description>
-
-&lt;p&gt;外部的なインターフェースは変わっていませんが、&lt;br /&gt;
-内部的なアーキテクチャを大幅に変更しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.6.0&#34;&gt;Release 0.6.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;従来のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;従来のアーキテクチャ&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ackintosh/snidel/master/images/original_architecture.png&#34; alt=&#34;original_architecture.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Snidel::fork() を実行したタイミングで子プロセスを fork し、
-生成された子プロセスはトークンが回ってくるまで待機する&lt;br /&gt;
-（同時実行数を制御するために Snidel\Token オブジェクトを使用）&lt;/li&gt;
-&lt;li&gt;予め設定された同時実行数以下までの子プロセスは即座に処理が開始されるが、それ以降の子プロセスは先に実行中のプロセスが完了するまでは待機状態になる&lt;/li&gt;
-&lt;li&gt;子プロセスは処理を実行して結果を共有メモリに保存し、最後に(Snidel::__destruct()で)トークンを返却する&lt;/li&gt;
-&lt;li&gt;Snidel::wait() または Snidel::get() を実行することで親プロセスが、各子プロセスと対になる共有メモリから実行結果を取得する&lt;br /&gt;
-(実行中・待機中の子プロセスがあれば、それらが完了するまで親プロセスは待機する)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;問題点:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;問題点&lt;/h3&gt;
-
-&lt;p&gt;Snidel::fork() で即座に子プロセスを fork するため、&lt;br /&gt;
-場合によっては瞬間的に大量の fork が発生するため下記の問題がありました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;fork の負荷&lt;/li&gt;
-&lt;li&gt;大量の待機プロセスが発生するためプロセス数の上限に達してしまう可能性&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上記を避けるために単純に fork 数をコントロールしようとすると&lt;br /&gt;
-同時実行数を超えた Snidel::fork() 呼び出しの際に親プロセス (Snidel を利用する側) を&lt;br /&gt;
-実行中の子プロセスが終了するまで待機させなければいけません。&lt;/p&gt;
-
-&lt;h3 id=&#34;改善後のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0&#34;&gt;改善後のアーキテクチャ&lt;/h3&gt;
-
-&lt;p&gt;Master-Workerモデルに変更しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ackintosh/snidel/master/images/master_worker.png&#34; alt=&#34;master_worker.png&#34; /&gt;
-&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;初回の Snidel::fork() を実行したタイミングで Master プロセスを fork する&lt;/li&gt;
-&lt;li&gt;実行したい処理は専用のキュー(Task Queue)に追加する&lt;/li&gt;
-&lt;li&gt;Master プロセスが Task Queue から処理を取り出し、それを実行する Worker プロセスを fork する&lt;br /&gt;
-（Worker の同時起動数を制御するために Snidel\Token オブジェクトを使用）&lt;/li&gt;
-&lt;li&gt;Worker プロセスが実行結果を専用のキュー(Result Queue)に追加し、トークンを返却する&lt;/li&gt;
-&lt;li&gt;Snidel::wait() または Snidel::get() を実行することで、Result Queue から実行結果を取得する&lt;br /&gt;
-(実行中・未実行のタスクがあれば、それらが完了するまで待機する)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;これにより、親プロセス(内部的には Owner プロセスと呼んでいます)は&lt;br /&gt;
-実行したい処理をキューに追加するだけで良くなって、&lt;br /&gt;
-あとは Master プロセスが Worker の同時起動数に気を配りながらイイ感じに進めてくれます。&lt;br /&gt;
-もちろん、Master-Worker が働いている間 Owner は他の仕事ができます。&lt;/p&gt;
-
-&lt;p&gt;改善内容については以上になります。&lt;/p&gt;
-
-&lt;p&gt;ただ現状、従来のアーキテクチャを完全に置き換えたわけではなく、&lt;br /&gt;
-Snidel::map() に関連する処理の中で内部的に利用されていて、今後こちらも置き換える予定です。&lt;br /&gt;
-Snidel::map() はバージョン0.2で実装した機能で、リリース時の記事で「複数の処理を並列につなげて実行」という項目で紹介しています。&lt;br /&gt;
-&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/&#34;&gt;Snidel 0.2 をリリースしました&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
