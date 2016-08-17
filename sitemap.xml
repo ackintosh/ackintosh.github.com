@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://ackintosh.github.io/</loc>
-    <lastmod>2016-08-15T17:15:54+09:00</lastmod>
+    <lastmod>2016-08-17T12:40:37+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</loc>
+    <lastmod>2016-08-17T12:40:37+09:00</lastmod>
   </url>
   
   <url>

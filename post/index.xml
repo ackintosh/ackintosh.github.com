@@ -7,8 +7,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Mon, 15 Aug 2016 17:15:54 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 17 Aug 2016 12:40:37 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Goアプリのデーモン化とデプロイの仕組み</title>
+      <link>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</link>
+      <pubDate>Wed, 17 Aug 2016 12:40:37 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</guid>
+      <description>
+
+&lt;p&gt;夏休みのひとり開発合宿で、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったアプリのデーモン化とデプロイの仕組みを作ってみたので雑だけどメモしておく。&lt;/p&gt;
+
+&lt;p&gt;Goほぼ初心者、デプロイの仕組み作ったことない、という初めての事だらけの状態で試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（&lt;a href=&#34;#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/a&gt;）&lt;/p&gt;
+
+&lt;p&gt;試行錯誤した結果、利用するツール・ライブラリは下記になった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;デーモン化&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://supervisord.org/&#34;&gt;supervisord&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;デプロイ&lt;br /&gt;
+（githubに push したら アプリケーションサーバーが webhook 通知を受信してビルド・graceful restart する）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebookgo/grace&#34;&gt;facebookgo/grace&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattn/gost&#34;&gt;mattn/gost&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;試行錯誤&lt;/h5&gt;
+
+&lt;p&gt;試行錯誤や調査の結果、利用を見送ったもの。&lt;/p&gt;
+
+&lt;p&gt;daemontools (プロセス管理)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;インストールが難しそう&lt;/li&gt;
+&lt;li&gt;開発がアクティブじゃない&lt;/li&gt;
+&lt;li&gt;パッチを当てないといけない様子&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　→ supervisord の方がインストール楽だし、設定も簡単&lt;/p&gt;
+
+&lt;p&gt;go-server-starter (ホットデプロイ)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;graceful shutdown に対応していない&lt;/li&gt;
+&lt;li&gt;graceful shutdown に対応するために manners を使おうとすると、さらにソースコードに手をいれないといけない
+
+&lt;ul&gt;
+&lt;li&gt;Echo のレールから外れてしまう・レールに乗れなくなってしまう&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;　→ grace ならそれらが解決される。公式に&lt;a href=&#34;https://echo.labstack.com/recipes/graceful-shutdown&#34;&gt;サンプルコード&lt;/a&gt;もある。&lt;/p&gt;
+
+&lt;h5 id=&#34;展望:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;展望&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ビルドサーバーを用意してバイナリを配布するかたちを作ってみたい&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/monochromegane/torokko&#34;&gt;monochromegane/torokko&lt;/a&gt; が気になる。
+
+&lt;ul&gt;
+&lt;li&gt;(&lt;a href=&#34;http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/&#34;&gt;Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.yusuke.be/entry/2016/01/18/111838&#34;&gt;Golangを初めて本番投入したぜ！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shogo82148.github.io/blog/2015/05/03/golang-graceful-restart/&#34;&gt;Go言語でGraceful Restartをする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.shibayu36.org/entry/2012/05/07/201556&#34;&gt;Server::Starterから学ぶhot deployの仕組み&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.livedoor.jp/sonots/archives/40248661.html&#34;&gt;「Server::Starterに対応するとはどういうことか」の補足&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mattn.kaoriya.net/software/lang/go/20130918122901.htm&#34;&gt;Go言語でWebAppの運用に必要なN個のこと&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/14 華の湯</title>
@@ -546,61 +626,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 Snidel::map() に関連する処理の中で内部的に利用されていて、今後こちらも置き換える予定です。&lt;br /&gt;
 Snidel::map() はバージョン0.2で実装した機能で、リリース時の記事で「複数の処理を並列につなげて実行」という項目で紹介しています。&lt;br /&gt;
 &lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/&#34;&gt;Snidel 0.2 をリリースしました&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>最近読んだ本 (〜2016/04)</title>
-      <link>http://ackintosh.github.io/blog/2016/05/01/books_201604/</link>
-      <pubDate>Sun, 01 May 2016 19:03:34 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/05/01/books_201604/</guid>
-      <description>
-
-&lt;p&gt;人工知能がアツいようなのでとりあえず１冊読んでみたのと&lt;br /&gt;
-近いうちに環境が変わるので、色々と足りないところの予備知識を準備するのがメイン。&lt;/p&gt;
-
-&lt;h3 id=&#34;人工知能は人間を超えるか:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;人工知能は人間を超えるか&lt;/h3&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/B00UAAK07S/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=B00UAAK07S&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B00UAAK07S&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=B00UAAK07S&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;スティーブズ-4:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;スティーブズ(4)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/4091875696/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4091875696&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4091875696&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=4091875696&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;スクラム実践入門:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;スクラム実践入門&lt;/h3&gt;
-
-&lt;p&gt;「ソフトウェア開発は難しい」という現実を理解することから始まる。&lt;br /&gt;
-5W1Hによる問題の分解から、スクラムにおける対処方法、プロダクトオーナー・スクラムマスターの必要性にスムーズに繋がっていく展開が、読んでいてとても気持ちよかった。
-また、随所で引用される記事・論文等の豊富さが印象的だった。&lt;/p&gt;
-
-&lt;p&gt;途中で紹介されている「戦略思考コンプリートブック」はとりあえずウィッシュリストに追加した。&lt;/p&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/4774172367/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4774172367&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4774172367&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=4774172367&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;入門-puppet:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;入門 Puppet&lt;/h3&gt;
-
-&lt;p&gt;1つ1つの章がコンパクトなのでリズムよく進められた。&lt;br /&gt;
-fluentd や serverspec を使う章があって、自分にとっては一石三鳥感があった。&lt;br /&gt;
-最後の章で「プログラマの三大美徳（無精・短気・傲慢）」と照らし合わせて Puppet を使うモチベーションを再確認させてくれるのが良かった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/B00CL92JC0/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=B00CL92JC0&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B00CL92JC0&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=B00CL92JC0&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;web-api-the-good-parts:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;Web API The Good Parts&lt;/h3&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/4873116864/ref=as_li_qf_sp_asin_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=4873116864&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4873116864&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=4873116864&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;プログラミングでメシが食えるか:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;プログラミングでメシが食えるか&lt;/h3&gt;
-
-&lt;p&gt;後輩君が貸してくれたのがきっかけで読んだ。&lt;br /&gt;
-2007年 なので内容に少し古さを感じるところはあったが&lt;br /&gt;
-自分の得意分野を作って、目に見える形にする(アウトプットする)のが大事、ということを再認識させてもらった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/479801558X/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=479801558X&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=479801558X&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=479801558X&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;blue-giant-8:cdb2047052c76a7a2041c96c97ab67f5&#34;&gt;BLUE GIANT(8)&lt;/h3&gt;
-
-&lt;p&gt;&lt;a  href=&#34;http://www.amazon.co.jp/gp/product/B01DEJ6H7S/ref=as_li_tf_il?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=B01DEJ6H7S&amp;linkCode=as2&amp;tag=akihito0a-22&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B01DEJ6H7S&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;http://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=as2&amp;o=9&amp;a=B01DEJ6H7S&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

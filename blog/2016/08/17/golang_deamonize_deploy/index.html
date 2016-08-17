@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Goアプリのデーモン化とデプロイの仕組み &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-08-17T12:40:37&#43;09:00" />
+
+    
+    
+
+  <title>
+     Goアプリのデーモン化とデプロイの仕組み &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif">
+	  <link rel="apple-touch-icon" href="http://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="http://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://ackintosh.github.io/about">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="http://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://dl.dropboxusercontent.com/u/22083548/octopress/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="http://ackintosh.github.io/"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Goアプリのデーモン化とデプロイの仕組み</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-08-17T12:40:37&#43;09:00">
+            Aug 17, 2016
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      
+
+<p>夏休みのひとり開発合宿で、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったアプリのデーモン化とデプロイの仕組みを作ってみたので雑だけどメモしておく。</p>
+
+<p>Goほぼ初心者、デプロイの仕組み作ったことない、という初めての事だらけの状態で試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（<a href="#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</a>）</p>
+
+<p>試行錯誤した結果、利用するツール・ライブラリは下記になった。</p>
+
+<ul>
+<li><p>デーモン化</p>
+
+<ul>
+<li><a href="http://supervisord.org/">supervisord</a></li>
+</ul></li>
+
+<li><p>デプロイ<br />
+（githubに push したら アプリケーションサーバーが webhook 通知を受信してビルド・graceful restart する）</p>
+
+<ul>
+<li><a href="https://github.com/facebookgo/grace">facebookgo/grace</a></li>
+<li><a href="https://github.com/mattn/gost">mattn/gost</a></li>
+</ul></li>
+</ul>
+
+<h5 id="試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0">試行錯誤</h5>
+
+<p>試行錯誤や調査の結果、利用を見送ったもの。</p>
+
+<p>daemontools (プロセス管理)</p>
+
+<ul>
+<li>インストールが難しそう</li>
+<li>開発がアクティブじゃない</li>
+<li>パッチを当てないといけない様子</li>
+</ul>
+
+<p>　→ supervisord の方がインストール楽だし、設定も簡単</p>
+
+<p>go-server-starter (ホットデプロイ)</p>
+
+<ul>
+<li>graceful shutdown に対応していない</li>
+<li>graceful shutdown に対応するために manners を使おうとすると、さらにソースコードに手をいれないといけない
+
+<ul>
+<li>Echo のレールから外れてしまう・レールに乗れなくなってしまう</li>
+</ul></li>
+</ul>
+
+<p>　→ grace ならそれらが解決される。公式に<a href="https://echo.labstack.com/recipes/graceful-shutdown">サンプルコード</a>もある。</p>
+
+<h5 id="展望:c89a01ea34ec3d3b965d2855f1d3c3d0">展望</h5>
+
+<ul>
+<li>ビルドサーバーを用意してバイナリを配布するかたちを作ってみたい</li>
+<li><a href="https://github.com/monochromegane/torokko">monochromegane/torokko</a> が気になる。
+
+<ul>
+<li>(<a href="http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/">Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。</a></li>
+</ul></li>
+</ul>
+
+<h5 id="参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</h5>
+
+<ul>
+<li><a href="http://blog.yusuke.be/entry/2016/01/18/111838">Golangを初めて本番投入したぜ！</a></li>
+<li><a href="https://shogo82148.github.io/blog/2015/05/03/golang-graceful-restart/">Go言語でGraceful Restartをする</a></li>
+<li><a href="http://blog.shibayu36.org/entry/2012/05/07/201556">Server::Starterから学ぶhot deployの仕組み</a></li>
+<li><a href="http://blog.livedoor.jp/sonots/archives/40248661.html">「Server::Starterに対応するとはどういうことか」の補足</a></li>
+<li><a href="http://mattn.kaoriya.net/software/lang/go/20130918122901.htm">Go言語でWebAppの運用に必要なN個のこと</a></li>
+</ul>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/prof.jpeg" /></a>
+  <p>Read <a href="http://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Go%e3%82%a2%e3%83%97%e3%83%aa%e3%81%ae%e3%83%87%e3%83%bc%e3%83%a2%e3%83%b3%e5%8c%96%e3%81%a8%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bf&amp;url=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f17%2fgolang_deamonize_deploy%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f17%2fgolang_deamonize_deploy%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=http%3a%2f%2fackintosh.github.io%2fblog%2f2016%2f08%2f17%2fgolang_deamonize_deploy%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://ackintosh.github.io/js/index.js"></script>
+
+</body>
+</html>
+
