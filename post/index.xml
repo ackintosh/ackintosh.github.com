@@ -7,8 +7,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 17 Aug 2016 19:24:09 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Aug 2016 17:01:43 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/08/20 ポインタへの格下げ</title>
+      <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
+      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
+      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
+
+&lt;p&gt;コンパイラ入門を2章まで読んだ。コンパイラの構成（フロントエンド、バックエンド）の解説と、例題として実装していく言語SL/0, SL/1の仕様の説明。めっちゃシンプルな仕様なので自分のような超初心者にピッタリ。まだ内容についていけている。&lt;/p&gt;
+
+&lt;p&gt;Head First Cも2章の途中まで進んだ。途中、配列変数がポインタへ格下げされる仕様にハマったのでメモ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void f(char s[])
+{
+	// 関数に配列を渡すとポインタに格下げされ、配列のサイズについての情報を失うため
+	// ポインタのサイズが出力される.
+	// -&amp;gt; 8 (64bitマシンの場合)
+	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
+	
+	// コンパイル時に警告してくれる
+	// blog.c:4:27: warning: sizeof on array function parameter will return size of &#39;char *&#39; instead of &#39;char []&#39; [-Wsizeof-array-argument]
+}
+
+int main()
+{
+	char s[] = &amp;quot;How big is it?&amp;quot;;
+
+	// 配列変数が配列のサイズを保持しているため
+	// 配列のサイズが出力される.
+	// -&amp;gt; 15 (14文字 + 改行)
+	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
+
+	f(s);
+	
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/17 集中力, コンパイラ</title>
@@ -536,47 +576,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 &lt;li&gt;PHPBLTをペパボ主催でやります。LTします！&lt;/li&gt;
 &lt;li&gt;渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Martin Fowler&#39;s Bliki (ja) の翻訳に参加しました</title>
-      <link>http://ackintosh.github.io/blog/2016/05/10/bliki-ja/</link>
-      <pubDate>Tue, 10 May 2016 13:52:40 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/05/10/bliki-ja/</guid>
-      <description>
-
-&lt;p&gt;こちらを翻訳しました。&lt;br /&gt;
-&lt;a href=&#34;http://bliki-ja.github.io/CircuitBreaker/&#34; target=&#34;_blank&#34;&gt;CircuitBreaker&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;プルリクエスト&lt;br /&gt;
-&lt;a href=&#34;https://github.com/bliki-ja/bliki-ja.github.io/pull/3&#34; target=&#34;_blank&#34;&gt;Add CircuitBreaker #3&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;martin-fowler-s-bliki-ja-とは:59baca9f8f508e41c235a53f53ac3866&#34;&gt;Martin Fowler&amp;rsquo;s Bliki (ja) とは&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://bliki-ja.github.io/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://bliki-ja.github.io/&#34;&gt;http://bliki-ja.github.io/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ここは、Martin Fowler&amp;rsquo;s Blikiの日本語翻訳サイトです。Martin Fowler氏本人の許可を得て公開しています（本家右下のtranslationsを参照）。データはGithubで管理していますので、どなたでも翻訳に参加することが可能です。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&#34;動機-きっかけ:59baca9f8f508e41c235a53f53ac3866&#34;&gt;動機・きっかけ&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;英語をもっとできるようになりたい&lt;br /&gt;
-勉強したいことは他にも色々あって英語にガッツリ時間をかける程の余裕はないので、せめて読み書きをできるようになりたい。&lt;br /&gt;
-技術系の記事の翻訳なら一石二鳥感がある。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;CircuitBreaker パターンについて日本語で解説されてる記事がほしかった&lt;br /&gt;
-仕事で CircuitBreaker パターンを実装する機会があり、その時に参考にさせていただいてた記事(日本語)がいつのまにか消えていた。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;感想:59baca9f8f508e41c235a53f53ac3866&#34;&gt;感想&lt;/h3&gt;
-
-&lt;p&gt;予め理解している技術についての翻訳だし、一つ一つの文章が短いので翻訳しやすい方なのかなとは思っていたのですが、中学レベルの英語スキルしかなく、慣れない作業だったのでかなり体力・精神力を消耗しましたが、めちゃくちゃ達成感がありました。&lt;br /&gt;
-時間でいうと15ポモドーロくらい使いました。&lt;br /&gt;
-あとは英語を読むことの自分の中のハードルがだいぶ下がったのと、読み方が少しわかった気がします。（感覚的に掴んだだけで、体系的に学習したわけではないので何がどうわかったのかを明文化できないのが辛いところです）&lt;/p&gt;
 </description>
     </item>
     

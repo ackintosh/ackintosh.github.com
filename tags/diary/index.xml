@@ -7,8 +7,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 17 Aug 2016 19:24:09 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Aug 2016 17:01:43 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/08/20 ポインタへの格下げ</title>
+      <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
+      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
+      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
+
+&lt;p&gt;コンパイラ入門を2章まで読んだ。コンパイラの構成（フロントエンド、バックエンド）の解説と、例題として実装していく言語SL/0, SL/1の仕様の説明。めっちゃシンプルな仕様なので自分のような超初心者にピッタリ。まだ内容についていけている。&lt;/p&gt;
+
+&lt;p&gt;Head First Cも2章の途中まで進んだ。途中、配列変数がポインタへ格下げされる仕様にハマったのでメモ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void f(char s[])
+{
+	// 関数に配列を渡すとポインタに格下げされ、配列のサイズについての情報を失うため
+	// ポインタのサイズが出力される.
+	// -&amp;gt; 8 (64bitマシンの場合)
+	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
+	
+	// コンパイル時に警告してくれる
+	// blog.c:4:27: warning: sizeof on array function parameter will return size of &#39;char *&#39; instead of &#39;char []&#39; [-Wsizeof-array-argument]
+}
+
+int main()
+{
+	char s[] = &amp;quot;How big is it?&amp;quot;;
+
+	// 配列変数が配列のサイズを保持しているため
+	// 配列のサイズが出力される.
+	// -&amp;gt; 15 (14文字 + 改行)
+	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
+
+	f(s);
+	
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/17 集中力, コンパイラ</title>
