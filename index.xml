@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 20 Aug 2016 17:01:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 27 Aug 2016 23:50:45 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/08/27 apache &#43; mod_php脳</title>
+      <link>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</link>
+      <pubDate>Sat, 27 Aug 2016 23:50:45 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
+      <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
+なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
+
+&lt;p&gt;apache + php 脳なので、GoでWebアプリを作ってると、&lt;br /&gt;
+“アッ、デーモン化どうしよう” とか “アクセスログを出力するようにしなきゃ” みたいなのが多くい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/20 ポインタへの格下げ</title>
@@ -532,50 +546,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 &lt;p&gt;ご来場いただいた方々に少しでもペパボの雰囲気とか良さが伝われば幸いです。&lt;/p&gt;
 
 &lt;p&gt;(追記) 後日、ご来場いただいた方から twitter でメッセージをいただいて、転職活動の参考になったとのことで、大変嬉しかったです。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>転職して１ヶ月</title>
-      <link>http://ackintosh.github.io/blog/2016/06/18/pepabo/</link>
-      <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
-      <description>
-
-&lt;h2 id=&#34;転職:7a3904fca23102476b4b37a837af6344&#34;&gt;転職&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://pepabo.com/&#34; target=&#34;_blank&#34;&gt;GMOペパボ&lt;/a&gt;という会社に転職しました。&lt;br /&gt;
-&lt;sup&gt;5&lt;/sup&gt;&amp;frasl;&lt;sub&gt;16&lt;/sub&gt; 入社なので１ヶ月くらい経ったところです。&lt;/p&gt;
-
-&lt;p&gt;きっかけは &lt;a href=&#34;http://eventdots.jp/event/573086&#34; target=&#34;_blank&#34;&gt;ペパボテックカンファレンスEC編&lt;/a&gt; への参加で、&lt;br /&gt;
-初めは &amp;ldquo;他社のECはどんなことやってるのかなぁ&amp;rdquo; と気になってフラっと行ってみたのですが&lt;br /&gt;
-発表の内容に刺激をうけてペパボに興味を持って、そこから話が進んでいき運良く入社できた感じです。&lt;/p&gt;
-
-&lt;h2 id=&#34;環境:7a3904fca23102476b4b37a837af6344&#34;&gt;環境&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34; target=&#34;_blank&#34;&gt;テックカンファレンスに参加した時の感想&lt;/a&gt;でも書いてるのですが、
-サービスの改善に対するモチベーションが高く、改善のための技術的なチャレンジも積極的に取り組んでいます。&lt;/p&gt;
-
-&lt;p&gt;&lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;2&lt;/sub&gt;(土), 3(日)に開催される &lt;a href=&#34;http://yapcasia8oji-2016mid.hachiojipm.org/&#34; target=&#34;_blank&#34;&gt;YAPC::ASIA HACHIOJI&lt;/a&gt; のトークでGMOペパボのエンジニアが５人(!!)採択されたようですので、諸々普段の取り組みがが披露されるようです。とても楽しみです。&lt;/p&gt;
-
-&lt;p&gt;あとはレベル高いひとたちばかりです。&lt;br /&gt;
-前職では中野は技術的に尖ってる方の人、みたいに見られることがあって、少なからずその状況にあぐらをかいてる的な気持ちはあったと思う(そうならないように努めていましたが)ので大変良い刺激をいただいています。&lt;br /&gt;
-「オレ、大丈夫かな（やっていけるかな）」という不安がよぎることもありましたが、今は不安になってる暇があったら努力しようという気持ちです。日々、積み重ねていきます。&lt;br /&gt;
-それが目的で転職したんですから。恵まれた環境に感謝しつつ、価値を出していかないと。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;他人と自分を比べるな。自分より凄い人に劣等感を覚え嫉妬する行為も自分より劣っている人を見下し安心する行為も君にとってはマイナスの影響しか持たない。比べるなら過去の自分だ。過去の自分に打ち勝ち続ける事で人は成長するし、努力によって確実に倒し超えていけるのは過去の自分だけだ。&lt;/p&gt;&amp;mdash; Testosterone (@badassceo) &lt;a href=&#34;https://twitter.com/badassceo/status/744109449351041025&#34;&gt;2016年6月18日&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;近況:7a3904fca23102476b4b37a837af6344&#34;&gt;近況&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://shop-pro.jp/&#34; target=&#34;_blank&#34;&gt;カラーミーショップ&lt;/a&gt;のチームに所属して頑張っています&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tech.pepabo.com/2015/11/17/pepabo-tech-blog-has-started/&#34; target=&#34;_blank&#34;&gt;「いるだけで成長できる環境」&lt;/a&gt;にあるとおり、成長できるチャンスがたくさんあるので活用していく次第&lt;/li&gt;
-&lt;li&gt;マスタリングTCP/IP読書会、プログラミング言語Go読書会に参加中&lt;/li&gt;
-&lt;li&gt;PHPBLTをペパボ主催でやります。LTします！&lt;/li&gt;
-&lt;li&gt;渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
