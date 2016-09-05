@@ -7,8 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 30 Aug 2016 19:13:36 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Sep 2016 22:08:07 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016/09/04 ド素人</title>
+      <link>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</link>
+      <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
+      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
+
+&lt;p&gt;コンパイラ入門 4章 字句解析器生成系lex を読んだ。とりあえず読んだだけなので、実際にlex記述とかは明日やろう。&lt;/p&gt;
+
+&lt;p&gt;読みながら &lt;a href=&#34;https://github.com/ackintosh/phg&#34;&gt;PHG&lt;/a&gt; を実装していた時の事を思い出した。わからないなりにネットで調べながら lexer とか書いてみたけど、あまり理解できてない状態でやってたので、とりあえず echo を実装できたっぽいけどなんとなく消化不良な感じがあって、いつの間にか放置してた。&lt;/p&gt;
+
+&lt;p&gt;当たり前だけど、ちゃんと本とかで体系的に勉強しながらやったほうが面白い。でもコンパイラ関連の技術書は難しそうなの（実際に読んだわけじゃないけど..）が多いのでハードルが高く感じる。&lt;/p&gt;
+
+&lt;p&gt;その点、コンパイラ入門は自分のようなド素人でも読み進められているので本当に助かる。&lt;/p&gt;
+
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4781912052&amp;linkId=050fc3a126d8dcc34a9723ee517014ac&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>2016/08/30 社内ISUCON</title>
@@ -466,78 +486,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 &lt;p&gt;「(良くないところを見つけて) 会社を変えたくなっちゃうんですよ」&lt;/p&gt;
 
 &lt;p&gt;と仰ってたのが印象的だった。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>PHP BLT #5でLTデビュー</title>
-      <link>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</link>
-      <pubDate>Wed, 20 Jul 2016 23:51:41 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/07/20/phpblt5/</guid>
-      <description>
-
-&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;
-
-&lt;p&gt;4回目まではメルカリさんが主催でしたが&lt;a href=&#34;https://twitter.com/sotarok&#34; target=&#34;_blank&#34;&gt;@sotarok&lt;/a&gt;さんの&lt;a href=&#34;https://twitter.com/sotarok/status/740847489310461952&#34; target=&#34;_blank&#34;&gt;粋な計らいにより主催企業を持ち回す&lt;/a&gt;ことになり、第１弾としてペパボが主催するかたちになりました。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://phpblt.connpass.com/event/35070/&#34;&gt;PHP BLT #5 (2016/07/20 19:30〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;PHP BLTって？ PHP BLT は 参加者全員が Tips を発表(Lightning Talk)する というコンセプトの PHP 周辺エンジニア・Web/サーバーサイド全般の勉強会です (オーディエンス枠もありますのでご安心ください)。 PHP Burst Lightning Talk の略だってばあちゃんが言ってた。 * 1回目の様子 * 4回目の様子 ※ Potatotips をリスペクトしております！ ## 主催企業を持ち回すこととなりました 第1回目 ~ 第4回目まではメルカリさんが主催されていました。 第5回目からは、メルカリCTO @sota&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;「PHP BLT をペパボで主催するぞ！！！！１」と、社内で issue が立ってLTを募集していたので早速応募。したのはいいけど、今までLTしたことなかったので「LTやりたいです！」と issue にコメントした瞬間から、良い感じに不安と緊張に襲われました。&lt;/p&gt;
-
-&lt;p&gt;それから当日までの約3週間はLTの事で頭がいっぱいでした。。&lt;/p&gt;
-
-&lt;h4 id=&#34;発表資料:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;発表資料&lt;/h4&gt;
-
-&lt;p&gt;内容は、OSSとして公開している&lt;a href=&#34;https://github.com/ackintosh/snidel/&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; の紹介です。&lt;/p&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;9cb6a1eb77c145eba36301b9f21c26c3&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;ペパボは全社共通のスライドテンプレート（Keynote用テーマ）があるので、スライド作りはサクサク進められて、内容を練るのと発表の練習に集中できました。テンプレート本当に便利です。&lt;/p&gt;
-
-&lt;h4 id=&#34;感想:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;感想&lt;/h4&gt;
-
-&lt;p&gt;見てくださった方から、「LT良かった」「Snidel便利そう」と言っていただけて本当に嬉しかったです。&lt;br /&gt;
-随所に散りばめた群馬ネタ（画像）もリアクションいただけてホッとしました。&lt;br /&gt;
-また、Snidelが解決する問題とか特徴について整理する良い機会になりました。今回話せなかった、現状の課題とか今後の展望についても機会があったら発表したいです。&lt;/p&gt;
-
-&lt;p&gt;局長さん、関係者のみなさま、お疲れ様でした！&lt;/p&gt;
-
-&lt;p&gt;（追記）&lt;a href=&#34;http://uzulla.hateblo.jp/entry/2016/07/21/012002&#34; target=&#34;_blank&#34;&gt;uzullaさんのブログで「Snidelおもしろそう！」とコメントいただいた！！！&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;スライド作りのメモ:31c4bb7c99bbfdf2b8a78f81eab512ac&#34;&gt;スライド作りのメモ&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.shin1x1.com/entry/improve-the-presentation-skills-for-beginners&#34; target=&#34;_blank&#34;&gt;ここを気をつけるともっと良くなる勉強会の発表&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;この辺を気をつけるともっと良くなる
-
-&lt;ul&gt;
-&lt;li&gt;言い訳や自己卑下を入れる&lt;/li&gt;
-&lt;li&gt;無理に笑いを取ろうとする&lt;/li&gt;
-&lt;li&gt;何を伝えたいか分かりにくい&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://codeiq.jp/magazine/2014/12/19597/&#34; target=&#34;_blank&#34;&gt;ライトニングトークに使うスライドの役割は『情報提供ではない』─澤円のプレゼン塾（その15）&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;核を作る
-
-&lt;ul&gt;
-&lt;li&gt;LTで伝えたいことを1ワードに絞る&lt;/li&gt;
-&lt;li&gt;例: 製品説明の場合は、顧客が得られるメリットを厳選した1ワード&lt;/li&gt;
-&lt;li&gt;その1ワードにまつわるエピソードや考察を絡めてスライドを作る&lt;/li&gt;
-&lt;li&gt;LTの時間軸は未来を向く&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;スライドの作りかた
-
-&lt;ul&gt;
-&lt;li&gt;スライドの役割は「情報提供ではない」&lt;/li&gt;
-&lt;li&gt;文字が多いと、見ているひとが文字を追うことに集中してしまう&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
