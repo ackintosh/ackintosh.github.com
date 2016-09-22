@@ -293,7 +293,7 @@ sys  0m20.341s
     </item>
     
     <item>
-      <title>phpでバイナリ / テキストファイルの判定</title>
+      <title>phpでバイナリ . テキストファイルの判定</title>
       <link>http://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
       <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
       
@@ -363,7 +363,7 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
     </item>
     
     <item>
-      <title>クラス / 関数宣言だけをインクルードできるライブラリを作りました</title>
+      <title>クラスや関数宣言だけをインクルードできるライブラリを作りました</title>
       <link>http://ackintosh.github.io/blog/2013/11/24/toumi/</link>
       <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
       

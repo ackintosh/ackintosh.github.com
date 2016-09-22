@@ -11,7 +11,7 @@
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>2016/08/20 ポインタへの格下げ</title>
+      <title>2016.08.20 ポインタへの格下げ</title>
       <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
       <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
       
@@ -51,7 +51,7 @@ int main()
     </item>
     
     <item>
-      <title>2016/08/17 集中力, コンパイラ</title>
+      <title>2016.08.17 集中力, コンパイラ</title>
       <link>http://ackintosh.github.io/blog/2016/08/17/2016-08-17/</link>
       <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
       
@@ -75,7 +75,7 @@ int main()
     </item>
     
     <item>
-      <title>2016/08/01 プログラミング言語Go</title>
+      <title>2016.08.01 プログラミング言語Go</title>
       <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
       <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
       
@@ -111,7 +111,7 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
     </item>
     
     <item>
-      <title>2016/07/31 コンプレックス</title>
+      <title>2016.07.31 コンプレックス</title>
       <link>http://ackintosh.github.io/blog/2016/07/31/2016-07-31/</link>
       <pubDate>Sun, 31 Jul 2016 16:53:50 +0900</pubDate>
       
@@ -136,7 +136,7 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
     </item>
     
     <item>
-      <title>2016/07/29 送別会</title>
+      <title>2016.07.29 送別会</title>
       <link>http://ackintosh.github.io/blog/2016/07/29/2016-07-29/</link>
       <pubDate>Fri, 29 Jul 2016 16:24:17 +0900</pubDate>
       
