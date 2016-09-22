@@ -141,9 +141,9 @@
     <section class="post-content">
       
 
-<p>夏休みのひとり開発合宿で、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったアプリのデーモン化とデプロイの仕組みを作ってみたので雑だけどメモしておきます。</p>
+<p>社内の某合宿イベントで、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。</p>
 
-<p>Goほぼ初心者、デプロイの仕組み作ったことない、という初めての事だらけの状態で試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（<a href="#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</a>）</p>
+<p>慣れない事が多くて試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（<a href="#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</a>）</p>
 
 <p>試行錯誤した結果、利用するツール・ライブラリは下記になりました。</p>
 
@@ -162,6 +162,10 @@
 <li><a href="https://github.com/mattn/gost">mattn/gost</a></li>
 </ul></li>
 </ul>
+
+<p>(デプロイの図)
+<img src="http://ackintosh.github.io/images/golang_deamonize_deploy.png" alt="deploy" />
+</p>
 
 <h5 id="試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0">試行錯誤</h5>
 

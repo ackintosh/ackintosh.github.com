@@ -282,9 +282,9 @@ int main()
       <guid>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</guid>
       <description>
 
-&lt;p&gt;夏休みのひとり開発合宿で、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったアプリのデーモン化とデプロイの仕組みを作ってみたので雑だけどメモしておきます。&lt;/p&gt;
+&lt;p&gt;社内の某合宿イベントで、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。&lt;/p&gt;
 
-&lt;p&gt;Goほぼ初心者、デプロイの仕組み作ったことない、という初めての事だらけの状態で試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（&lt;a href=&#34;#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;慣れない事が多くて試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（&lt;a href=&#34;#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/a&gt;）&lt;/p&gt;
 
 &lt;p&gt;試行錯誤した結果、利用するツール・ライブラリは下記になりました。&lt;/p&gt;
 
@@ -303,6 +303,10 @@ int main()
 &lt;li&gt;&lt;a href=&#34;https://github.com/mattn/gost&#34;&gt;mattn/gost&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;(デプロイの図)
+&lt;img src=&#34;http://ackintosh.github.io/images/golang_deamonize_deploy.png&#34; alt=&#34;deploy&#34; /&gt;
+&lt;/p&gt;
 
 &lt;h5 id=&#34;試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;試行錯誤&lt;/h5&gt;
 
