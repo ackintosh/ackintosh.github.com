@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 16 Sep 2016 17:58:26 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 21 Sep 2016 15:01:28 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.09.21 LT駆動</title>
+      <link>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</link>
+      <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
+      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
+
+&lt;p&gt;7月に人生初LTしてからの2回目。&lt;/p&gt;
+
+&lt;p&gt;もう緊張してきた。。。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>お産合宿10</title>
@@ -536,42 +550,6 @@ int main()
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy#example&#34; target=&#34;_blank&#34;&gt;README&lt;a/&gt;に例を載せていますが、&lt;br /&gt;
 ngx_mruby には&lt;a href=&#34;https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives&#34; target=&#34;_blank&#34;&gt;いろんなディレクティブ&lt;/a&gt;があって nginx のフェーズにフックして制御できるようになっているので、
 mruby_log_handler というディレクティブを使うことで、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.01 プログラミング言語Go</title>
-      <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
-      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
-      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
-
-&lt;p&gt;1.2 コマンドライン引数&lt;/p&gt;
-
-&lt;p&gt;echoを実装することを通して、スライス・ループ・文字列連結などを学んだ。&lt;/p&gt;
-
-&lt;p&gt;文字列変数の宣言方法についての解説をメモしておく。
-宣言方法はいくつかあるが、ケースによって最適な方法が異なる。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;関数内だけで使う(スコープが狭い)変数は省略変数宣言 ( s := &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
-&lt;li&gt;初期値が重要なことを伝えるには明示的な初期化 ( var s string = &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
-&lt;li&gt;初期値が問題とならないことを伝えるには暗黙の初期化 ( var s string )&lt;/li&gt;
-&lt;li&gt;(var s = &amp;ldquo;&amp;rdquo; ) は複数の変数を宣言する時を除いてほとんど使われない&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;本の内容とは関係ないけど、
-vim で .go ファイルを保存するときに&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;vim-go: goimports does not support srcdir.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というエラーがでてたけど&lt;/p&gt;
-
-&lt;p&gt;:GoUpdateBinaries&lt;/p&gt;
-
-&lt;p&gt;を実行したら解決した。&lt;/p&gt;
 </description>
     </item>
     
