@@ -326,23 +326,23 @@ int main()
 
 &lt;ul&gt;
 &lt;li&gt;graceful shutdown に対応していない&lt;/li&gt;
-&lt;li&gt;graceful shutdown に対応するために manners を使おうとすると、さらにソースコードに手をいれないといけない
+&lt;li&gt;graceful shutdown に対応するために manners を使おうとするとアプリケーションのソースコードに手をいれないといけない
 
 &lt;ul&gt;
-&lt;li&gt;Echo のレールから外れてしまう・レールに乗れなくなってしまう&lt;/li&gt;
+&lt;li&gt;Echo のレールから外れてしまう&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;　→ grace ならそれらが解決される。公式に&lt;a href=&#34;https://echo.labstack.com/recipes/graceful-shutdown&#34;&gt;サンプルコード&lt;/a&gt;もある。&lt;/p&gt;
+&lt;p&gt;　→ grace なら最小限の変更で済む。公式に&lt;a href=&#34;https://echo.labstack.com/recipes/graceful-shutdown&#34;&gt;サンプルコード&lt;/a&gt;がある。&lt;/p&gt;
 
 &lt;h5 id=&#34;展望:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;展望&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;ビルドサーバーを用意してバイナリを配布するかたちを作ってみたい&lt;/li&gt;
+&lt;li&gt;ビルドサーバーを用意してバイナリを配布する仕組みを作ってみたい&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/monochromegane/torokko&#34;&gt;monochromegane/torokko&lt;/a&gt; が気になる。
 
 &lt;ul&gt;
-&lt;li&gt;(&lt;a href=&#34;http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/&#34;&gt;Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/&#34;&gt;Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

@@ -185,23 +185,23 @@
 
 <ul>
 <li>graceful shutdown に対応していない</li>
-<li>graceful shutdown に対応するために manners を使おうとすると、さらにソースコードに手をいれないといけない
+<li>graceful shutdown に対応するために manners を使おうとするとアプリケーションのソースコードに手をいれないといけない
 
 <ul>
-<li>Echo のレールから外れてしまう・レールに乗れなくなってしまう</li>
+<li>Echo のレールから外れてしまう</li>
 </ul></li>
 </ul>
 
-<p>　→ grace ならそれらが解決される。公式に<a href="https://echo.labstack.com/recipes/graceful-shutdown">サンプルコード</a>もある。</p>
+<p>　→ grace なら最小限の変更で済む。公式に<a href="https://echo.labstack.com/recipes/graceful-shutdown">サンプルコード</a>がある。</p>
 
 <h5 id="展望:c89a01ea34ec3d3b965d2855f1d3c3d0">展望</h5>
 
 <ul>
-<li>ビルドサーバーを用意してバイナリを配布するかたちを作ってみたい</li>
+<li>ビルドサーバーを用意してバイナリを配布する仕組みを作ってみたい</li>
 <li><a href="https://github.com/monochromegane/torokko">monochromegane/torokko</a> が気になる。
 
 <ul>
-<li>(<a href="http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/">Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。</a></li>
+<li><a href="http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/">Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。</a></li>
 </ul></li>
 </ul>
 
