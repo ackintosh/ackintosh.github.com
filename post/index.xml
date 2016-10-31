@@ -7,8 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 05 Oct 2016 22:38:30 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Oct 2016 21:59:18 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>【ペパボ×プレイド】Tech Meetup で LT</title>
+      <link>http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</link>
+      <pubDate>Thu, 27 Oct 2016 21:59:18 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</guid>
+      <description>
+
+&lt;p&gt;場所は&lt;a href=&#34;https://www.google.co.jp/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=1&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0ahUKEwjx4vPDjYXQAhUBErwKHdXbC0sQFggkMAA&amp;amp;url=https%3A%2F%2Fplaid.co.jp%2F&amp;amp;usg=AFQjCNEnanIqoRljdEgfkMOHG4ZV_TRZbw&amp;amp;sig2=1UqILw-ttShPafI83trptw&#34;&gt;プレイド&lt;/a&gt;さん。&lt;br /&gt;
+オフィススペースと隣り合った一角がカフェみたいになっていて、そこに椅子とスクリーンを並べたかたちの会場。角のカウンターにはコーヒーサイフォンが並んでいて大変オシャレでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://plaidtech.connpass.com/event/41401/&#34;&gt;【ペパボ×プレイド】Tech Meetup 〜自動テスト・CI編〜 (2016/10/27 19:00〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;概要 GMOペパボ株式会社と、プレイドの2社で勉強会を開催します！ 今回のテーマは【CI・テスト自動化】 &lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;発表資料:43e4161f97d7438e671829a522c88d1b&#34;&gt;発表資料&lt;/h4&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0da601e2e2f1483b9cb21791d7bb0e0c&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;を作っていて、並列処理って難しいなぁと感じることがあったので、それをテストの観点で（Snidelの宣伝を挟みつつ）発表。&lt;/p&gt;
+
+&lt;h4 id=&#34;振り返ってみて:43e4161f97d7438e671829a522c88d1b&#34;&gt;振り返ってみて&lt;/h4&gt;
+
+&lt;p&gt;前回とはまた違った大変さと達成感がありました。&lt;/p&gt;
+
+&lt;p&gt;7月に&lt;a href=&#34;http://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;人生初LT&lt;/a&gt;をしてから約2ヶ月経ったころ、&lt;br /&gt;
+社内で発表者を募集してるのを見て、ネタは無いけどとりあえず立候補するか！（PHPBLTで &lt;a href=&#34;https://twitter.com/sotarok?lang=ja&#34;&gt;@sotarok&lt;/a&gt; さんが &amp;ldquo;発表内容は応募してから考えればいい！&amp;rdquo; って言ってたし）ということで発表することにしました。&lt;/p&gt;
+
+&lt;p&gt;が、（自分の経験不足や、会社の名前が出てる勉強ということもあってか）、&amp;rdquo;発表内容どうしよう&amp;rdquo; の不安とプレッシャーが思いの外大きくて、ここ1ヶ月くらいは内容を練るのと資料作りで必死でした。&lt;/p&gt;
+
+&lt;p&gt;なんとか絞りだした内容を&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;に相談しつつブラッシュアップしてなんとか発表を終えられてホッとしています。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.10.05 LTの準備</title>
@@ -458,21 +491,6 @@ int main()
 ファイルアップロードとかレシピ集があってとても良かった。&lt;/p&gt;
 
 &lt;p&gt;Go のデプロイってどうすればいいんだろう。ググった感じでは、まだベストプラクティスはなさそう。Go でサービスを運用してる各社はどうしてるのか気になる。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.10 iPhoneアプリ開発に入門</title>
-      <link>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</link>
-      <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
-      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
-
-&lt;p&gt;swift はリリース当初に playground で少しさわった程度。まずは twitter で教えていただいた本で構文等をざっと勉強した。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B017SW4MG0/ref=oh_aui_d_detailpage_o00_?ie=UTF8&amp;psc=1&#34;&gt;詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Amazon.co.jp： 詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応 eBook: 大重 美幸: Kindleストア&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     
