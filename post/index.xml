@@ -7,8 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 27 Oct 2016 21:59:18 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Nov 2016 12:56:56 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.05 Tycho</title>
+      <link>http://ackintosh.github.io/blog/2016/11/05/2016-11-05/</link>
+      <pubDate>Sat, 05 Nov 2016 12:56:56 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/05/2016-11-05/</guid>
+      <description>&lt;p&gt;たまたま Youtube の関連動画にあったので聴いてみたらとても癒やされた。&lt;/p&gt;
+
+&lt;p&gt;Tycho(ティコ)&lt;br /&gt;
+&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ググってわかったことを並べると、&lt;/p&gt;
+
+&lt;p&gt;アメリカ西海岸のアーティストで、ジャンルはエレクトロとかアンビエント。今はバンド編成だが、もともとは Scott Hansen のソロプロジェクトだったらしい。&lt;/p&gt;
+
+&lt;p&gt;Scott Hansen は &lt;a href=&#34;http://blog.iso50.com/&#34;&gt;ISO50&lt;/a&gt; という名前でフォトグラファー・デザイナーとしても知られてるようで、CDジャケット等でも彼の作品が使われている。&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/JY-wzE2v2xM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Youtube で初めて聴いたのがこの動画。&lt;/p&gt;
+
+&lt;p&gt;ゆっくり降ってくる音楽のシャワーで日々の疲れが癒やされてくような感覚が気持ちよかった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>【ペパボ×プレイド】Tech Meetup で LT</title>
@@ -458,39 +483,6 @@ int main()
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://service2.wi2.ne.jp/wi2was/userAgreement?crplanid=aumdpay&#34;&gt;ご利用条件｜公衆無線LANサービスWi2 300&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.11 Swift と Go</title>
-      <link>http://ackintosh.github.io/blog/2016/08/11/2016-08-11/</link>
-      <pubDate>Thu, 11 Aug 2016 14:56:22 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/11/2016-08-11/</guid>
-      <description>
-
-&lt;p&gt;夏休み2日目。&lt;/p&gt;
-
-&lt;h5 id=&#34;午前は-swift-の続き:7c8787ac68b82ab2b2fa23384bd6e453&#34;&gt;午前は swift の続き&lt;/h5&gt;
-
-&lt;p&gt;オプショナル型について調べて、下記の記事がわかりやすかった。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://qiita.com/maiki055/items/b24378a3707bd35a31a8&#34;&gt;どこよりも分かりやすいSwiftの&amp;rdquo;?&amp;ldquo;と&amp;rdquo;!&amp;rdquo; - Qiita&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;と、swiftがリリースされてから言われてますがswift初心者からすると厄介極まりないです。 ?と!の使い分けが分からずとりあえず&amp;rdquo;?&amp;ldquo;をつける、ソースコードを書いていたら急にXcodeに怒られ、エラーに導かれるままに&amp;rdquo;!&amp;ldquo;をつける&amp;hellip; こんな経験がある方がいるのではないでしょうか。 この記事は そんなオプショナルがフワフワした状態を脱却することを目的としています。 &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;昨日・今日で swift の構文とかアプリの作り方をなんとなく把握したので、カメラで動画をとって保存するアプリを作ってみた。といってもほぼ↓を &lt;del&gt;パク&lt;/del&gt; 参考にさせていただいた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://qiita.com/takecian/items/2cee0f958c8bed00a69a&#34;&gt;Swift で動画を撮影・保存するサンプル その１ - シンプル編 - Qiita&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;やることは Objective-c でやる内容を Swift で書くだけではあります。100 行くらいでできましたのでメモ。最後にコードを一式貼り付けています。 やること 必要な framework の追加 Session, Device の準備 プレビュー画面の生成 録画ボタンで録画開始 停止ボタンで録画停止、ライブラリに保存 必要な framework の追加 AVFoundation と AssetsLibrary を追加します。 Sessi&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;ALAssetsLibrary&lt;/code&gt; が iOS9 で非推奨になったので代わりに &lt;code&gt;PHPhotoLibrary&lt;/code&gt; を使った。&lt;/p&gt;
-
-&lt;h5 id=&#34;午後は-go:7c8787ac68b82ab2b2fa23384bd6e453&#34;&gt;午後は Go&lt;/h5&gt;
-
-&lt;p&gt;API サーバーを作りはじめた。軽量な WAF でググッてみたけど違いがよくわからないしとにかくサクッと始めたかったので、ドキュメントが一番わかりやすい &lt;a href=&#34;https://echo.labstack.com/&#34; target=&#34;_blank&#34;&gt;Echo&lt;/a&gt; にした。&lt;br /&gt;
-ファイルアップロードとかレシピ集があってとても良かった。&lt;/p&gt;
-
-&lt;p&gt;Go のデプロイってどうすればいいんだろう。ググった感じでは、まだベストプラクティスはなさそう。Go でサービスを運用してる各社はどうしてるのか気になる。&lt;/p&gt;
 </description>
     </item>
     
