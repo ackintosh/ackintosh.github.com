@@ -49,6 +49,91 @@
     </item>
     
     <item>
+      <title>2016.09.22 Snidel 0.8にむけて</title>
+      <link>http://ackintosh.github.io/blog/2016/09/22/2016-09-22/</link>
+      <pubDate>Thu, 22 Sep 2016 21:12:52 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/09/22/2016-09-22/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のキューの部分で、専用のミドルウェアや Saas を使えるようにすべく開発をはじめた。&lt;/p&gt;
+
+&lt;p&gt;まずは Amazon SQS 用のプラグイン(?)に着手。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/ackintosh/snidel-queue-sqs&#34;&gt;https://github.com/ackintosh/snidel-queue-sqs&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.09.21 LT駆動</title>
+      <link>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</link>
+      <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
+      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
+
+&lt;p&gt;7月に人生初LTしてからの2回目。&lt;/p&gt;
+
+&lt;p&gt;もう緊張してきた。。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.09.04 ド素人</title>
+      <link>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</link>
+      <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
+      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
+
+&lt;p&gt;コンパイラ入門 4章 字句解析器生成系lex を読んだ。とりあえず読んだだけなので、実際にlex記述とかは明日やろう。&lt;/p&gt;
+
+&lt;p&gt;読みながら &lt;a href=&#34;https://github.com/ackintosh/phg&#34;&gt;PHG&lt;/a&gt; を実装していた時の事を思い出した。わからないなりにネットで調べながら lexer とか書いてみたけど、あまり理解できてない状態でやってたので、とりあえず echo を実装できたっぽいけどなんとなく消化不良な感じがあって、いつの間にか放置してた。&lt;/p&gt;
+
+&lt;p&gt;当たり前だけど、ちゃんと本とかで体系的に勉強しながらやったほうが面白い。でもコンパイラ関連の技術書は難しそうなの（実際に読んだわけじゃないけど..）が多いのでハードルが高く感じる。&lt;/p&gt;
+
+&lt;p&gt;その点、コンパイラ入門は自分のようなド素人でも読み進められているので本当に助かる。&lt;/p&gt;
+
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4781912052&amp;linkId=050fc3a126d8dcc34a9723ee517014ac&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.30 社内ISUCON</title>
+      <link>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</link>
+      <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
+      <description>
+
+&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
+
+&lt;p&gt;結果としては、採点のために運営がサーバーを再起動した後、 &lt;strong&gt;ファイルシステム破損でサーバーがお亡くなりになってしまい採点不可で終わった&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;いま思えば異常にターミナルの反応が遅かったり、何も変更していないのにベンチマークの結果が上下したりとサーバー不調の兆候が出ていたようだ。&lt;/p&gt;
+
+&lt;p&gt;すぐに運営に相談すれば良かったのだが何故か競技中は、皆同じ状況でやっていると思い込んでいた。&lt;/p&gt;
+
+&lt;p&gt;ターミナルの反応が異常に遅かったり、補完が効かなかったりしたので生産性が全く上がらないし、ベンチマークの結果が安定しないので修正の効果が確認できなかった。&lt;/p&gt;
+
+&lt;h4 id=&#34;教訓:81cc2c85995b037bc02c2ccb641b682b&#34;&gt;教訓&lt;/h4&gt;
+
+&lt;p&gt;サーバーの調子おかしくない？という時は速やかに運営に相談しよう&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.27 apache &#43; mod_php脳</title>
+      <link>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</link>
+      <pubDate>Sat, 27 Aug 2016 23:50:45 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
+      <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
+なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
+
+&lt;p&gt;apache + php 脳なので、GoでWebアプリを作ってると、&lt;br /&gt;
+“アッ、デーモン化どうしよう” とか “アクセスログを出力するようにしなきゃ” みたいなのが多くい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2016.08.20 ポインタへの格下げ</title>
       <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
       <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
@@ -113,6 +198,129 @@ int main()
     </item>
     
     <item>
+      <title>2016.08.14 華の湯</title>
+      <link>http://ackintosh.github.io/blog/2016/08/15/2016-08-14/</link>
+      <pubDate>Mon, 15 Aug 2016 17:15:54 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/15/2016-08-14/</guid>
+      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;
+
+&lt;p&gt;場所は東武伊勢崎線 羽生駅 徒歩3分。ホテルに併設された温泉施設。&lt;/p&gt;
+
+&lt;p&gt;源泉かけ流しの露天風呂やサウナ等ひととおり揃っていて、交通の便が良い割に周辺の他の温泉より混まないのでゆっくりできる。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.route-inn.co.jp/hananoyu/index.html&#34;&gt;華のゆ｜羽生&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Pontaカードが使えるのでポイントが溜められて、10回来店ごとに無料券をもらえる。しかも無料券を使った場合も1回にカウントされるのでお得感がある。&lt;/p&gt;
+
+&lt;p&gt;今日行ったらちょうど70回目の来店で、無料券をもらった。&lt;/p&gt;
+
+&lt;p&gt;明日、東京に戻るついでに寄っていこう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.12 Wi2 Premium</title>
+      <link>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</link>
+      <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
+      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
+
+&lt;p&gt;仕事が終わったあと、ファミレスで夕飯ついでにもくもくと昨日のつづき。&lt;/p&gt;
+
+&lt;p&gt;wifi がとんでるカフェとかファミレスでよく見る &lt;code&gt;Wi2 Premiun&lt;/code&gt; というSSID。公衆無線LAN「Wi2」のサービスで、アドレス登録だけで無料で使えたり、場所によっては有料プラン加入者しか使えない場合(オプションエリア)がある。&lt;/p&gt;
+
+&lt;p&gt;au でLTEフラットに申し込んでいるとオプションエリアでも無料で使えるということに最近気づいた。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://service2.wi2.ne.jp/wi2was/userAgreement?crplanid=aumdpay&#34;&gt;ご利用条件｜公衆無線LANサービスWi2 300&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.11 Swift と Go</title>
+      <link>http://ackintosh.github.io/blog/2016/08/11/2016-08-11/</link>
+      <pubDate>Thu, 11 Aug 2016 14:56:22 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/11/2016-08-11/</guid>
+      <description>
+
+&lt;p&gt;夏休み2日目。&lt;/p&gt;
+
+&lt;h5 id=&#34;午前は-swift-の続き:7c8787ac68b82ab2b2fa23384bd6e453&#34;&gt;午前は swift の続き&lt;/h5&gt;
+
+&lt;p&gt;オプショナル型について調べて、下記の記事がわかりやすかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://qiita.com/maiki055/items/b24378a3707bd35a31a8&#34;&gt;どこよりも分かりやすいSwiftの&amp;rdquo;?&amp;ldquo;と&amp;rdquo;!&amp;rdquo; - Qiita&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;と、swiftがリリースされてから言われてますがswift初心者からすると厄介極まりないです。 ?と!の使い分けが分からずとりあえず&amp;rdquo;?&amp;ldquo;をつける、ソースコードを書いていたら急にXcodeに怒られ、エラーに導かれるままに&amp;rdquo;!&amp;ldquo;をつける&amp;hellip; こんな経験がある方がいるのではないでしょうか。 この記事は そんなオプショナルがフワフワした状態を脱却することを目的としています。 &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;昨日・今日で swift の構文とかアプリの作り方をなんとなく把握したので、カメラで動画をとって保存するアプリを作ってみた。といってもほぼ↓を &lt;del&gt;パク&lt;/del&gt; 参考にさせていただいた。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://qiita.com/takecian/items/2cee0f958c8bed00a69a&#34;&gt;Swift で動画を撮影・保存するサンプル その１ - シンプル編 - Qiita&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;やることは Objective-c でやる内容を Swift で書くだけではあります。100 行くらいでできましたのでメモ。最後にコードを一式貼り付けています。 やること 必要な framework の追加 Session, Device の準備 プレビュー画面の生成 録画ボタンで録画開始 停止ボタンで録画停止、ライブラリに保存 必要な framework の追加 AVFoundation と AssetsLibrary を追加します。 Sessi&amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ALAssetsLibrary&lt;/code&gt; が iOS9 で非推奨になったので代わりに &lt;code&gt;PHPhotoLibrary&lt;/code&gt; を使った。&lt;/p&gt;
+
+&lt;h5 id=&#34;午後は-go:7c8787ac68b82ab2b2fa23384bd6e453&#34;&gt;午後は Go&lt;/h5&gt;
+
+&lt;p&gt;API サーバーを作りはじめた。軽量な WAF でググッてみたけど違いがよくわからないしとにかくサクッと始めたかったので、ドキュメントが一番わかりやすい &lt;a href=&#34;https://echo.labstack.com/&#34; target=&#34;_blank&#34;&gt;Echo&lt;/a&gt; にした。&lt;br /&gt;
+ファイルアップロードとかレシピ集があってとても良かった。&lt;/p&gt;
+
+&lt;p&gt;Go のデプロイってどうすればいいんだろう。ググった感じでは、まだベストプラクティスはなさそう。Go でサービスを運用してる各社はどうしてるのか気になる。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.10 iPhoneアプリ開発に入門</title>
+      <link>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</link>
+      <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
+      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
+
+&lt;p&gt;swift はリリース当初に playground で少しさわった程度。まずは twitter で教えていただいた本で構文等をざっと勉強した。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B017SW4MG0/ref=oh_aui_d_detailpage_o00_?ie=UTF8&amp;psc=1&#34;&gt;詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Amazon.co.jp： 詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応 eBook: 大重 美幸: Kindleストア&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016.08.07 toe</title>
+      <link>http://ackintosh.github.io/blog/2016/08/07/2016-08-07/</link>
+      <pubDate>Sun, 07 Aug 2016 17:29:28 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/08/07/2016-08-07/</guid>
+      <description>&lt;p&gt;知人に教えてもらってハマったバンド。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.toe.st/&#34;&gt;toe&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;(null)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;不思議な幻想的な音が心地良い。
+海外でも活躍していて、いまは&lt;/p&gt;
+
+&lt;p&gt;ドラムの柏倉隆史さんは the HIATUS 等でも叩いてる方。この人のドラムめっちゃかっこいい。&lt;/p&gt;
+
+&lt;p&gt;Youtube でライブ動画を検索して、しばらく見入ってしまった。&lt;/p&gt;
+
+&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/e0RWnzd_b_k&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;公式のネットショップがあったのでざっと商品を眺めてたら&lt;br /&gt;
+ちょうど欲しかったグレーのUネックTシャツがあったので購入。（しかも特典ステッカー付き）&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://believemusicstore.com/?pid=67227166&#34;&gt;toe_TORCH ON ENSEMBLES_U_NECK_Tee - Believe Music STORE OFFICIAL WEBSITE&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;バンドやイベントオフィシャルグッズ販売サイトBelieve Music STORE。渋さ知らズオーケストラ、toe、the band apart、mouse on the keys、COKEHEAD HIPSTERS、54-71他多数のグッズを扱っています！海外バンドやここでしか扱っていないグッズもあり！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;カート画面で気づいたけど、なんとカラーミーショップを使っていただいている！&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://believemusicstore.com/?mode=cate&amp;cbid=888540&amp;csid=0&amp;sort=n&#34;&gt;toe - Believe Music STORE OFFICIAL WEBSITE&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;バンドやイベントオフィシャルグッズ販売サイトBelieve Music STORE。渋さ知らズオーケストラ、toe、the band apart、mouse on the keys、COKEHEAD HIPSTERS、54-71他多数のグッズを扱っています！海外バンドやここでしか扱っていないグッズもあり！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2016.08.01 プログラミング言語Go</title>
       <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
       <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
@@ -145,52 +353,6 @@ vim で .go ファイルを保存するときに&lt;/p&gt;
 &lt;p&gt;:GoUpdateBinaries&lt;/p&gt;
 
 &lt;p&gt;を実行したら解決した。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.07.31 コンプレックス</title>
-      <link>http://ackintosh.github.io/blog/2016/07/31/2016-07-31/</link>
-      <pubDate>Sun, 31 Jul 2016 16:53:50 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/07/31/2016-07-31/</guid>
-      <description>&lt;p&gt;最近、情報系の学校をでている方々が学生時代にどんな事を勉強していたのか気になってる。&lt;/p&gt;
-
-&lt;p&gt;先日、大学院を出ている方から聞いたのは、ホワイトボードを研究していたとのこと。&lt;br /&gt;
-とある議論をしている間のホワイトボードを動画撮影・解析して、書かれたワードがホワイトボードに残っている時間で重要度を判定（長い時間ホワイトボードに残っているのは重要）するプログラムを書いていたとのこと。&lt;/p&gt;
-
-&lt;p&gt;他にも色々な処理をやっていたそうですが自分は話に追いつけなかった。&lt;br /&gt;
-けど話を聞いていてすごく面白かった。&lt;/p&gt;
-
-&lt;p&gt;自分は音楽系の出身なので、情報系のバックグラウンドが無いのでそこをコンプレックスに感じている。いまの職場は本当にレベルが高くて、勉強する人たちばかりだし、優秀な新卒もバンバン入ってくるので、余計に劣等感を感じる。&lt;/p&gt;
-
-&lt;p&gt;でも、そんな環境に身を投じたくて転職したので、これが自分の望んでいた状況なのです。&lt;/p&gt;
-
-&lt;p&gt;上記コンプレックスを克服すべく、まずはパタヘネ(上)を読み始めているところ。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.amazon.co.jp/%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%81%AE%E6%A7%8B%E6%88%90%E3%81%A8%E8%A8%AD%E8%A8%88-%E7%AC%AC5%E7%89%88-%E4%B8%8A-%E3%83%87%E3%82%A4%E3%83%93%E3%83%83%E3%83%89-%E3%83%91%E3%82%BF%E3%83%BC%E3%82%BD%E3%83%B3-ebook/dp/B00UJ42A0K/ref=sr_1_1?ie=UTF8&amp;qid=1469953536&amp;sr=8-1&amp;keywords=%E3%83%91%E3%82%BF%E3%83%98%E3%83%8D&#34;&gt;Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デイビッド A パターソン, ジョン Ｌ ヘネシー, 成田 光彰: Kindleストア&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;コンピュータの構成と設計 第5版 上 &lt;a href=&#34;デイビッド A パターソン, ジョン Ｌ ヘネシー, 成田 光彰&#34;&gt;Kindle版&lt;/a&gt;: 一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレットなど、様々な端末でもお楽しみいただけます。読み終えたページ、ブックマークやメモ、ハイライトも同期されますのでご活用ください。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.07.29 送別会</title>
-      <link>http://ackintosh.github.io/blog/2016/07/29/2016-07-29/</link>
-      <pubDate>Fri, 29 Jul 2016 16:24:17 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/07/29/2016-07-29/</guid>
-      <description>&lt;p&gt;2年間、派遣社員としてサービス開発・保守で活躍されたかたの送別会。
-ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;
-
-&lt;p&gt;自分は5/16入社なので一緒に働いた期間はたった2ヶ月くらいだけど、その方の姿勢を見習うようにしていた。&lt;/p&gt;
-
-&lt;p&gt;送別会で、「ウチの社員になればいいのに」と言ってみたら&lt;/p&gt;
-
-&lt;p&gt;「いやぁ、社員って自分には合わないんですよね」&lt;/p&gt;
-
-&lt;p&gt;「(良くないところを見つけて) 会社を変えたくなっちゃうんですよ」&lt;/p&gt;
-
-&lt;p&gt;と仰ってたのが印象的だった。&lt;/p&gt;
 </description>
     </item>
     
