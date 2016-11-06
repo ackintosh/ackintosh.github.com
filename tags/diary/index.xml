@@ -7,8 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 05 Nov 2016 12:56:56 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Nov 2016 23:34:32 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.06 </title>
+      <link>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
+      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。&lt;/p&gt;
+
+&lt;p&gt;PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;
+
+&lt;p&gt;最近チームにジョインした方から&lt;a href=&#34;http://amzn.to/2frizwK&#34;&gt;PHPはどのように動くのか&lt;/a&gt;を貸してもらったので1章を読んだ。 print と echo どっちが速いのかを、単純に計測するだけじゃなくてオペコードを比較して、何故違うのかを追っていくので納得感がある。&lt;/p&gt;
+
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B0158EC1FO&amp;linkId=699b4b28532db4b7acf58bc38eb7ae73&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.05 Tycho</title>
@@ -317,42 +333,6 @@ int main()
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://believemusicstore.com/?mode=cate&amp;cbid=888540&amp;csid=0&amp;sort=n&#34;&gt;toe - Believe Music STORE OFFICIAL WEBSITE&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;バンドやイベントオフィシャルグッズ販売サイトBelieve Music STORE。渋さ知らズオーケストラ、toe、the band apart、mouse on the keys、COKEHEAD HIPSTERS、54-71他多数のグッズを扱っています！海外バンドやここでしか扱っていないグッズもあり！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.01 プログラミング言語Go</title>
-      <link>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
-      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
-      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
-
-&lt;p&gt;1.2 コマンドライン引数&lt;/p&gt;
-
-&lt;p&gt;echoを実装することを通して、スライス・ループ・文字列連結などを学んだ。&lt;/p&gt;
-
-&lt;p&gt;文字列変数の宣言方法についての解説をメモしておく。
-宣言方法はいくつかあるが、ケースによって最適な方法が異なる。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;関数内だけで使う(スコープが狭い)変数は省略変数宣言 ( s := &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
-&lt;li&gt;初期値が重要なことを伝えるには明示的な初期化 ( var s string = &amp;ldquo;aaa&amp;rdquo; )&lt;/li&gt;
-&lt;li&gt;初期値が問題とならないことを伝えるには暗黙の初期化 ( var s string )&lt;/li&gt;
-&lt;li&gt;(var s = &amp;ldquo;&amp;rdquo; ) は複数の変数を宣言する時を除いてほとんど使われない&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;本の内容とは関係ないけど、
-vim で .go ファイルを保存するときに&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;vim-go: goimports does not support srcdir.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というエラーがでてたけど&lt;/p&gt;
-
-&lt;p&gt;:GoUpdateBinaries&lt;/p&gt;
-
-&lt;p&gt;を実行したら解決した。&lt;/p&gt;
 </description>
     </item>
     

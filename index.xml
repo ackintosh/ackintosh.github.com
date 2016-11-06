@@ -7,8 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 05 Nov 2016 12:56:56 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Nov 2016 23:34:32 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.06 </title>
+      <link>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
+      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。&lt;/p&gt;
+
+&lt;p&gt;PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;
+
+&lt;p&gt;最近チームにジョインした方から&lt;a href=&#34;http://amzn.to/2frizwK&#34;&gt;PHPはどのように動くのか&lt;/a&gt;を貸してもらったので1章を読んだ。 print と echo どっちが速いのかを、単純に計測するだけじゃなくてオペコードを比較して、何故違うのかを追っていくので納得感がある。&lt;/p&gt;
+
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B0158EC1FO&amp;linkId=699b4b28532db4b7acf58bc38eb7ae73&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.05 Tycho</title>
@@ -464,25 +480,6 @@ int main()
 &lt;p&gt;今日行ったらちょうど70回目の来店で、無料券をもらった。&lt;/p&gt;
 
 &lt;p&gt;明日、東京に戻るついでに寄っていこう。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.12 Wi2 Premium</title>
-      <link>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</link>
-      <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
-      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
-
-&lt;p&gt;仕事が終わったあと、ファミレスで夕飯ついでにもくもくと昨日のつづき。&lt;/p&gt;
-
-&lt;p&gt;wifi がとんでるカフェとかファミレスでよく見る &lt;code&gt;Wi2 Premiun&lt;/code&gt; というSSID。公衆無線LAN「Wi2」のサービスで、アドレス登録だけで無料で使えたり、場所によっては有料プラン加入者しか使えない場合(オプションエリア)がある。&lt;/p&gt;
-
-&lt;p&gt;au でLTEフラットに申し込んでいるとオプションエリアでも無料で使えるということに最近気づいた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://service2.wi2.ne.jp/wi2was/userAgreement?crplanid=aumdpay&#34;&gt;ご利用条件｜公衆無線LANサービスWi2 300&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     
