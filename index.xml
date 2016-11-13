@@ -7,8 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 12 Nov 2016 20:08:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Nov 2016 22:02:49 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
+      <link>http://ackintosh.github.io/blog/2016/11/13/2016-11-13/</link>
+      <pubDate>Sun, 13 Nov 2016 22:02:49 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
+      <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;
+
+&lt;p&gt;別途ドリンクの注文が必須なので結局980円では済まないという罠があるが、カレー3種・ナン・フライドチキン・焼きそば(?)・サラダ・ヨーグルト的なデザートが食べ放題。味は普通。
+量を食べたいときには良さそう。&lt;/p&gt;
+
+&lt;p&gt;あと、お店の人がとても親切だった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.12 オペコード</title>
@@ -396,90 +411,6 @@ int main()
 &lt;p&gt;&lt;a href=&#34;https://rebuild.fm/153/&#34;&gt;rebuild.fm #153&lt;/a&gt; で Rui Ueyama さんがコンパイラを実装した話をされていてとても興味深い。システムプログラミングの話は聴いていてワクワクする。宇宙の話を聴いてるときのワクワクに近いかもしれない。&lt;/p&gt;
 
 &lt;p&gt;自分は、コンパイラを実装するのがどれほど大変なのかが理解できてない程度に無知なので、まずは大変さを理解する意味でコンパイラの実装に挑戦してみるのも良いかな。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Goアプリのデーモン化とデプロイの仕組み</title>
-      <link>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</link>
-      <pubDate>Wed, 17 Aug 2016 12:40:37 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</guid>
-      <description>
-
-&lt;p&gt;社内の某合宿イベントで、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。&lt;/p&gt;
-
-&lt;p&gt;慣れない事が多くて試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（&lt;a href=&#34;#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/a&gt;）&lt;/p&gt;
-
-&lt;p&gt;試行錯誤した結果、利用するツール・ライブラリは下記になりました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;デーモン化&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://supervisord.org/&#34;&gt;supervisord&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;デプロイ&lt;br /&gt;
-（githubに push したら アプリケーションサーバーが webhook 通知を受信してビルド・graceful restart する）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/facebookgo/grace&#34;&gt;facebookgo/grace&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/mattn/gost&#34;&gt;mattn/gost&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;(デプロイの図)
-&lt;img src=&#34;http://ackintosh.github.io/images/golang_deamonize_deploy.png&#34; alt=&#34;deploy&#34; /&gt;
-&lt;/p&gt;
-
-&lt;h5 id=&#34;試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;試行錯誤&lt;/h5&gt;
-
-&lt;p&gt;試行錯誤や調査の結果、利用を見送ったもの。&lt;/p&gt;
-
-&lt;p&gt;daemontools (プロセス管理)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;インストールが難しそう&lt;/li&gt;
-&lt;li&gt;開発がアクティブじゃない&lt;/li&gt;
-&lt;li&gt;パッチを当てないといけない様子&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;　→ supervisord の方がインストール楽だし、設定も簡単&lt;/p&gt;
-
-&lt;p&gt;go-server-starter (ホットデプロイ)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;graceful shutdown に対応していない&lt;/li&gt;
-&lt;li&gt;graceful shutdown に対応するために manners を使おうとするとアプリケーションのソースコードに手をいれないといけない
-
-&lt;ul&gt;
-&lt;li&gt;Echo のレールから外れてしまう&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;　→ grace なら最小限の変更で済む。公式に&lt;a href=&#34;https://echo.labstack.com/recipes/graceful-shutdown&#34;&gt;サンプルコード&lt;/a&gt;がある。&lt;/p&gt;
-
-&lt;h5 id=&#34;展望:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;展望&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ビルドサーバーを用意してバイナリを配布する仕組みを作ってみたい&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/monochromegane/torokko&#34;&gt;monochromegane/torokko&lt;/a&gt; が気になる。
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.monochromegane.com/blog/2015/08/16/deploy-golang-by-cargo/&#34;&gt;Goのデプロイを「もっと」簡単にする。ビルドプロキシCargo。改めTorokko。&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0&#34;&gt;参考記事&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.yusuke.be/entry/2016/01/18/111838&#34;&gt;Golangを初めて本番投入したぜ！&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://shogo82148.github.io/blog/2015/05/03/golang-graceful-restart/&#34;&gt;Go言語でGraceful Restartをする&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.shibayu36.org/entry/2012/05/07/201556&#34;&gt;Server::Starterから学ぶhot deployの仕組み&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.livedoor.jp/sonots/archives/40248661.html&#34;&gt;「Server::Starterに対応するとはどういうことか」の補足&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://mattn.kaoriya.net/software/lang/go/20130918122901.htm&#34;&gt;Go言語でWebAppの運用に必要なN個のこと&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
