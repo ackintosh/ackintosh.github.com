@@ -7,8 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 13 Nov 2016 22:02:49 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 23 Nov 2016 21:37:03 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.23 展示品</title>
+      <link>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
+      <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
+      <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
+島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
+
+&lt;p&gt;材質はメイプル（たぶん）。濃い目の茶色と、主張しすぎないゴールドの金具のバランスが良い。足先がゴムで加工されているので床に優しい。&lt;/p&gt;
+
+&lt;p&gt;さっそく展示品の値札に書かれてる型番を確認し、下段の棚に積まれてるダンボール箱から一致する型番を探して、会計。&lt;/p&gt;
+
+&lt;p&gt;いい買い物をしたなぁと、そのあとランチで入ったパスタ屋さんで、待ちきれずに箱を開けてしまったのだが、箱から出てきたのが全く別のモノで愕然とした。&lt;/p&gt;
+
+&lt;p&gt;木製の足台ではあるが、展示されていたアレとは全く違う。&lt;/p&gt;
+
+&lt;p&gt;再び島村楽器に行ったところ、何か手違いがあったようで展示品は要取寄とのことだった。&lt;br /&gt;
+あまり状況が理解できなかったが、光よりも速く返品して帰宅した。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
@@ -387,30 +409,6 @@ int main()
 	return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.17 集中力, コンパイラ</title>
-      <link>http://ackintosh.github.io/blog/2016/08/17/2016-08-17/</link>
-      <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/17/2016-08-17/</guid>
-      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
-
-&lt;p&gt;Youtube でマリオメーカーの鬼畜ステージに挑戦している模様がライブ配信されていて、ステージの鬼畜っぷりとプレイヤーの超絶テクニックに見入ってしまった。高々とそびえ立つ針山を絶妙なタイミングの三段ジャンプでスレスレで飛び越えたり、バネを持った状態でジャンプして空中でそれを利用するというアクロバティックな動きに魅了された。&lt;/p&gt;
-
-&lt;p&gt;アクションを少しでもミスすれば即死。1周するのに150秒くらいかかるコースを3周して、ようやくステージクリアという鬼畜ステージにプレイヤーは1時間以上 挑戦し続けてもまるで集中力が切れる様子がない。というよりリラックスしてプレイするように努めているようにも感じた。&lt;/p&gt;
-
-&lt;p&gt;結局、見ている自分の集中力が切れた。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Head First C の1章をやった。LL言語、というか php ばかりの自分にとってはソースコードを自分でコンパイルする事すら新鮮でなんか楽しい。コンパイラを身近に感じられた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://rebuild.fm/153/&#34;&gt;rebuild.fm #153&lt;/a&gt; で Rui Ueyama さんがコンパイラを実装した話をされていてとても興味深い。システムプログラミングの話は聴いていてワクワクする。宇宙の話を聴いてるときのワクワクに近いかもしれない。&lt;/p&gt;
-
-&lt;p&gt;自分は、コンパイラを実装するのがどれほど大変なのかが理解できてない程度に無知なので、まずは大変さを理解する意味でコンパイラの実装に挑戦してみるのも良いかな。&lt;/p&gt;
 </description>
     </item>
     

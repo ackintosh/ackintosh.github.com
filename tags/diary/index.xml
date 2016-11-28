@@ -7,8 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 13 Nov 2016 22:02:49 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 23 Nov 2016 21:37:03 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.11.23 展示品</title>
+      <link>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
+      <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
+      <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
+島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
+
+&lt;p&gt;材質はメイプル（たぶん）。濃い目の茶色と、主張しすぎないゴールドの金具のバランスが良い。足先がゴムで加工されているので床に優しい。&lt;/p&gt;
+
+&lt;p&gt;さっそく展示品の値札に書かれてる型番を確認し、下段の棚に積まれてるダンボール箱から一致する型番を探して、会計。&lt;/p&gt;
+
+&lt;p&gt;いい買い物をしたなぁと、そのあとランチで入ったパスタ屋さんで、待ちきれずに箱を開けてしまったのだが、箱から出てきたのが全く別のモノで愕然とした。&lt;/p&gt;
+
+&lt;p&gt;木製の足台ではあるが、展示されていたアレとは全く違う。&lt;/p&gt;
+
+&lt;p&gt;再び島村楽器に行ったところ、何か手違いがあったようで展示品は要取寄とのことだった。&lt;br /&gt;
+あまり状況が理解できなかったが、光よりも速く返品して帰宅した。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
@@ -300,21 +322,6 @@ int main()
 ファイルアップロードとかレシピ集があってとても良かった。&lt;/p&gt;
 
 &lt;p&gt;Go のデプロイってどうすればいいんだろう。ググった感じでは、まだベストプラクティスはなさそう。Go でサービスを運用してる各社はどうしてるのか気になる。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.10 iPhoneアプリ開発に入門</title>
-      <link>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</link>
-      <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
-      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
-
-&lt;p&gt;swift はリリース当初に playground で少しさわった程度。まずは twitter で教えていただいた本で構文等をざっと勉強した。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B017SW4MG0/ref=oh_aui_d_detailpage_o00_?ie=UTF8&amp;psc=1&#34;&gt;詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Amazon.co.jp： 詳細！Swift2 iPhoneアプリ開発 入門ノート Swift 2+Xcode 7対応 eBook: 大重 美幸: Kindleストア&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     
