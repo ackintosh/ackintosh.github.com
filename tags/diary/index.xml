@@ -7,8 +7,51 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 09 Dec 2016 15:08:57 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Dec 2016 15:44:16 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.10 神様の開発に着手</title>
+      <link>http://ackintosh.github.io/blog/2016/12/10/2016-12-10/</link>
+      <pubDate>Sat, 10 Dec 2016 15:44:16 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
+      <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://camo.githubusercontent.com/70395853479c982acab0d4cd78b06d14ec0d364b/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f32323038333534382f67616e657368612e706e67&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;ackintosh/ganesha&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;ganesha - PHP implementation of Circuit Breaker pattern.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;なんだか仰々しい記事タイトルになってしまったが、新しく作り始めたライブラリに神様のお名前を拝借した、というだけのこと。&lt;br /&gt;
+( 趣味のライブラリではキラキラネームをつけるようにしてる、というのを&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/09/2016-12-09/&#34;&gt;前日に書いた&lt;/a&gt; )&lt;/p&gt;
+
+&lt;p&gt;作り始めたのは &lt;a href=&#34;http://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker&lt;/a&gt; パターンを PHP で実装するライブラリ。CircuitBreaker パターンと私の関わりとしては、前職で既存のライブラリを使ってサービスに組み込んだり、Fowler の&lt;a href=&#34;http://ackintosh.github.io/blog/2016/05/10/bliki-ja/&#34;&gt;記事の翻訳に挑戦&lt;/a&gt;したこともある。&lt;/p&gt;
+
+&lt;p&gt;自分でライブラリを作り始めたきっかけは、既存のライブラリの開発が止まってたり、機能に物足りなさを感じたり、あとは単純に自分で作ってみたかった、というありきたりな感じ。&lt;/p&gt;
+
+&lt;p&gt;で、本題。ライブラリの名前に &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Ganesha (ガネーシャ)&lt;/a&gt; というヒンドゥー教の神様のお名前を拝借した。  理由は下記。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;像の頭を持つ神様
+
+&lt;ul&gt;
+&lt;li&gt;PHP のマスコットキャラクターは像&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;障害を取り去ってくれる
+
+&lt;ul&gt;
+&lt;li&gt;CircuitBreaker の役割に近い感じ&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;響きがかっこいい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということで個人的にしっくりきたのでさっそく github にリポジトリを作って、ちょうど良い &lt;a href=&#34;https://openclipart.org/detail/219399/ganesha-colour&#34;&gt;Public Domain の画像&lt;/a&gt;を紫色に塗って README に貼って、ブログを書き始めて今に至る。&lt;/p&gt;
+
+&lt;p&gt;画像を紫色に塗りつぶしてるときが一番楽しかったかもしれない。&lt;br /&gt;
+( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
+
+&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を実装していきます。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.09 キラキラネームのすゝめ</title>
@@ -288,25 +331,6 @@ int main()
 &lt;p&gt;今日行ったらちょうど70回目の来店で、無料券をもらった。&lt;/p&gt;
 
 &lt;p&gt;明日、東京に戻るついでに寄っていこう。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.12 Wi2 Premium</title>
-      <link>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</link>
-      <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
-      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
-
-&lt;p&gt;仕事が終わったあと、ファミレスで夕飯ついでにもくもくと昨日のつづき。&lt;/p&gt;
-
-&lt;p&gt;wifi がとんでるカフェとかファミレスでよく見る &lt;code&gt;Wi2 Premiun&lt;/code&gt; というSSID。公衆無線LAN「Wi2」のサービスで、アドレス登録だけで無料で使えたり、場所によっては有料プラン加入者しか使えない場合(オプションエリア)がある。&lt;/p&gt;
-
-&lt;p&gt;au でLTEフラットに申し込んでいるとオプションエリアでも無料で使えるということに最近気づいた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://service2.wi2.ne.jp/wi2was/userAgreement?crplanid=aumdpay&#34;&gt;ご利用条件｜公衆無線LANサービスWi2 300&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     
