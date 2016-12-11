@@ -34,12 +34,12 @@
 &lt;li&gt;像の頭を持つ神様
 
 &lt;ul&gt;
-&lt;li&gt;PHP のマスコットキャラクターは像&lt;/li&gt;
+&lt;li&gt;PHP のマスコットキャラクターも像&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;障害を取り去ってくれる
+&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Wikipedia&lt;/a&gt; によると、障害を取り去り、財産をもたらしてくれるとのこと
 
 &lt;ul&gt;
-&lt;li&gt;CircuitBreaker の役割に近い感じ&lt;/li&gt;
+&lt;li&gt;CircuitBreaker は複数のシステムが共倒れになってしまう障害を防止するので、役割に共通点がありそうな感じがする&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;響きがかっこいい&lt;/li&gt;
 &lt;/ul&gt;
@@ -49,7 +49,7 @@
 &lt;p&gt;画像を紫色に塗りつぶしてるときが一番楽しかったかもしれない。&lt;br /&gt;
 ( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
 
-&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を実装していきます。&lt;/p&gt;
+&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;
 </description>
     </item>
     
