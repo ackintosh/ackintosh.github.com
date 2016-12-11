@@ -7,8 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 23 Nov 2016 21:37:03 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 09 Dec 2016 15:08:57 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.09 キラキラネームのすゝめ</title>
+      <link>http://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
+      <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
+      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
+
+&lt;p&gt;理由は単純で、その方が愛着がわくし、お気に入りの名前が付けられればそれだけで開発が楽しくなるから。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel(スナイデル)&lt;/a&gt;という、 PHP でマルチプロセスをサクッとできるライブラリもそのひとつで、&lt;a href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;なんとなく響きで付けた&lt;/a&gt;名前だけどシュッとしてて結構気に入ってる。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、 &lt;a href=&#34;https://twitter.com/search?q=snidel&amp;amp;src=typd&#34;&gt;Snidel で twitter を検索&lt;/a&gt;すると、同名のアパレルファッションブランドに関するツイートがヒットするので、検索結果のタイムラインのかわいい女の子たちを眺めて一時の癒やしを得ることができる。&lt;/p&gt;
+
+&lt;p&gt;そんな、ちょっとしたライフハック術を編み出したのもキラキラネームのおかげ。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.11.23 展示品</title>
@@ -369,46 +387,6 @@
 
 &lt;p&gt;apache + php 脳なので、GoでWebアプリを作ってると、&lt;br /&gt;
 “アッ、デーモン化どうしよう” とか “アクセスログを出力するようにしなきゃ” みたいなのが多くい。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.20 ポインタへの格下げ</title>
-      <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
-      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
-      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
-
-&lt;p&gt;コンパイラ入門を2章まで読んだ。コンパイラの構成（フロントエンド、バックエンド）の解説と、例題として実装していく言語SL/0, SL/1の仕様の説明。めっちゃシンプルな仕様なので自分のような超初心者にピッタリ。まだ内容についていけている。&lt;/p&gt;
-
-&lt;p&gt;Head First Cも2章の途中まで進んだ。途中、配列変数がポインタへ格下げされる仕様にハマったのでメモ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void f(char s[])
-{
-	// 関数に配列を渡すとポインタに格下げされ、配列のサイズについての情報を失うため
-	// ポインタのサイズが出力される.
-	// -&amp;gt; 8 (64bitマシンの場合)
-	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
-	
-	// コンパイル時に警告してくれる
-	// blog.c:4:27: warning: sizeof on array function parameter will return size of &#39;char *&#39; instead of &#39;char []&#39; [-Wsizeof-array-argument]
-}
-
-int main()
-{
-	char s[] = &amp;quot;How big is it?&amp;quot;;
-
-	// 配列変数が配列のサイズを保持しているため
-	// 配列のサイズが出力される.
-	// -&amp;gt; 15 (14文字 + 改行)
-	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
-
-	f(s);
-	
-	return 0;
-}
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
