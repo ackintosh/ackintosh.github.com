@@ -7,8 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 10 Dec 2016 15:44:16 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 11 Dec 2016 21:35:45 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
+      <link>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</link>
+      <pubDate>Sun, 11 Dec 2016 21:35:45 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
+      <description>&lt;p&gt;(少し前のことだけどブログに書いてなかった)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
+
+&lt;p&gt;オープンソースライセンスとは&lt;br /&gt;
+&lt;a href=&#34;https://www.jetbrains.com/buy/opensource/&#34;&gt;https://www.jetbrains.com/buy/opensource/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;非商用の OSS プロジェクトのみで使えるライセンス。専用のフォームから申請が必要で、プロジェクトの説明や携わってる開発者の人数などを入力する。&lt;br /&gt;
+↑ のページに書いてあるとおり、もちろん承認されるにはいくつかの条件があって、それらをクリアしてる必要がある。&lt;br /&gt;
+Snidel は条件を満たしているものの、一人で細々と開発してるだけなのでなんとなく不安だったけど無事に承認された。ヨカッタヨカッタ。申請してから承認のメールが来るまでは 2, 3日くらい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/phpstorm_licensed_to_snidel.png&#34; alt=&#34;phpstorm licensed to snidel&#34; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Licensed to snidel / Akihito Nakano&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;PhpStorm を起動するとプロジェクト名入りのライセンス表示が !&lt;/p&gt;
+
+&lt;p&gt;(もともと vim を使ってたけど) そんなわけで、ここ数ヶ月はプライベートで PhpStorm を使い、仕事でも&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;の手腕によって JetBrains 製品のコマーシャルライセンスを買ってもらったので PhpStorm を使っている。&lt;br /&gt;
+開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.10 神様の開発に着手</title>
@@ -392,30 +423,6 @@
 &lt;p&gt;その点、コンパイラ入門は自分のようなド素人でも読み進められているので本当に助かる。&lt;/p&gt;
 
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4781912052&amp;linkId=050fc3a126d8dcc34a9723ee517014ac&#34;&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.30 社内ISUCON</title>
-      <link>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</link>
-      <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
-      <description>
-
-&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
-
-&lt;p&gt;結果としては、採点のために運営がサーバーを再起動した後、 &lt;strong&gt;ファイルシステム破損でサーバーがお亡くなりになってしまい採点不可で終わった&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;いま思えば異常にターミナルの反応が遅かったり、何も変更していないのにベンチマークの結果が上下したりとサーバー不調の兆候が出ていたようだ。&lt;/p&gt;
-
-&lt;p&gt;すぐに運営に相談すれば良かったのだが何故か競技中は、皆同じ状況でやっていると思い込んでいた。&lt;/p&gt;
-
-&lt;p&gt;ターミナルの反応が異常に遅かったり、補完が効かなかったりしたので生産性が全く上がらないし、ベンチマークの結果が安定しないので修正の効果が確認できなかった。&lt;/p&gt;
-
-&lt;h4 id=&#34;教訓:81cc2c85995b037bc02c2ccb641b682b&#34;&gt;教訓&lt;/h4&gt;
-
-&lt;p&gt;サーバーの調子おかしくない？という時は速やかに運営に相談しよう&lt;/p&gt;
 </description>
     </item>
     

@@ -7,8 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 10 Dec 2016 15:44:16 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 11 Dec 2016 21:35:45 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
+      <link>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</link>
+      <pubDate>Sun, 11 Dec 2016 21:35:45 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
+      <description>&lt;p&gt;(少し前のことだけどブログに書いてなかった)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
+
+&lt;p&gt;オープンソースライセンスとは&lt;br /&gt;
+&lt;a href=&#34;https://www.jetbrains.com/buy/opensource/&#34;&gt;https://www.jetbrains.com/buy/opensource/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;非商用の OSS プロジェクトのみで使えるライセンス。専用のフォームから申請が必要で、プロジェクトの説明や携わってる開発者の人数などを入力する。&lt;br /&gt;
+↑ のページに書いてあるとおり、もちろん承認されるにはいくつかの条件があって、それらをクリアしてる必要がある。&lt;br /&gt;
+Snidel は条件を満たしているものの、一人で細々と開発してるだけなのでなんとなく不安だったけど無事に承認された。ヨカッタヨカッタ。申請してから承認のメールが来るまでは 2, 3日くらい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/phpstorm_licensed_to_snidel.png&#34; alt=&#34;phpstorm licensed to snidel&#34; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Licensed to snidel / Akihito Nakano&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;PhpStorm を起動するとプロジェクト名入りのライセンス表示が !&lt;/p&gt;
+
+&lt;p&gt;(もともと vim を使ってたけど) そんなわけで、ここ数ヶ月はプライベートで PhpStorm を使い、仕事でも&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;の手腕によって JetBrains 製品のコマーシャルライセンスを買ってもらったので PhpStorm を使っている。&lt;br /&gt;
+開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.10 神様の開発に着手</title>
@@ -308,29 +339,6 @@ int main()
 &lt;p&gt;&lt;a href=&#34;https://rebuild.fm/153/&#34;&gt;rebuild.fm #153&lt;/a&gt; で Rui Ueyama さんがコンパイラを実装した話をされていてとても興味深い。システムプログラミングの話は聴いていてワクワクする。宇宙の話を聴いてるときのワクワクに近いかもしれない。&lt;/p&gt;
 
 &lt;p&gt;自分は、コンパイラを実装するのがどれほど大変なのかが理解できてない程度に無知なので、まずは大変さを理解する意味でコンパイラの実装に挑戦してみるのも良いかな。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.14 華の湯</title>
-      <link>http://ackintosh.github.io/blog/2016/08/15/2016-08-14/</link>
-      <pubDate>Mon, 15 Aug 2016 17:15:54 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/15/2016-08-14/</guid>
-      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;
-
-&lt;p&gt;場所は東武伊勢崎線 羽生駅 徒歩3分。ホテルに併設された温泉施設。&lt;/p&gt;
-
-&lt;p&gt;源泉かけ流しの露天風呂やサウナ等ひととおり揃っていて、交通の便が良い割に周辺の他の温泉より混まないのでゆっくりできる。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.route-inn.co.jp/hananoyu/index.html&#34;&gt;華のゆ｜羽生&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;Pontaカードが使えるのでポイントが溜められて、10回来店ごとに無料券をもらえる。しかも無料券を使った場合も1回にカウントされるのでお得感がある。&lt;/p&gt;
-
-&lt;p&gt;今日行ったらちょうど70回目の来店で、無料券をもらった。&lt;/p&gt;
-
-&lt;p&gt;明日、東京に戻るついでに寄っていこう。&lt;/p&gt;
 </description>
     </item>
     
