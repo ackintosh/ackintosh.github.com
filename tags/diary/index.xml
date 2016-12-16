@@ -7,8 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 11 Dec 2016 21:35:45 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 23:38:32 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.17 おもしろくしたかった</title>
+      <link>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
+      <pubDate>Sat, 17 Dec 2016 23:38:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
+      <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
+市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;記事の内容は &amp;ldquo;PHP に珍しい関数があるよ!&amp;rdquo; 程度だけど、この記事を書くに際して自分としては2つチャレンジがあった。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;PHP のソースコードを読む&lt;/li&gt;
+&lt;li&gt;おもしろくする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1.は C言語よくわからなくて、いままで読んだことなかったので。&lt;/p&gt;
+
+&lt;p&gt;2.について。いま働いているGMOペパボの企業理念に &lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;もっとおもしろくできる&lt;/a&gt; というのがあるので、読んでくれたひとに &amp;ldquo;おもしろい&amp;rdquo; と思ってもらえる記事を書こうと思った。&lt;br /&gt;
+で、今回書く記事では &amp;ldquo;クスッと笑ってしまう&amp;rdquo; おもしろさと &amp;ldquo;知的好奇心を満たす&amp;rdquo; おもしろさを両立しようとしたが、どちらも中途半端になってしまった気がする。うぅ&amp;hellip;難しい&amp;hellip;&lt;br /&gt;
+少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
@@ -315,30 +341,6 @@ int main()
 	return 0;
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.17 集中力, コンパイラ</title>
-      <link>http://ackintosh.github.io/blog/2016/08/17/2016-08-17/</link>
-      <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/17/2016-08-17/</guid>
-      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
-
-&lt;p&gt;Youtube でマリオメーカーの鬼畜ステージに挑戦している模様がライブ配信されていて、ステージの鬼畜っぷりとプレイヤーの超絶テクニックに見入ってしまった。高々とそびえ立つ針山を絶妙なタイミングの三段ジャンプでスレスレで飛び越えたり、バネを持った状態でジャンプして空中でそれを利用するというアクロバティックな動きに魅了された。&lt;/p&gt;
-
-&lt;p&gt;アクションを少しでもミスすれば即死。1周するのに150秒くらいかかるコースを3周して、ようやくステージクリアという鬼畜ステージにプレイヤーは1時間以上 挑戦し続けてもまるで集中力が切れる様子がない。というよりリラックスしてプレイするように努めているようにも感じた。&lt;/p&gt;
-
-&lt;p&gt;結局、見ている自分の集中力が切れた。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Head First C の1章をやった。LL言語、というか php ばかりの自分にとってはソースコードを自分でコンパイルする事すら新鮮でなんか楽しい。コンパイラを身近に感じられた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://rebuild.fm/153/&#34;&gt;rebuild.fm #153&lt;/a&gt; で Rui Ueyama さんがコンパイラを実装した話をされていてとても興味深い。システムプログラミングの話は聴いていてワクワクする。宇宙の話を聴いてるときのワクワクに近いかもしれない。&lt;/p&gt;
-
-&lt;p&gt;自分は、コンパイラを実装するのがどれほど大変なのかが理解できてない程度に無知なので、まずは大変さを理解する意味でコンパイラの実装に挑戦してみるのも良いかな。&lt;/p&gt;
 </description>
     </item>
     

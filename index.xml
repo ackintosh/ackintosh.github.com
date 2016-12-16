@@ -7,8 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 17 Dec 2016 21:24:33 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 23:38:32 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.17 おもしろくしたかった</title>
+      <link>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
+      <pubDate>Sat, 17 Dec 2016 23:38:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
+      <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
+市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;記事の内容は &amp;ldquo;PHP に珍しい関数があるよ!&amp;rdquo; 程度だけど、この記事を書くに際して自分としては2つチャレンジがあった。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;PHP のソースコードを読む&lt;/li&gt;
+&lt;li&gt;おもしろくする&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;1.は C言語よくわからなくて、いままで読んだことなかったので。&lt;/p&gt;
+
+&lt;p&gt;2.について。いま働いているGMOペパボの企業理念に &lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;もっとおもしろくできる&lt;/a&gt; というのがあるので、読んでくれたひとに &amp;ldquo;おもしろい&amp;rdquo; と思ってもらえる記事を書こうと思った。&lt;br /&gt;
+で、今回書く記事では &amp;ldquo;クスッと笑ってしまう&amp;rdquo; おもしろさと &amp;ldquo;知的好奇心を満たす&amp;rdquo; おもしろさを両立しようとしたが、どちらも中途半端になってしまった気がする。うぅ&amp;hellip;難しい&amp;hellip;&lt;br /&gt;
+少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>充実した1年のスタートを ― PHPで</title>
@@ -471,38 +497,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;アンチポップチリペッパーズ、そして参加チームのみなさんお疲れ様でした。&lt;br /&gt;
 土善旅館のみなさん、お世話になりました。夕飯の豚、美味しかったです。&lt;br /&gt;
 そして合宿運営のみなさん、ありがとうございました。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Snidel 0.7 をリリースしました</title>
-      <link>http://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/</link>
-      <pubDate>Fri, 09 Sep 2016 23:58:13 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/</guid>
-      <description>
-
-&lt;p&gt;今回のリリースでは実装をシンプルにするために機能を削除しました。&lt;/p&gt;
-
-&lt;h4 id=&#34;削除した機能:8b8d658c70dd916a2c83cfce3cead93b&#34;&gt;削除した機能&lt;/h4&gt;
-
-&lt;p&gt;バージョン 0.2 で実装した &lt;code&gt;Snidel::map()&lt;/code&gt; です。 この機能についての説明は &lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/#複数の処理を並列につなげて実行:ee76cbb32354dec37a8e590548214889&#34;&gt;Snidel 0.2 をリリースしました&lt;/a&gt; に書いています。&lt;/p&gt;
-
-&lt;h4 id=&#34;削除した理由:8b8d658c70dd916a2c83cfce3cead93b&#34;&gt;削除した理由&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/&#34;&gt;バージョン 0.6 で内部的なアーキテクチャを大幅に変更&lt;/a&gt;して、親プロセス・子プロセスの間でデータの受け渡し方が変わったのですが、0.6 の時点では &lt;code&gt;Snidel::map()&lt;/code&gt; は対応できておらず、旧方式のままでした。&lt;/p&gt;
-
-&lt;p&gt;当初は &lt;code&gt;Snidel::map()&lt;/code&gt; も変えていこうと考えていましたが実装が難しかったのと、よくよく考えてみると 0.2 リリース時の記事に書いてるとおり、この機能は実験的に作ったので「並列処理を手軽に実行する」という Snidel で解決したい課題にはそもそも必要ないんじゃないかと思いはじめました。&lt;/p&gt;
-
-&lt;p&gt;なのでバッサリ削除してシンプルにすることにしました。&lt;/p&gt;
-
-&lt;p&gt;おかげでコードもすっきりして、カバレッジや Scrutinizer のスコアも改善しました。&lt;/p&gt;
-
-&lt;p&gt;（削除した部分は、別のライブラリとして作るかもしれません）&lt;/p&gt;
-
-&lt;h4 id=&#34;今後の展望:8b8d658c70dd916a2c83cfce3cead93b&#34;&gt;今後の展望&lt;/h4&gt;
-
-&lt;p&gt;Snidel がタスクを子プロセスに渡したり、その処理結果を受け取る際に system v message queue を使っているのですが、これを外部ストレージも使えるようにしたいです。その理由も含めて、次回リリース時の記事にまとめたいと思います。&lt;/p&gt;
 </description>
     </item>
     
