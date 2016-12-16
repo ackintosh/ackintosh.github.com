@@ -7,8 +7,105 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 11 Dec 2016 21:35:45 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 21:24:33 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>充実した1年のスタートを ― PHPで</title>
+      <link>http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</link>
+      <pubDate>Sat, 17 Dec 2016 21:24:33 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
+      <description>
+
+&lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2016/pepabo&#34;&gt;pepabo Advent Calendar 2016&lt;/a&gt; 17日目の記事です。&lt;br /&gt;
+昨日は genkiroid さんの &lt;a href=&#34;https://genkiroid.github.io/2016/12/16/about-turpan/&#34;&gt;PHPのrequire系ステートメントと断捨離について&lt;/a&gt; でした。コードを断捨離していきましょう!!!&lt;/p&gt;
+
+&lt;h4 id=&#34;ご存知でしょうか:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;ご存知でしょうか？&lt;/h4&gt;
+
+&lt;p&gt;珍しい組み込み関数があることで有名な PHP[要出典] ですが、 &lt;strong&gt;date_sunrise&lt;/strong&gt; という関数をご存知でしょうか。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/function.date-sunrise.php&#34;&gt;PHP: date_sunrise - Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;date_sunrise — 指定した日付と場所についての日の出時刻を返す&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;試しに、ペパボ本社がある東京都渋谷区セルリアンタワーの元旦の 日の出時刻 を出力してみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ php -d date.timezone=&#39;Asia/Tokyo&#39; -r &#39;echo date_sunrise(mktime(0, 0, 0, 1, 1, 2017), SUNFUNCS_RET_STRING, 35.39, 139.41);&#39;
+
+06:51
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;素晴らしい&amp;hellip;。&lt;br /&gt;
+これを使ってアレをソレすれば 2017 年の初日の出を寝過ごすことなくしっかり拝み、充実した1年をスタートさせることができます。必要なのは PHP とその他の (恐らくごくわずかな) 手間だけです。&lt;/p&gt;
+
+&lt;p&gt;ただ、 &lt;strong&gt;この時間が本当にあってるのかちょっと不安&lt;/strong&gt; です。&lt;/p&gt;
+
+&lt;h4 id=&#34;ソースコード探索:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;ソースコード探索&lt;/h4&gt;
+
+&lt;p&gt;ということで date_sunrise の実装を覗いてみましょう。 (PHP7.1.0)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/tree/PHP-7.1&#34;&gt;php/php-src: The PHP Interpreter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;関数は &lt;code&gt;PHP_FUNCTION&lt;/code&gt; マクロを使って定義されているので &lt;code&gt;PHP_FUNCTION(date_sunrise)&lt;/code&gt; で検索すればすぐに目的のコードにたどり着けます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&#34;&gt;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&lt;/a&gt;&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;内部的には日の入り時間を返す &lt;a href=&#34;http://php.net/manual/ja/function.date-sunset.php&#34;&gt;date_sunset&lt;/a&gt; とかなり共通していて、&lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の第2引数に渡すフラグで処理を分けているようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/blob/PHP-7.1.0/Zend/zend.h#L49&#34;&gt;INTERNAL_FUNCTION_PARAM_PASSTHRU マクロ&lt;/a&gt;は、その名の通り引数を利用しない場合のアテの役割で、 &lt;code&gt;execute_data, return_value&lt;/code&gt; に展開されます。&lt;/p&gt;
+
+&lt;p&gt;なぜアテが必要かというと、 &lt;code&gt;PHP_FUNCTION(date_sunrise)&lt;/code&gt; はコンパイラによって最終的に &lt;code&gt;zif_date_sunrise(zend_execute_data *execute_data, zval *return_value)&lt;/code&gt; に展開されるので、この第1, 2引数を埋めるために INTERNAL_FUNCTION_PARAM_PASSTHRU マクロを使っています。&lt;/p&gt;
+
+&lt;p&gt;つづいて &lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の中を順番に見ていきます。&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;変数の初期化と引数を解析しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;zend_parse_parameters&lt;/code&gt; は第1引数で実行時に渡された引数の数、第2引数で引数の情報を受取り、解析した結果を第3引数以降に代入します。&lt;br /&gt;
+また、第2引数 &lt;code&gt;&amp;quot;l|ldddd&amp;quot;&lt;/code&gt; は、各引数の型と必須・オプションを表していて、パイプ &lt;code&gt;|&lt;/code&gt; で区切られた後ろの2つめ以降がオプショナルであることがわかります。&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;つづいて、実行時に渡された引数の数によって、デフォルト値を設定しています。switch 文のフォールスルーがうまく使われていて勉強になります。&lt;br /&gt;
+&lt;code&gt;INI_FLT&lt;/code&gt; は php.ini の設定値を取得するための double 型用のマクロです。&lt;a href=&#34;http://php.net/manual/ja/function.date-sunrise.php&#34;&gt;マニュアル&lt;/a&gt;を見ると、たしかに &lt;code&gt;ini_get(&amp;quot;date.default_latitude&amp;quot;)&lt;/code&gt; 等がデフォルトで使われると書かれています。&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;第2引数で渡す format が、予め定義されているどれにも該当しない場合に警告を出力しています。PHP で開発しているとよく見るあの警告は &lt;code&gt;php_error_docref&lt;/code&gt; で出力されているようです。&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;ようやく時間を計算してそうなコードまでたどり着きました !!&lt;br /&gt;
+肝心の計算をしているであろう &lt;code&gt;timelib_astro_rise_set_altitude&lt;/code&gt; の中を見てみます。&lt;/p&gt;
+
+&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;フムフム&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;なんかちゃんと計算してることがわかりました !&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;充実した1年のスタートを-phpで:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;充実した1年のスタートを ― PHPで&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;緻密に計算された日の出時刻を返してくれる&lt;/strong&gt; date_sunrise 関数。&lt;/p&gt;
+
+&lt;p&gt;繰り返しになりますが、これを使ってアレをソレすれば 2017 年の初日の出を寝過ごすことなくしっかり拝み、充実した1年をスタートさせることができます。必要なのは PHP とその他の (恐らくごくわずかな) 手間だけです。&lt;/p&gt;
+
+&lt;p&gt;新年の目標や計画を立て始めている方も多いのではないでしょうか。&lt;br /&gt;
+何事も出だしが肝心といわれています。ぜひみなさんの 2017年 スタートダッシュのお供にPHPを。&lt;/p&gt;
+
+&lt;p&gt;明日は、我らがEC事業部プロダクトチームの女神 ayami さんです !&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
@@ -403,26 +500,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;h4 id=&#34;今後の展望:8b8d658c70dd916a2c83cfce3cead93b&#34;&gt;今後の展望&lt;/h4&gt;
 
 &lt;p&gt;Snidel がタスクを子プロセスに渡したり、その処理結果を受け取る際に system v message queue を使っているのですが、これを外部ストレージも使えるようにしたいです。その理由も含めて、次回リリース時の記事にまとめたいと思います。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.09.04 ド素人</title>
-      <link>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</link>
-      <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
-      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
-
-&lt;p&gt;コンパイラ入門 4章 字句解析器生成系lex を読んだ。とりあえず読んだだけなので、実際にlex記述とかは明日やろう。&lt;/p&gt;
-
-&lt;p&gt;読みながら &lt;a href=&#34;https://github.com/ackintosh/phg&#34;&gt;PHG&lt;/a&gt; を実装していた時の事を思い出した。わからないなりにネットで調べながら lexer とか書いてみたけど、あまり理解できてない状態でやってたので、とりあえず echo を実装できたっぽいけどなんとなく消化不良な感じがあって、いつの間にか放置してた。&lt;/p&gt;
-
-&lt;p&gt;当たり前だけど、ちゃんと本とかで体系的に勉強しながらやったほうが面白い。でもコンパイラ関連の技術書は難しそうなの（実際に読んだわけじゃないけど..）が多いのでハードルが高く感じる。&lt;/p&gt;
-
-&lt;p&gt;その点、コンパイラ入門は自分のようなド素人でも読み進められているので本当に助かる。&lt;/p&gt;
-
-&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4781912052&amp;linkId=050fc3a126d8dcc34a9723ee517014ac&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
