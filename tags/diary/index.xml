@@ -7,8 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 16 Dec 2016 23:38:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2016 23:02:35 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.17 フォレスト</title>
+      <link>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
+      <pubDate>Sat, 17 Dec 2016 23:02:35 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
+      <description>&lt;p&gt;今年5月の転職と同時に田舎から引越して約半年経った。もう冬。&lt;/p&gt;
+
+&lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOJxaaPjUHk/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt; - &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2016-12-18T09:00:42+00:00&#34;&gt;&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.bicklycarpet.com/?pid=94952367&#34;&gt;ウォッシャブル＆スベリ止め付きマイクロファイバーラグ　スムースプラス｜びっくりカーペット&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ラグ　北欧&amp;rdquo; みたいなキーワードで検索してたら&lt;a href=&#34;http://www.bicklycarpet.com/&#34;&gt;びっくりカーペット&lt;/a&gt;にたどり着いて、色々見た結果これに決めた。&lt;/p&gt;
+
+&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.16 おもしろくしたかった</title>
@@ -301,46 +322,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 
 &lt;p&gt;apache + php 脳なので、GoでWebアプリを作ってると、&lt;br /&gt;
 “アッ、デーモン化どうしよう” とか “アクセスログを出力するようにしなきゃ” みたいなのが多くい。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.20 ポインタへの格下げ</title>
-      <link>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
-      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
-      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
-
-&lt;p&gt;コンパイラ入門を2章まで読んだ。コンパイラの構成（フロントエンド、バックエンド）の解説と、例題として実装していく言語SL/0, SL/1の仕様の説明。めっちゃシンプルな仕様なので自分のような超初心者にピッタリ。まだ内容についていけている。&lt;/p&gt;
-
-&lt;p&gt;Head First Cも2章の途中まで進んだ。途中、配列変数がポインタへ格下げされる仕様にハマったのでメモ。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void f(char s[])
-{
-	// 関数に配列を渡すとポインタに格下げされ、配列のサイズについての情報を失うため
-	// ポインタのサイズが出力される.
-	// -&amp;gt; 8 (64bitマシンの場合)
-	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
-	
-	// コンパイル時に警告してくれる
-	// blog.c:4:27: warning: sizeof on array function parameter will return size of &#39;char *&#39; instead of &#39;char []&#39; [-Wsizeof-array-argument]
-}
-
-int main()
-{
-	char s[] = &amp;quot;How big is it?&amp;quot;;
-
-	// 配列変数が配列のサイズを保持しているため
-	// 配列のサイズが出力される.
-	// -&amp;gt; 15 (14文字 + 改行)
-	printf(&amp;quot;%lu\n&amp;quot;, sizeof(s));
-
-	f(s);
-	
-	return 0;
-}
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
