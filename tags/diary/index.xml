@@ -7,8 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 17 Dec 2016 23:02:35 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 22 Dec 2016 17:40:32 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.22 リターン</title>
+      <link>http://ackintosh.github.io/blog/2016/12/22/2016-12-22/</link>
+      <pubDate>Thu, 22 Dec 2016 17:40:32 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
+      <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
+
+&lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
+値が取れないなぁー、 NULL になっちゃうなぁーと悩んでたら return を書いてなかった。このミス何回目だろうか。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
+
+&lt;p&gt;頭痛がひどい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.17 フォレスト</title>
@@ -310,20 +327,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;h4 id=&#34;教訓:81cc2c85995b037bc02c2ccb641b682b&#34;&gt;教訓&lt;/h4&gt;
 
 &lt;p&gt;サーバーの調子おかしくない？という時は速やかに運営に相談しよう&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.27 apache &#43; mod_php脳</title>
-      <link>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</link>
-      <pubDate>Sat, 27 Aug 2016 23:50:45 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
-      <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
-なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
-
-&lt;p&gt;apache + php 脳なので、GoでWebアプリを作ってると、&lt;br /&gt;
-“アッ、デーモン化どうしよう” とか “アクセスログを出力するようにしなきゃ” みたいなのが多くい。&lt;/p&gt;
 </description>
     </item>
     
