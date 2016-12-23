@@ -7,8 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 22 Dec 2016 17:40:32 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 23 Dec 2016 18:07:13 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.23 さようなら GT-8</title>
+      <link>http://ackintosh.github.io/blog/2016/12/23/2016-12-23/</link>
+      <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
+      <description>&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
+使う機会がなくなってしまったので手放した。&lt;/p&gt;
+
+&lt;p&gt;最後にキレイに掃除して写真とった。
+&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOWp3zCDwoM/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.22 リターン</title>
@@ -303,30 +318,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;その点、コンパイラ入門は自分のようなド素人でも読み進められているので本当に助かる。&lt;/p&gt;
 
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4781912052&amp;linkId=050fc3a126d8dcc34a9723ee517014ac&#34;&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.08.30 社内ISUCON</title>
-      <link>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</link>
-      <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
-      <description>
-
-&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
-
-&lt;p&gt;結果としては、採点のために運営がサーバーを再起動した後、 &lt;strong&gt;ファイルシステム破損でサーバーがお亡くなりになってしまい採点不可で終わった&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;いま思えば異常にターミナルの反応が遅かったり、何も変更していないのにベンチマークの結果が上下したりとサーバー不調の兆候が出ていたようだ。&lt;/p&gt;
-
-&lt;p&gt;すぐに運営に相談すれば良かったのだが何故か競技中は、皆同じ状況でやっていると思い込んでいた。&lt;/p&gt;
-
-&lt;p&gt;ターミナルの反応が異常に遅かったり、補完が効かなかったりしたので生産性が全く上がらないし、ベンチマークの結果が安定しないので修正の効果が確認できなかった。&lt;/p&gt;
-
-&lt;h4 id=&#34;教訓:81cc2c85995b037bc02c2ccb641b682b&#34;&gt;教訓&lt;/h4&gt;
-
-&lt;p&gt;サーバーの調子おかしくない？という時は速やかに運営に相談しよう&lt;/p&gt;
 </description>
     </item>
     
