@@ -7,8 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 24 Dec 2016 17:58:40 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 30 Dec 2016 23:25:18 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.30 6年</title>
+      <link>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</link>
+      <pubDate>Fri, 30 Dec 2016 23:25:18 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
+      <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
+
+&lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
+
+&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.24 John John Festival</title>
@@ -420,47 +435,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;Youtube で初めて聴いたのがこの動画。&lt;/p&gt;
 
 &lt;p&gt;ゆっくり降ってくる音楽のシャワーで日々の疲れが癒やされてくような感覚が気持ちよかった。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>【ペパボ×プレイド】Tech Meetup で LT</title>
-      <link>http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</link>
-      <pubDate>Thu, 27 Oct 2016 21:59:18 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</guid>
-      <description>
-
-&lt;p&gt;場所は&lt;a href=&#34;https://www.google.co.jp/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=1&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0ahUKEwjx4vPDjYXQAhUBErwKHdXbC0sQFggkMAA&amp;amp;url=https%3A%2F%2Fplaid.co.jp%2F&amp;amp;usg=AFQjCNEnanIqoRljdEgfkMOHG4ZV_TRZbw&amp;amp;sig2=1UqILw-ttShPafI83trptw&#34;&gt;プレイド&lt;/a&gt;さん。&lt;br /&gt;
-オフィススペースと隣り合った一角がカフェみたいになっていて、そこに椅子とスクリーンを並べたかたちの会場。角のカウンターにはコーヒーサイフォンが並んでいて大変オシャレでした。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://plaidtech.connpass.com/event/41401/&#34;&gt;【ペパボ×プレイド】Tech Meetup 〜自動テスト・CI編〜 (2016/10/27 19:00〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;概要 GMOペパボ株式会社と、プレイドの2社で勉強会を開催します！ 今回のテーマは【CI・テスト自動化】 &lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;発表資料:43e4161f97d7438e671829a522c88d1b&#34;&gt;発表資料&lt;/h4&gt;
-
-&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;0da601e2e2f1483b9cb21791d7bb0e0c&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;を作っていて、並列処理って難しいなぁと感じることがあったので、それをテストの観点で（Snidelの宣伝を挟みつつ）発表。&lt;/p&gt;
-
-&lt;h4 id=&#34;振り返ってみて:43e4161f97d7438e671829a522c88d1b&#34;&gt;振り返ってみて&lt;/h4&gt;
-
-&lt;p&gt;前回とはまた違った大変さと達成感がありました。&lt;/p&gt;
-
-&lt;p&gt;7月に&lt;a href=&#34;http://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;人生初LT&lt;/a&gt;をしてから約2ヶ月経ったころ、&lt;br /&gt;
-社内で発表者を募集してるのを見て、ネタは無いけどとりあえず立候補するか！（PHPBLTで &lt;a href=&#34;https://twitter.com/sotarok?lang=ja&#34;&gt;@sotarok&lt;/a&gt; さんが &amp;ldquo;発表内容は応募してから考えればいい！&amp;rdquo; って言ってたし）ということで発表することにしました。&lt;/p&gt;
-
-&lt;p&gt;が、（自分の経験不足や、会社の名前が出てる勉強ということもあってか）、&amp;rdquo;発表内容どうしよう&amp;hellip;&amp;rdquo; という不安とプレッシャーが思いの外大きくて、ここ1ヶ月くらいは内容を練るのと資料作りで必死でした。&lt;/p&gt;
-
-&lt;p&gt;なんとか絞りだした内容を&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;に相談しつつブラッシュアップしてなんとか発表を終えられてホッとしています。&lt;/p&gt;
-
-&lt;h5 id=&#34;追記:43e4161f97d7438e671829a522c88d1b&#34;&gt;追記&lt;/h5&gt;
-
-&lt;p&gt;プレイドさんのブログに開催エントリが公開されました！&lt;br /&gt;
-みなさま、ありがとうございました！&lt;/p&gt;
-
-&lt;p&gt;&lt;a class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-controls=&#34;0&#34; data-card-type=&#34;article&#34; href=&#34;http://tech.plaid.co.jp/ci-testautomation-meetup/&#34;&gt;【ペパボ×プレイド】Tech Meetup 〜自動テスト・CI編〜を開催しました！&lt;/a&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -7,8 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 24 Dec 2016 17:58:40 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 30 Dec 2016 23:25:18 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.30 6年</title>
+      <link>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</link>
+      <pubDate>Fri, 30 Dec 2016 23:25:18 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
+      <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
+
+&lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
+&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
+
+&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.24 John John Festival</title>
@@ -331,20 +346,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 
 &lt;p&gt;まずは Amazon SQS 用のプラグイン(?)に着手。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/ackintosh/snidel-queue-sqs&#34;&gt;https://github.com/ackintosh/snidel-queue-sqs&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.09.21 LT駆動</title>
-      <link>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</link>
-      <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
-      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
-
-&lt;p&gt;7月に人生初LTしてからの2回目。&lt;/p&gt;
-
-&lt;p&gt;もう緊張してきた。。。&lt;/p&gt;
 </description>
     </item>
     
