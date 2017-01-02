@@ -7,8 +7,79 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 30 Dec 2016 23:25:18 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 31 Dec 2016 14:42:55 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016.12.31 振り返り</title>
+      <link>http://ackintosh.github.io/blog/2016/12/31/2016-12-31/</link>
+      <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2016/12/31/2016-12-31/</guid>
+      <description>
+
+&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
+
+&lt;h5 id=&#34;転職:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;転職&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/06/18/pepabo/&#34;&gt;転職して１ヶ月&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;正しい開発をしたいと思ったのが転職を考えたきっかけ。ペパボテックカンファレンスや面接等で現場の方々のお話を聞いて、ペパボならそれが出来ると思った（&amp;rdquo;正しい開発&amp;rdquo; の定義は人によって違いはあるだろうけど、だいたい皆さんが想像するソレと同じです） 。5月に入社して半年以上たった今でもその印象は変わっていない。&lt;/p&gt;
+
+&lt;p&gt;先日大きめの機能開発・リリースを行った際にも、ペパボの環境の良さを感じた。&lt;br /&gt;
+複数のチーム・職種を横断したプロジェクト。限られたリソースで開発を遂げるために、メンバーをプロジェクトに注力させるために社内体制を調整したのが印象的だった。&lt;br /&gt;
+ともすると &amp;ldquo;徹夜してがんばる&amp;rdquo; という個人を犠牲にして力ずくな方向に走ってしまいがちな状況に対しても、チーム・組織で解決していく文化が素晴らしいと思った。&lt;/p&gt;
+
+&lt;p&gt;また、開発中機能の社内ユーザーテストを繰り返し行い、UI・UXに磨きをかけていくのはユーザーに本当に良いものを届けたいというこだわりが現れている。&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
+ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
+
+&lt;h5 id=&#34;lt:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;LT&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;【ペパボ×プレイド】Tech Meetup で LT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LTの発表を2回やった。&lt;br /&gt;
+PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
+このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
+
+&lt;h5 id=&#34;oss-活動:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;OSS 活動&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0&#34;&gt;Snidel 0.4 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0&#34;&gt;Snidel 0.5 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0&#34;&gt;Snidel 0.6 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0&#34;&gt;Snidel 0.7 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy&#34;&gt;mruby-ngx-shadow_proxy&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/&#34;&gt;ngx_mruby でシャドウプロキシ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;2016.12.10 神様の開発に着手&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
+
+&lt;h5 id=&#34;引越し:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;引越し&lt;/h5&gt;
+
+&lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
+いまは片道30分。本当に楽。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016.12.30 6年</title>
@@ -410,31 +481,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;最近チームにジョインした方から&lt;a href=&#34;http://amzn.to/2frizwK&#34;&gt;PHPはどのように動くのか&lt;/a&gt;を貸してもらったので1章を読んだ。 print と echo どっちが速いのかを、単純に計測するだけじゃなくてオペコードを比較して、なぜ速度が違うのかを追っていくので納得感がある。&lt;/p&gt;
 
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B0158EC1FO&amp;linkId=699b4b28532db4b7acf58bc38eb7ae73&#34;&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.11.05 Tycho</title>
-      <link>http://ackintosh.github.io/blog/2016/11/05/2016-11-05/</link>
-      <pubDate>Sat, 05 Nov 2016 12:56:56 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/11/05/2016-11-05/</guid>
-      <description>&lt;p&gt;たまたま Youtube の関連動画にあったので聴いてみたらとても癒やされた。&lt;/p&gt;
-
-&lt;p&gt;Tycho(ティコ)&lt;br /&gt;
-&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ググってわかったことを並べると、&lt;/p&gt;
-
-&lt;p&gt;アメリカ西海岸のアーティストで、ジャンルはエレクトロとかアンビエント。今はバンド編成だが、もともとは Scott Hansen のソロプロジェクトだったらしい。&lt;/p&gt;
-
-&lt;p&gt;Scott Hansen は &lt;a href=&#34;http://blog.iso50.com/&#34;&gt;ISO50&lt;/a&gt; という名前でフォトグラファー・デザイナーとしても知られてるようで、CDジャケット等でも彼の作品が使われている。&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/JY-wzE2v2xM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Youtube で初めて聴いたのがこの動画。&lt;/p&gt;
-
-&lt;p&gt;ゆっくり降ってくる音楽のシャワーで日々の疲れが癒やされてくような感覚が気持ちよかった。&lt;/p&gt;
 </description>
     </item>
     
