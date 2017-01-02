@@ -12,15 +12,15 @@
     
     <item>
       <title>2016.12.31 振り返り</title>
-      <link>http://ackintosh.github.io/blog/2016/12/31/2016-12-31/</link>
+      <link>http://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</link>
       <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/31/2016-12-31/</guid>
+      <guid>http://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
       <description>
 
 &lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
 
-&lt;h5 id=&#34;転職:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;転職&lt;/h5&gt;
+&lt;h5 id=&#34;転職:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;転職&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
 ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
 
-&lt;h5 id=&#34;lt:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;LT&lt;/h5&gt;
+&lt;h5 id=&#34;lt:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;LT&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
@@ -49,7 +49,7 @@
 PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
 このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
 
-&lt;h5 id=&#34;oss-活動:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;OSS 活動&lt;/h5&gt;
+&lt;h5 id=&#34;oss-活動:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;OSS 活動&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
@@ -74,7 +74,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
 
-&lt;h5 id=&#34;引越し:bc5ab0205265cb3187537ae5da9a674b&#34;&gt;引越し&lt;/h5&gt;
+&lt;h5 id=&#34;引越し:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;引越し&lt;/h5&gt;
 
 &lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
 いまは片道30分。本当に楽。&lt;/p&gt;
