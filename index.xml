@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>暁</title>
-    <link>http://ackintosh.github.io/</link>
+    <link>https://ackintosh.github.io/</link>
     <description>Recent content on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 17:33:53 +0900</lastBuildDate>
-    <atom:link href="http://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>2017.01.01 バイオハザードはアクション映画</title>
-      <link>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</link>
+      <link>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</link>
       <pubDate>Sun, 01 Jan 2017 17:33:53 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
+      <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
       <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
 
 &lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
@@ -33,10 +33,10 @@
     
     <item>
       <title>2016年を振り返る</title>
-      <link>http://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</link>
       <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
       <description>
 
 &lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
@@ -44,8 +44,8 @@
 &lt;h5 id=&#34;転職:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;転職&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/06/18/pepabo/&#34;&gt;転職して１ヶ月&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/06/18/pepabo/&#34;&gt;転職して１ヶ月&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;正しい開発をしたいと思ったのが転職を考えたきっかけ。ペパボテックカンファレンスや面接等で現場の方々のお話を聞いて、ペパボならそれが出来ると思った（&amp;rdquo;正しい開発&amp;rdquo; の定義は人によって違いはあるだろうけど、だいたい皆さんが想像するソレと同じです） 。5月に入社して半年以上たった今でもその印象は変わっていない。&lt;/p&gt;
@@ -62,8 +62,8 @@
 &lt;h5 id=&#34;lt:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;LT&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;【ペパボ×プレイド】Tech Meetup で LT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;【ペパボ×プレイド】Tech Meetup で LT&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;LTの発表を2回やった。&lt;br /&gt;
@@ -76,20 +76,20 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0&#34;&gt;Snidel 0.4 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0&#34;&gt;Snidel 0.5 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0&#34;&gt;Snidel 0.6 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0&#34;&gt;Snidel 0.7 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0&#34;&gt;Snidel 0.4 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0&#34;&gt;Snidel 0.5 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0&#34;&gt;Snidel 0.6 をリリースしました&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0&#34;&gt;Snidel 0.7 をリリースしました&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy&#34;&gt;mruby-ngx-shadow_proxy&lt;/a&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/&#34;&gt;ngx_mruby でシャドウプロキシ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/&#34;&gt;ngx_mruby でシャドウプロキシ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;2016.12.10 神様の開発に着手&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;2016.12.10 神様の開発に着手&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -104,10 +104,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.30 6年</title>
-      <link>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</link>
       <pubDate>Fri, 30 Dec 2016 23:25:18 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
       <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
 
 &lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
@@ -119,10 +119,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.24 John John Festival</title>
-      <link>http://ackintosh.github.io/blog/2016/12/24/2016-12-24/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/24/2016-12-24/</link>
       <pubDate>Sat, 24 Dec 2016 17:58:40 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/24/2016-12-24/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/24/2016-12-24/</guid>
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
 秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
 
@@ -166,10 +166,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.23 さようなら GT-8</title>
-      <link>http://ackintosh.github.io/blog/2016/12/23/2016-12-23/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</link>
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
       <description>&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
 使う機会がなくなってしまったので手放した。&lt;/p&gt;
 
@@ -181,10 +181,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.22 リターン</title>
-      <link>http://ackintosh.github.io/blog/2016/12/22/2016-12-22/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</link>
       <pubDate>Thu, 22 Dec 2016 17:40:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
       <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
 
 &lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
@@ -198,10 +198,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.17 フォレスト</title>
-      <link>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
       <pubDate>Sat, 17 Dec 2016 23:02:35 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
       <description>&lt;p&gt;今年5月の転職と同時に田舎から引越して約半年経った。もう冬。&lt;/p&gt;
 
 &lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
@@ -221,10 +221,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>充実した1年のスタートを ― PHPで</title>
-      <link>http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</link>
       <pubDate>Sat, 17 Dec 2016 21:24:33 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
       <description>
 
 &lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2016/pepabo&#34;&gt;pepabo Advent Calendar 2016&lt;/a&gt; 17日目の記事です。&lt;br /&gt;
@@ -321,14 +321,14 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.16 おもしろくしたかった</title>
-      <link>http://ackintosh.github.io/blog/2016/12/16/2016-12-16/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</link>
       <pubDate>Fri, 16 Dec 2016 23:38:32 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
       <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
 市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;記事の内容は &amp;ldquo;PHP に珍しい関数があるよ!&amp;rdquo; 程度だけど、この記事を書くに際して自分としては2つチャレンジがあった。&lt;/p&gt;
 
@@ -347,10 +347,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
     
     <item>
       <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
-      <link>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/11/2016-12-14/</link>
       <pubDate>Sun, 11 Dec 2016 21:35:45 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
       <description>&lt;p&gt;(少し前のことだけどブログに書いてなかった)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
@@ -378,19 +378,19 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
     
     <item>
       <title>2016.12.10 神様の開発に着手</title>
-      <link>http://ackintosh.github.io/blog/2016/12/10/2016-12-10/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</link>
       <pubDate>Sat, 10 Dec 2016 15:44:16 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
       <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://camo.githubusercontent.com/70395853479c982acab0d4cd78b06d14ec0d364b/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f32323038333534382f67616e657368612e706e67&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;ackintosh/ganesha&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;ganesha - PHP implementation of Circuit Breaker pattern.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;なんだか仰々しい記事タイトルになってしまったが、新しく作り始めたライブラリに神様のお名前を拝借した、というだけのこと。&lt;br /&gt;
-( 趣味のライブラリではキラキラネームをつけるようにしてる、というのを&lt;a href=&#34;http://ackintosh.github.io/blog/2016/12/09/2016-12-09/&#34;&gt;前日に書いた&lt;/a&gt; )&lt;/p&gt;
+( 趣味のライブラリではキラキラネームをつけるようにしてる、というのを&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/09/2016-12-09/&#34;&gt;前日に書いた&lt;/a&gt; )&lt;/p&gt;
 
-&lt;p&gt;作り始めたのは &lt;a href=&#34;http://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker&lt;/a&gt; パターンを PHP で実装するライブラリ。CircuitBreaker パターンと私の関わりとしては、前職で既存のライブラリを使ってサービスに組み込んだり、Fowler の&lt;a href=&#34;http://ackintosh.github.io/blog/2016/05/10/bliki-ja/&#34;&gt;記事の翻訳に挑戦&lt;/a&gt;したこともある。&lt;/p&gt;
+&lt;p&gt;作り始めたのは &lt;a href=&#34;http://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker&lt;/a&gt; パターンを PHP で実装するライブラリ。CircuitBreaker パターンと私の関わりとしては、前職で既存のライブラリを使ってサービスに組み込んだり、Fowler の&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/10/bliki-ja/&#34;&gt;記事の翻訳に挑戦&lt;/a&gt;したこともある。&lt;/p&gt;
 
 &lt;p&gt;自分でライブラリを作り始めたきっかけは、既存のライブラリの開発が止まってたり、機能に物足りなさを感じたり、あとは単純に自分で作ってみたかった、というありきたりな感じ。&lt;/p&gt;
 
@@ -421,10 +421,10 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
     
     <item>
       <title>2016.12.09 キラキラネームのすゝめ</title>
-      <link>http://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
+      <link>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
       <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
       <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
 
 &lt;p&gt;理由は単純で、その方が愛着がわくし、お気に入りの名前が付けられればそれだけで開発が楽しくなるから。&lt;/p&gt;
@@ -439,10 +439,10 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
     
     <item>
       <title>2016.11.23 展示品</title>
-      <link>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
+      <link>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
       <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
       <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
 島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
 
@@ -461,10 +461,10 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
     
     <item>
       <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
-      <link>http://ackintosh.github.io/blog/2016/11/13/2016-11-13/</link>
+      <link>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</link>
       <pubDate>Sun, 13 Nov 2016 22:02:49 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
       <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;
 
 &lt;p&gt;別途ドリンクの注文が必須なので結局980円では済まないという罠があるが、カレー3種・ナン・フライドチキン・焼きそば(?)・サラダ・ヨーグルト的なデザートが食べ放題。味は普通。
@@ -476,10 +476,10 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
     
     <item>
       <title>2016.11.12 オペコード</title>
-      <link>http://ackintosh.github.io/blog/2016/11/12/2016-11-12/</link>
+      <link>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</link>
       <pubDate>Sat, 12 Nov 2016 20:08:58 +0900</pubDate>
       
-      <guid>http://ackintosh.github.io/blog/2016/11/12/2016-11-12/</guid>
+      <guid>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</guid>
       <description>&lt;p&gt;「PHPはどのように動くのか」のつづきを読む。&lt;/p&gt;
 
 &lt;p&gt;オペコードを眺めて へぇ〜と思ったり、zval とか HashTable が何となくどんなものかわかってきた。&lt;/p&gt;
