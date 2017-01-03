@@ -7,8 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 17:33:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jan 2017 00:33:23 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017年の抱負</title>
+      <link>https://ackintosh.github.io/blog/2017/01/03/2017-resolution/</link>
+      <pubDate>Tue, 03 Jan 2017 00:33:23 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/01/03/2017-resolution/</guid>
+      <description>&lt;p&gt;体を柔らかくする。股割りができるくらい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017.01.01 バイオハザードはアクション映画</title>
@@ -471,21 +481,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 量を食べたいときには良さそう。&lt;/p&gt;
 
 &lt;p&gt;あと、お店の人がとても親切だった。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.11.12 オペコード</title>
-      <link>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</link>
-      <pubDate>Sat, 12 Nov 2016 20:08:58 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</guid>
-      <description>&lt;p&gt;「PHPはどのように動くのか」のつづきを読む。&lt;/p&gt;
-
-&lt;p&gt;オペコードを眺めて へぇ〜と思ったり、zval とか HashTable が何となくどんなものかわかってきた。&lt;/p&gt;
-
-&lt;p&gt;オペコードの説明はマニュアルにあった。
-&lt;a href=&#34;http://php.net/manual/ja/internals2.opcodes.php&#34;&gt;http://php.net/manual/ja/internals2.opcodes.php&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
