@@ -7,8 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 31 Dec 2016 14:42:55 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 17:33:53 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.01.01 バイオハザードはアクション映画</title>
+      <link>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</link>
+      <pubDate>Sun, 01 Jan 2017 17:33:53 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
+      <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
+
+&lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
+章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
+
+&lt;p&gt;夜は、映画と日帰り温泉。&lt;/p&gt;
+
+&lt;p&gt;バイオハザード ザ・ファイナルを観た。シリーズをちゃんと観てきたわけじゃないけど、まぁ楽しめるだろうと。&lt;br /&gt;
+アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
+あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
+
+&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016年を振り返る</title>
@@ -391,19 +412,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;Youtube で初めて聴いたのがこの動画。&lt;/p&gt;
 
 &lt;p&gt;ゆっくり降ってくる音楽のシャワーで日々の疲れが癒やされてくような感覚が気持ちよかった。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.10.05 LTの準備</title>
-      <link>http://ackintosh.github.io/blog/2016/10/05/2016-10-05/</link>
-      <pubDate>Wed, 05 Oct 2016 22:38:30 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/10/05/2016-10-05/</guid>
-      <description>&lt;p&gt;LTを申し込んでから何か発表できることがないかずっと悩んでたけど、ようやく内容が決まってきた。&lt;/p&gt;
-
-&lt;p&gt;無理やり絞り出した感じなので矛盾が無いか不安。&lt;br /&gt;
-なるはやでスライドを作ってCTLに見てもらおう。&lt;/p&gt;
 </description>
     </item>
     

@@ -7,8 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 31 Dec 2016 14:42:55 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 17:33:53 +0900</lastBuildDate>
     <atom:link href="http://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.01.01 バイオハザードはアクション映画</title>
+      <link>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</link>
+      <pubDate>Sun, 01 Jan 2017 17:33:53 +0900</pubDate>
+      
+      <guid>http://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
+      <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
+
+&lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
+章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
+
+&lt;p&gt;夜は、映画と日帰り温泉。&lt;/p&gt;
+
+&lt;p&gt;バイオハザード ザ・ファイナルを観た。シリーズをちゃんと観てきたわけじゃないけど、まぁ楽しめるだろうと。&lt;br /&gt;
+アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
+あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
+
+&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016年を振り返る</title>
@@ -465,22 +486,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 
 &lt;p&gt;オペコードの説明はマニュアルにあった。
 &lt;a href=&#34;http://php.net/manual/ja/internals2.opcodes.php&#34;&gt;http://php.net/manual/ja/internals2.opcodes.php&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.11.06 </title>
-      <link>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
-      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
-      
-      <guid>http://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。&lt;/p&gt;
-
-&lt;p&gt;PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;
-
-&lt;p&gt;最近チームにジョインした方から&lt;a href=&#34;http://amzn.to/2frizwK&#34;&gt;PHPはどのように動くのか&lt;/a&gt;を貸してもらったので1章を読んだ。 print と echo どっちが速いのかを、単純に計測するだけじゃなくてオペコードを比較して、なぜ速度が違うのかを追っていくので納得感がある。&lt;/p&gt;
-
-&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B0158EC1FO&amp;linkId=699b4b28532db4b7acf58bc38eb7ae73&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
