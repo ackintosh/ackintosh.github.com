@@ -176,7 +176,7 @@
 
 <p><a href="https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834">https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834</a></p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846"></script>
 
 <p>内部的には日の入り時間を返す <a href="http://php.net/manual/ja/function.date-sunset.php">date_sunset</a> とかなり共通していて、<code>php_do_date_sunrise_sunset</code> の第2引数に渡すフラグで処理を分けているようです。</p>
 
@@ -186,28 +186,28 @@
 
 <p>つづいて <code>php_do_date_sunrise_sunset</code> の中を順番に見ていきます。</p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762"></script>
 
 <p>変数の初期化と引数を解析しています。</p>
 
 <p><code>zend_parse_parameters</code> は第1引数で実行時に渡された引数の数、第2引数で引数の情報を受取り、解析した結果を第3引数以降に代入します。<br />
 また、第2引数 <code>&quot;l|ldddd&quot;</code> は、各引数の型と必須・オプションを表していて、パイプ <code>|</code> で区切られた後ろの2つめ以降がオプショナルであることがわかります。</p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783"></script>
 
 <p>つづいて、実行時に渡された引数の数によって、デフォルト値を設定しています。switch 文のフォールスルーがうまく使われていて勉強になります。<br />
 <code>INI_FLT</code> は php.ini の設定値を取得するための double 型用のマクロです。<a href="http://php.net/manual/ja/function.date-sunrise.php">マニュアル</a>を見ると、たしかに <code>ini_get(&quot;date.default_latitude&quot;)</code> 等がデフォルトで使われると書かれています。</p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790"></script>
 
 <p>第2引数で渡す format が、予め定義されているどれにも該当しない場合に警告を出力しています。PHP で開発しているとよく見るあの警告は <code>php_error_docref</code> で出力されているようです。</p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805"></script>
 
 <p>ようやく時間を計算してそうなコードまでたどり着きました !!<br />
 肝心の計算をしているであろう <code>timelib_astro_rise_set_altitude</code> の中を見てみます。</p>
 
-<script src="http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296"></script>
+<script src="//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296"></script>
 
 <p>フムフム&hellip;</p>
 

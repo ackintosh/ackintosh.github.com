@@ -272,7 +272,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&#34;&gt;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&lt;/a&gt;&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;内部的には日の入り時間を返す &lt;a href=&#34;http://php.net/manual/ja/function.date-sunset.php&#34;&gt;date_sunset&lt;/a&gt; とかなり共通していて、&lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の第2引数に渡すフラグで処理を分けているようです。&lt;/p&gt;
 
@@ -282,28 +282,28 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;つづいて &lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の中を順番に見ていきます。&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;変数の初期化と引数を解析しています。&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;zend_parse_parameters&lt;/code&gt; は第1引数で実行時に渡された引数の数、第2引数で引数の情報を受取り、解析した結果を第3引数以降に代入します。&lt;br /&gt;
 また、第2引数 &lt;code&gt;&amp;quot;l|ldddd&amp;quot;&lt;/code&gt; は、各引数の型と必須・オプションを表していて、パイプ &lt;code&gt;|&lt;/code&gt; で区切られた後ろの2つめ以降がオプショナルであることがわかります。&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;つづいて、実行時に渡された引数の数によって、デフォルト値を設定しています。switch 文のフォールスルーがうまく使われていて勉強になります。&lt;br /&gt;
 &lt;code&gt;INI_FLT&lt;/code&gt; は php.ini の設定値を取得するための double 型用のマクロです。&lt;a href=&#34;http://php.net/manual/ja/function.date-sunrise.php&#34;&gt;マニュアル&lt;/a&gt;を見ると、たしかに &lt;code&gt;ini_get(&amp;quot;date.default_latitude&amp;quot;)&lt;/code&gt; 等がデフォルトで使われると書かれています。&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;第2引数で渡す format が、予め定義されているどれにも該当しない場合に警告を出力しています。PHP で開発しているとよく見るあの警告は &lt;code&gt;php_error_docref&lt;/code&gt; で出力されているようです。&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;ようやく時間を計算してそうなコードまでたどり着きました !!&lt;br /&gt;
 肝心の計算をしているであろう &lt;code&gt;timelib_astro_rise_set_altitude&lt;/code&gt; の中を見てみます。&lt;/p&gt;
 
-&lt;script src=&#34;http://gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;フムフム&amp;hellip;&lt;/p&gt;
 
