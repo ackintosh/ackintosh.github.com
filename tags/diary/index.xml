@@ -7,8 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 03 Jan 2017 00:33:23 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Jan 2017 13:14:20 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.01.28</title>
+      <link>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</link>
+      <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
+      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。&lt;/p&gt;
+
+&lt;p&gt;理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017年の抱負</title>
@@ -381,22 +393,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 量を食べたいときには良さそう。&lt;/p&gt;
 
 &lt;p&gt;あと、お店の人がとても親切だった。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.11.06 </title>
-      <link>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
-      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。&lt;/p&gt;
-
-&lt;p&gt;PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;
-
-&lt;p&gt;最近チームにジョインした方から&lt;a href=&#34;http://amzn.to/2frizwK&#34;&gt;PHPはどのように動くのか&lt;/a&gt;を貸してもらったので1章を読んだ。 print と echo どっちが速いのかを、単純に計測するだけじゃなくてオペコードを比較して、なぜ速度が違うのかを追っていくので納得感がある。&lt;/p&gt;
-
-&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=akihito0a-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B0158EC1FO&amp;linkId=699b4b28532db4b7acf58bc38eb7ae73&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
