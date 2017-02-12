@@ -7,8 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 31 Jan 2017 22:31:04 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Feb 2017 19:01:58 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.02.10 woothee</title>
+      <link>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</link>
+      <pubDate>Fri, 10 Feb 2017 19:01:58 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
+      <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
+
+&lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee&#34;&gt;woothee/woothee&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee/pull/33&#34;&gt;Add WebView on Android by ackintosh · Pull Request #33 · woothee/woothee&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php&#34;&gt;woothee/woothee-php&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php/pull/34&#34;&gt;Support WebView on Android and curl by ackintosh · Pull Request #34 · woothee/woothee-php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017.01.31 THE MENTALIST</title>
@@ -373,28 +400,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;ちなみに、 &lt;a href=&#34;https://twitter.com/search?q=snidel&amp;amp;src=typd&#34;&gt;Snidel で twitter を検索&lt;/a&gt;すると、同名のアパレルファッションブランドに関するツイートがヒットするので、検索結果のタイムラインのかわいい女の子たちを眺めて一時の癒やしを得ることができる。&lt;/p&gt;
 
 &lt;p&gt;そんな、ちょっとしたライフハック術を編み出したのもキラキラネームのおかげ。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.11.23 展示品</title>
-      <link>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
-      <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
-      <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
-島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
-
-&lt;p&gt;材質はメイプル（たぶん）。濃い目の茶色と、主張しすぎないゴールドの金具のバランスが良い。足先がゴムで加工されているので床に優しい。&lt;/p&gt;
-
-&lt;p&gt;さっそく展示品の値札に書かれてる型番を確認し、下段の棚に積まれてるダンボール箱から一致する型番を探して、会計。&lt;/p&gt;
-
-&lt;p&gt;いい買い物をしたなぁと、そのあとランチで入ったパスタ屋さんで、待ちきれずに箱を開けてしまったのだが、箱から出てきたのが全く別のモノで愕然とした。&lt;/p&gt;
-
-&lt;p&gt;木製の足台ではあるが、展示されていたアレとは全く違う。&lt;/p&gt;
-
-&lt;p&gt;再び島村楽器に行ったところ、何か手違いがあったようで展示品は要取寄とのことだった。&lt;br /&gt;
-あまり状況が理解できなかったが、光よりも速く返品して帰宅した。&lt;/p&gt;
 </description>
     </item>
     

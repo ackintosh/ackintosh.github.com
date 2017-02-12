@@ -7,8 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 31 Jan 2017 22:31:04 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Feb 2017 19:01:58 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.02.10 woothee</title>
+      <link>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</link>
+      <pubDate>Fri, 10 Feb 2017 19:01:58 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
+      <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
+
+&lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee&#34;&gt;woothee/woothee&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee/pull/33&#34;&gt;Add WebView on Android by ackintosh · Pull Request #33 · woothee/woothee&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php&#34;&gt;woothee/woothee-php&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php/pull/34&#34;&gt;Support WebView on Android and curl by ackintosh · Pull Request #34 · woothee/woothee-php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017.01.31 THE MENTALIST</title>
@@ -455,24 +482,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 ( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
 
 &lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.12.09 キラキラネームのすゝめ</title>
-      <link>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
-      <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
-      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
-
-&lt;p&gt;理由は単純で、その方が愛着がわくし、お気に入りの名前が付けられればそれだけで開発が楽しくなるから。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel(スナイデル)&lt;/a&gt;という、 PHP でマルチプロセスをサクッとできるライブラリもそのひとつで、&lt;a href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;なんとなく響きで付けた&lt;/a&gt;名前だけどシュッとしてて結構気に入ってる。&lt;/p&gt;
-
-&lt;p&gt;ちなみに、 &lt;a href=&#34;https://twitter.com/search?q=snidel&amp;amp;src=typd&#34;&gt;Snidel で twitter を検索&lt;/a&gt;すると、同名のアパレルファッションブランドに関するツイートがヒットするので、検索結果のタイムラインのかわいい女の子たちを眺めて一時の癒やしを得ることができる。&lt;/p&gt;
-
-&lt;p&gt;そんな、ちょっとしたライフハック術を編み出したのもキラキラネームのおかげ。&lt;/p&gt;
 </description>
     </item>
     
