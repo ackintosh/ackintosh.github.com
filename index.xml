@@ -7,8 +7,100 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 10 Feb 2017 19:01:58 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Feb 2017 23:34:08 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Yahoo! JAPAN MeetUp #9 (EC技術カンファレンス)</title>
+      <link>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</link>
+      <pubDate>Sat, 18 Feb 2017 23:34:08 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</guid>
+      <description>
+
+&lt;p&gt;に行ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://yj-meetup.connpass.com/event/48215/&#34;&gt;Yahoo! JAPAN MeetUp #9 （EC技術カンファレンス） (2017/02/18 14:00〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;今回のテーマは「E-Commerce」です！ ECの成長を支えるため、各サービスが考えている技術戦略から、ヤフーの持つビッグデータ、データサイエンスの活用事例紹介など&amp;hellip;ヤフーのEC事情がぎゅっと詰ま っています。 当日は現場のエンジニアやデザイナーもいるので、聞きたいこと・話したいことがあればなんでも聞いてください。 &lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;自分が仕事で担当してるサービスに取り込める何かを持ち帰るのが目的。&lt;br /&gt;
+以下、発表や懇親会でYahoo!ショッピングのエンジニアさんに聞いて印象に残ったことのメモ。&lt;/p&gt;
+
+&lt;h2 id=&#34;いい買い物の日の受注集中による障害と対策:d494f056156daf74f39324577ac664e2&#34;&gt;いい買い物の日の受注集中による障害と対策&lt;/h2&gt;
+
+&lt;h4 id=&#34;いい買い物の日とは:d494f056156daf74f39324577ac664e2&#34;&gt;いい買い物の日とは&lt;/h4&gt;
+
+&lt;p&gt;11/11に買い物すればポイント11倍 というキャンペーン&lt;/p&gt;
+
+&lt;p&gt;2015年のキャンペーンでは、
+キャンペーン終了間際の23時頃から急激に受注が増え、一時的に決済サービスが応答不可になり、決済できなくなる障害が起きた。&lt;/p&gt;
+
+&lt;p&gt;アリババのエンジニアに相談して対策をうち、
+2016年のキャンペーンを無事に乗り切った。&lt;/p&gt;
+
+&lt;h4 id=&#34;サーキットブレーカーを実装:d494f056156daf74f39324577ac664e2&#34;&gt;サーキットブレーカーを実装&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;OSS は使わず、社内で簡易的に実装したのを使っている&lt;/li&gt;
+&lt;li&gt;サービスごとに独自に実装してる&lt;/li&gt;
+&lt;li&gt;言語は PHP や C++&lt;/li&gt;
+&lt;li&gt;アリババが実装してるサーキットブレーカーは高機能( ○% を絞る、みたいに段階的に調節する )&lt;/li&gt;
+&lt;li&gt;アリババは OSS にする予定は無いとのこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カード後決済:d494f056156daf74f39324577ac664e2&#34;&gt;カード後決済&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;決済サービスが障害で応答しない場合、まず受注してしまう&lt;/li&gt;
+&lt;li&gt;復旧したあとでカード決済させる&lt;/li&gt;
+&lt;li&gt;サーキットブレーカーで遮断された決済を、カード後決済させる&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;スロットリング:d494f056156daf74f39324577ac664e2&#34;&gt;スロットリング&lt;/h4&gt;
+
+&lt;p&gt;(※ スロットリングとは言ってなかったが、スロットリングのことだろうと解釈している ※)&lt;br /&gt;
+(※ サーキットブレーカーは &amp;ldquo;リクエストする側&amp;rdquo; の対策。スロットリングは &amp;ldquo;リクエストされる側&amp;rdquo; の対策。という理解 ※)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;リクエスト元のクライアントを優先度で分類しておき、負荷が上がってきたら優先度の低いクライアントから、リクエストの応答をやめる(絞っていく)&lt;/li&gt;
+&lt;li&gt;優先度のルールは予めビジネス側の同意をとっておく&lt;/li&gt;
+&lt;li&gt;アリババは、サーバーのリソース使用状況を監視して絞る比率を動的に調節している&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;テクニカルディレクターが現場に言ってる4つのこと:d494f056156daf74f39324577ac664e2&#34;&gt;テクニカルディレクターが現場に言ってる4つのこと&lt;/h2&gt;
+
+&lt;p&gt;(※ テクニカルディレクターはペパボでいうところの &lt;a href=&#34;http://blog.kentarok.org/entry/2016/09/05/000512&#34;&gt;CTL&lt;/a&gt; 的なポジション ※)&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;トラブル検知の仕組み&lt;/li&gt;
+&lt;li&gt;テストを書け!&lt;/li&gt;
+&lt;li&gt;テストを書け!!&lt;/li&gt;
+&lt;li&gt;テストを書け!!!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;トラブル(データ不整合等)を検知する仕組みが整っているかを最重視&lt;/li&gt;
+&lt;li&gt;数日経って発覚するなんてありえない&lt;/li&gt;
+&lt;li&gt;新しいコードはテストが無いとリリースさせない&lt;/li&gt;
+&lt;li&gt;全体のカバレッジは60〜70%くらい&lt;/li&gt;
+&lt;li&gt;カバレッジの数字は指標にしていない&lt;/li&gt;
+&lt;li&gt;大事なところをしっかりテストできているかを重視している&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;感想:d494f056156daf74f39324577ac664e2&#34;&gt;感想&lt;/h2&gt;
+
+&lt;p&gt;ちょうどサーキットブレーカーの必要性を感じていて &lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;PHP のライブラリを絶賛実装中&lt;/a&gt;ということもあり、どういう実装してるのかとても興味深かったが、担当したエンジニアさんが会場にいなくて細かい話を聞けなかったのがとても残念だった。&lt;br /&gt;
+カード後決済の仕組みも気になっていたが、時間が足りなくて聞けなかったも残念。&lt;br /&gt;
+でも学びもたくさんあって、カード後決済は目からウロコだったし、スロットリングの優先順位付けはなるほど〜と思った。&lt;/p&gt;
+
+&lt;p&gt;Yahoo!ショッピングは今年で18年とのこと。なんとなく、先進的な技術を取り入れて凄いことやってるイメージをもっていたが、LTではレガシーな部分と戦う様子を伺えたのが印象的だった。&lt;br /&gt;
+コードベースも利用者も桁違いに多いので色々運用も大変なはず。なのに自分が担当しているサービスよりもイイ感じになってるのが少し悔しい。  もっと頑張ろう。&lt;/p&gt;
+
+&lt;p&gt;Yahoo!のみなさま、貴重な学びの機会をいただきありがとうございました！&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017.02.10 woothee</title>
@@ -439,49 +531,6 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 
 &lt;p&gt;(もともと vim を使ってたけど) そんなわけで、ここ数ヶ月はプライベートで PhpStorm を使い、仕事でも&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;の手腕によって JetBrains 製品のコマーシャルライセンスを買ってもらったので PhpStorm を使っている。&lt;br /&gt;
 開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.12.10 神様の開発に着手</title>
-      <link>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</link>
-      <pubDate>Sat, 10 Dec 2016 15:44:16 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
-      <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://camo.githubusercontent.com/70395853479c982acab0d4cd78b06d14ec0d364b/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f32323038333534382f67616e657368612e706e67&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;ackintosh/ganesha&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;ganesha - PHP implementation of Circuit Breaker pattern.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;なんだか仰々しい記事タイトルになってしまったが、新しく作り始めたライブラリに神様のお名前を拝借した、というだけのこと。&lt;br /&gt;
-( 趣味のライブラリではキラキラネームをつけるようにしてる、というのを&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/09/2016-12-09/&#34;&gt;前日に書いた&lt;/a&gt; )&lt;/p&gt;
-
-&lt;p&gt;作り始めたのは &lt;a href=&#34;http://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker&lt;/a&gt; パターンを PHP で実装するライブラリ。CircuitBreaker パターンと私の関わりとしては、前職で既存のライブラリを使ってサービスに組み込んだり、Fowler の&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/10/bliki-ja/&#34;&gt;記事の翻訳に挑戦&lt;/a&gt;したこともある。&lt;/p&gt;
-
-&lt;p&gt;自分でライブラリを作り始めたきっかけは、既存のライブラリの開発が止まってたり、機能に物足りなさを感じたり、あとは単純に自分で作ってみたかった、というありきたりな感じ。&lt;/p&gt;
-
-&lt;p&gt;で、本題。ライブラリの名前に &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Ganesha (ガネーシャ)&lt;/a&gt; というヒンドゥー教の神様のお名前を拝借した。  理由は下記。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;像の頭を持つ神様
-
-&lt;ul&gt;
-&lt;li&gt;PHP のマスコットキャラクターも像&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Wikipedia&lt;/a&gt; によると、障害を取り去り、財産をもたらしてくれるとのこと
-
-&lt;ul&gt;
-&lt;li&gt;CircuitBreaker は複数のシステムが共倒れになってしまう障害を防止するので、役割に共通点がありそうな感じがする&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;響きがかっこいい&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ということで個人的にしっくりきたのでさっそく github にリポジトリを作って、ちょうど良い &lt;a href=&#34;https://openclipart.org/detail/219399/ganesha-colour&#34;&gt;Public Domain の画像&lt;/a&gt;を紫色に塗って README に貼って、ブログを書き始めて今に至る。&lt;/p&gt;
-
-&lt;p&gt;画像を紫色に塗りつぶしてるときが一番楽しかったかもしれない。&lt;br /&gt;
-( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
-
-&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;
 </description>
     </item>
     
