@@ -226,6 +226,11 @@ h2 {
     margin-bottom: 16px;
 }
 
+h2.post-title {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
 h3 {
     font-size: 2.2rem;
 }
