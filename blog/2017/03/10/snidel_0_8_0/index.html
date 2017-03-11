@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Snidel 0.8 をリリースしました &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-03-10T21:48:28&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     Snidel 0.8 をリリースしました &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.14" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://dl.dropboxusercontent.com/u/22083548/octopress/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Snidel 0.8 をリリースしました</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-03-10T21:48:28&#43;09:00">
+            Mar 10, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      
+
+<p>Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。</p>
+
+<p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b" data-card-image="https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png" data-card-type="article"><h4><a href="https://github.com/ackintosh/snidel">ackintosh/snidel</a></h4><p>snidel - A multi-process container.</p></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
+
+<h2 id="独自のキューを実装-利用できるようになりました:8bbe2aaaf7913751720b4bba6350e33e">独自のキューを実装・利用できるようになりました</h2>
+
+<p>今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。<br />
+下記のように Amazon SQS を利用することもできます。</p>
+
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png" alt="with Amazon SQS" />
+</p>
+
+<h5 id="なぜ:8bbe2aaaf7913751720b4bba6350e33e">なぜ？</h5>
+
+<p>Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。<br />
+そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。</p>
+
+<p>今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。</p>
+
+<h5 id="独自のキューを実装-利用するには:8bbe2aaaf7913751720b4bba6350e33e">独自のキューを実装・利用するには？</h5>
+
+<p>所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。</p>
+
+<p>例: <a href="https://github.com/ackintosh/snidel-queue-sqs">ackintosh/snidel-queue-sqs: queue plugin for snidel.</a></p>
+
+<p>キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。</p>
+
+<h2 id="アーキテクチャを変更しました:8bbe2aaaf7913751720b4bba6350e33e">アーキテクチャを変更しました</h2>
+
+<p>キューをプラガブルにするのに伴ってアーキテクチャを変更しました。</p>
+
+<h6 id="ビフォー:8bbe2aaaf7913751720b4bba6350e33e">ビフォー</h6>
+
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png" alt="before" />
+</p>
+
+<h6 id="アフター:8bbe2aaaf7913751720b4bba6350e33e">アフター</h6>
+
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png" alt="after" />
+</p>
+
+<p>これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが<br />
+今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。</p>
+
+<h5 id="なぜ-1:8bbe2aaaf7913751720b4bba6350e33e">なぜ？</h5>
+
+<p>プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。<br />
+Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。</p>
+
+<p>Snidel は3種類のプロセスが協調して並列処理を行います。今回の変更によりそれぞれの役割が下記のようになり、マスタープロセスがキューに接続する必要が無くなったので安定して動作するようになりました。</p>
+
+<ul>
+<li>メイン
+
+<ul>
+<li>マスターを fork する</li>
+<li>ワーカーに処理させたいタスクをキューに入れる</li>
+<li>ワーカーの処理結果をキューから受け取る</li>
+</ul></li>
+<li>マスター
+
+<ul>
+<li>ワーカーを fork する</li>
+<li>ワーカーの起動数を制御する</li>
+</ul></li>
+<li>ワーカー
+
+<ul>
+<li>キューからタスクを受り、実行し、結果をキューに入れる</li>
+</ul></li>
+</ul>
+
+<h2 id="今後:8bbe2aaaf7913751720b4bba6350e33e">今後</h2>
+
+<p>PHP5.6 未満のサポート終了を予定しています。<br />
+これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。</p>
+
+<p>また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://dl.dropboxusercontent.com/u/22083548/octopress/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Snidel%200.8%20%e3%82%92%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%97%e3%81%be%e3%81%97%e3%81%9f&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f03%2f10%2fsnidel_0_8_0%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f03%2f10%2fsnidel_0_8_0%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f03%2f10%2fsnidel_0_8_0%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

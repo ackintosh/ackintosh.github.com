@@ -7,8 +7,98 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 08 Nov 2015 16:05:24 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Mar 2017 21:48:28 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Snidel 0.8 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</link>
+      <pubDate>Fri, 10 Mar 2017 21:48:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
+      <description>
+
+&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;snidel - A multi-process container.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
+
+&lt;p&gt;今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。&lt;br /&gt;
+下記のように Amazon SQS を利用することもできます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h5 id=&#34;なぜ:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+
+&lt;p&gt;Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。&lt;br /&gt;
+そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。&lt;/p&gt;
+
+&lt;p&gt;今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。&lt;/p&gt;
+
+&lt;h5 id=&#34;独自のキューを実装-利用するには:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
+
+&lt;p&gt;所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。&lt;/p&gt;
+
+&lt;p&gt;例: &lt;a href=&#34;https://github.com/ackintosh/snidel-queue-sqs&#34;&gt;ackintosh/snidel-queue-sqs: queue plugin for snidel.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。&lt;/p&gt;
+
+&lt;h2 id=&#34;アーキテクチャを変更しました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
+
+&lt;p&gt;キューをプラガブルにするのに伴ってアーキテクチャを変更しました。&lt;/p&gt;
+
+&lt;h6 id=&#34;ビフォー:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;ビフォー&lt;/h6&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h6 id=&#34;アフター:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アフター&lt;/h6&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが&lt;br /&gt;
+今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。&lt;/p&gt;
+
+&lt;h5 id=&#34;なぜ-1:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+
+&lt;p&gt;プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。&lt;br /&gt;
+Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。&lt;/p&gt;
+
+&lt;p&gt;Snidel は3種類のプロセスが協調して並列処理を行います。今回の変更によりそれぞれの役割が下記のようになり、マスタープロセスがキューに接続する必要が無くなったので安定して動作するようになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;メイン
+
+&lt;ul&gt;
+&lt;li&gt;マスターを fork する&lt;/li&gt;
+&lt;li&gt;ワーカーに処理させたいタスクをキューに入れる&lt;/li&gt;
+&lt;li&gt;ワーカーの処理結果をキューから受け取る&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;マスター
+
+&lt;ul&gt;
+&lt;li&gt;ワーカーを fork する&lt;/li&gt;
+&lt;li&gt;ワーカーの起動数を制御する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ワーカー
+
+&lt;ul&gt;
+&lt;li&gt;キューからタスクを受り、実行し、結果をキューに入れる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;今後:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;今後&lt;/h2&gt;
+
+&lt;p&gt;PHP5.6 未満のサポート終了を予定しています。&lt;br /&gt;
+これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。&lt;/p&gt;
+
+&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Snidel 0.2 をリリースしました</title>
