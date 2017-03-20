@@ -101,6 +101,62 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
     </item>
     
     <item>
+      <title>第1回 EC 事業部 Tech MTG</title>
+      <link>https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/</link>
+      <pubDate>Thu, 09 Mar 2017 14:09:56 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/</guid>
+      <description>
+
+&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;
+
+&lt;h2 id=&#34;ec-事業部-tech-mtg-とは:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;EC 事業部 Tech MTG とは&lt;/h2&gt;
+
+&lt;p&gt;クックパッド社の &lt;a href=&#34;http://techlife.cookpad.com/entry/2016/09/16/192927&#34;&gt;エンジニア全体ミーティング Tech MTGのすゝめ&lt;/a&gt; が良さそうだったので、うち(EC事業部)でもやろう！ということで始まった。&lt;br /&gt;
+社内では、昨年末から福岡のホスティング事業部が &lt;a href=&#34;http://tech.pepabo.com/2016/12/19/hosting-tech-mtg-report-01/&#34;&gt;隔月で開催している&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;発表内容:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;発表内容&lt;/h2&gt;
+
+&lt;p&gt;&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3fd29695180c42d9b564e6b2d491bf0a&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+　&lt;/p&gt;
+
+&lt;p&gt;いま担当しているサービスでは API を中心にしたアーキテクチャに移行しようとしていて、その場合に、よりマイクロサービス的な方向に進化していく一方で、障害連鎖のリスクが大きくなってしまうという課題提起と、解決策としてサーキットブレーカーの紹介をした。&lt;br /&gt;
+また、サービスの多くの部分が PHP で書かれているので、PHP 製のサーキットブレーカーとして拙作の &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; も紹介した。&lt;/p&gt;
+
+&lt;h3 id=&#34;自分にとってチャレンジだったこと:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;自分にとってチャレンジだったこと&lt;/h3&gt;
+
+&lt;p&gt;まだまだ発表の経験が少ないので、今回もチャレンジがいくつかあった。&lt;/p&gt;
+
+&lt;h6 id=&#34;発表時間:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;発表時間&lt;/h6&gt;
+
+&lt;p&gt;今回の発表時間は 12分(質問込み)。いままでLTしかやったことがなかったのではじめは時間の感覚が掴めなかった。&lt;/p&gt;
+
+&lt;h6 id=&#34;デモ:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;デモ&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; が作動する様子をデモした。発表の前半でサーキットブレーカーの仕組みについて説明しているので、実際に動いてるものを見てもらって、仕組みと動作のイメージをより具体的にしてもらうのが狙い。&lt;br /&gt;
+本番でモタつかないように事前に &lt;a href=&#34;https://github.com/ackintosh/ganesha/tree/master/examples&#34;&gt;デモ用のスクリプト&lt;/a&gt; を準備した。&lt;/p&gt;
+
+&lt;h6 id=&#34;笑いをとる:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;笑いをとる&lt;/h6&gt;
+
+&lt;p&gt;スライドを見ていただくとわかるが、いくつか笑いを誘う要素を散りばめている。&lt;br /&gt;
+&amp;ldquo;発表では無理に笑いを取ろうとせずに発表内容にフォーカスしよう&amp;rdquo; と言われていて&lt;br /&gt;
+その通りだと思うが、社内だし、スライドを作りながらネタを思いついたので（普段は笑いをとるようなキャラではないのだが）チャレンジしてみた。&lt;br /&gt;
+（もし怒られたら、発表を&lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;「もっとおもしろくできる」&lt;/a&gt;と思った。と言い訳しようと考えていた）&lt;/p&gt;
+
+&lt;h2 id=&#34;感想:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;感想&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5&lt;/a&gt;・&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;プレイドさんとの合同勉強会&lt;/a&gt;につづいて3回目の発表。人前に立つことには少し慣れてきた感覚があるが、相変わらず資料・トークの準備にかなり時間をかけている。今回は &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の開発もあって、ここ１ヶ月くらい他の事が手付かずだった。精神衛生上も良くないので、準備をもっと余裕を持ってできるようになりたい。&lt;/p&gt;
+
+&lt;p&gt;発表について、「わかりやすかった」「おもしろかった」と言ってもらえた。&lt;br /&gt;
+スライドで出来るだけ図で伝えようとしたり、笑いをとりにいった成果が感じられて嬉しかった。あと、&lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の名前が好評だった。（主にカレー部の方から）&lt;/p&gt;
+
+&lt;p&gt;なかなか集まる機会が無いので、EC事業部のエンジニアが集まっただけで「おぉ、ECのエンジニアってこんなにいたんだ&amp;hellip;!」という驚きと、なんだか頼もしいようなワクワクする感覚があった。そんななかで、業務で得た知見や生産性アップのTIPS・関心があること等を共有・議論する時間、これはまさにお祭りではないだろうか。&lt;/p&gt;
+
+&lt;p&gt;最高のサービスをつくっていこう、という意識の高まりを感じた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Yahoo! JAPAN MeetUp #9 (EC技術カンファレンス)</title>
       <link>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</link>
       <pubDate>Sat, 18 Feb 2017 23:34:08 +0900</pubDate>
@@ -564,32 +620,6 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 &lt;p&gt;( いまいちネタ記事なのかはっきりしない感じですが、以上です。)&lt;/p&gt;
 
 &lt;p&gt;明日は、我らがEC事業部プロダクトチームの女神 ayami さんです !&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016.12.16 おもしろくしたかった</title>
-      <link>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</link>
-      <pubDate>Fri, 16 Dec 2016 23:38:32 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
-      <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
-市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;記事の内容は &amp;ldquo;PHP に珍しい関数があるよ!&amp;rdquo; 程度だけど、この記事を書くに際して自分としては2つチャレンジがあった。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;PHP のソースコードを読む&lt;/li&gt;
-&lt;li&gt;おもしろくする&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;1.は C言語よくわからなくて、いままで読んだことなかったので。&lt;/p&gt;
-
-&lt;p&gt;2.について。いま働いているGMOペパボの企業理念に &lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;もっとおもしろくできる&lt;/a&gt; というのがあるので、読んでくれたひとに &amp;ldquo;おもしろい&amp;rdquo; と思ってもらえる記事を書こうと思った。&lt;br /&gt;
-で、今回書く記事では &amp;ldquo;クスッと笑ってしまう&amp;rdquo; おもしろさと &amp;ldquo;知的好奇心を満たす&amp;rdquo; おもしろさを両立しようとしたが、どちらも中途半端になってしまった気がする。うぅ&amp;hellip;難しい&amp;hellip;&lt;br /&gt;
-少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;
 </description>
     </item>
     
