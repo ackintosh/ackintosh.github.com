@@ -10,7 +10,7 @@
     <atom:link href="https://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Swagger Codegen &#43; CircuitBreaker</title>
+      <title>Swagger Codegen &#43; CircuitBreaker(Ganesha)</title>
       <link>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</link>
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
