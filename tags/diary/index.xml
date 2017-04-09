@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Diary on 暁</title>
-    <link>https://ackintosh.github.io/tags/diary/</link>
+    <link>https://ackintosh.github.io/tags/diary/index.xml</link>
     <description>Recent content in Diary on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 10 Feb 2017 19:01:58 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -17,6 +16,8 @@
       
       <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
       <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
 
@@ -33,8 +34,7 @@
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;
-</description>
+&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -43,15 +43,14 @@
       <pubDate>Tue, 31 Jan 2017 22:31:04 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/31/2017-01-31/</guid>
-      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。&lt;/p&gt;
+      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。
 
-&lt;p&gt;主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
+主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
 
 &lt;p&gt;Wikipedia で Robin Tunney のプロフィールを調べたら、なんと誕生日が同じだった !&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%93%E3%83%B3%E3%83%BB%E3%82%BF%E3%83%8B%E3%83%BC&#34;&gt;ロビン・タニー - Wikipedia&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;1997年に Niagara Niagaraを監督したボブ・ゴッスと結婚したが後に離婚し、2007年に映画監督の アンドリュー・ドミニクと婚約したが、後に解消している。2010年12月からは ヘルメット &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -60,10 +59,9 @@
       <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
-      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。&lt;/p&gt;
+      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。
 
-&lt;p&gt;理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;
-</description>
+理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -73,7 +71,8 @@
       
       <guid>https://ackintosh.github.io/blog/2017/01/03/2017-resolution/</guid>
       <description>&lt;p&gt;体を柔らかくする。股割りができるくらい。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -84,6 +83,8 @@
       <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
       <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
 章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
 
@@ -93,8 +94,7 @@
 アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
 あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
 
-&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;
-</description>
+&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -103,11 +103,11 @@
       <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
-      <description>
+      <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
 
-&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;転職:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;転職&lt;/h5&gt;
+&lt;h5 id=&#34;転職&#34;&gt;転職&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
@@ -125,7 +125,7 @@
 &lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
 ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
 
-&lt;h5 id=&#34;lt:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;LT&lt;/h5&gt;
+&lt;h5 id=&#34;lt&#34;&gt;LT&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
@@ -136,7 +136,7 @@
 PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
 このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
 
-&lt;h5 id=&#34;oss-活動:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;OSS 活動&lt;/h5&gt;
+&lt;h5 id=&#34;oss-活動&#34;&gt;OSS 活動&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
@@ -161,11 +161,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
 
-&lt;h5 id=&#34;引越し:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;引越し&lt;/h5&gt;
+&lt;h5 id=&#34;引越し&#34;&gt;引越し&lt;/h5&gt;
 
 &lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
-いまは片道30分。本当に楽。&lt;/p&gt;
-</description>
+いまは片道30分。本当に楽。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -176,11 +175,12 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
       <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
 
-&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;
-</description>
+&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -191,6 +191,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/24/2016-12-24/</guid>
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
 秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;まず秋葉原に集合。お互いに秋葉原の土地勘が全くないし、駅がデカくて出口がたくさんあるので合流するまでに時間がかかった。&lt;br /&gt;
 とりあえず自販で買ったホットコーヒーを飲みながら秋葉原公園で少しマッタリ。日陰はちょっと寒かった。&lt;/p&gt;
@@ -226,8 +228,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A6%E3%83%AD%E3%83%B3&#34;&gt;バウロン&lt;/a&gt;という打楽器が、見た目からは想像できない色々な音色があって、存在感が印象的だった。（Youtube 動画ではバウロンがほとんど聴こえない。生演奏だからこそわかる迫力があった。）&lt;/p&gt;
 
 &lt;p&gt;演奏の合間のトークも面白くて、メンバーの人柄の良さを感じられた。&lt;br /&gt;
-子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;
-</description>
+子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -236,13 +237,14 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
 使う機会がなくなってしまったので手放した。&lt;/p&gt;
 
 &lt;p&gt;最後にキレイに掃除して写真とった。
 &lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOWp3zCDwoM/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
+&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -253,13 +255,14 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
       <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
 値が取れないなぁー、 NULL になっちゃうなぁーと悩んでたら return を書いてなかった。このミス何回目だろうか。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
 
-&lt;p&gt;頭痛がひどい。&lt;/p&gt;
-</description>
+&lt;p&gt;頭痛がひどい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -272,6 +275,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOJxaaPjUHk/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt; - &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2016-12-18T09:00:42+00:00&#34;&gt;&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
 &lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
@@ -281,8 +286,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;色は第一印象ではモスグリーンが気になったけど、残念ながら売り切れてた。なので濃いめのグリーンがキレイで、商品画像のお姉さんもキレイなフォレストにした。&lt;/p&gt;
 
-&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;
-</description>
+&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -293,6 +297,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
       <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
 市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
 
@@ -307,8 +313,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;2.について。いま働いているGMOペパボの企業理念に &lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;もっとおもしろくできる&lt;/a&gt; というのがあるので、読んでくれたひとに &amp;ldquo;おもしろい&amp;rdquo; と思ってもらえる記事を書こうと思った。&lt;br /&gt;
 で、今回書く記事では &amp;ldquo;クスッと笑ってしまう&amp;rdquo; おもしろさと &amp;ldquo;知的好奇心を満たす&amp;rdquo; おもしろさを両立しようとしたが、どちらも中途半端になってしまった気がする。うぅ&amp;hellip;難しい&amp;hellip;&lt;br /&gt;
-少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;
-</description>
+少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -321,6 +326,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;オープンソースライセンスとは&lt;br /&gt;
 &lt;a href=&#34;https://www.jetbrains.com/buy/opensource/&#34;&gt;https://www.jetbrains.com/buy/opensource/&lt;/a&gt;&lt;/p&gt;
 
@@ -330,16 +337,14 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 
 &lt;p&gt;PhpStorm を起動するとプロジェクト名入りのライセンス表示が !&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/phpstorm_licensed_to_snidel.png&#34; alt=&#34;phpstorm licensed to snidel&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/phpstorm_licensed_to_snidel.png&#34; alt=&#34;phpstorm licensed to snidel&#34; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Licensed to snidel / Akihito Nakano&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;(もともと vim を使ってたけど) そんなわけで、ここ数ヶ月はプライベートで PhpStorm を使い、仕事でも&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;の手腕によって JetBrains 製品のコマーシャルライセンスを買ってもらったので PhpStorm を使っている。&lt;br /&gt;
-開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;
-</description>
+開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -349,6 +354,8 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
       
       <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
       <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://camo.githubusercontent.com/70395853479c982acab0d4cd78b06d14ec0d364b/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f32323038333534382f67616e657368612e706e67&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;ackintosh/ganesha&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;ganesha - PHP implementation of Circuit Breaker pattern.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
@@ -381,8 +388,7 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
 &lt;p&gt;画像を紫色に塗りつぶしてるときが一番楽しかったかもしれない。&lt;br /&gt;
 ( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
 
-&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;
-</description>
+&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -393,14 +399,15 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
       <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
       <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;理由は単純で、その方が愛着がわくし、お気に入りの名前が付けられればそれだけで開発が楽しくなるから。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel(スナイデル)&lt;/a&gt;という、 PHP でマルチプロセスをサクッとできるライブラリもそのひとつで、&lt;a href=&#34;http://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;なんとなく響きで付けた&lt;/a&gt;名前だけどシュッとしてて結構気に入ってる。&lt;/p&gt;
 
 &lt;p&gt;ちなみに、 &lt;a href=&#34;https://twitter.com/search?q=snidel&amp;amp;src=typd&#34;&gt;Snidel で twitter を検索&lt;/a&gt;すると、同名のアパレルファッションブランドに関するツイートがヒットするので、検索結果のタイムラインのかわいい女の子たちを眺めて一時の癒やしを得ることができる。&lt;/p&gt;
 
-&lt;p&gt;そんな、ちょっとしたライフハック術を編み出したのもキラキラネームのおかげ。&lt;/p&gt;
-</description>
+&lt;p&gt;そんな、ちょっとしたライフハック術を編み出したのもキラキラネームのおかげ。&lt;/p&gt;</description>
     </item>
     
   </channel>

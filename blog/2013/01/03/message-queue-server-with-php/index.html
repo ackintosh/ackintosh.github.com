@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,15 +143,15 @@
     </header>
   
     <section class="post-content">
-      
-
-<h4 id="kestrel:d50f8189626da1b347580b9d83fb329b">Kestrel</h4>
+      <h4 id="kestrel">Kestrel</h4>
 
 <p>Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。<br />
 <a href="http://samuraism.jp/diary/2011/11/20/1321770660000.html" target="_blank">Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
 :侍ズム#samuraism</a></p>
 
-<h4 id="インストールと起動:d50f8189626da1b347580b9d83fb329b">インストールと起動</h4>
+<p></p>
+
+<h4 id="インストールと起動">インストールと起動</h4>
 
 <pre><code>$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
 $ unzip kestrel-2.4.1.zip
@@ -159,7 +159,7 @@ $ cd kestrel-2.4.1
 $ sudo java -jar kestrel_2.9.2-2.4.1.jar
 </code></pre>
 
-<h4 id="zendqueue:d50f8189626da1b347580b9d83fb329b">ZendQueue</h4>
+<h4 id="zendqueue">ZendQueue</h4>
 
 <p>Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　</p>
 
@@ -168,7 +168,7 @@ $ sudo java -jar kestrel_2.9.2-2.4.1.jar
 <p>メッセージを格納する方法によって複数のアダプタが用意されています。<br />
 Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。</p>
 
-<h4 id="memcache:d50f8189626da1b347580b9d83fb329b">Memcache</h4>
+<h4 id="memcache">Memcache</h4>
 
 <p>あらかじめMemcachedライブラリもインストールしておいて下さい。<br />
 Macの場合はHomebrewを使うと簡単にインストールできます♪</p>
@@ -177,7 +177,7 @@ Macの場合はHomebrewを使うと簡単にインストールできます♪</p
 $ brew install memcache-php
 </code></pre>
 
-<h4 id="メッセージキューサーバーを体験:d50f8189626da1b347580b9d83fb329b">メッセージキューサーバーを体験</h4>
+<h4 id="メッセージキューサーバーを体験">メッセージキューサーバーを体験</h4>
 
 <p>２つのスクリプトを用意してください。<br />
 ・worker.php :
@@ -196,7 +196,6 @@ $ brew install memcache-php
 <p>簡単ですが以上です。<br />
 Hello, Worldが表示された時には感動しますね (・∀・)<br />
 worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪</p>
-
     </section>
 
 

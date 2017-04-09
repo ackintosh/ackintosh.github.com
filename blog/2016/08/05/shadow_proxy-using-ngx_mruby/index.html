@@ -39,7 +39,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/" />
 
@@ -89,7 +89,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -139,10 +139,10 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、<br />
+      <p>最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、<br />
 何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。</p>
+
+<p></p>
 
 <p>とはいえシャドウプロキシが何なのかはよくわかっていなかったので予め下記を参考にさせていただきました。</p>
 
@@ -169,7 +169,7 @@
 <li>心穏やかにリリースに臨める。</li>
 </ul>
 
-<h4 id="mruby-ngx-shadow-proxy:2a2046fa3e83942b1b485d7fe68a5a69">mruby-ngx-shadow_proxy</h4>
+<h4 id="mruby-ngx-shadow-proxy">mruby-ngx-shadow_proxy</h4>
 
 <p>ざっくりした実装しかしていませんが、github で公開しています。</p>
 
@@ -181,7 +181,7 @@
 <p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b" data-card-type="article-full"><h4><a href="http://blog.matsumoto-r.jp/?p=3923">mrubyの拡張モジュールであるmrbgemのテンプレートを自動で生成するmrbgem作った</a></h4></blockquote>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
 
-<h5 id="試行錯誤:2a2046fa3e83942b1b485d7fe68a5a69">試行錯誤</h5>
+<h5 id="試行錯誤">試行錯誤</h5>
 
 <p>実装を始めた当初は、上記に挙げたサーバーのように ngx_mruby で本番とバックエンドそれぞれに並列にリクエストを複製しようとしたのですが下記理由で別の方法にしました。</p>
 
@@ -202,7 +202,6 @@
 <p><a href="https://github.com/ackintosh/mruby-ngx-shadow_proxy#example" target="_blank">README<a/>に例を載せていますが、<br />
 ngx_mruby には<a href="https://github.com/matsumoto-r/ngx_mruby/wiki/Directives#ngx_mruby-http-module-directives" target="_blank">いろんなディレクティブ</a>があって nginx のフェーズにフックして制御できるようになっているので、
 mruby_log_handler というディレクティブを使うことで、クライアントにレスポンスを返した後のフェーズでバックエンドにリクエストを複製するようにしています。</p>
-
     </section>
 
 

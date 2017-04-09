@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,29 +143,28 @@
     </header>
   
     <section class="post-content">
-      
+      <p>Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。</p>
 
-<p>Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。</p>
+<p></p>
 
 <p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b" data-card-image="https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png" data-card-type="article"><h4><a href="https://github.com/ackintosh/snidel">ackintosh/snidel</a></h4><p>snidel - A multi-process container.</p></blockquote>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
 
-<h2 id="独自のキューを実装-利用できるようになりました:8bbe2aaaf7913751720b4bba6350e33e">独自のキューを実装・利用できるようになりました</h2>
+<h2 id="独自のキューを実装-利用できるようになりました">独自のキューを実装・利用できるようになりました</h2>
 
 <p>今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。<br />
 下記のように Amazon SQS を利用することもできます。</p>
 
-<p><img src="https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png" alt="with Amazon SQS" />
-</p>
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png" alt="with Amazon SQS" /></p>
 
-<h5 id="なぜ:8bbe2aaaf7913751720b4bba6350e33e">なぜ？</h5>
+<h5 id="なぜ">なぜ？</h5>
 
 <p>Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。<br />
 そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。</p>
 
 <p>今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。</p>
 
-<h5 id="独自のキューを実装-利用するには:8bbe2aaaf7913751720b4bba6350e33e">独自のキューを実装・利用するには？</h5>
+<h5 id="独自のキューを実装-利用するには">独自のキューを実装・利用するには？</h5>
 
 <p>所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。</p>
 
@@ -173,24 +172,22 @@
 
 <p>キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。</p>
 
-<h2 id="アーキテクチャを変更しました:8bbe2aaaf7913751720b4bba6350e33e">アーキテクチャを変更しました</h2>
+<h2 id="アーキテクチャを変更しました">アーキテクチャを変更しました</h2>
 
 <p>キューをプラガブルにするのに伴ってアーキテクチャを変更しました。</p>
 
-<h6 id="ビフォー:8bbe2aaaf7913751720b4bba6350e33e">ビフォー</h6>
+<h6 id="ビフォー">ビフォー</h6>
 
-<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png" alt="before" />
-</p>
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png" alt="before" /></p>
 
-<h6 id="アフター:8bbe2aaaf7913751720b4bba6350e33e">アフター</h6>
+<h6 id="アフター">アフター</h6>
 
-<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png" alt="after" />
-</p>
+<p><img src="https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png" alt="after" /></p>
 
 <p>これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが<br />
 今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。</p>
 
-<h5 id="なぜ-1:8bbe2aaaf7913751720b4bba6350e33e">なぜ？</h5>
+<h5 id="なぜ-1">なぜ？</h5>
 
 <p>プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。<br />
 Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。</p>
@@ -218,13 +215,12 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 </ul></li>
 </ul>
 
-<h2 id="今後:8bbe2aaaf7913751720b4bba6350e33e">今後</h2>
+<h2 id="今後">今後</h2>
 
 <p>PHP5.6 未満のサポート終了を予定しています。<br />
 これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。</p>
 
 <p>また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。</p>
-
     </section>
 
 

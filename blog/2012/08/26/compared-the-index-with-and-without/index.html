@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,16 +143,16 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>usersとfavoritesが１対多になるようにして、<br />
+      <p>usersとfavoritesが１対多になるようにして、<br />
 indexの設定あり・なしの2つのDBを用意して比較しました。</p>
+
+<p></p>
 
 <p>予め、<br />
 usersは 100,000件<br />
 favoritesに300,000件のレコードを用意しました。</p>
 
-<h4 id="indexなし:09793f3c289fcb619f5db03a22274e59">indexなし</h4>
+<h4 id="indexなし">indexなし</h4>
 
 <p>・テーブル作成</p>
 
@@ -168,14 +168,12 @@ favorite_name varchar(40) not null
 </code></pre>
 
 <p>・select<br />
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png" alt="select" />
-</p>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png" alt="select" /></p>
 
 <p>・explain<br />
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png" alt="explain" />
-</p>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png" alt="explain" /></p>
 
-<h4 id="indexあり:09793f3c289fcb619f5db03a22274e59">indexあり</h4>
+<h4 id="indexあり">indexあり</h4>
 
 <p>・テーブル作成</p>
 
@@ -192,14 +190,12 @@ foreign key(user_id) references users(id)
 </code></pre>
 
 <p>・select<br />
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png" alt="select" />
-</p>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png" alt="select" /></p>
 
 <p>・explain<br />
-<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png" alt="explain" />
-</p>
+<img src="https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png" alt="explain" /></p>
 
-<h4 id="結果:09793f3c289fcb619f5db03a22274e59">結果</h4>
+<h4 id="結果">結果</h4>
 
 <ul>
 <li>indexなし
@@ -210,7 +206,6 @@ foreign key(user_id) references users(id)
 
 <p>explainの結果から、indexがないと<br />
 テーブルのフルスキャンが発生してしまっていることがわかりました。</p>
-
     </section>
 
 

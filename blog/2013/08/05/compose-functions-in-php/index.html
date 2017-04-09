@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -148,6 +148,8 @@ target="_blank">PHP で関数合成 - Qiita [キータ]</a></p>
 
 <p>こちらの投稿がとても興味深かったので、自分なりに書いてみました。</p>
 
+<p></p>
+
 <pre><code class="language-php">&lt;?php
 class Compose
 {
@@ -184,7 +186,6 @@ $camelize = Compose::_($splitWithUnderscore, $mapUcfirst, 'join');
 var_dump($camelize('man_with_a_mission'));
 // ManWithAMission
 </code></pre>
-
     </section>
 
 

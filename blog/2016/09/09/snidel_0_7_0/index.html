@@ -39,7 +39,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/" />
 
@@ -89,7 +89,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -139,15 +139,15 @@
     </header>
   
     <section class="post-content">
-      
+      <p>今回のリリースでは実装をシンプルにするために機能を削除しました。</p>
 
-<p>今回のリリースでは実装をシンプルにするために機能を削除しました。</p>
+<p></p>
 
-<h4 id="削除した機能:8b8d658c70dd916a2c83cfce3cead93b">削除した機能</h4>
+<h4 id="削除した機能">削除した機能</h4>
 
 <p>バージョン 0.2 で実装した <code>Snidel::map()</code> です。 この機能についての説明は <a href="https://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/#複数の処理を並列につなげて実行:ee76cbb32354dec37a8e590548214889">Snidel 0.2 をリリースしました</a> に書いています。</p>
 
-<h4 id="削除した理由:8b8d658c70dd916a2c83cfce3cead93b">削除した理由</h4>
+<h4 id="削除した理由">削除した理由</h4>
 
 <p><a href="https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/">バージョン 0.6 で内部的なアーキテクチャを大幅に変更</a>して、親プロセス・子プロセスの間でデータの受け渡し方が変わったのですが、0.6 の時点では <code>Snidel::map()</code> は対応できておらず、旧方式のままでした。</p>
 
@@ -159,10 +159,9 @@
 
 <p>（削除した部分は、別のライブラリとして作るかもしれません）</p>
 
-<h4 id="今後の展望:8b8d658c70dd916a2c83cfce3cead93b">今後の展望</h4>
+<h4 id="今後の展望">今後の展望</h4>
 
 <p>Snidel がタスクを子プロセスに渡したり、その処理結果を受け取る際に system v message queue を使っているのですが、これを外部ストレージも使えるようにしたいです。その理由も含めて、次回リリース時の記事にまとめたいと思います。</p>
-
     </section>
 
 

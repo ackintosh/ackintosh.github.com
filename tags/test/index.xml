@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on 暁</title>
-    <link>https://ackintosh.github.io/tags/test/</link>
+    <link>https://ackintosh.github.io/tags/test/index.xml</link>
     <description>Recent content in Test on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 24 Nov 2013 15:35:00 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -18,6 +17,8 @@
       <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;例えば&lt;/p&gt;
 
@@ -60,8 +61,7 @@ class LegacyTest extends PHPUnit_Framework_TestCase
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
-</description>
+&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -72,6 +72,8 @@ class LegacyTest extends PHPUnit_Framework_TestCase
       <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;例えば下記のコードでは&lt;br /&gt;
 receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
@@ -104,8 +106,7 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
 &lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
-&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

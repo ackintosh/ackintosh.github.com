@@ -2,13 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 暁</title>
-    <link>https://ackintosh.github.io/post/</link>
+    <link>https://ackintosh.github.io/post/index.xml</link>
     <description>Recent content in Posts on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 10 Mar 2017 21:48:28 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 09 Apr 2017 16:33:27 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Swagger Codegen &#43; CircuitBreaker</title>
+      <link>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</link>
+      <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;swagger-codegen-とは&#34;&gt;Swagger Codegen とは&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;swagger-api/swagger-codegen&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。&lt;br /&gt;
+Mac なら &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen#homebrew&#34;&gt;Homebrew でさくっと試せる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install swagger-codegen
+$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o .
+$ tree
+.
+└── SwaggerClient-php
+    ├── README.md
+    ├── autoload.php
+    ├── composer.json
+    ├── docs
+    │   ├── Api
+    │   │   ├── PetApi.md
+    │   │   ├── StoreApi.md
+    │   │   └── UserApi.md
+    │   └── Model
+    │       ├── ApiResponse.md
+    │       ├── Category.md
+    │       ├── Order.md
+    │       ├── Pet.md
+    │       ├── Tag.md
+    │       └── User.md
+    ├── git_push.sh
+    ├── lib
+    │   ├── Api
+    │   │   ├── PetApi.php
+    │   │   ├── StoreApi.php
+    │   │   └── UserApi.php
+    │   ├── ApiClient.php
+    │   ├── ApiException.php
+    │   ├── Configuration.php
+    │   ├── Model
+    │   │   ├── ApiResponse.php
+    │   │   ├── Category.php
+    │   │   ├── Order.php
+    │   │   ├── Pet.php
+    │   │   ├── Tag.php
+    │   │   └── User.php
+    │   └── ObjectSerializer.php
+    ├── phpunit.xml.dist
+    └── test
+        ├── Api
+        │   ├── PetApiTest.php
+        │   ├── StoreApiTest.php
+        │   └── UserApiTest.php
+        └── Model
+            ├── ApiResponseTest.php
+            ├── CategoryTest.php
+            ├── OrderTest.php
+            ├── PetTest.php
+            ├── TagTest.php
+            └── UserTest.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とても良さそうですが、生成したコードがそのまま実際のサービスで使えるケースは少ないのではないでしょうか。たとえば外部 API の呼び出しでは、障害の連鎖を防ぐために &lt;a href=&#34;https://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker パターン&lt;/a&gt; の適用がとても有効です。&lt;/p&gt;
+
+&lt;p&gt;PHP の CircuitBreaker 実装 &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の作者であるわたしとしては、Swagger Codegen で生成したクライアントコードに Ganesha を組み込む方法を明らかにしておきたいところです。&lt;/p&gt;
+
+&lt;h2 id=&#34;circuitbreaker-ganesha-を組み込む&#34;&gt;CircuitBreaker(Ganesha)を組み込む&lt;/h2&gt;
+
+&lt;h3 id=&#34;オリジナルのテンプレートを用意する方法&#34;&gt;オリジナルのテンプレートを用意する方法&lt;/h3&gt;
+
+&lt;p&gt;Swagger Codegen は &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen/src/main/resources/php&#34;&gt;こちら&lt;/a&gt; のディレクトリにあるテンプレートを元にしてコードを生成しますが、&lt;br /&gt;
+&lt;code&gt;-t&lt;/code&gt; オプションでオリジナルのテンプレートを指定することもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ swagger-codegen help generate
+...
+...
+        -t &amp;lt;template directory&amp;gt;, --template-dir &amp;lt;template directory&amp;gt;
+            folder containing the template files
+...
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なので、composer.json と ApiClient.php の元になるテンプレートを適当なディレクトリにコピーして &lt;a href=&#34;https://gist.github.com/ackintosh/b31193abc9a61f16dbb9f19652cc7215&#34;&gt;こんな感じ&lt;/a&gt; でいじれば、Ganesha を利用したコードが生成されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . -t mytemplates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;class ApiClient
+    public function __construct(\Swagger\Client\Configuration $config = null)
+    {
+        if ($config === null) {
+            $config = Configuration::getDefaultConfiguration();
+        }
+
+        $this-&amp;gt;config = $config;
+        $this-&amp;gt;serializer = new ObjectSerializer();
++        $m = new \Memcached();
++        $m-&amp;gt;addServer(&#39;localhost&#39;, 11211);
++        $this-&amp;gt;ganesha = Builder::build([
++            &#39;failureRate&#39; =&amp;gt; 50,
++            &#39;adapter&#39;     =&amp;gt; new Ackintosh\Ganesha\Storage\Adapter\Memcached($m),
++        ]);
+    }
+
+    public function callApi($resourcePath, $method, $queryParams, $postData, $headerParams, $responseType = null, $endpointPath = null)
+    {
+
++        if (!$ganesha-&amp;gt;isAvailable($url)) {
++            throw new ApiException(&amp;quot;$url is not available&amp;quot;);
++        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;apiclient-をラップしたクラスを用意する方法&#34;&gt;ApiClient をラップしたクラスを用意する方法&lt;/h3&gt;
+
+&lt;p&gt;また、できるだけ独自のロジックを外出ししたい場合は &lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;こちら&lt;/a&gt; のように ApiClient をラップしたクラスを用意すると良さそうです。&lt;/p&gt;
+
+&lt;h5 id=&#34;参考&#34;&gt;参考&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;Swagger CodegenでPHPクライアントを生成する - GeekFactory&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;今のところ、APIクライアントにはインターセプタの仕組みは用意されていないようです。共通処理を入れたい場合は ApiClient クラスを継承した独自クラスを定義し、APIクライアントのコンストラクタに渡すとよいでしょう。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ただ、この場合は &amp;ldquo;ラップしたクラスを必ず API クライアントのコンストラクタに渡さないといけない&amp;rdquo; ので、その責務を別のオブジェクトに持たせるためにファクトリや DI コンテナの必要性が出てくるのではないかと思っています。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Snidel 0.8 をリリースしました</title>
@@ -16,29 +150,28 @@
       <pubDate>Fri, 10 Mar 2017 21:48:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
-      <description>
+      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
 
-&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;snidel - A multi-process container.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
+&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
 
 &lt;p&gt;今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。&lt;br /&gt;
 下記のように Amazon SQS を利用することもできます。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;なぜ:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+&lt;h5 id=&#34;なぜ&#34;&gt;なぜ？&lt;/h5&gt;
 
 &lt;p&gt;Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。&lt;br /&gt;
 そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。&lt;/p&gt;
 
 &lt;p&gt;今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。&lt;/p&gt;
 
-&lt;h5 id=&#34;独自のキューを実装-利用するには:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
+&lt;h5 id=&#34;独自のキューを実装-利用するには&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
 
 &lt;p&gt;所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。&lt;/p&gt;
 
@@ -46,24 +179,22 @@
 
 &lt;p&gt;キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。&lt;/p&gt;
 
-&lt;h2 id=&#34;アーキテクチャを変更しました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
+&lt;h2 id=&#34;アーキテクチャを変更しました&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
 
 &lt;p&gt;キューをプラガブルにするのに伴ってアーキテクチャを変更しました。&lt;/p&gt;
 
-&lt;h6 id=&#34;ビフォー:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;ビフォー&lt;/h6&gt;
+&lt;h6 id=&#34;ビフォー&#34;&gt;ビフォー&lt;/h6&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;&lt;/p&gt;
 
-&lt;h6 id=&#34;アフター:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アフター&lt;/h6&gt;
+&lt;h6 id=&#34;アフター&#34;&gt;アフター&lt;/h6&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが&lt;br /&gt;
 今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。&lt;/p&gt;
 
-&lt;h5 id=&#34;なぜ-1:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+&lt;h5 id=&#34;なぜ-1&#34;&gt;なぜ？&lt;/h5&gt;
 
 &lt;p&gt;プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。&lt;br /&gt;
 Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。&lt;/p&gt;
@@ -91,13 +222,12 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;今後:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;今後&lt;/h2&gt;
+&lt;h2 id=&#34;今後&#34;&gt;今後&lt;/h2&gt;
 
 &lt;p&gt;PHP5.6 未満のサポート終了を予定しています。&lt;br /&gt;
 これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。&lt;/p&gt;
 
-&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;
-</description>
+&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -106,19 +236,19 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Thu, 09 Mar 2017 14:09:56 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/</guid>
-      <description>
+      <description>&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;
 
-&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;(追記) 会社のテックブログが公開されました。&lt;br /&gt;
 &lt;a href=&#34;http://tech.pepabo.com/2017/03/24/ec-tech-mtg-1st-introductory-report/&#34;&gt;第1回EC事業部TechMTGの様子 &amp;amp; テキストを公開します！ - ペパボテックブログ&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;ec-事業部-tech-mtg-とは:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;EC 事業部 Tech MTG とは&lt;/h2&gt;
+&lt;h2 id=&#34;ec-事業部-tech-mtg-とは&#34;&gt;EC 事業部 Tech MTG とは&lt;/h2&gt;
 
 &lt;p&gt;クックパッド社の &lt;a href=&#34;http://techlife.cookpad.com/entry/2016/09/16/192927&#34;&gt;エンジニア全体ミーティング Tech MTGのすゝめ&lt;/a&gt; が良さそうだったので、うち(EC事業部)でもやろう！ということで始まった。&lt;br /&gt;
 社内では、昨年末から福岡のホスティング事業部が &lt;a href=&#34;http://tech.pepabo.com/2016/12/19/hosting-tech-mtg-report-01/&#34;&gt;隔月で開催している&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h2 id=&#34;発表内容:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;発表内容&lt;/h2&gt;
+&lt;h2 id=&#34;発表内容&#34;&gt;発表内容&lt;/h2&gt;
 
 &lt;p&gt;&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3fd29695180c42d9b564e6b2d491bf0a&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
 　&lt;/p&gt;
@@ -126,27 +256,27 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;p&gt;いま担当しているサービスでは API を中心にしたアーキテクチャに移行しようとしていて、その場合に、よりマイクロサービス的な方向に進化していく一方で、障害連鎖のリスクが大きくなってしまうという課題提起と、解決策としてサーキットブレーカーの紹介をした。&lt;br /&gt;
 また、サービスの多くの部分が PHP で書かれているので、PHP 製のサーキットブレーカーとして拙作の &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; も紹介した。&lt;/p&gt;
 
-&lt;h3 id=&#34;自分にとってチャレンジだったこと:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;自分にとってチャレンジだったこと&lt;/h3&gt;
+&lt;h3 id=&#34;自分にとってチャレンジだったこと&#34;&gt;自分にとってチャレンジだったこと&lt;/h3&gt;
 
 &lt;p&gt;まだまだ発表の経験が少ないので、今回もチャレンジがいくつかあった。&lt;/p&gt;
 
-&lt;h6 id=&#34;発表時間:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;発表時間&lt;/h6&gt;
+&lt;h6 id=&#34;発表時間&#34;&gt;発表時間&lt;/h6&gt;
 
 &lt;p&gt;今回の発表時間は 12分(質問込み)。いままでLTしかやったことがなかったので、トークの練習ではじめは時間の感覚が掴めなかった。&lt;/p&gt;
 
-&lt;h6 id=&#34;デモ:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;デモ&lt;/h6&gt;
+&lt;h6 id=&#34;デモ&#34;&gt;デモ&lt;/h6&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; が作動する様子をデモした。発表の前半でサーキットブレーカーの仕組みについて説明しているので、実際に動いてるものを見てもらって、仕組みと動作のイメージをより具体的にしてもらうのが狙い。&lt;br /&gt;
 本番でモタつかないように事前に &lt;a href=&#34;https://github.com/ackintosh/ganesha/tree/master/examples&#34;&gt;デモ用のスクリプト&lt;/a&gt; を準備した。&lt;/p&gt;
 
-&lt;h6 id=&#34;笑いをとる:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;笑いをとる&lt;/h6&gt;
+&lt;h6 id=&#34;笑いをとる&#34;&gt;笑いをとる&lt;/h6&gt;
 
 &lt;p&gt;スライドを見ていただくとわかるが、いくつか笑いを誘う要素を散りばめている。&lt;br /&gt;
     &amp;ldquo;発表では無理に笑いを取ろうとせずに発表内容にフォーカスしよう&amp;rdquo; と言われていて&lt;br /&gt;
 その通りだと思うが、社内だし、スライドを作りながらネタを思いついたので（普段は笑いをとるようなキャラではないのだが）チャレンジしてみた。&lt;br /&gt;
 （もし怒られたら、発表を&lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;「もっとおもしろくできる」&lt;/a&gt;と思った。と言い訳しようと考えていた）&lt;/p&gt;
 
-&lt;h2 id=&#34;感想:b954ce9d71d122e8d60112ee4fedc6f6&#34;&gt;感想&lt;/h2&gt;
+&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5&lt;/a&gt;・&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;プレイドさんとの合同勉強会&lt;/a&gt;につづいて3回目の発表。人前に立つことには少し慣れてきた感覚があるが、相変わらず資料・トークの準備にかなり時間をかけている。今回は &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の開発もあって、ここ１ヶ月くらい他の事が手付かずだった。精神衛生上も良くないので、準備をもっと余裕を持ってできるようになりたい。&lt;/p&gt;
 
@@ -155,8 +285,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 
 &lt;p&gt;なかなか集まる機会が無いので、EC事業部のエンジニアが集まっただけで「おぉ、ECのエンジニアってこんなにいたんだ&amp;hellip;!」という驚きと、なんだか頼もしいようなワクワクする感覚があった。そんななかで、業務で得た知見や生産性アップのTIPS・関心があること等を共有・議論する時間、これはまさにお祭りではないだろうか。&lt;/p&gt;
 
-&lt;p&gt;最高のサービスをつくっていこう、という意識の高まりを感じた。&lt;/p&gt;
-</description>
+&lt;p&gt;最高のサービスをつくっていこう、という意識の高まりを感じた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -165,9 +294,8 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Sat, 18 Feb 2017 23:34:08 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</guid>
-      <description>
-
-&lt;p&gt;に行ってきた。&lt;/p&gt;
+      <description>&lt;p&gt;に行ってきた。
+&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://yj-meetup.connpass.com/event/48215/&#34;&gt;Yahoo! JAPAN MeetUp #9 （EC技術カンファレンス） (2017/02/18 14:00〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;今回のテーマは「E-Commerce」です！ ECの成長を支えるため、各サービスが考えている技術戦略から、ヤフーの持つビッグデータ、データサイエンスの活用事例紹介など&amp;hellip;ヤフーのEC事情がぎゅっと詰ま っています。 当日は現場のエンジニアやデザイナーもいるので、聞きたいこと・話したいことがあればなんでも聞いてください。 &lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
@@ -175,9 +303,9 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;p&gt;自分が仕事で担当してるサービスに取り込める何かを持ち帰るのが目的。&lt;br /&gt;
 以下、発表や懇親会でYahoo!ショッピングのエンジニアさんに聞いて印象に残ったことのメモ。&lt;/p&gt;
 
-&lt;h2 id=&#34;いい買い物の日の受注集中による障害と対策:d494f056156daf74f39324577ac664e2&#34;&gt;いい買い物の日の受注集中による障害と対策&lt;/h2&gt;
+&lt;h2 id=&#34;いい買い物の日の受注集中による障害と対策&#34;&gt;いい買い物の日の受注集中による障害と対策&lt;/h2&gt;
 
-&lt;h4 id=&#34;いい買い物の日とは:d494f056156daf74f39324577ac664e2&#34;&gt;いい買い物の日とは&lt;/h4&gt;
+&lt;h4 id=&#34;いい買い物の日とは&#34;&gt;いい買い物の日とは&lt;/h4&gt;
 
 &lt;p&gt;11/11に買い物すればポイント11倍 というキャンペーン&lt;/p&gt;
 
@@ -187,7 +315,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;p&gt;アリババのエンジニアに相談して対策をうち、
 2016年のキャンペーンを無事に乗り切った。&lt;/p&gt;
 
-&lt;h4 id=&#34;サーキットブレーカーを実装:d494f056156daf74f39324577ac664e2&#34;&gt;サーキットブレーカーを実装&lt;/h4&gt;
+&lt;h4 id=&#34;サーキットブレーカーを実装&#34;&gt;サーキットブレーカーを実装&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;OSS は使わず、社内で簡易的に実装したのを使っている&lt;/li&gt;
@@ -197,7 +325,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;li&gt;アリババは OSS にする予定は無いとのこと&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;カード後決済:d494f056156daf74f39324577ac664e2&#34;&gt;カード後決済&lt;/h4&gt;
+&lt;h4 id=&#34;カード後決済&#34;&gt;カード後決済&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;決済サービスが障害で応答しない場合、まず受注してしまう&lt;/li&gt;
@@ -205,7 +333,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;li&gt;サーキットブレーカーで遮断された決済を、カード後決済させる&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;スロットリング:d494f056156daf74f39324577ac664e2&#34;&gt;スロットリング&lt;/h4&gt;
+&lt;h4 id=&#34;スロットリング&#34;&gt;スロットリング&lt;/h4&gt;
 
 &lt;p&gt;(※ スロットリングとは言ってなかったが、スロットリングのことだろうと解釈している ※)&lt;br /&gt;
 (※ サーキットブレーカーは &amp;ldquo;リクエストする側&amp;rdquo; の対策。スロットリングは &amp;ldquo;リクエストされる側&amp;rdquo; の対策。という理解 ※)&lt;/p&gt;
@@ -216,7 +344,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;li&gt;アリババは、サーバーのリソース使用状況を監視して絞る比率を動的に調節している&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;テクニカルディレクターが現場に言ってる4つのこと:d494f056156daf74f39324577ac664e2&#34;&gt;テクニカルディレクターが現場に言ってる4つのこと&lt;/h2&gt;
+&lt;h2 id=&#34;テクニカルディレクターが現場に言ってる4つのこと&#34;&gt;テクニカルディレクターが現場に言ってる4つのこと&lt;/h2&gt;
 
 &lt;p&gt;(※ テクニカルディレクターはペパボでいうところの &lt;a href=&#34;http://blog.kentarok.org/entry/2016/09/05/000512&#34;&gt;CTL&lt;/a&gt; 的なポジション ※)&lt;/p&gt;
 
@@ -238,7 +366,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;li&gt;大事なところをしっかりテストできているかを重視している&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;感想:d494f056156daf74f39324577ac664e2&#34;&gt;感想&lt;/h2&gt;
+&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
 
 &lt;p&gt;ちょうどサーキットブレーカーの必要性を感じていて &lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;PHP のライブラリを絶賛実装中&lt;/a&gt;ということもあり、どういう実装してるのかとても興味深かったが、担当したエンジニアさんが会場にいなくて細かい話を聞けなかったのがとても残念だった。&lt;br /&gt;
 カード後決済の仕組みも気になっていたが、時間が足りなくて聞けなかったも残念。&lt;br /&gt;
@@ -247,8 +375,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;p&gt;Yahoo!ショッピングは今年で18年とのこと。なんとなく、先進的な技術を取り入れて凄いことやってるイメージをもっていたが、LTではレガシーな部分と戦う様子を伺えたのが印象的だった。&lt;br /&gt;
 コードベースも利用者も桁違いに多いので色々運用も大変なはず。なのに自分が担当しているサービスよりもイイ感じになってるのが少し悔しい。  もっと頑張ろう。&lt;/p&gt;
 
-&lt;p&gt;Yahoo!のみなさま、貴重な学びの機会をいただきありがとうございました！&lt;/p&gt;
-</description>
+&lt;p&gt;Yahoo!のみなさま、貴重な学びの機会をいただきありがとうございました！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -258,6 +385,8 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       
       <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
       <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
 
@@ -274,8 +403,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;
-</description>
+&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -284,15 +412,14 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Tue, 31 Jan 2017 22:31:04 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/31/2017-01-31/</guid>
-      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。&lt;/p&gt;
+      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。
 
-&lt;p&gt;主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
+主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
 
 &lt;p&gt;Wikipedia で Robin Tunney のプロフィールを調べたら、なんと誕生日が同じだった !&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%93%E3%83%B3%E3%83%BB%E3%82%BF%E3%83%8B%E3%83%BC&#34;&gt;ロビン・タニー - Wikipedia&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;1997年に Niagara Niagaraを監督したボブ・ゴッスと結婚したが後に離婚し、2007年に映画監督の アンドリュー・ドミニクと婚約したが、後に解消している。2010年12月からは ヘルメット &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
+&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -301,10 +428,9 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
-      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。&lt;/p&gt;
+      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。
 
-&lt;p&gt;理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;
-</description>
+理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -314,7 +440,8 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       
       <guid>https://ackintosh.github.io/blog/2017/01/03/2017-resolution/</guid>
       <description>&lt;p&gt;体を柔らかくする。股割りができるくらい。&lt;/p&gt;
-</description>
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -325,6 +452,8 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
       <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
 章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
 
@@ -334,8 +463,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
 あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
 
-&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;
-</description>
+&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -344,11 +472,11 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
-      <description>
+      <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
 
-&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;転職:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;転職&lt;/h5&gt;
+&lt;h5 id=&#34;転職&#34;&gt;転職&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
@@ -366,7 +494,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
 ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
 
-&lt;h5 id=&#34;lt:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;LT&lt;/h5&gt;
+&lt;h5 id=&#34;lt&#34;&gt;LT&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
@@ -377,7 +505,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
 このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
 
-&lt;h5 id=&#34;oss-活動:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;OSS 活動&lt;/h5&gt;
+&lt;h5 id=&#34;oss-活動&#34;&gt;OSS 活動&lt;/h5&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
@@ -402,11 +530,10 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
 
-&lt;h5 id=&#34;引越し:2f9375f8fda1b8f899c2ccd5da9acfb1&#34;&gt;引越し&lt;/h5&gt;
+&lt;h5 id=&#34;引越し&#34;&gt;引越し&lt;/h5&gt;
 
 &lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
-いまは片道30分。本当に楽。&lt;/p&gt;
-</description>
+いまは片道30分。本当に楽。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -417,11 +544,12 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
       <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
 &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
 
-&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;
-</description>
+&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -432,6 +560,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/24/2016-12-24/</guid>
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
 秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;まず秋葉原に集合。お互いに秋葉原の土地勘が全くないし、駅がデカくて出口がたくさんあるので合流するまでに時間がかかった。&lt;br /&gt;
 とりあえず自販で買ったホットコーヒーを飲みながら秋葉原公園で少しマッタリ。日陰はちょっと寒かった。&lt;/p&gt;
@@ -467,8 +597,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A6%E3%83%AD%E3%83%B3&#34;&gt;バウロン&lt;/a&gt;という打楽器が、見た目からは想像できない色々な音色があって、存在感が印象的だった。（Youtube 動画ではバウロンがほとんど聴こえない。生演奏だからこそわかる迫力があった。）&lt;/p&gt;
 
 &lt;p&gt;演奏の合間のトークも面白くて、メンバーの人柄の良さを感じられた。&lt;br /&gt;
-子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;
-</description>
+子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -477,13 +606,14 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
 使う機会がなくなってしまったので手放した。&lt;/p&gt;
 
 &lt;p&gt;最後にキレイに掃除して写真とった。
 &lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOWp3zCDwoM/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
+&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -494,13 +624,14 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
       <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
 値が取れないなぁー、 NULL になっちゃうなぁーと悩んでたら return を書いてなかった。このミス何回目だろうか。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
 
-&lt;p&gt;頭痛がひどい。&lt;/p&gt;
-</description>
+&lt;p&gt;頭痛がひどい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -513,6 +644,8 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOJxaaPjUHk/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt; - &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2016-12-18T09:00:42+00:00&#34;&gt;&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
 &lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
@@ -522,108 +655,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;色は第一印象ではモスグリーンが気になったけど、残念ながら売り切れてた。なので濃いめのグリーンがキレイで、商品画像のお姉さんもキレイなフォレストにした。&lt;/p&gt;
 
-&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>充実した1年のスタートを ― PHPで</title>
-      <link>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</link>
-      <pubDate>Sat, 17 Dec 2016 21:24:33 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
-      <description>
-
-&lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2016/pepabo&#34;&gt;pepabo Advent Calendar 2016&lt;/a&gt; 17日目の記事です。&lt;br /&gt;
-昨日は genkiroid さんの &lt;a href=&#34;https://genkiroid.github.io/2016/12/16/about-turpan/&#34;&gt;PHPのrequire系ステートメントと断捨離について&lt;/a&gt; でした。コードを断捨離していきましょう!!!&lt;/p&gt;
-
-&lt;h4 id=&#34;ご存知でしょうか:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;ご存知でしょうか？&lt;/h4&gt;
-
-&lt;p&gt;珍しい組み込み関数があることで有名な PHP[要出典] ですが、 &lt;strong&gt;date_sunrise&lt;/strong&gt; という関数をご存知でしょうか。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/function.date-sunrise.php&#34;&gt;PHP: date_sunrise - Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;date_sunrise — 指定した日付と場所についての日の出時刻を返す&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;試しに、ペパボ本社がある東京都渋谷区セルリアンタワーの元旦の 日の出時刻 を出力してみます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ php -d date.timezone=&#39;Asia/Tokyo&#39; -r &#39;echo date_sunrise(mktime(0, 0, 0, 1, 1, 2017), SUNFUNCS_RET_STRING, 35.39, 139.41);&#39;
-
-06:51
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;素晴らしい&amp;hellip;。&lt;br /&gt;
-これを使ってアレをソレすれば 2017 年の初日の出を寝過ごすことなくしっかり拝み、充実した1年をスタートさせることができます。必要なのは PHP とその他の (恐らくごくわずかな) 手間だけです。&lt;/p&gt;
-
-&lt;p&gt;ただ、 &lt;strong&gt;この時間が本当にあってるのかちょっと不安&lt;/strong&gt; です。&lt;/p&gt;
-
-&lt;h4 id=&#34;ソースコード探索:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;ソースコード探索&lt;/h4&gt;
-
-&lt;p&gt;ということで date_sunrise の実装を覗いてみましょう。 (PHP7.1.0)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/tree/PHP-7.1&#34;&gt;php/php-src: The PHP Interpreter&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;関数は &lt;code&gt;PHP_FUNCTION&lt;/code&gt; マクロを使って定義されているので &lt;code&gt;PHP_FUNCTION(date_sunrise)&lt;/code&gt; で検索すればすぐに目的のコードにたどり着けます。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&#34;&gt;https://github.com/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c#L4834&lt;/a&gt;&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4830:4846&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;内部的には日の入り時間を返す &lt;a href=&#34;http://php.net/manual/ja/function.date-sunset.php&#34;&gt;date_sunset&lt;/a&gt; とかなり共通していて、&lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の第2引数に渡すフラグで処理を分けているようです。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/php/php-src/blob/PHP-7.1.0/Zend/zend.h#L49&#34;&gt;INTERNAL_FUNCTION_PARAM_PASSTHRU マクロ&lt;/a&gt;は、その名の通り引数を利用しない場合のアテの役割で、 &lt;code&gt;execute_data, return_value&lt;/code&gt; に展開されます。&lt;/p&gt;
-
-&lt;p&gt;なぜアテが必要かというと、 &lt;code&gt;PHP_FUNCTION(date_sunrise)&lt;/code&gt; はコンパイラによって最終的に &lt;code&gt;zif_date_sunrise(zend_execute_data *execute_data, zval *return_value)&lt;/code&gt; に展開されるので、この第1, 2引数を埋めるために INTERNAL_FUNCTION_PARAM_PASSTHRU マクロを使っています。&lt;/p&gt;
-
-&lt;p&gt;つづいて &lt;code&gt;php_do_date_sunrise_sunset&lt;/code&gt; の中を順番に見ていきます。&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4743:4762&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;変数の初期化と引数を解析しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;zend_parse_parameters&lt;/code&gt; は第1引数で実行時に渡された引数の数、第2引数で引数の情報を受取り、解析した結果を第3引数以降に代入します。&lt;br /&gt;
-また、第2引数 &lt;code&gt;&amp;quot;l|ldddd&amp;quot;&lt;/code&gt; は、各引数の型と必須・オプションを表していて、パイプ &lt;code&gt;|&lt;/code&gt; で区切られた後ろの2つめ以降がオプショナルであることがわかります。&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4761:4783&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;つづいて、実行時に渡された引数の数によって、デフォルト値を設定しています。switch 文のフォールスルーがうまく使われていて勉強になります。&lt;br /&gt;
-&lt;code&gt;INI_FLT&lt;/code&gt; は php.ini の設定値を取得するための double 型用のマクロです。&lt;a href=&#34;http://php.net/manual/ja/function.date-sunrise.php&#34;&gt;マニュアル&lt;/a&gt;を見ると、たしかに &lt;code&gt;ini_get(&amp;quot;date.default_latitude&amp;quot;)&lt;/code&gt; 等がデフォルトで使われると書かれています。&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4783:4790&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;第2引数で渡す format が、予め定義されているどれにも該当しない場合に警告を出力しています。PHP で開発しているとよく見るあの警告は &lt;code&gt;php_error_docref&lt;/code&gt; で出力されているようです。&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/php_date.c?slice=4791:4805&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;ようやく時間を計算してそうなコードまでたどり着きました !!&lt;br /&gt;
-肝心の計算をしているであろう &lt;code&gt;timelib_astro_rise_set_altitude&lt;/code&gt; の中を見てみます。&lt;/p&gt;
-
-&lt;script src=&#34;//gist-it.appspot.com/github/php/php-src/blob/PHP-7.1.0/ext/date/lib/astro.c?slice=211:296&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;フムフム&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ちゃんと計算されていることがわかりました&amp;hellip; !&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;充実した1年のスタートを-phpで:4c50acdb0cca17e91fd65b0a0e43887e&#34;&gt;充実した1年のスタートを ― PHPで&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;緻密に計算された日の出時刻を返してくれる&lt;/strong&gt; date_sunrise 関数。&lt;/p&gt;
-
-&lt;p&gt;一字一句違わず正確に繰り返しますが、&lt;br /&gt;
-これを使ってアレをソレすれば 2017 年の初日の出を寝過ごすことなくしっかり拝み、充実した1年をスタートさせることができます。必要なのは PHP とその他の (恐らくごくわずかな) 手間だけです。&lt;/p&gt;
-
-&lt;p&gt;新年の目標や計画を立て始めている方も多いのではないでしょうか。&lt;br /&gt;
-何事も出だしが肝心といわれています。ぜひみなさんの 2017年 スタートダッシュのお供に PHP を。&lt;/p&gt;
-
-&lt;p&gt;( いまいちネタ記事なのかはっきりしない感じですが、以上です。)&lt;/p&gt;
-
-&lt;p&gt;明日は、我らがEC事業部プロダクトチームの女神 ayami さんです !&lt;/p&gt;
-</description>
+&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;</description>
     </item>
     
   </channel>

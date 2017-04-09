@@ -43,7 +43,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/" />
 
@@ -93,7 +93,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -147,41 +147,39 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br />
+      <p>最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。<br />
 RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。</p>
+
+<p></p>
 
 <p><a href="http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904"
 target="_blank">WEB+DB PRESS Vol.70</a></p>
 
 <p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg" alt="WEB+DB PRESS
-Vol.70" />
-</p>
+Vol.70" /></p>
 
 <p>WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。<br />
 普段Railsで開発するときはherokuを使っているので<br />
 herokuでUnicornを使ってみたいと思います。</p>
 
-<h4 id="heroku-ps-を確認:efe676b81146b18a9904db35f4708df9">heroku ps を確認</h4>
+<h4 id="heroku-ps-を確認">heroku ps を確認</h4>
 
 <p>まずはherokuで現在使われているWebサーバーを確認します。</p>
 
 <pre><code>$ heroku ps
 </code></pre>
 
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png" alt="heroku_ps" />
-</p>
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png" alt="heroku_ps" /></p>
 
 <p>herokuのデフォルトはthinなのでしょうか？？<br />
 以下、Unicornのインストールを進めていきます。</p>
 
-<h4 id="gemfileに追加:efe676b81146b18a9904db35f4708df9">Gemfileに追加</h4>
+<h4 id="gemfileに追加">Gemfileに追加</h4>
 
 <pre><code>gem 'unicorn'
 </code></pre>
 
-<h4 id="config-unicorn-rbを作成:efe676b81146b18a9904db35f4708df9">config/unicorn.rbを作成</h4>
+<h4 id="config-unicorn-rbを作成">config/unicorn.rbを作成</h4>
 
 <p>とりあえず設定内容は下記にしました。<br />
 詳しいことは勉強中です。すみません。</p>
@@ -193,27 +191,26 @@ stdout_path &quot;log/unicorn-out.log&quot;
 stderr_path &quot;log/unicorn-err.log&quot;
 </code></pre>
 
-<h4 id="procfileを作成:efe676b81146b18a9904db35f4708df9">Procfileを作成</h4>
+<h4 id="procfileを作成">Procfileを作成</h4>
 
 <p>Railsのルートディレクトリ直下にProcfileを作成します。</p>
 
 <pre><code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb  
 </code></pre>
 
-<h4 id="herokuにpush:efe676b81146b18a9904db35f4708df9">herokuにpush</h4>
+<h4 id="herokuにpush">herokuにpush</h4>
 
 <p>いつものようにherokuにpushします。</p>
 
 <pre><code>$ git push heroku master
 </code></pre>
 
-<h4 id="heroku-ps-で確認:efe676b81146b18a9904db35f4708df9">heroku ps で確認</h4>
+<h4 id="heroku-ps-で確認">heroku ps で確認</h4>
 
 <pre><code>$ heroku ps
 </code></pre>
 
-<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png" alt="heroku_ps_unicorn" />
-</p>
+<p><img src="https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png" alt="heroku_ps_unicorn" /></p>
 
 <p>bundle exec unicorn …となっていれば成功です。
 heroku psの出力の2行目が</p>
@@ -222,7 +219,6 @@ heroku psの出力の2行目が</p>
 </code></pre>
 
 <p>になっていたら設定を見なおしてみてください。</p>
-
     </section>
 
 

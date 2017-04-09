@@ -39,7 +39,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/" />
 
@@ -89,7 +89,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -139,17 +139,16 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>外部的なインターフェースは変わっていませんが、<br />
+      <p>外部的なインターフェースは変わっていませんが、<br />
 内部的なアーキテクチャを大幅に変更しました。</p>
 
 <p><a href="https://github.com/ackintosh/snidel/releases/tag/0.6.0">Release 0.6.0 · ackintosh/snidel</a></p>
 
-<h3 id="従来のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0">従来のアーキテクチャ</h3>
+<p></p>
 
-<p><img src="https://raw.githubusercontent.com/ackintosh/snidel/master/images/original_architecture.png" alt="original_architecture.png" />
-</p>
+<h3 id="従来のアーキテクチャ">従来のアーキテクチャ</h3>
+
+<p><img src="https://raw.githubusercontent.com/ackintosh/snidel/master/images/original_architecture.png" alt="original_architecture.png" /></p>
 
 <ul>
 <li>Snidel::fork() を実行したタイミングで子プロセスを fork し、
@@ -161,7 +160,7 @@
 (実行中・待機中の子プロセスがあれば、それらが完了するまで親プロセスは待機する)</li>
 </ul>
 
-<h3 id="問題点:4d7ad6f73d7201295106d2c9c2dab7a0">問題点</h3>
+<h3 id="問題点">問題点</h3>
 
 <p>Snidel::fork() で即座に子プロセスを fork するため、<br />
 場合によっては瞬間的に大量の fork が発生するため下記の問題がありました。</p>
@@ -175,12 +174,11 @@
 同時実行数を超えた Snidel::fork() 呼び出しの際に親プロセス (Snidel を利用する側) を<br />
 実行中の子プロセスが終了するまで待機させなければいけません。</p>
 
-<h3 id="改善後のアーキテクチャ:4d7ad6f73d7201295106d2c9c2dab7a0">改善後のアーキテクチャ</h3>
+<h3 id="改善後のアーキテクチャ">改善後のアーキテクチャ</h3>
 
 <p>Master-Workerモデルに変更しました。</p>
 
-<p><img src="https://raw.githubusercontent.com/ackintosh/snidel/master/images/master_worker.png" alt="master_worker.png" />
-</p>
+<p><img src="https://raw.githubusercontent.com/ackintosh/snidel/master/images/master_worker.png" alt="master_worker.png" /></p>
 
 <ul>
 <li>初回の Snidel::fork() を実行したタイミングで Master プロセスを fork する</li>
@@ -203,7 +201,6 @@
 Snidel::map() に関連する処理の中で内部的に利用されていて、今後こちらも置き換える予定です。<br />
 Snidel::map() はバージョン0.2で実装した機能で、リリース時の記事で「複数の処理を並列につなげて実行」という項目で紹介しています。<br />
 <a href="http://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/">Snidel 0.2 をリリースしました</a></p>
-
     </section>
 
 

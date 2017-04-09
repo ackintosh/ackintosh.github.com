@@ -39,7 +39,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/02/24/l7switching-with-cf/" />
 
@@ -89,7 +89,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -139,9 +139,7 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>最近仕事で担当しているサービスをオンプレからAWSに移行しました。</p>
+      <p>最近仕事で担当しているサービスをオンプレからAWSに移行しました。</p>
 
 <p>ビジネスの都合で短期間で移行しなければいけなかったり、<br />
 AWSに関しては、<br />
@@ -151,7 +149,9 @@ AWSに関しては、<br />
 
 <p>この記事では移行の際にハマったことを共有します。</p>
 
-<h2 id="cloudfront-で-url振り分けをする:ca709987244aa21a0352b3870aa9a35d">CloudFront で URL振り分けをする</h2>
+<p></p>
+
+<h2 id="cloudfront-で-url振り分けをする">CloudFront で URL振り分けをする</h2>
 
 <p><a href="http://example.com/aaa">http://example.com/aaa</a> のアクセスはサーバー(群)A<br />
 <a href="http://example.com/bbb">http://example.com/bbb</a> のアクセスはサーバー(群)B<br />
@@ -163,14 +163,14 @@ L7 スイッチとして使うのが手軽で運用も楽です。</p>
 
 <p>設定についての詳細は参考URLをご参照ください。</p>
 
-<h4 id="参考url:ca709987244aa21a0352b3870aa9a35d">参考URL</h4>
+<h4 id="参考url">参考URL</h4>
 
 <ul>
 <li><a href="http://mil-o.jp/yb/elb-l7/" target="_blank">[AWS]ELBがURLで振り分けできない問題はCloudFrontでなんとかする</a></li>
 <li><a href="https://forums.aws.amazon.com/thread.jspa?threadID=137123" target="_blank">ELBでURLごとにサーバー振り分け</a></li>
 </ul>
 
-<h2 id="注意点:ca709987244aa21a0352b3870aa9a35d">注意点</h2>
+<h2 id="注意点">注意点</h2>
 
 <p>ですがこの方法だと フィーチャーフォン で HTTPS ページが閲覧できなくなります。<br />
 （全ての機種で閲覧できなくなるかはわかりませんが、10機種ほどで確認したら全滅でした）</p>
@@ -192,7 +192,7 @@ L7 スイッチとして使うのが手軽で運用も楽です。</p>
 
 <p><a href="https://ja.wikipedia.org/wiki/Server_Name_Indication" target="_blank">Server Name Indication - Wikipedia</a></p>
 
-<h4 id="回避方法:ca709987244aa21a0352b3870aa9a35d">回避方法</h4>
+<h4 id="回避方法">回避方法</h4>
 
 <p>AWSドキュメントにいくつか紹介されています。</p>
 
@@ -204,7 +204,7 @@ L7 スイッチとして使うのが手軽で運用も楽です。</p>
 <p>あとは、ユースケース次第ですが、フィーチャーフォン用のサブドメインを用意して<br />
 フィーチャーフォンでは CloudFront を使わない(URLで振り分けをしない)のも有りだと思います。</p>
 
-<h4 id="どうしたか:ca709987244aa21a0352b3870aa9a35d">どうしたか</h4>
+<h4 id="どうしたか">どうしたか</h4>
 
 <p>URLで振り分けるのをやめました。</p>
 
@@ -215,7 +215,7 @@ L7 スイッチとして使うのが手軽で運用も楽です。</p>
 <p>クラウドならスケールアップ／スケールアウトが自由自在なので<br />
 &ldquo;やばかったら増強すればいい&rdquo; ということで振り分けるのをやめました。</p>
 
-<h3 id="書籍紹介:ca709987244aa21a0352b3870aa9a35d">書籍紹介</h3>
+<h3 id="書籍紹介">書籍紹介</h3>
 
 <p>こちらの本で AWS の基礎を勉強しました。<br />
 各サービスの概要からバックアップ等の実際の運用について書かれていて、<br />
@@ -223,7 +223,6 @@ L7 スイッチとして使うのが手軽で運用も楽です。</p>
 
 <p><blockquote class="embedly-card" data-card-key="916e111541fe433792c1330eb7eba55b"><h4><a href="http://www.amazon.co.jp/o/ASIN/4774176737/gihyojp-22">Amazon Web Services実践入門 (WEB+DB PRESS plus)</a></h4><p>Amazon公式サイトでAmazon Web Services実践入門 (WEB+DB PRESS plus)を購入すると、Amazon配送商品なら、配送料無料でお届け。Amazonポイント還元本も多数。Amazon.co.jpをお探しなら豊富な品ぞろえのAmazon.co.jp</p></blockquote>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script></p>
-
     </section>
 
 

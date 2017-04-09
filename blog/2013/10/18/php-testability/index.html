@@ -43,7 +43,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/10/18/php-testability/" />
 
@@ -93,7 +93,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -150,6 +150,8 @@
       <p>テストしにくい状況って色々な原因があると思いますが、<br />
 今回はグローバル関数への依存について。</p>
 
+<p></p>
+
 <p>例えば下記のコードでは<br />
 receiveDataメソッドの中でmail関数を呼び出しているので<br />
 テストしにくくなっています。<br />
@@ -182,7 +184,6 @@ target="_blank">レガシーコード改善ガイド</a>では<br />
 
 <p>ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。<br />
 <a href="http://phpmentors.jp/post/46982737824" target="_blank">PHPメンターズ -&gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める</a></p>
-
     </section>
 
 

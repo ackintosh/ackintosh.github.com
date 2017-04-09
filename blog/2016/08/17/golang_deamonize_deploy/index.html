@@ -39,7 +39,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/" />
 
@@ -89,7 +89,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -139,9 +139,9 @@
     </header>
   
     <section class="post-content">
-      
+      <p>社内の某合宿イベントで、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。</p>
 
-<p>社内の某合宿イベントで、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。</p>
+<p></p>
 
 <p>慣れない事が多くて試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（<a href="#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</a>）</p>
 
@@ -164,10 +164,9 @@
 </ul>
 
 <p>(デプロイの図)
-<img src="https://ackintosh.github.io/images/golang_deamonize_deploy.png" alt="deploy" />
-</p>
+<img src="https://ackintosh.github.io/images/golang_deamonize_deploy.png" alt="deploy" /></p>
 
-<h5 id="試行錯誤:c89a01ea34ec3d3b965d2855f1d3c3d0">試行錯誤</h5>
+<h5 id="試行錯誤">試行錯誤</h5>
 
 <p>試行錯誤や調査の結果、利用を見送ったもの。</p>
 
@@ -194,7 +193,7 @@
 
 <p>　→ grace なら最小限の変更で済む。公式に<a href="https://echo.labstack.com/recipes/graceful-shutdown">サンプルコード</a>がある。</p>
 
-<h5 id="展望:c89a01ea34ec3d3b965d2855f1d3c3d0">展望</h5>
+<h5 id="展望">展望</h5>
 
 <ul>
 <li>ビルドサーバーを用意してバイナリを配布する仕組みを作ってみたい</li>
@@ -205,7 +204,7 @@
 </ul></li>
 </ul>
 
-<h5 id="参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</h5>
+<h5 id="参考記事">参考記事</h5>
 
 <ul>
 <li><a href="http://blog.yusuke.be/entry/2016/01/18/111838">Golangを初めて本番投入したぜ！</a></li>
@@ -214,7 +213,6 @@
 <li><a href="http://blog.livedoor.jp/sonots/archives/40248661.html">「Server::Starterに対応するとはどういうことか」の補足</a></li>
 <li><a href="http://mattn.kaoriya.net/software/lang/go/20130918122901.htm">Go言語でWebAppの運用に必要なN個のこと</a></li>
 </ul>
-
     </section>
 
 

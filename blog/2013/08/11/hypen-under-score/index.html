@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/08/11/hypen-under-score/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,15 +143,15 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。</p>
+      <p>ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。</p>
 
 <p>言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。</p>
 
-<h4 id="eric-hodel氏の推奨するネーミングルール:9f67e2a979143e636a28a8963816fa9d">Eric Hodel氏の推奨するネーミングルール</h4>
+<h4 id="eric-hodel氏の推奨するネーミングルール">Eric Hodel氏の推奨するネーミングルール</h4>
 
 <p>RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。</p>
+
+<p></p>
 
 <p><a href="http://blog.segment7.net/2010/11/15/how-to-name-gems"
 target="_blank">How to Name Gems</a></p>
@@ -181,9 +181,9 @@ know what to require. gem install net-http-persistent becomes require
 アンダースコア -&gt; 単語の区切り<br />
 といったところでしょうか。</p>
 
-<h4 id="試してみる:9f67e2a979143e636a28a8963816fa9d">試してみる</h4>
+<h4 id="試してみる">試してみる</h4>
 
-<h5 id="ハイフン区切り:9f67e2a979143e636a28a8963816fa9d">ハイフン区切り</h5>
+<h5 id="ハイフン区切り">ハイフン区切り</h5>
 
 <pre><code>$ bundle gem ackintosh-tiny-progressbar
 </code></pre>
@@ -199,7 +199,7 @@ end
 
 <p>全て別のモジュールに分かれています。</p>
 
-<h5 id="アンダースコア区切り:9f67e2a979143e636a28a8963816fa9d">アンダースコア区切り</h5>
+<h5 id="アンダースコア区切り">アンダースコア区切り</h5>
 
 <pre><code>$ bundle gem ackintosh-tiny_progressbar
 </code></pre>
@@ -212,7 +212,6 @@ end
 </code></pre>
 
 <p>「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。</p>
-
     </section>
 
 

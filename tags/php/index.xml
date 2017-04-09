@@ -2,13 +2,146 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on 暁</title>
-    <link>https://ackintosh.github.io/tags/php/</link>
+    <link>https://ackintosh.github.io/tags/php/index.xml</link>
     <description>Recent content in Php on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 10 Mar 2017 21:48:28 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Swagger Codegen &#43; CircuitBreaker</title>
+      <link>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</link>
+      <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;swagger-codegen-とは&#34;&gt;Swagger Codegen とは&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;swagger-api/swagger-codegen&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。&lt;br /&gt;
+Mac なら &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen#homebrew&#34;&gt;Homebrew でさくっと試せる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install swagger-codegen
+$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o .
+$ tree
+.
+└── SwaggerClient-php
+    ├── README.md
+    ├── autoload.php
+    ├── composer.json
+    ├── docs
+    │   ├── Api
+    │   │   ├── PetApi.md
+    │   │   ├── StoreApi.md
+    │   │   └── UserApi.md
+    │   └── Model
+    │       ├── ApiResponse.md
+    │       ├── Category.md
+    │       ├── Order.md
+    │       ├── Pet.md
+    │       ├── Tag.md
+    │       └── User.md
+    ├── git_push.sh
+    ├── lib
+    │   ├── Api
+    │   │   ├── PetApi.php
+    │   │   ├── StoreApi.php
+    │   │   └── UserApi.php
+    │   ├── ApiClient.php
+    │   ├── ApiException.php
+    │   ├── Configuration.php
+    │   ├── Model
+    │   │   ├── ApiResponse.php
+    │   │   ├── Category.php
+    │   │   ├── Order.php
+    │   │   ├── Pet.php
+    │   │   ├── Tag.php
+    │   │   └── User.php
+    │   └── ObjectSerializer.php
+    ├── phpunit.xml.dist
+    └── test
+        ├── Api
+        │   ├── PetApiTest.php
+        │   ├── StoreApiTest.php
+        │   └── UserApiTest.php
+        └── Model
+            ├── ApiResponseTest.php
+            ├── CategoryTest.php
+            ├── OrderTest.php
+            ├── PetTest.php
+            ├── TagTest.php
+            └── UserTest.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とても良さそうですが、生成したコードがそのまま実際のサービスで使えるケースは少ないのではないでしょうか。たとえば外部 API の呼び出しでは、障害の連鎖を防ぐために &lt;a href=&#34;https://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker パターン&lt;/a&gt; の適用がとても有効です。&lt;/p&gt;
+
+&lt;p&gt;PHP の CircuitBreaker 実装 &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の作者であるわたしとしては、Swagger Codegen で生成したクライアントコードに Ganesha を組み込む方法を明らかにしておきたいところです。&lt;/p&gt;
+
+&lt;h2 id=&#34;circuitbreaker-ganesha-を組み込む&#34;&gt;CircuitBreaker(Ganesha)を組み込む&lt;/h2&gt;
+
+&lt;h3 id=&#34;オリジナルのテンプレートを用意する方法&#34;&gt;オリジナルのテンプレートを用意する方法&lt;/h3&gt;
+
+&lt;p&gt;Swagger Codegen は &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen/src/main/resources/php&#34;&gt;こちら&lt;/a&gt; のディレクトリにあるテンプレートを元にしてコードを生成しますが、&lt;br /&gt;
+&lt;code&gt;-t&lt;/code&gt; オプションでオリジナルのテンプレートを指定することもできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ swagger-codegen help generate
+...
+...
+        -t &amp;lt;template directory&amp;gt;, --template-dir &amp;lt;template directory&amp;gt;
+            folder containing the template files
+...
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なので、composer.json と ApiClient.php の元になるテンプレートを適当なディレクトリにコピーして &lt;a href=&#34;https://gist.github.com/ackintosh/b31193abc9a61f16dbb9f19652cc7215&#34;&gt;こんな感じ&lt;/a&gt; でいじれば、Ganesha を利用したコードが生成されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . -t mytemplates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;class ApiClient
+    public function __construct(\Swagger\Client\Configuration $config = null)
+    {
+        if ($config === null) {
+            $config = Configuration::getDefaultConfiguration();
+        }
+
+        $this-&amp;gt;config = $config;
+        $this-&amp;gt;serializer = new ObjectSerializer();
++        $m = new \Memcached();
++        $m-&amp;gt;addServer(&#39;localhost&#39;, 11211);
++        $this-&amp;gt;ganesha = Builder::build([
++            &#39;failureRate&#39; =&amp;gt; 50,
++            &#39;adapter&#39;     =&amp;gt; new Ackintosh\Ganesha\Storage\Adapter\Memcached($m),
++        ]);
+    }
+
+    public function callApi($resourcePath, $method, $queryParams, $postData, $headerParams, $responseType = null, $endpointPath = null)
+    {
+
++        if (!$ganesha-&amp;gt;isAvailable($url)) {
++            throw new ApiException(&amp;quot;$url is not available&amp;quot;);
++        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;apiclient-をラップしたクラスを用意する方法&#34;&gt;ApiClient をラップしたクラスを用意する方法&lt;/h3&gt;
+
+&lt;p&gt;また、できるだけ独自のロジックを外出ししたい場合は &lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;こちら&lt;/a&gt; のように ApiClient をラップしたクラスを用意すると良さそうです。&lt;/p&gt;
+
+&lt;h5 id=&#34;参考&#34;&gt;参考&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;Swagger CodegenでPHPクライアントを生成する - GeekFactory&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;今のところ、APIクライアントにはインターセプタの仕組みは用意されていないようです。共通処理を入れたい場合は ApiClient クラスを継承した独自クラスを定義し、APIクライアントのコンストラクタに渡すとよいでしょう。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ただ、この場合は &amp;ldquo;ラップしたクラスを必ず API クライアントのコンストラクタに渡さないといけない&amp;rdquo; ので、その責務を別のオブジェクトに持たせるためにファクトリや DI コンテナの必要性が出てくるのではないかと思っています。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Snidel 0.8 をリリースしました</title>
@@ -16,29 +149,28 @@
       <pubDate>Fri, 10 Mar 2017 21:48:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
-      <description>
+      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
 
-&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;snidel - A multi-process container.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
+&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
 
 &lt;p&gt;今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。&lt;br /&gt;
 下記のように Amazon SQS を利用することもできます。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;&lt;/p&gt;
 
-&lt;h5 id=&#34;なぜ:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+&lt;h5 id=&#34;なぜ&#34;&gt;なぜ？&lt;/h5&gt;
 
 &lt;p&gt;Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。&lt;br /&gt;
 そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。&lt;/p&gt;
 
 &lt;p&gt;今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。&lt;/p&gt;
 
-&lt;h5 id=&#34;独自のキューを実装-利用するには:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
+&lt;h5 id=&#34;独自のキューを実装-利用するには&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
 
 &lt;p&gt;所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。&lt;/p&gt;
 
@@ -46,24 +178,22 @@
 
 &lt;p&gt;キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。&lt;/p&gt;
 
-&lt;h2 id=&#34;アーキテクチャを変更しました:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
+&lt;h2 id=&#34;アーキテクチャを変更しました&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
 
 &lt;p&gt;キューをプラガブルにするのに伴ってアーキテクチャを変更しました。&lt;/p&gt;
 
-&lt;h6 id=&#34;ビフォー:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;ビフォー&lt;/h6&gt;
+&lt;h6 id=&#34;ビフォー&#34;&gt;ビフォー&lt;/h6&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;&lt;/p&gt;
 
-&lt;h6 id=&#34;アフター:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;アフター&lt;/h6&gt;
+&lt;h6 id=&#34;アフター&#34;&gt;アフター&lt;/h6&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが&lt;br /&gt;
 今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。&lt;/p&gt;
 
-&lt;h5 id=&#34;なぜ-1:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;なぜ？&lt;/h5&gt;
+&lt;h5 id=&#34;なぜ-1&#34;&gt;なぜ？&lt;/h5&gt;
 
 &lt;p&gt;プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。&lt;br /&gt;
 Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。&lt;/p&gt;
@@ -91,13 +221,12 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;今後:8bbe2aaaf7913751720b4bba6350e33e&#34;&gt;今後&lt;/h2&gt;
+&lt;h2 id=&#34;今後&#34;&gt;今後&lt;/h2&gt;
 
 &lt;p&gt;PHP5.6 未満のサポート終了を予定しています。&lt;br /&gt;
 これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。&lt;/p&gt;
 
-&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;
-</description>
+&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -106,15 +235,15 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Sun, 08 Nov 2015 16:05:24 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; バージョン 0.2 をリリースしました。&lt;br /&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; バージョン 0.2 をリリースしました。&lt;br /&gt;
 この記事は、&lt;br /&gt;
 追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。&lt;/p&gt;
 
 &lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;
 
-&lt;h3 id=&#34;特定の処理結果を取得:ee76cbb32354dec37a8e590548214889&#34;&gt;特定の処理結果を取得&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;特定の処理結果を取得&#34;&gt;特定の処理結果を取得&lt;/h3&gt;
 
 &lt;p&gt;処理結果を取得するメソッドとして &lt;code&gt;Snidel::get()&lt;/code&gt; を用意していますが&lt;br /&gt;
 並列に処理する関係で、 &lt;code&gt;Shidel::get()&lt;/code&gt; で得られる結果の順番は保証されません。&lt;/p&gt;
@@ -154,7 +283,7 @@ var_dump($snidel-&amp;gt;get(&#39;tag1&#39;));
 
 &lt;p&gt;上記サンプルコードでは &lt;code&gt;tag1&lt;/code&gt; を指定した処理の結果だけを取得しています。&lt;/p&gt;
 
-&lt;h3 id=&#34;ログの出力:ee76cbb32354dec37a8e590548214889&#34;&gt;ログの出力&lt;/h3&gt;
+&lt;h3 id=&#34;ログの出力&#34;&gt;ログの出力&lt;/h3&gt;
 
 &lt;p&gt;これは Snidel 自体の開発で必要性を感じて実装しました。&lt;/p&gt;
 
@@ -176,7 +305,7 @@ $snidel-&amp;gt;fork($func, &#39;foo&#39;);
 
 &lt;p&gt;上記サンプルコードでは標準出力にプロセス生成などのログが出力されています。&lt;/p&gt;
 
-&lt;h3 id=&#34;複数の処理を並列につなげて実行:ee76cbb32354dec37a8e590548214889&#34;&gt;複数の処理を並列につなげて実行&lt;/h3&gt;
+&lt;h3 id=&#34;複数の処理を並列につなげて実行&#34;&gt;複数の処理を並列につなげて実行&lt;/h3&gt;
 
 &lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能です。&lt;/p&gt;
 
@@ -266,7 +395,7 @@ var_dump($snidel-&amp;gt;run($camelize));
 
 &lt;p&gt;以上が追加した機能になります。&lt;/p&gt;
 
-&lt;h3 id=&#34;社内で使ってもらえました:ee76cbb32354dec37a8e590548214889&#34;&gt;社内で使ってもらえました!&lt;/h3&gt;
+&lt;h3 id=&#34;社内で使ってもらえました&#34;&gt;社内で使ってもらえました!&lt;/h3&gt;
 
 &lt;p&gt;初回リリース時の記事 (&lt;a href=&#34;https://ackintosh.github.io/blog/2015/09/29/snidel/&#34;&gt;php で手軽に並列処理をするライブラリ Snidel を作りました&lt;/a&gt;) で&lt;/p&gt;
 
@@ -281,8 +410,7 @@ var_dump($snidel-&amp;gt;run($camelize));
 &lt;p&gt;今後は&amp;hellip;&lt;br /&gt;
 初回リリースから１ヶ月ちょっと経って、実装したい機能は一通り終わったのですが、&lt;br /&gt;
 テストコードが少なくてちょっと恥ずかしい感じなので&lt;br /&gt;
-引き続きそのへんをいじっていきたいと思っています。&lt;/p&gt;
-</description>
+引き続きそのへんをいじっていきたいと思っています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -291,14 +419,14 @@ var_dump($snidel-&amp;gt;run($camelize));
       <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2015/09/29/snidel/</guid>
-      <description>
+      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
 
-&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a class=&#34;embedly-card&#34; href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;
 &lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;snidel-スナイデル-について:6059c22da48c7213647847cb35fc5a38&#34;&gt;Snidel (スナイデル) について&lt;/h3&gt;
+&lt;h3 id=&#34;snidel-スナイデル-について&#34;&gt;Snidel (スナイデル) について&lt;/h3&gt;
 
 &lt;p&gt;他の言語のマルチスレッド等の並行・並列処理のための機構に近い書き心地で
 php で手軽に並列処理をする。というのがコンセプトです。&lt;/p&gt;
@@ -310,8 +438,7 @@ php で手軽に並列処理をする。というのがコンセプトです。&
 &lt;p&gt;命名に特にこだわりは無いのですが、響きがシュッとしてていいかなと思ってます。&lt;br /&gt;
 ただ、この記事を書きながらGoogle翻訳にかけてみたらエストニア語で「薬物使用者を注入」って出てきたので少し怖くなってきました&amp;hellip;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png&#34; alt=&#34;snidel_translate&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/octopress/snidel_translate.png&#34; alt=&#34;snidel_translate&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;proc_open() や exec() でコマンドをバックグラウンドで実行するのではなく、&lt;br /&gt;
 Callable を別プロセスで実行して、結果を親プロセスが受け取るかたちにしたかったので PCNTL関数 を使うようにしました。&lt;/p&gt;
@@ -343,7 +470,7 @@ echo (time() - $s) . &#39;sec elapsed&#39; . PHP_EOL;
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;作り始めたきっかけ:6059c22da48c7213647847cb35fc5a38&#34;&gt;作り始めたきっかけ&lt;/h3&gt;
+&lt;h3 id=&#34;作り始めたきっかけ&#34;&gt;作り始めたきっかけ&lt;/h3&gt;
 
 &lt;p&gt;仕事で携わっているプロジェクトでは &lt;a href=&#34;https://github.com/squizlabs/PHP_CodeSniffer&#34; target=&#34;_balnk&#34;&gt;PHP_CodeSniffer&lt;/a&gt; を使ってコーディング規約チェックをしていて、規約のエラー数を日次で集計して社内の可視化ツールに結果を投げています。&lt;/p&gt;
 
@@ -351,7 +478,7 @@ echo (time() - $s) . &#39;sec elapsed&#39; . PHP_EOL;
 php じゃなくても良かったのですが勉強のため。&lt;br /&gt;
 いい感じにできれば他のプロジェクトでも使えるかもですし。&lt;/p&gt;
 
-&lt;h3 id=&#34;結果:6059c22da48c7213647847cb35fc5a38&#34;&gt;結果&lt;/h3&gt;
+&lt;h3 id=&#34;結果&#34;&gt;結果&lt;/h3&gt;
 
 &lt;p&gt;集計処理の時間が下記のように改善しました。&lt;/p&gt;
 
@@ -378,8 +505,7 @@ sys  0m20.341s
 複数のCPUが使えてることがわかります。&lt;/p&gt;
 
 &lt;p&gt;ライブラリの出来としては、github の issues に挙げていますが&lt;br /&gt;
-まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;
-</description>
+まだ課題があったりするのでもう少しいじりながら楽しみたいと思います。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -388,11 +514,11 @@ sys  0m20.341s
       <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
-      <description>
-
-&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
+      <description>&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
 
 &lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
 $result = preg_match(&#39;#\0#&#39;, file_get_contents($file));
@@ -406,7 +532,7 @@ if ($result === 1) {
 
 &lt;p&gt;より良い方法がありましたらご教授ください m(＿ ＿)m&lt;/p&gt;
 
-&lt;h4 id=&#34;2014-04-06-追記:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;2014-04-06 追記&lt;/h4&gt;
+&lt;h4 id=&#34;2014-04-06-追記&#34;&gt;2014-04-06 追記&lt;/h4&gt;
 
 &lt;p&gt;はてブでコメントいただいた方法を試しました。&lt;/p&gt;
 
@@ -432,13 +558,13 @@ function is_binary($file) {
 
 &lt;p&gt;900MB のバイナリファイルを使って、最初のスクリプトと実行時間を比較しました。&lt;/p&gt;
 
-&lt;h5 id=&#34;最初のスクリプト:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;最初のスクリプト&lt;/h5&gt;
+&lt;h5 id=&#34;最初のスクリプト&#34;&gt;最初のスクリプト&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ time php 1.php
 php 1.php  0.37s user 2.09s system 6% cpu 35.830 total
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;改善後:ebfc352457f3cfb2fcffd00182127a2f&#34;&gt;改善後&lt;/h5&gt;
+&lt;h5 id=&#34;改善後&#34;&gt;改善後&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code&gt;$ time php 2.php
 php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
@@ -448,8 +574,7 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
 最初のなんか、時間を測る以前に Allowed memory size&lt;br /&gt;
 エラーが出ちゃいました。。&lt;/p&gt;
 
-&lt;p&gt;大変勉強になりました m(＿ ＿)m&lt;/p&gt;
-</description>
+&lt;p&gt;大変勉強になりました m(＿ ＿)m&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -460,6 +585,8 @@ php 2.php  0.04s user 0.02s system 49% cpu 0.116 total
       <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
 リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;例えば&lt;/p&gt;
 
@@ -502,8 +629,7 @@ class LegacyTest extends PHPUnit_Framework_TestCase
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;
-</description>
+&lt;p&gt;そもそもこれを使わずに済めば良いんですが…(・_・;)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -514,6 +640,8 @@ class LegacyTest extends PHPUnit_Framework_TestCase
       <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
 今回はグローバル関数への依存について。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;例えば下記のコードでは&lt;br /&gt;
 receiveDataメソッドの中でmail関数を呼び出しているので&lt;br /&gt;
@@ -546,8 +674,7 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
 &lt;script src=&#34;https://gist.github.com/ackintosh/7026140.js?file=4.php&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;ここまで書いておいてあれですが、こちらにもっと良い方法が解説されていました。&lt;br /&gt;
-&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;a href=&#34;http://phpmentors.jp/post/46982737824&#34; target=&#34;_blank&#34;&gt;PHPメンターズ -&amp;gt; 時計オブジェクト（ドメインクロック）を導入してテスト容易性と意図性を高める&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -556,12 +683,12 @@ target=&#34;_blank&#34;&gt;レガシーコード改善ガイド&lt;/a&gt;では&
       <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
-      <description>
-
-&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
+      <description>&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
 target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。
@@ -578,14 +705,14 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
 はこのクラスのスコープとなります。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&#34;遅延静的束縛が無いと困るとき:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛が無いと困るとき&lt;/h4&gt;
+&lt;h4 id=&#34;遅延静的束縛が無いと困るとき&#34;&gt;遅延静的束縛が無いと困るとき&lt;/h4&gt;
 
 &lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=1.php&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;1,400,000が出力されるかと思いきや、0でした。&lt;br /&gt;
 ・・・期待していたのと違う。&lt;/p&gt;
 
-&lt;h4 id=&#34;selfについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;selfについて&lt;/h4&gt;
+&lt;h4 id=&#34;selfについて&#34;&gt;selfについて&lt;/h4&gt;
 
 &lt;p&gt;PHP Manualにはこう書かれています。&lt;/p&gt;
 
@@ -600,14 +727,14 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
 
 &lt;p&gt;これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。&lt;/p&gt;
 
-&lt;h4 id=&#34;遅延静的束縛を使う:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;遅延静的束縛を使う&lt;/h4&gt;
+&lt;h4 id=&#34;遅延静的束縛を使う&#34;&gt;遅延静的束縛を使う&lt;/h4&gt;
 
 &lt;p&gt;selfの代わりにstaticを使います。
 &lt;script src=&#34;https://gist.github.com/ackintosh/6332540.js?file=2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;これで期待した通りの結果になりました。&lt;/p&gt;
 
-&lt;h4 id=&#34;staticについて:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;staticについて&lt;/h4&gt;
+&lt;h4 id=&#34;staticについて&#34;&gt;staticについて&lt;/h4&gt;
 
 &lt;p&gt;PHP Manualより&lt;/p&gt;
 
@@ -617,7 +744,7 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
 
 &lt;p&gt;これにより、&lt;code&gt;static::$price&lt;/code&gt; が &lt;code&gt;NissanNote::$price&lt;/code&gt; に解決されたことになります。&lt;/p&gt;
 
-&lt;h4 id=&#34;もう少し深く:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;もう少し深く&lt;/h4&gt;
+&lt;h4 id=&#34;もう少し深く&#34;&gt;もう少し深く&lt;/h4&gt;
 
 &lt;p&gt;ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。&lt;br /&gt;
 Manualには下記のようにも書かれています。&lt;/p&gt;
@@ -643,15 +770,14 @@ Manualには下記のようにも書かれています。&lt;/p&gt;
 
 &lt;p&gt;非転送コールについては、下記リンクが大変参考になりました。&lt;/p&gt;
 
-&lt;h4 id=&#34;参考にさせていただきました:82199bf342f0eedb2320f9dff2d034e5&#34;&gt;参考にさせていただきました。&lt;/h4&gt;
+&lt;h4 id=&#34;参考にさせていただきました&#34;&gt;参考にさせていただきました。&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a
 href=&#34;http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings&#34;
 target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/&#34; target=&#34;_blank&#34;&gt;PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -664,6 +790,8 @@ target=&#34;_blank&#34;&gt;PHPを愛する試み ～self:: parent:: static:: お
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
 class Compose
@@ -700,8 +828,7 @@ $splitWithUnderscore = function ($arg) {
 $camelize = Compose::_($splitWithUnderscore, $mapUcfirst, &#39;join&#39;);
 var_dump($camelize(&#39;man_with_a_mission&#39;));
 // ManWithAMission
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -710,11 +837,11 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
       <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
-      <description>
-
-&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
+      <description>&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;自分はなかなかいい名前が思いつかなかったので Benchy にしました。&lt;/p&gt;
 
@@ -724,7 +851,7 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
 
 &lt;p&gt;シンプルさと拡張性の高さをウリにできるように考えました。&lt;/p&gt;
 
-&lt;h4 id=&#34;インストール:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;インストール&lt;/h4&gt;
+&lt;h4 id=&#34;インストール&#34;&gt;インストール&lt;/h4&gt;
 
 &lt;p&gt;もちろんComposerでインストールできます。&lt;/p&gt;
 
@@ -738,7 +865,7 @@ var_dump($camelize(&#39;man_with_a_mission&#39;));
 &lt;pre&gt;&lt;code&gt;$ php composer.phar install
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;使い方:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;使い方&lt;/h4&gt;
+&lt;h4 id=&#34;使い方&#34;&gt;使い方&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
 require_once &#39;vendor/autoload.php&#39;;
@@ -754,7 +881,7 @@ echo &#39;average : &#39; . $reporter-&amp;gt;time-&amp;gt;average() . PHP_EOL;
 
 &lt;p&gt;これで途中経過の時間と、合計・平均時間がわかります。&lt;/p&gt;
 
-&lt;h3 id=&#34;拡張性:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;拡張性&lt;/h3&gt;
+&lt;h3 id=&#34;拡張性&#34;&gt;拡張性&lt;/h3&gt;
 
 &lt;p&gt;Ackintosh/Bechy/Marker ディレクトリにクラスを配置してください。&lt;/p&gt;
 
@@ -775,15 +902,14 @@ $reporter = Ackintosh\Benchy::run(function ($reporter) {
 echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;フックポイント:3758450ff36edfb6e36c3548d3c7e8c5&#34;&gt;フックポイント&lt;/h3&gt;
+&lt;h3 id=&#34;フックポイント&#34;&gt;フックポイント&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;before：　ベンチマーク開始前&lt;/li&gt;
 &lt;li&gt;after：　ベンチマーク終了後&lt;/li&gt;
 &lt;li&gt;before_per_laps：　ベンチマーク前（毎回）&lt;/li&gt;
 &lt;li&gt;after_per_laps：　ベンチマーク後（毎回）&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -792,31 +918,30 @@ echo $reporter-&amp;gt;example-&amp;gt;hoge();// fuga
       <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
+      <description>&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
 flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
 FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
 
-&lt;h4 id=&#34;バリデーションルールを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;バリデーションルールを定義する&lt;/h4&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;バリデーションルールを定義する&#34;&gt;バリデーションルールを定義する&lt;/h4&gt;
 
 &lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile1.php&#34;&gt;&lt;/script&gt;
 
-&lt;h4 id=&#34;定義したルールのテストを書く:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;定義したルールのテストを書く&lt;/h4&gt;
+&lt;h4 id=&#34;定義したルールのテストを書く&#34;&gt;定義したルールのテストを書く&lt;/h4&gt;
 
 &lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;
 
-&lt;h4 id=&#34;ルールを適用する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;ルールを適用する&lt;/h4&gt;
+&lt;h4 id=&#34;ルールを適用する&#34;&gt;ルールを適用する&lt;/h4&gt;
 
 &lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile3.php&#34;&gt;&lt;/script&gt;
 
-&lt;h4 id=&#34;エラーメッセージを定義する:decc3520b6b150ec3ab44072e99a4bbf&#34;&gt;エラーメッセージを定義する&lt;/h4&gt;
+&lt;h4 id=&#34;エラーメッセージを定義する&#34;&gt;エラーメッセージを定義する&lt;/h4&gt;
 
-&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile4.php&#34;&gt;&lt;/script&gt;
-</description>
+&lt;script src=&#34;https://gist.github.com/ackintosh/5479927.js?file=gistfile4.php&#34;&gt;&lt;/script&gt;</description>
     </item>
     
     <item>
@@ -827,6 +952,8 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <guid>https://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
       <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple, flexible, community driven PHP5.3 framework.&lt;/a&gt;
 &lt;a href=&#34;http://fuelphp.jp/&#34; target=&#34;_blank&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
 
@@ -836,8 +963,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 &lt;p&gt;設定を読み込む
 &lt;script src=&#34;https://gist.github.com/ackintosh/5480241.js?file=gistfile2.php&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;Config::load()&lt;/code&gt; の第2引数に文字列を渡すと、任意のグループ名を指定できる。&lt;/p&gt;
-</description>
+&lt;p&gt;&lt;code&gt;Config::load()&lt;/code&gt; の第2引数に文字列を渡すと、任意のグループ名を指定できる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -850,6 +976,8 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 
 &lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
 
+&lt;p&gt;&lt;/p&gt;
+
 &lt;p&gt;個人的には、pcntl_fork()したあとswitch文で分岐する流れが、&lt;br /&gt;
 理解するのに苦労しました。&lt;/p&gt;
 
@@ -860,8 +988,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 href=&#34;http://melborne.github.io/2011/09/29/irb-Ruby-fork-WebSocket/&#34;
 target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSocketまで&lt;/a&gt;&lt;/p&gt;
 
-&lt;script src=&#34;https://gist.github.com/ackintosh/5381925.js&#34;&gt;&lt;/script&gt;
-</description>
+&lt;script src=&#34;https://gist.github.com/ackintosh/5381925.js&#34;&gt;&lt;/script&gt;</description>
     </item>
     
     <item>
@@ -870,15 +997,15 @@ target=&#34;_blank&#34;&gt;irbから学ぶRubyの並列処理 ~ forkからWebSoc
       <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
-      <description>
-
-&lt;h4 id=&#34;kestrel:d50f8189626da1b347580b9d83fb329b&#34;&gt;Kestrel&lt;/h4&gt;
+      <description>&lt;h4 id=&#34;kestrel&#34;&gt;Kestrel&lt;/h4&gt;
 
 &lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
 &lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
 :侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
 
-&lt;h4 id=&#34;インストールと起動:d50f8189626da1b347580b9d83fb329b&#34;&gt;インストールと起動&lt;/h4&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;インストールと起動&#34;&gt;インストールと起動&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;$ curl -O http://robey.github.com/kestrel/download/kestrel-2.4.1.zip
 $ unzip kestrel-2.4.1.zip
@@ -886,7 +1013,7 @@ $ cd kestrel-2.4.1
 $ sudo java -jar kestrel_2.9.2-2.4.1.jar
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;zendqueue:d50f8189626da1b347580b9d83fb329b&#34;&gt;ZendQueue&lt;/h4&gt;
+&lt;h4 id=&#34;zendqueue&#34;&gt;ZendQueue&lt;/h4&gt;
 
 &lt;p&gt;Zend Frameworkのコンポーネントの１つで、メッセージキューを利用するために使います。　　&lt;/p&gt;
 
@@ -895,7 +1022,7 @@ $ sudo java -jar kestrel_2.9.2-2.4.1.jar
 &lt;p&gt;メッセージを格納する方法によって複数のアダプタが用意されています。&lt;br /&gt;
 Kestrel用のアダプタはありませんが、Kestrelはmemcachedプロトコルをサポートしているので、MemcacheQアダプタを利用します。&lt;/p&gt;
 
-&lt;h4 id=&#34;memcache:d50f8189626da1b347580b9d83fb329b&#34;&gt;Memcache&lt;/h4&gt;
+&lt;h4 id=&#34;memcache&#34;&gt;Memcache&lt;/h4&gt;
 
 &lt;p&gt;あらかじめMemcachedライブラリもインストールしておいて下さい。&lt;br /&gt;
 Macの場合はHomebrewを使うと簡単にインストールできます♪&lt;/p&gt;
@@ -904,7 +1031,7 @@ Macの場合はHomebrewを使うと簡単にインストールできます♪&lt
 $ brew install memcache-php
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;メッセージキューサーバーを体験:d50f8189626da1b347580b9d83fb329b&#34;&gt;メッセージキューサーバーを体験&lt;/h4&gt;
+&lt;h4 id=&#34;メッセージキューサーバーを体験&#34;&gt;メッセージキューサーバーを体験&lt;/h4&gt;
 
 &lt;p&gt;２つのスクリプトを用意してください。&lt;br /&gt;
 ・worker.php :
@@ -922,8 +1049,7 @@ $ brew install memcache-php
 
 &lt;p&gt;簡単ですが以上です。&lt;br /&gt;
 Hello, Worldが表示された時には感動しますね (・∀・)&lt;br /&gt;
-worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪&lt;/p&gt;
-</description>
+worker.phpを実行するターミナルを増やしたりするとなお楽しくなってきます♪&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/08/25/late-static-binding/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,12 +143,12 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>名前は見かけていたものの、いまいち理解していなかった。</p>
+      <p>名前は見かけていたものの、いまいち理解していなかった。</p>
 
 <p><a href="http://php.net/manual/ja/language.oop5.late-static-bindings.php"
 target="_blank">PHP: 遅延静的束縛 (Late Static Bindings) - Manual</a></p>
+
+<p></p>
 
 <blockquote>
 <p>PHP 5.3.0 以降、PHP に遅延静的束縛と呼ばれる機能が搭載されます。
@@ -165,14 +165,14 @@ target="_blank">PHP: 遅延静的束縛 (Late Static Bindings) - Manual</a></p>
 はこのクラスのスコープとなります。</p>
 </blockquote>
 
-<h4 id="遅延静的束縛が無いと困るとき:82199bf342f0eedb2320f9dff2d034e5">遅延静的束縛が無いと困るとき</h4>
+<h4 id="遅延静的束縛が無いと困るとき">遅延静的束縛が無いと困るとき</h4>
 
 <script src="https://gist.github.com/ackintosh/6332540.js?file=1.php"></script>
 
 <p>1,400,000が出力されるかと思いきや、0でした。<br />
 ・・・期待していたのと違う。</p>
 
-<h4 id="selfについて:82199bf342f0eedb2320f9dff2d034e5">selfについて</h4>
+<h4 id="selfについて">selfについて</h4>
 
 <p>PHP Manualにはこう書かれています。</p>
 
@@ -187,14 +187,14 @@ target="_blank">PHP: 遅延静的束縛 (Late Static Bindings) - Manual</a></p>
 
 <p>これでは、いくらCarのサブクラスでgetFormattedPriceを呼び出しても価格の出力ができません。</p>
 
-<h4 id="遅延静的束縛を使う:82199bf342f0eedb2320f9dff2d034e5">遅延静的束縛を使う</h4>
+<h4 id="遅延静的束縛を使う">遅延静的束縛を使う</h4>
 
 <p>selfの代わりにstaticを使います。
 <script src="https://gist.github.com/ackintosh/6332540.js?file=2.php"></script></p>
 
 <p>これで期待した通りの結果になりました。</p>
 
-<h4 id="staticについて:82199bf342f0eedb2320f9dff2d034e5">staticについて</h4>
+<h4 id="staticについて">staticについて</h4>
 
 <p>PHP Manualより</p>
 
@@ -204,7 +204,7 @@ target="_blank">PHP: 遅延静的束縛 (Late Static Bindings) - Manual</a></p>
 
 <p>これにより、<code>static::$price</code> が <code>NissanNote::$price</code> に解決されたことになります。</p>
 
-<h4 id="もう少し深く:82199bf342f0eedb2320f9dff2d034e5">もう少し深く</h4>
+<h4 id="もう少し深く">もう少し深く</h4>
 
 <p>ただ、「最初にコールされたクラスを参照する」というのは少し浅い説明かもしれません。<br />
 Manualには下記のようにも書かれています。</p>
@@ -230,7 +230,7 @@ Manualには下記のようにも書かれています。</p>
 
 <p>非転送コールについては、下記リンクが大変参考になりました。</p>
 
-<h4 id="参考にさせていただきました:82199bf342f0eedb2320f9dff2d034e5">参考にさせていただきました。</h4>
+<h4 id="参考にさせていただきました">参考にさせていただきました。</h4>
 
 <ul>
 <li><a
@@ -238,7 +238,6 @@ href="http://d.hatena.ne.jp/maeharin/20130202/php_late_static_bindings"
 target="_blank">PHPを愛する試み ～self:: parent:: static:: および遅延静的束縛～</a></li>
 <li><a href="http://www.ibm.com/developerworks/jp/opensource/library/os-php-53static/" target="_blank">PHP V5.3 で遅延静的バインディングを使ったオブジェクト指向プログラミングを活用する</a></li>
 </ul>
-
     </section>
 
 

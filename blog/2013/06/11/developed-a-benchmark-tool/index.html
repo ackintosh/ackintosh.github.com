@@ -41,7 +41,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.19" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/" />
 
@@ -91,7 +91,7 @@
         
             
             <li class="nav-opened" role="presentation">
-            	<a href="https://ackintosh.github.io/about">About Hugo</a>
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
             </li>
         
     </ul>
@@ -143,11 +143,11 @@
     </header>
   
     <section class="post-content">
-      
-
-<p>こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。</p>
+      <p>こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。</p>
 
 <p><a href="http://blog.yuyat.jp/archives/1063" target="_blank">PHP 用ベンチマーキングフレームワーク Joshimane というのを作った</a></p>
+
+<p></p>
 
 <p>自分はなかなかいい名前が思いつかなかったので Benchy にしました。</p>
 
@@ -157,7 +157,7 @@
 
 <p>シンプルさと拡張性の高さをウリにできるように考えました。</p>
 
-<h4 id="インストール:3758450ff36edfb6e36c3548d3c7e8c5">インストール</h4>
+<h4 id="インストール">インストール</h4>
 
 <p>もちろんComposerでインストールできます。</p>
 
@@ -171,7 +171,7 @@
 <pre><code>$ php composer.phar install
 </code></pre>
 
-<h4 id="使い方:3758450ff36edfb6e36c3548d3c7e8c5">使い方</h4>
+<h4 id="使い方">使い方</h4>
 
 <pre><code class="language-php">&lt;?php
 require_once 'vendor/autoload.php';
@@ -187,7 +187,7 @@ echo 'average : ' . $reporter-&gt;time-&gt;average() . PHP_EOL;
 
 <p>これで途中経過の時間と、合計・平均時間がわかります。</p>
 
-<h3 id="拡張性:3758450ff36edfb6e36c3548d3c7e8c5">拡張性</h3>
+<h3 id="拡張性">拡張性</h3>
 
 <p>Ackintosh/Bechy/Marker ディレクトリにクラスを配置してください。</p>
 
@@ -208,7 +208,7 @@ $reporter = Ackintosh\Benchy::run(function ($reporter) {
 echo $reporter-&gt;example-&gt;hoge();// fuga
 </code></pre>
 
-<h3 id="フックポイント:3758450ff36edfb6e36c3548d3c7e8c5">フックポイント</h3>
+<h3 id="フックポイント">フックポイント</h3>
 
 <ul>
 <li>before：　ベンチマーク開始前</li>
@@ -216,7 +216,6 @@ echo $reporter-&gt;example-&gt;hoge();// fuga
 <li>before_per_laps：　ベンチマーク前（毎回）</li>
 <li>after_per_laps：　ベンチマーク後（毎回）</li>
 </ul>
-
     </section>
 
 
