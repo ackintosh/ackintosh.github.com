@@ -7,8 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 09 Apr 2017 16:33:27 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 Apr 2017 01:23:28 +0900</lastBuildDate>
     <atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017.04.10 テストコード</title>
+      <link>https://ackintosh.github.io/blog/2017/04/10/2017-04-10/</link>
+      <pubDate>Mon, 10 Apr 2017 01:23:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/04/10/2017-04-10/</guid>
+      <description>&lt;p&gt;「テストが無いコードをリリースするということは、ズボンをはかずに外出するようなものだ」&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;という言葉が降ってきたのでよろしければご利用ください。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Swagger Codegen &#43; CircuitBreaker(Ganesha)</title>
@@ -632,30 +645,6 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
 
 &lt;p&gt;頭痛がひどい。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2016.12.17 フォレスト</title>
-      <link>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
-      <pubDate>Sat, 17 Dec 2016 23:02:35 +0900</pubDate>
-      
-      <guid>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
-      <description>&lt;p&gt;今年5月の転職と同時に田舎から引越して約半年経った。もう冬。&lt;/p&gt;
-
-&lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOJxaaPjUHk/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt; - &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2016-12-18T09:00:42+00:00&#34;&gt;&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.bicklycarpet.com/?pid=94952367&#34;&gt;ウォッシャブル＆スベリ止め付きマイクロファイバーラグ　スムースプラス｜びっくりカーペット&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;ラグ　北欧&amp;rdquo; みたいなキーワードで検索してたら&lt;a href=&#34;http://www.bicklycarpet.com/&#34;&gt;びっくりカーペット&lt;/a&gt;にたどり着いて、色々見た結果これに決めた。&lt;/p&gt;
-
-&lt;p&gt;色は第一印象ではモスグリーンが気になったけど、残念ながら売り切れてた。なので濃いめのグリーンがキレイで、商品画像のお姉さんもキレイなフォレストにした。&lt;/p&gt;
-
-&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;</description>
     </item>
     
   </channel>
