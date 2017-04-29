@@ -2,13 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 暁</title>
-    <link>https://ackintosh.github.io/post/index.xml</link>
+    <link>https://ackintosh.github.io/post/</link>
     <description>Recent content in Posts on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
     <lastBuildDate>Mon, 10 Apr 2017 01:23:28 +0900</lastBuildDate>
-    <atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>2017.04.10 テストコード</title>
@@ -18,9 +20,7 @@
       <guid>https://ackintosh.github.io/blog/2017/04/10/2017-04-10/</guid>
       <description>&lt;p&gt;「テストが無いコードをリリースするということは、ズボンをはかずに外出するようなものだ」&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;という言葉が降ってきたのでよろしければご利用ください。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,171 +29,7 @@
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;swagger-codegen-とは&#34;&gt;Swagger Codegen とは&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;swagger-api/swagger-codegen&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。&lt;br /&gt;
-Mac なら &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen#homebrew&#34;&gt;Homebrew でさくっと試せる&lt;/a&gt;。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install swagger-codegen
-$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o .
-$ tree
-.
-└── SwaggerClient-php
-    ├── README.md
-    ├── autoload.php
-    ├── composer.json
-    ├── docs
-    │   ├── Api
-    │   │   ├── PetApi.md
-    │   │   ├── StoreApi.md
-    │   │   └── UserApi.md
-    │   └── Model
-    │       ├── ApiResponse.md
-    │       ├── Category.md
-    │       ├── Order.md
-    │       ├── Pet.md
-    │       ├── Tag.md
-    │       └── User.md
-    ├── git_push.sh
-    ├── lib
-    │   ├── Api
-    │   │   ├── PetApi.php
-    │   │   ├── StoreApi.php
-    │   │   └── UserApi.php
-    │   ├── ApiClient.php
-    │   ├── ApiException.php
-    │   ├── Configuration.php
-    │   ├── Model
-    │   │   ├── ApiResponse.php
-    │   │   ├── Category.php
-    │   │   ├── Order.php
-    │   │   ├── Pet.php
-    │   │   ├── Tag.php
-    │   │   └── User.php
-    │   └── ObjectSerializer.php
-    ├── phpunit.xml.dist
-    └── test
-        ├── Api
-        │   ├── PetApiTest.php
-        │   ├── StoreApiTest.php
-        │   └── UserApiTest.php
-        └── Model
-            ├── ApiResponseTest.php
-            ├── CategoryTest.php
-            ├── OrderTest.php
-            ├── PetTest.php
-            ├── TagTest.php
-            └── UserTest.php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;とても良さそうですが、生成したコードがそのまま実際のサービスで使えるケースは少ないのではないでしょうか。たとえば外部 API の呼び出しでは、障害の連鎖を防ぐために &lt;a href=&#34;https://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker パターン&lt;/a&gt; の適用がとても有効です。&lt;/p&gt;
-
-&lt;p&gt;PHP の CircuitBreaker 実装 &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の作者であるわたしとしては、Swagger Codegen で生成したクライアントコードに Ganesha を組み込む方法を明らかにしておきたいところです。&lt;/p&gt;
-
-&lt;h2 id=&#34;circuitbreaker-ganesha-を組み込む&#34;&gt;CircuitBreaker(Ganesha)を組み込む&lt;/h2&gt;
-
-&lt;h3 id=&#34;オリジナルのテンプレートを用意する方法&#34;&gt;オリジナルのテンプレートを用意する方法&lt;/h3&gt;
-
-&lt;p&gt;Swagger Codegen は &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen/src/main/resources/php&#34;&gt;こちら&lt;/a&gt; のディレクトリにあるテンプレートを元にしてコードを生成しますが、&lt;br /&gt;
-&lt;code&gt;-t&lt;/code&gt; オプションでオリジナルのテンプレートを指定することもできます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ swagger-codegen help generate
-...
-...
-        -t &amp;lt;template directory&amp;gt;, --template-dir &amp;lt;template directory&amp;gt;
-            folder containing the template files
-...
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なので、composer.json と ApiClient.php の元になるテンプレートを適当なディレクトリにコピーして &lt;a href=&#34;https://gist.github.com/ackintosh/b31193abc9a61f16dbb9f19652cc7215&#34;&gt;こんな感じ&lt;/a&gt; でいじれば、Ganesha を利用したコードが生成されます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . -t mytemplates
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;class ApiClient
-    public function __construct(\Swagger\Client\Configuration $config = null)
-    {
-        if ($config === null) {
-            $config = Configuration::getDefaultConfiguration();
-        }
-
-        $this-&amp;gt;config = $config;
-        $this-&amp;gt;serializer = new ObjectSerializer();
-+        $m = new \Memcached();
-+        $m-&amp;gt;addServer(&#39;localhost&#39;, 11211);
-+        $this-&amp;gt;ganesha = Builder::build([
-+            &#39;failureRate&#39; =&amp;gt; 50,
-+            &#39;adapter&#39;     =&amp;gt; new Ackintosh\Ganesha\Storage\Adapter\Memcached($m),
-+        ]);
-    }
-
-    public function callApi($resourcePath, $method, $queryParams, $postData, $headerParams, $responseType = null, $endpointPath = null)
-    {
-
-+        if (!$ganesha-&amp;gt;isAvailable($url)) {
-+            throw new ApiException(&amp;quot;$url is not available&amp;quot;);
-+        }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;apiclient-を継承したクラスを用意する方法&#34;&gt;ApiClient を継承したクラスを用意する方法&lt;/h3&gt;
-
-&lt;p&gt;また、できるだけ独自のロジックを外出ししたい場合は &lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;こちら&lt;/a&gt; のように ApiClient を継承したクラスを用意すると良さそうです。&lt;/p&gt;
-
-&lt;h5 id=&#34;参考&#34;&gt;参考&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://int128.hatenablog.com/entry/2017/03/02/003332&#34;&gt;Swagger CodegenでPHPクライアントを生成する - GeekFactory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;今のところ、APIクライアントにはインターセプタの仕組みは用意されていないようです。共通処理を入れたい場合は ApiClient クラスを継承した独自クラスを定義し、APIクライアントのコンストラクタに渡すとよいでしょう。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ただ、この場合は &amp;ldquo;継承したクラスを必ず API クライアントのコンストラクタに渡さないといけない&amp;rdquo; ので、その責務を別のオブジェクトに持たせるためにファクトリや DI コンテナの必要性が出てくるのではないかと思っています。&lt;/p&gt;
-
-&lt;h2 id=&#34;追記1-swagger-codegen-ver2-3-からはクライアントとして-guzzle-が使われている&#34;&gt;(追記1) Swagger Codegen ver2.3 からはクライアントとして Guzzle が使われている&lt;/h2&gt;
-
-&lt;p&gt;Swagger Codegen トップコントリビューターの &lt;a href=&#34;https://twitter.com/wing328&#34;&gt;@wing328&lt;/a&gt; からリプライをいただいた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://twitter.com/NAKANO_Akihito&#34;&gt;@NAKANO_Akihito&lt;/a&gt; Thx for writing about Swagger Codegen. You may want to checkout 2.3.0 branch to build the PHP API client, which uses Guzzle instead of curl&lt;/p&gt;&amp;mdash; wing328 (@wing328) &lt;a href=&#34;https://twitter.com/wing328/status/851445713028304896&#34;&gt;2017年4月10日&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;なので、今後は &lt;code&gt;オリジナルのテンプレートを用意する方法&lt;/code&gt; ではなく&lt;br /&gt;
-&lt;code&gt;GuzzleHttp\Client&lt;/code&gt; を継承(または &lt;code&gt;GuzzleHttp\ClientInterface&lt;/code&gt; を実装)したクライアントを用意する方法が良さそう。&lt;/p&gt;
-
-&lt;h2 id=&#34;追記2-circuitbreaker-によって遮断された場合は別の例外を投げる&#34;&gt;(追記2) CircuitBreaker によって遮断された場合は別の例外を投げる&lt;/h2&gt;
-
-&lt;p&gt;（ついでに追記）&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/Release-%E6%9C%AC%E7%95%AA%E7%94%A8%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A3%BD%E5%93%81%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%A8%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB-Michael-T-Nygard/dp/4274067491/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1491103513&amp;amp;sr=1-1&amp;amp;keywords=release+it&#34;&gt;Release It! 本番用ソフトウェア製品の設計とデプロイのために&lt;/a&gt; には CircuitBreaker の利用について下記のように書かれている。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/Release-%E6%9C%AC%E7%95%AA%E7%94%A8%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A3%BD%E5%93%81%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%A8%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB-Michael-T-Nygard/dp/4274067491/ref=as_li_ss_il?s=books&amp;ie=UTF8&amp;qid=1491103513&amp;sr=1-1&amp;keywords=release+it&amp;linkCode=li2&amp;tag=akihito0a-22&amp;linkId=3225755b061ff6dc6147eeaa1b8cd8c3&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=4274067491&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=akihito0a-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=akihito0a-22&amp;l=li2&amp;o=9&amp;a=4274067491&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ユーザーに適切なフィードバックを提供するには、「開」のときには別な種類の例外を発生させると都合がよい。そうすれば、呼び出しをするコードでその種の例外を違ったやり方で処理できるようになる。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;CircuitBreaker が組み込まれたクライアントを利用する側からしたら、例外が起きた時にそれが CircuitBreaker によって遮断されたものなのかどうかは重要。&lt;br /&gt;
-たとえば &lt;a href=&#34;https://ackintosh.github.io/blog/2017/02/18/2017-02-18/&#34;&gt;決済処理において、リクエストが遮断された場合は復旧後に決済させる&lt;/a&gt; 仕組みをとっている事例があり、これは Release It! に書かれているとおり個別の例外を発生させないとできない。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/02/18/2017-02-18/&#34;&gt;Yahoo! JAPAN MeetUp #9 (EC技術カンファレンス) ・ 暁&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;h4 id=&#34;カード後決済&#34;&gt;カード後決済&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;決済サービスが障害で応答しない場合、まず受注してしまう&lt;/li&gt;
-&lt;li&gt;復旧したあとでカード決済させる&lt;/li&gt;
-&lt;li&gt;サーキットブレーカーで遮断された決済を、カード後決済させる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;なので (追記1) に書いた &lt;code&gt;GuzzleHttp\Client&lt;/code&gt; を継承したクライアントを用意する際に、その辺の考慮も必要。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -204,82 +40,7 @@ $ tree
       <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
       <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;ackintosh/snidel&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;snidel - A multi-process container.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;独自のキューを実装-利用できるようになりました&#34;&gt;独自のキューを実装・利用できるようになりました&lt;/h2&gt;
-
-&lt;p&gt;今回のバージョンアップで、内部で使っているキューを自由に差し替えられるようになりました。&lt;br /&gt;
-下記のように Amazon SQS を利用することもできます。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/snidel-queue-sqs.png&#34; alt=&#34;with Amazon SQS&#34; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;なぜ&#34;&gt;なぜ？&lt;/h5&gt;
-
-&lt;p&gt;Snidel は、ワーカープロセスとのデータ(ワーカーに実行してほしい処理や、実行した結果)の受け渡しにキューを使っていて、これまでは System V キューに決め打ちになっていました。&lt;br /&gt;
-そのため、Snidel を使って大きな処理をたくさん走らせたい場合に、(OSの設定によりますが)System V キューは扱えるデータサイズが限られているので、そこがネックになってしまうことがありました。&lt;/p&gt;
-
-&lt;p&gt;今回の変更で、よりスケーラブルなキューを利用して大規模な並列処理を実行できるようになりました。&lt;/p&gt;
-
-&lt;h5 id=&#34;独自のキューを実装-利用するには&#34;&gt;独自のキューを実装・利用するには？&lt;/h5&gt;
-
-&lt;p&gt;所定のインターフェースを実装して、コンストラクタに渡すパラメータでクラス名を指定してください。&lt;/p&gt;
-
-&lt;p&gt;例: &lt;a href=&#34;https://github.com/ackintosh/snidel-queue-sqs&#34;&gt;ackintosh/snidel-queue-sqs: queue plugin for snidel.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;キューの初期化等に必要なパラメータ(Amazon SQS の例でいうところのクレデンシャル情報)は、Snidel のコンストラクタに任意のキーで指定しておけば、キューのコンストラクタに渡される Config オブジェクトから利用できます。&lt;/p&gt;
-
-&lt;h2 id=&#34;アーキテクチャを変更しました&#34;&gt;アーキテクチャを変更しました&lt;/h2&gt;
-
-&lt;p&gt;キューをプラガブルにするのに伴ってアーキテクチャを変更しました。&lt;/p&gt;
-
-&lt;h6 id=&#34;ビフォー&#34;&gt;ビフォー&lt;/h6&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.6_master_worker.png&#34; alt=&#34;before&#34; /&gt;&lt;/p&gt;
-
-&lt;h6 id=&#34;アフター&#34;&gt;アフター&lt;/h6&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/ackintosh/snidel/raw/master/images/0.8_pluggable_queue.png&#34; alt=&#34;after&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;これまでは、マスタープロセスがキューを通じてタスクを受け取って、ワーカーを fork していましたが&lt;br /&gt;
-今回の変更で、マスタープロセスは予めワーカーを prefork しておき、ワーカーがキューからタスクを受け取るかたちになりました。&lt;/p&gt;
-
-&lt;h5 id=&#34;なぜ-1&#34;&gt;なぜ？&lt;/h5&gt;
-
-&lt;p&gt;プロセスを fork するというのは分身を作ることなので、例えば外部ストレージに接続中のプロセスが fork した場合、ストレージ接続も子プロセスにコピーされます。そのため、親(または子)プロセスがストレージ接続を切った場合に、もう片方のプロセスの接続が影響を受けてしまう(動作が不安定になる)可能性があります。&lt;br /&gt;
-Snidel の場合キューの接続で上記の可能性があり、これまで System V キューでは問題ありませんでしたが、様々なストレージをキューとして利用できるようになることで問題が表面化してしまいます。それを避けるためにこの変更を行いました。&lt;/p&gt;
-
-&lt;p&gt;Snidel は3種類のプロセスが協調して並列処理を行います。今回の変更によりそれぞれの役割が下記のようになり、マスタープロセスがキューに接続する必要が無くなったので安定して動作するようになりました。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;メイン
-
-&lt;ul&gt;
-&lt;li&gt;マスターを fork する&lt;/li&gt;
-&lt;li&gt;ワーカーに処理させたいタスクをキューに入れる&lt;/li&gt;
-&lt;li&gt;ワーカーの処理結果をキューから受け取る&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;マスター
-
-&lt;ul&gt;
-&lt;li&gt;ワーカーを fork する&lt;/li&gt;
-&lt;li&gt;ワーカーの起動数を制御する&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;ワーカー
-
-&lt;ul&gt;
-&lt;li&gt;キューからタスクを受り、実行し、結果をキューに入れる&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;今後&#34;&gt;今後&lt;/h2&gt;
-
-&lt;p&gt;PHP5.6 未満のサポート終了を予定しています。&lt;br /&gt;
-これにより、5.3 用に冗長になっていたコードをスリムにできたりジェネレーターを使って省メモリにできるかなと考えています。&lt;/p&gt;
-
-&lt;p&gt;また、いつでもプルリクエストを歓迎していますので、気になったところや良いアイデアをお持ちのかたは是非よろしくお願いします。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -290,54 +51,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/</guid>
       <description>&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;(追記) 会社のテックブログが公開されました。&lt;br /&gt;
-&lt;a href=&#34;http://tech.pepabo.com/2017/03/24/ec-tech-mtg-1st-introductory-report/&#34;&gt;第1回EC事業部TechMTGの様子 &amp;amp; テキストを公開します！ - ペパボテックブログ&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;ec-事業部-tech-mtg-とは&#34;&gt;EC 事業部 Tech MTG とは&lt;/h2&gt;
-
-&lt;p&gt;クックパッド社の &lt;a href=&#34;http://techlife.cookpad.com/entry/2016/09/16/192927&#34;&gt;エンジニア全体ミーティング Tech MTGのすゝめ&lt;/a&gt; が良さそうだったので、うち(EC事業部)でもやろう！ということで始まった。&lt;br /&gt;
-社内では、昨年末から福岡のホスティング事業部が &lt;a href=&#34;http://tech.pepabo.com/2016/12/19/hosting-tech-mtg-report-01/&#34;&gt;隔月で開催している&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h2 id=&#34;発表内容&#34;&gt;発表内容&lt;/h2&gt;
-
-&lt;p&gt;&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;3fd29695180c42d9b564e6b2d491bf0a&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
-　&lt;/p&gt;
-
-&lt;p&gt;いま担当しているサービスでは API を中心にしたアーキテクチャに移行しようとしていて、その場合に、よりマイクロサービス的な方向に進化していく一方で、障害連鎖のリスクが大きくなってしまうという課題提起と、解決策としてサーキットブレーカーの紹介をした。&lt;br /&gt;
-また、サービスの多くの部分が PHP で書かれているので、PHP 製のサーキットブレーカーとして拙作の &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; も紹介した。&lt;/p&gt;
-
-&lt;h3 id=&#34;自分にとってチャレンジだったこと&#34;&gt;自分にとってチャレンジだったこと&lt;/h3&gt;
-
-&lt;p&gt;まだまだ発表の経験が少ないので、今回もチャレンジがいくつかあった。&lt;/p&gt;
-
-&lt;h6 id=&#34;発表時間&#34;&gt;発表時間&lt;/h6&gt;
-
-&lt;p&gt;今回の発表時間は 12分(質問込み)。いままでLTしかやったことがなかったので、トークの練習ではじめは時間の感覚が掴めなかった。&lt;/p&gt;
-
-&lt;h6 id=&#34;デモ&#34;&gt;デモ&lt;/h6&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; が作動する様子をデモした。発表の前半でサーキットブレーカーの仕組みについて説明しているので、実際に動いてるものを見てもらって、仕組みと動作のイメージをより具体的にしてもらうのが狙い。&lt;br /&gt;
-本番でモタつかないように事前に &lt;a href=&#34;https://github.com/ackintosh/ganesha/tree/master/examples&#34;&gt;デモ用のスクリプト&lt;/a&gt; を準備した。&lt;/p&gt;
-
-&lt;h6 id=&#34;笑いをとる&#34;&gt;笑いをとる&lt;/h6&gt;
-
-&lt;p&gt;スライドを見ていただくとわかるが、いくつか笑いを誘う要素を散りばめている。&lt;br /&gt;
-    &amp;ldquo;発表では無理に笑いを取ろうとせずに発表内容にフォーカスしよう&amp;rdquo; と言われていて&lt;br /&gt;
-その通りだと思うが、社内だし、スライドを作りながらネタを思いついたので（普段は笑いをとるようなキャラではないのだが）チャレンジしてみた。&lt;br /&gt;
-（もし怒られたら、発表を&lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;「もっとおもしろくできる」&lt;/a&gt;と思った。と言い訳しようと考えていた）&lt;/p&gt;
-
-&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5&lt;/a&gt;・&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;プレイドさんとの合同勉強会&lt;/a&gt;につづいて3回目の発表。人前に立つことには少し慣れてきた感覚があるが、相変わらず資料・トークの準備にかなり時間をかけている。今回は &lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の開発もあって、ここ１ヶ月くらい他の事が手付かずだった。精神衛生上も良くないので、準備をもっと余裕を持ってできるようになりたい。&lt;/p&gt;
-
-&lt;p&gt;発表について、「わかりやすかった」「おもしろかった」と言ってもらえた。&lt;br /&gt;
-スライドで出来るだけ図で伝えようとしたり、笑いをとりにいった成果が感じられて嬉しかった。あと、&lt;a href=&#34;https://github.com/ackintosh/ganesha/&#34;&gt;Ganesha&lt;/a&gt; の名前が好評だった。（主にカレー部の方から）&lt;/p&gt;
-
-&lt;p&gt;なかなか集まる機会が無いので、EC事業部のエンジニアが集まっただけで「おぉ、ECのエンジニアってこんなにいたんだ&amp;hellip;!」という驚きと、なんだか頼もしいようなワクワクする感覚があった。そんななかで、業務で得た知見や生産性アップのTIPS・関心があること等を共有・議論する時間、これはまさにお祭りではないだろうか。&lt;/p&gt;
-
-&lt;p&gt;最高のサービスをつくっていこう、という意識の高まりを感じた。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -347,87 +61,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       
       <guid>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</guid>
       <description>&lt;p&gt;に行ってきた。
-&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article-full&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://yj-meetup.connpass.com/event/48215/&#34;&gt;Yahoo! JAPAN MeetUp #9 （EC技術カンファレンス） (2017/02/18 14:00〜)&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;今回のテーマは「E-Commerce」です！ ECの成長を支えるため、各サービスが考えている技術戦略から、ヤフーの持つビッグデータ、データサイエンスの活用事例紹介など&amp;hellip;ヤフーのEC事情がぎゅっと詰ま っています。 当日は現場のエンジニアやデザイナーもいるので、聞きたいこと・話したいことがあればなんでも聞いてください。 &lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;自分が仕事で担当してるサービスに取り込める何かを持ち帰るのが目的。&lt;br /&gt;
-以下、発表や懇親会でYahoo!ショッピングのエンジニアさんに聞いて印象に残ったことのメモ。&lt;/p&gt;
-
-&lt;h2 id=&#34;いい買い物の日の受注集中による障害と対策&#34;&gt;いい買い物の日の受注集中による障害と対策&lt;/h2&gt;
-
-&lt;h4 id=&#34;いい買い物の日とは&#34;&gt;いい買い物の日とは&lt;/h4&gt;
-
-&lt;p&gt;11/11に買い物すればポイント11倍 というキャンペーン&lt;/p&gt;
-
-&lt;p&gt;2015年のキャンペーンでは、
-キャンペーン終了間際の23時頃から急激に受注が増え、一時的に決済サービスが応答不可になり、決済できなくなる障害が起きた。&lt;/p&gt;
-
-&lt;p&gt;アリババのエンジニアに相談して対策をうち、
-2016年のキャンペーンを無事に乗り切った。&lt;/p&gt;
-
-&lt;h4 id=&#34;サーキットブレーカーを実装&#34;&gt;サーキットブレーカーを実装&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;OSS は使わず、社内で簡易的に実装したのを使っている&lt;/li&gt;
-&lt;li&gt;サービスごとに独自に実装してる&lt;/li&gt;
-&lt;li&gt;言語は PHP や C++&lt;/li&gt;
-&lt;li&gt;アリババが実装してるサーキットブレーカーは高機能( ○% を絞る、みたいに段階的に調節する )&lt;/li&gt;
-&lt;li&gt;アリババは OSS にする予定は無いとのこと&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;カード後決済&#34;&gt;カード後決済&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;決済サービスが障害で応答しない場合、まず受注してしまう&lt;/li&gt;
-&lt;li&gt;復旧したあとでカード決済させる&lt;/li&gt;
-&lt;li&gt;サーキットブレーカーで遮断された決済を、カード後決済させる&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;スロットリング&#34;&gt;スロットリング&lt;/h4&gt;
-
-&lt;p&gt;(※ スロットリングとは言ってなかったが、スロットリングのことだろうと解釈している ※)&lt;br /&gt;
-(※ サーキットブレーカーは &amp;ldquo;リクエストする側&amp;rdquo; の対策。スロットリングは &amp;ldquo;リクエストされる側&amp;rdquo; の対策。という理解 ※)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;リクエスト元のクライアントを優先度で分類しておき、負荷が上がってきたら優先度の低いクライアントから、リクエストの応答をやめる(絞っていく)&lt;/li&gt;
-&lt;li&gt;優先度のルールは予めビジネス側の同意をとっておく&lt;/li&gt;
-&lt;li&gt;アリババは、サーバーのリソース使用状況を監視して絞る比率を動的に調節している&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;テクニカルディレクターが現場に言ってる4つのこと&#34;&gt;テクニカルディレクターが現場に言ってる4つのこと&lt;/h2&gt;
-
-&lt;p&gt;(※ テクニカルディレクターはペパボでいうところの &lt;a href=&#34;http://blog.kentarok.org/entry/2016/09/05/000512&#34;&gt;CTL&lt;/a&gt; 的なポジション ※)&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;トラブル検知の仕組み&lt;/li&gt;
-&lt;li&gt;テストを書け!&lt;/li&gt;
-&lt;li&gt;テストを書け!!&lt;/li&gt;
-&lt;li&gt;テストを書け!!!&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;トラブル(データ不整合等)を検知する仕組みが整っているかを最重視&lt;/li&gt;
-&lt;li&gt;数日経って発覚するなんてありえない&lt;/li&gt;
-&lt;li&gt;新しいコードはテストが無いとリリースさせない&lt;/li&gt;
-&lt;li&gt;全体のカバレッジは60〜70%くらい&lt;/li&gt;
-&lt;li&gt;カバレッジの数字は指標にしていない&lt;/li&gt;
-&lt;li&gt;大事なところをしっかりテストできているかを重視している&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
-
-&lt;p&gt;ちょうどサーキットブレーカーの必要性を感じていて &lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;PHP のライブラリを絶賛実装中&lt;/a&gt;ということもあり、どういう実装してるのかとても興味深かったが、担当したエンジニアさんが会場にいなくて細かい話を聞けなかったのがとても残念だった。&lt;br /&gt;
-カード後決済の仕組みも気になっていたが、時間が足りなくて聞けなかったも残念。&lt;br /&gt;
-でも学びもたくさんあって、カード後決済は目からウロコだったし、スロットリングの優先順位付けはなるほど〜と思った。&lt;/p&gt;
-
-&lt;p&gt;Yahoo!ショッピングは今年で18年とのこと。なんとなく、先進的な技術を取り入れて凄いことやってるイメージをもっていたが、LTではレガシーな部分と戦う様子を伺えたのが印象的だった。&lt;br /&gt;
-コードベースも利用者も桁違いに多いので色々運用も大変なはず。なのに自分が担当しているサービスよりもイイ感じになってるのが少し悔しい。  もっと頑張ろう。&lt;/p&gt;
-
-&lt;p&gt;Yahoo!のみなさま、貴重な学びの機会をいただきありがとうございました！&lt;/p&gt;</description>
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -438,24 +72,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
       <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee&#34;&gt;woothee/woothee&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee/pull/33&#34;&gt;Add WebView on Android by ackintosh · Pull Request #33 · woothee/woothee&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php&#34;&gt;woothee/woothee-php&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php/pull/34&#34;&gt;Support WebView on Android and curl by ackintosh · Pull Request #34 · woothee/woothee-php&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -466,12 +83,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2017/01/31/2017-01-31/</guid>
       <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。
 
-主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
-
-&lt;p&gt;Wikipedia で Robin Tunney のプロフィールを調べたら、なんと誕生日が同じだった !&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%93%E3%83%B3%E3%83%BB%E3%82%BF%E3%83%8B%E3%83%BC&#34;&gt;ロビン・タニー - Wikipedia&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;1997年に Niagara Niagaraを監督したボブ・ゴッスと結婚したが後に離婚し、2007年に映画監督の アンドリュー・ドミニクと婚約したが、後に解消している。2010年12月からは ヘルメット &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -480,9 +92,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
-      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。
-
-理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;</description>
+      <description></description>
     </item>
     
     <item>
@@ -504,18 +114,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
       <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
-章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
-
-&lt;p&gt;夜は、映画と日帰り温泉。&lt;/p&gt;
-
-&lt;p&gt;バイオハザード ザ・ファイナルを観た。シリーズをちゃんと観てきたわけじゃないけど、まぁ楽しめるだろうと。&lt;br /&gt;
-アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
-あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
-
-&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -526,66 +125,7 @@ Snidel の場合キューの接続で上記の可能性があり、これまで 
       <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
       <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;転職&#34;&gt;転職&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/06/18/pepabo/&#34;&gt;転職して１ヶ月&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;正しい開発をしたいと思ったのが転職を考えたきっかけ。ペパボテックカンファレンスや面接等で現場の方々のお話を聞いて、ペパボならそれが出来ると思った（&amp;rdquo;正しい開発&amp;rdquo; の定義は人によって違いはあるだろうけど、だいたい皆さんが想像するソレと同じです） 。5月に入社して半年以上たった今でもその印象は変わっていない。&lt;/p&gt;
-
-&lt;p&gt;先日大きめの機能開発・リリースを行った際にも、ペパボの環境の良さを感じた。&lt;br /&gt;
-複数のチーム・職種を横断したプロジェクト。限られたリソースで開発を遂げるために、メンバーをプロジェクトに注力させるために社内体制を調整したのが印象的だった。&lt;br /&gt;
-ともすると &amp;ldquo;徹夜してがんばる&amp;rdquo; という個人を犠牲にして力ずくな方向に走ってしまいがちな状況に対しても、チーム・組織で解決していく文化が素晴らしいと思った。&lt;/p&gt;
-
-&lt;p&gt;また、開発中機能の社内ユーザーテストを繰り返し行い、UI・UXに磨きをかけていくのはユーザーに本当に良いものを届けたいというこだわりが現れている。&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
-ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
-
-&lt;h5 id=&#34;lt&#34;&gt;LT&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;【ペパボ×プレイド】Tech Meetup で LT&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LTの発表を2回やった。&lt;br /&gt;
-PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
-このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
-
-&lt;h5 id=&#34;oss-活動&#34;&gt;OSS 活動&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0&#34;&gt;Snidel 0.4 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0&#34;&gt;Snidel 0.5 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0&#34;&gt;Snidel 0.6 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0&#34;&gt;Snidel 0.7 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy&#34;&gt;mruby-ngx-shadow_proxy&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/&#34;&gt;ngx_mruby でシャドウプロキシ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;2016.12.10 神様の開発に着手&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
-
-&lt;h5 id=&#34;引越し&#34;&gt;引越し&lt;/h5&gt;
-
-&lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
-いまは片道30分。本当に楽。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -596,12 +136,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
       <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
-&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
-
-&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -613,43 +148,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
 秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;まず秋葉原に集合。お互いに秋葉原の土地勘が全くないし、駅がデカくて出口がたくさんあるので合流するまでに時間がかかった。&lt;br /&gt;
-とりあえず自販で買ったホットコーヒーを飲みながら秋葉原公園で少しマッタリ。日陰はちょっと寒かった。&lt;/p&gt;
-
-&lt;p&gt;周辺をフラフラしたあとメイドカフェに入る。クリスマスなので、みんなサンタコスだった。サンタなので &amp;ldquo;ご主人様&amp;rdquo; とは呼ばないルールとのこと。残念。&lt;br /&gt;
-クリスマス限定のくじ引きを引いた。自分はお菓子（チロルチョコ）。しんくんは &amp;ldquo;愛のビンタ&amp;rdquo; というインパクト抜群な景品。&lt;br /&gt;
-文字通りビンタされるのだが、メイドさんに恥ずかしがる様子は全く無く、しっかり腕を振りかぶってビンタする様子が印象的だった。 &amp;ldquo;パン ! &amp;rdquo; という抜けの良い破裂音は、年末 ガキの使い 恒例の方正と蝶野のアレを想起させた。&lt;br /&gt;
-ビンタ執行の様子を動画に撮っておいて LINE で共有した。しばらく笑いのネタになりそう。&lt;/p&gt;
-
-&lt;p&gt;今日メインイベントのライブ会場へ向かう。東大前へ。&lt;/p&gt;
-
-&lt;p&gt;まだ開演までは1時間弱あったので途中で見つけた洋食屋さんでギネスビールを飲みながら時間をつぶす。&lt;br /&gt;
-店内は落ち着いた良い雰囲気で、つまみで注文した料理も美味しかったのでまた行きたい。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://tabelog.ssl.k-img.com/restaurant/images/Rvw/51540/200x200_square_51540151.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://tabelog.com/tokyo/A1310/A131004/13020758/&#34;&gt;山猫軒 (東大前/洋食)&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;そして John John Festival のライブ。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://image.jimcdn.com/app/cms/image/transf/dimension=370x10000:format=jpg/path/sb1c068beead347ab/image/i266df7c7b71be5a4/version/1481524670/image.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.johnjohnfestival.com/&#34;&gt;JohnJohnFestival - Irish music band(アイリッシュ ミュージック バンド) John John Festival&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Irish Music JohnJohnFestival&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;アイリッシュ系の3人組バンド。今回のライブに誘ってもらって初めて知った。&lt;/p&gt;
-
-&lt;p&gt;会場は求道会館。
-西洋の建築様式を取り入れた寺院で、照明や座席の作りは教会のようだが、中央に仏像があったり二階には和室があったりと不思議な感じ。アイリッシュな音楽と良い感じに合ってた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;http://www.bunkouken.com/image_m/kyu_in02_m.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.bunkouken.com/b_kyuudoukaikan.htm&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;アイリッシュ系のライブは初めてだったが、最高だった。&lt;br /&gt;
-自分が普段よく聴いてるロックとかとは違って、アコースティックな楽器での演奏なので、奏者の強弱がダイレクトに伝わってくる。後半に向けてテンポアップして盛り上がっていく展開では鳥肌が立ちっぱなしだった。&lt;br /&gt;
-&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A6%E3%83%AD%E3%83%B3&#34;&gt;バウロン&lt;/a&gt;という打楽器が、見た目からは想像できない色々な音色があって、存在感が印象的だった。（Youtube 動画ではバウロンがほとんど聴こえない。生演奏だからこそわかる迫力があった。）&lt;/p&gt;
-
-&lt;p&gt;演奏の合間のトークも面白くて、メンバーの人柄の良さを感じられた。&lt;br /&gt;
-子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -658,14 +157,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
-使う機会がなくなってしまったので手放した。&lt;/p&gt;
-
-&lt;p&gt;最後にキレイに掃除して写真とった。
-&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOWp3zCDwoM/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -676,14 +168,786 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
       <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.17 フォレスト</title>
+      <link>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</link>
+      <pubDate>Sat, 17 Dec 2016 23:02:35 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
+      <description>&lt;p&gt;今年5月の転職と同時に田舎から引越して約半年経った。もう冬。&lt;/p&gt;
 
-&lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
-値が取れないなぁー、 NULL になっちゃうなぁーと悩んでたら return を書いてなかった。このミス何回目だろうか。&lt;/p&gt;
+&lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>充実した1年のスタートを ― PHPで</title>
+      <link>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</link>
+      <pubDate>Sat, 17 Dec 2016 21:24:33 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
+      <description>&lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2016/pepabo&#34;&gt;pepabo Advent Calendar 2016&lt;/a&gt; 17日目の記事です。&lt;br /&gt;
+昨日は genkiroid さんの &lt;a href=&#34;https://genkiroid.github.io/2016/12/16/about-turpan/&#34;&gt;PHPのrequire系ステートメントと断捨離について&lt;/a&gt; でした。コードを断捨離していきましょう!!!&lt;/p&gt;
 
-&lt;p&gt;頭痛がひどい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.16 おもしろくしたかった</title>
+      <link>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</link>
+      <pubDate>Fri, 16 Dec 2016 23:38:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
+      <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
+市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.11 JetBrains のオープンソースライセンスが承認された</title>
+      <link>https://ackintosh.github.io/blog/2016/12/11/2016-12-14/</link>
+      <pubDate>Sun, 11 Dec 2016 21:35:45 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
+      <description>&lt;p&gt;(少し前のことだけどブログに書いてなかった)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.10 神様の開発に着手</title>
+      <link>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</link>
+      <pubDate>Sat, 10 Dec 2016 15:44:16 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
+      <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.09 キラキラネームのすゝめ</title>
+      <link>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
+      <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
+      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.23 展示品</title>
+      <link>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
+      <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
+      <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
+島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
+      <link>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</link>
+      <pubDate>Sun, 13 Nov 2016 22:02:49 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
+      <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.12 オペコード</title>
+      <link>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</link>
+      <pubDate>Sat, 12 Nov 2016 20:08:58 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016.11.06 </title>
+      <link>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
+      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。
+
+PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.05 Tycho</title>
+      <link>https://ackintosh.github.io/blog/2016/11/05/2016-11-05/</link>
+      <pubDate>Sat, 05 Nov 2016 12:56:56 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/05/2016-11-05/</guid>
+      <description>&lt;p&gt;たまたま Youtube の関連動画にあったので聴いてみたらとても癒やされた。&lt;/p&gt;
+
+&lt;p&gt;Tycho(ティコ)&lt;br /&gt;
+&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【ペパボ×プレイド】Tech Meetup で LT</title>
+      <link>https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</link>
+      <pubDate>Thu, 27 Oct 2016 21:59:18 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</guid>
+      <description>&lt;p&gt;場所は&lt;a href=&#34;https://www.google.co.jp/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=1&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0ahUKEwjx4vPDjYXQAhUBErwKHdXbC0sQFggkMAA&amp;amp;url=https%3A%2F%2Fplaid.co.jp%2F&amp;amp;usg=AFQjCNEnanIqoRljdEgfkMOHG4ZV_TRZbw&amp;amp;sig2=1UqILw-ttShPafI83trptw&#34;&gt;プレイド&lt;/a&gt;さん。&lt;br /&gt;
+オフィススペースと隣り合った一角がカフェみたいになっていて、そこに椅子とスクリーンを並べたかたちの会場。角のカウンターにはコーヒーサイフォンが並んでいて大変オシャレでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.10.05 LTの準備</title>
+      <link>https://ackintosh.github.io/blog/2016/10/05/2016-10-05/</link>
+      <pubDate>Wed, 05 Oct 2016 22:38:30 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/10/05/2016-10-05/</guid>
+      <description>&lt;p&gt;LTを申し込んでから何か発表できることがないかずっと悩んでたけど、ようやく内容が決まってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.22 Snidel 0.8にむけて</title>
+      <link>https://ackintosh.github.io/blog/2016/09/22/2016-09-22/</link>
+      <pubDate>Thu, 22 Sep 2016 21:12:52 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/22/2016-09-22/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のキューの部分で、専用のミドルウェアや Saas を使えるようにすべく開発をはじめた。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.21 LT駆動</title>
+      <link>https://ackintosh.github.io/blog/2016/09/21/2016-09-21/</link>
+      <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
+      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>お産合宿10</title>
+      <link>https://ackintosh.github.io/blog/2016/09/16/osan10/</link>
+      <pubDate>Fri, 16 Sep 2016 17:58:26 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/16/osan10/</guid>
+      <description>&lt;p&gt;お産合宿10に参加しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Snidel 0.7 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/</link>
+      <pubDate>Fri, 09 Sep 2016 23:58:13 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/</guid>
+      <description>&lt;p&gt;今回のリリースでは実装をシンプルにするために機能を削除しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.04 ド素人</title>
+      <link>https://ackintosh.github.io/blog/2016/09/04/2016-09-04/</link>
+      <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
+      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.30 社内ISUCON</title>
+      <link>https://ackintosh.github.io/blog/2016/08/30/2016-08-30/</link>
+      <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
+      <description>&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.27 apache &#43; mod_php脳</title>
+      <link>https://ackintosh.github.io/blog/2016/08/27/2016-08-27/</link>
+      <pubDate>Sat, 27 Aug 2016 23:50:45 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
+      <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
+なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.20 ポインタへの格下げ</title>
+      <link>https://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
+      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
+      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.17 集中力, コンパイラ</title>
+      <link>https://ackintosh.github.io/blog/2016/08/17/2016-08-17/</link>
+      <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/17/2016-08-17/</guid>
+      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Goアプリのデーモン化とデプロイの仕組み</title>
+      <link>https://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</link>
+      <pubDate>Wed, 17 Aug 2016 12:40:37 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</guid>
+      <description>&lt;p&gt;社内の某合宿イベントで、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.14 華の湯</title>
+      <link>https://ackintosh.github.io/blog/2016/08/15/2016-08-14/</link>
+      <pubDate>Mon, 15 Aug 2016 17:15:54 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/15/2016-08-14/</guid>
+      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.12 Wi2 Premium</title>
+      <link>https://ackintosh.github.io/blog/2016/08/12/2016-08-12/</link>
+      <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
+      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.11 Swift と Go</title>
+      <link>https://ackintosh.github.io/blog/2016/08/11/2016-08-11/</link>
+      <pubDate>Thu, 11 Aug 2016 14:56:22 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/11/2016-08-11/</guid>
+      <description>&lt;p&gt;夏休み2日目。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.10 iPhoneアプリ開発に入門</title>
+      <link>https://ackintosh.github.io/blog/2016/08/10/2016-08-10/</link>
+      <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
+      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.07 toe</title>
+      <link>https://ackintosh.github.io/blog/2016/08/07/2016-08-07/</link>
+      <pubDate>Sun, 07 Aug 2016 17:29:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/07/2016-08-07/</guid>
+      <description>&lt;p&gt;知人に教えてもらってハマったバンド。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ngx_mruby でシャドウプロキシ</title>
+      <link>https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/</link>
+      <pubDate>Fri, 05 Aug 2016 15:34:21 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/</guid>
+      <description>&lt;p&gt;最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、&lt;br /&gt;
+何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.01 プログラミング言語Go</title>
+      <link>https://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
+      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
+      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.07.31 コンプレックス</title>
+      <link>https://ackintosh.github.io/blog/2016/07/31/2016-07-31/</link>
+      <pubDate>Sun, 31 Jul 2016 16:53:50 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/31/2016-07-31/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016.07.29 送別会</title>
+      <link>https://ackintosh.github.io/blog/2016/07/29/2016-07-29/</link>
+      <pubDate>Fri, 29 Jul 2016 16:24:17 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/29/2016-07-29/</guid>
+      <description>&lt;p&gt;2年間、派遣社員としてサービス開発・保守で活躍されたかたの送別会。
+ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHP BLT #5でLTデビュー</title>
+      <link>https://ackintosh.github.io/blog/2016/07/20/phpblt5/</link>
+      <pubDate>Wed, 20 Jul 2016 23:51:41 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/20/phpblt5/</guid>
+      <description>&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>転職イベントに登壇</title>
+      <link>https://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</link>
+      <pubDate>Wed, 13 Jul 2016 20:36:31 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</guid>
+      <description>&lt;p&gt;いままで人前でLTすらしたことないので、このようなイベントの登壇は自分のようなコミュ障には大変ハードルが高く感じますが、ちょうど入社したてということもあり、転職を考えている方に何か伝えられる事があるのではないかと思って勇気を出して臨みました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>転職して１ヶ月</title>
+      <link>https://ackintosh.github.io/blog/2016/06/18/pepabo/</link>
+      <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Martin Fowler&#39;s Bliki (ja) の翻訳に参加しました</title>
+      <link>https://ackintosh.github.io/blog/2016/05/10/bliki-ja/</link>
+      <pubDate>Tue, 10 May 2016 13:52:40 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/05/10/bliki-ja/</guid>
+      <description>&lt;p&gt;こちらを翻訳しました。&lt;br /&gt;
+&lt;a href=&#34;http://bliki-ja.github.io/CircuitBreaker/&#34; target=&#34;_blank&#34;&gt;CircuitBreaker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;プルリクエスト&lt;br /&gt;
+&lt;a href=&#34;https://github.com/bliki-ja/bliki-ja.github.io/pull/3&#34; target=&#34;_blank&#34;&gt;Add CircuitBreaker #3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Snidel 0.6 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</link>
+      <pubDate>Wed, 04 May 2016 02:16:17 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/</guid>
+      <description>&lt;p&gt;外部的なインターフェースは変わっていませんが、&lt;br /&gt;
+内部的なアーキテクチャを大幅に変更しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.6.0&#34;&gt;Release 0.6.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>最近読んだ本 (〜2016.04)</title>
+      <link>https://ackintosh.github.io/blog/2016/05/01/books_201604/</link>
+      <pubDate>Sun, 01 May 2016 19:03:34 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/05/01/books_201604/</guid>
+      <description>&lt;p&gt;人工知能がアツいようなのでとりあえず１冊読んでみたのと&lt;br /&gt;
+近いうちに環境が変わるので、色々と足りないところの予備知識を準備するのがメイン。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Snidel 0.5 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0/</link>
+      <pubDate>Mon, 04 Apr 2016 12:44:06 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0/</guid>
+      <description>&lt;p&gt;引き続き内部のリファクタリングに加えて、&lt;br /&gt;
+今回のリリースでは Snidel::get() の返り値を変更しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.5.0&#34; target=&#34;_blank&#34;&gt;Release 0.5.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Snidel 0.4 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0/</link>
+      <pubDate>Mon, 04 Apr 2016 12:14:53 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0/</guid>
+      <description>&lt;p&gt;リリース日は 2016-02-21 なのでブログに書くのがだいぶ遅くなってしまいました。&lt;/p&gt;
+
+&lt;p&gt;PHP5.2 のサポートを終了したのが大きな変更点です。&lt;br /&gt;
+これまでは諸事情によりサポートせざるを得なかったのですがようやく。。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CloudFrontでURL振り分けをするときの注意点</title>
+      <link>https://ackintosh.github.io/blog/2016/02/24/l7switching-with-cf/</link>
+      <pubDate>Wed, 24 Feb 2016 21:16:42 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/02/24/l7switching-with-cf/</guid>
+      <description>&lt;p&gt;最近仕事で担当しているサービスをオンプレからAWSに移行しました。&lt;/p&gt;
+
+&lt;p&gt;ビジネスの都合で短期間で移行しなければいけなかったり、&lt;br /&gt;
+AWSに関しては、&lt;br /&gt;
+個人的に趣味で少し触った程度だったり、&lt;br /&gt;
+会社としてもこれからノウハウを溜めていこうという段階だったので手探り状態で&lt;br /&gt;
+大変でしたが周りの方々にフォローしていただきながらなんとか完了することができました。&lt;/p&gt;
+
+&lt;p&gt;この記事では移行の際にハマったことを共有します。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ペパボテックカンファレンス EC編に行ってきました</title>
+      <link>https://ackintosh.github.io/blog/2015/11/15/pbtech_4/</link>
+      <pubDate>Sun, 15 Nov 2015 17:27:08 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2015/11/15/pbtech_4/</guid>
+      <description>&lt;p&gt;いま仕事でECに携わっているのもあって気になったので行ってきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Snidel 0.2 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/</link>
+      <pubDate>Sun, 08 Nov 2015 16:05:24 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2015/11/08/snidel_0_2_0/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34; target=&#34;_blank&#34;&gt;Snidel&lt;/a&gt; バージョン 0.2 をリリースしました。&lt;br /&gt;
+この記事は、&lt;br /&gt;
+追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。&lt;/p&gt;
+
+&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>php で手軽に並列処理をするライブラリ Snidel を作りました</title>
+      <link>https://ackintosh.github.io/blog/2015/09/29/snidel/</link>
+      <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2015/09/29/snidel/</guid>
+      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>phpでバイナリ . テキストファイルの判定</title>
+      <link>https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</link>
+      <pubDate>Sat, 01 Feb 2014 16:25:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
+      <description>&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
+
+&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>クラスや関数宣言だけをインクルードできるライブラリを作りました</title>
+      <link>https://ackintosh.github.io/blog/2013/11/24/toumi/</link>
+      <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
+      <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>spika hackathonに参加しました</title>
+      <link>https://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</link>
+      <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/10/21/spika-hackathon/</guid>
+      <description>&lt;p&gt;先日、&lt;a href=&#34;http://connpass.com/event/3698/&#34; target=&#34;_blank&#34;&gt;spika hackathon&lt;/a&gt;に参加してきました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://spikaapp.com/ja/&#34; target=&#34;_blank&#34;&gt;Spika - world first opensource messenger for ios/android&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回のハッカソン関係者のみなさんもブログに書かれていますので、
+Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>グローバル関数への依存を排除してテスタビリティを上げる</title>
+      <link>https://ackintosh.github.io/blog/2013/10/18/php-testability/</link>
+      <pubDate>Fri, 18 Oct 2013 17:14:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
+      <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
+今回はグローバル関数への依存について。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>遅延静的束縛は何が嬉しいのか</title>
+      <link>https://ackintosh.github.io/blog/2013/08/25/late-static-binding/</link>
+      <pubDate>Sun, 25 Aug 2013 17:23:38 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/08/25/late-static-binding/</guid>
+      <description>&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
+target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ハイフンとアンダースコアの使い分け</title>
+      <link>https://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</link>
+      <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/08/11/hypen-under-score/</guid>
+      <description>&lt;p&gt;ネーミングの時のハイフンとアンダースコアの使い分けが、自分の中で曖昧なところがあったのでメモ。&lt;/p&gt;
+
+&lt;p&gt;言語やフレームワークによって色々あるかもしれませんが、以下、Ruby(gem)の場合です。&lt;/p&gt;
+
+&lt;h4 id=&#34;eric-hodel氏の推奨するネーミングルール&#34;&gt;Eric Hodel氏の推奨するネーミングルール&lt;/h4&gt;
+
+&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHPで関数合成を書いてみる</title>
+      <link>https://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</link>
+      <pubDate>Mon, 05 Aug 2013 17:42:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/08/05/compose-functions-in-php/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
+target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHP用のベンチマークツールを作りました</title>
+      <link>https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</link>
+      <pubDate>Tue, 11 Jun 2013 16:41:31 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
+      <description>&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FuelPHPに独自のバリデーションルールを追加する</title>
+      <link>https://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</link>
+      <pubDate>Mon, 29 Apr 2013 15:51:23 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/04/29/custom-validation-for-fuelphp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://fuelphp.com/&#34; target=&#34;_blank&#34;&gt;FuelPHP » A simple,
+flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
+FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>FuelPHPに独自の設定ファイルを追加する</title>
+      <link>https://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</link>
+      <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
+      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ラムダ・クロージャ・部分適用・カリー化を一言でいうと？</title>
+      <link>https://ackintosh.github.io/blog/2013/04/18/lambda/</link>
+      <pubDate>Thu, 18 Apr 2013 17:04:42 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
+      <description>&lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
+勉強しながら少しづつ修正しています。&lt;br /&gt;
+間違いがありましたら、ご指摘いただけると幸いです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHPでTCPサーバー</title>
+      <link>https://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</link>
+      <pubDate>Thu, 18 Apr 2013 16:31:56 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
+      <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
+
+&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Octopressで記事が作れない(zsh)</title>
+      <link>https://ackintosh.github.io/blog/2013/02/02/cant-create-post/</link>
+      <pubDate>Sat, 02 Feb 2013 17:11:18 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/02/02/cant-create-post/</guid>
+      <description>&lt;p&gt;zshを使うようになってからOctopressで記事を作成するときにエラーが出るようになってしまった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ rake new_post[hoge]
+zsh: no matches found: new_post[hoge]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ZendQueueとKestrelでメッセージキューサーバーを体験</title>
+      <link>https://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</link>
+      <pubDate>Thu, 03 Jan 2013 16:47:11 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2013/01/03/message-queue-server-with-php/</guid>
+      <description>&lt;h4 id=&#34;kestrel&#34;&gt;Kestrel&lt;/h4&gt;
+
+&lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
+&lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
+:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RubyでTemplate Methodパターン</title>
+      <link>https://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</link>
+      <pubDate>Wed, 24 Oct 2012 17:21:33 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
+      <description>&lt;p&gt;Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。&lt;/p&gt;
+
+&lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdownをプレビュー → Evernoteに保存できるサービスを作りました。</title>
+      <link>https://ackintosh.github.io/blog/2012/09/02/md2note/</link>
+      <pubDate>Sun, 02 Sep 2012 16:55:06 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2012/09/02/md2note/</guid>
+      <description>&lt;p&gt;最近はブログ記事とかをMarkdown記法で書いてる人も多いのではないでしょうか。&lt;br /&gt;
+ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。&lt;br /&gt;
+(RubyとRailsの勉強を兼ねて φ(..))&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HerokuのWebサーバーをUnicornに変更する</title>
+      <link>https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</link>
+      <pubDate>Tue, 28 Aug 2012 16:18:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
+      <description>&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQLでインデックスあり・なしの検索速度を比較してみました。</title>
+      <link>https://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</link>
+      <pubDate>Sun, 26 Aug 2012 17:34:34 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</guid>
+      <description>&lt;p&gt;usersとfavoritesが１対多になるようにして、&lt;br /&gt;
+indexの設定あり・なしの2つのDBを用意して比較しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown記法のパーサー　markdown-jsを使う</title>
+      <link>https://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/</link>
+      <pubDate>Tue, 10 Jul 2012 16:59:25 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2012/07/10/use-the-markdown-js/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/markdown-to-html.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。&lt;br /&gt;
+ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
+今回markdown-jsというのを使ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

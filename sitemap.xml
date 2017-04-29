@@ -397,6 +397,11 @@
   </url>
   
   <url>
+    <loc>https://ackintosh.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/tags/diary/</loc>
     <lastmod>2017-04-10T01:23:28+09:00</lastmod>
     <priority>0</priority>
@@ -445,7 +450,13 @@
   </url>
   
   <url>
+    <loc>https://ackintosh.github.io/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/tags/</loc>
+    <lastmod>2017-04-10T01:23:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   

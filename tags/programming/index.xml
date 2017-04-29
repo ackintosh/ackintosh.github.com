@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on 暁</title>
-    <link>https://ackintosh.github.io/tags/programming/index.xml</link>
+    <link>https://ackintosh.github.io/tags/programming/</link>
     <description>Recent content in Programming on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <atom:link href="https://ackintosh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Oct 2013 15:59:43 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>spika hackathonに参加しました</title>
@@ -22,73 +25,7 @@
 &lt;p&gt;今回のハッカソン関係者のみなさんもブログに書かれていますので、
 Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cloverstudioceo.hatenablog.com/entry/2013/10/21/033700&#34;
-target=&#34;_blank&#34;&gt;Spikaを公開して起こった事 -
-ヨーロッパで働く社長のブログ&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://kuzuha.hatenablog.com/entry/2013/10/21/214116&#34;
-target=&#34;_blank&#34;&gt;spika hackathon というのをやった - id:k-z-h&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/&#34; target=&#34;_blank&#34;&gt;Spika Hackathon に参加してきた - Born Too Late&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;要するに↑を見れば全てわかるので&lt;br /&gt;
-この記事に意味はありません。&lt;/p&gt;
-
-&lt;h4 id=&#34;動機&#34;&gt;動機&lt;/h4&gt;
-
-&lt;p&gt;この記事を見ている方はご存知だと思いますが、Spikaはコードの品質の低さで話題になりました。&lt;br /&gt;
-で、自分もSpikaのコードを見て同じような印象を持ったのですが、&lt;/p&gt;
-
-&lt;p&gt;これなら、自分みたいにショボいプログラマでも何かできるんじゃないか…！？&lt;/p&gt;
-
-&lt;p&gt;と思ったのがハッカソンに参加した動機です。&lt;br /&gt;
-（貢献したいというよりは、自分の経験値を上げたいという）&lt;/p&gt;
-
-&lt;p&gt;趣味で一人でgithub使っててもつまらないし&lt;br /&gt;
-ソーシャルコーディングとかプルリクエストとか楽しそうだし&lt;br /&gt;
-なんかカッコイイなぁ、自分も参加したいなぁと思いながらリポジトリを見渡しても&lt;br /&gt;
-何か難しそうだし、英語ばっかりだし(当たり前か…)って感じで悶々とする日々が続いてました。&lt;/p&gt;
-
-&lt;p&gt;なんていうか、高速道路の中央分離帯に立っているような感じで、&lt;br /&gt;
-流れに入りたいけど何も出来ない…みたいな(?)。&lt;br /&gt;
-なので、それを打破するチャンスかなと思ったので参加しました。&lt;/p&gt;
-
-&lt;h4 id=&#34;やったこと&#34;&gt;やったこと&lt;/h4&gt;
-
-&lt;p&gt;二人の素晴らしいhackerの隣で黙々とテスト書いてました。&lt;/p&gt;
-
-&lt;p&gt;テストを書こうと最初から決めていたのですが、&lt;br /&gt;
-ハッカソン直前にオーナーがSilexで書きなおしてたので、&lt;/p&gt;
-
-&lt;p&gt;やばい！Silex触ったこと無い！&lt;/p&gt;
-
-&lt;p&gt;と、かなり焦りましたがなんとかなりました。&lt;br /&gt;
-むしろテスト書きやすかったです。WebTestCaseっていうのがあったので使いました、素晴らしいですね。&lt;br /&gt;
-正直、ハッカソンに参加するまでプルリクエスト3回位しかやったことなかったので&lt;br /&gt;
-リポジトリの扱いでわからないことがあって参加者の皆さんにご迷惑をかけてしまいました。&lt;/p&gt;
-
-&lt;p&gt;developブランチでSilexで書きなおしてたのに&lt;br /&gt;
-自分が間違ってmasterブランチにプルリクエストしてしてしまったり。&lt;br /&gt;
-（そしてそれがmergeされてしまったり）&lt;br /&gt;
-再度謝罪いたしますm( )m&lt;/p&gt;
-
-&lt;h4 id=&#34;まとめ&#34;&gt;まとめ&lt;/h4&gt;
-
-&lt;p&gt;やっぱり自分が書いたコードがmergeされた時はちょっとした感動がありました。&lt;br /&gt;
-（ハッカソンでは一切表に出しませんでしたが、密かに感動してました）&lt;/p&gt;
-
-&lt;p&gt;あと、自分みたいに高速道路の中央分離帯に立っている人って意外といるんじゃないかなぁと思いますので&lt;br /&gt;
-そういう人は、エイッと飛び込んでみると良いかもしれません。&lt;br /&gt;
-自分も引き続きがんばります。&lt;/p&gt;
-
-&lt;p&gt;それと、自分は群馬在住なので1日目は都内のカプセルホテルに泊まりました。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://travel.rakuten.co.jp/HOTEL/104580/&#34;
-target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル】&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;サウナあり、無料モーニングパンサービスありで割と思います。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,43 +38,7 @@ target=&#34;_blank&#34;&gt;カプセルランド　湯島 【楽天トラベル�
 勉強しながら少しづつ修正しています。&lt;br /&gt;
 間違いがありましたら、ご指摘いただけると幸いです。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ラムダとクロージャ&#34;&gt;ラムダとクロージャ&lt;/h3&gt;
-
-&lt;h4 id=&#34;ラムダ-無名関数&#34;&gt;ラムダ(無名関数)&lt;/h4&gt;
-
-&lt;p&gt;使い捨ての名前のない関数。&lt;/p&gt;
-
-&lt;h4 id=&#34;クロージャ&#34;&gt;クロージャ&lt;/h4&gt;
-
-&lt;p&gt;関数を返す関数の中で、 変数を束縛(bind/capture)する関数。&lt;/p&gt;
-
-&lt;p&gt;※クロージャと関数を返す関数の違い → 変数を束縛するかしないか。&lt;/p&gt;
-
-&lt;h3 id=&#34;部分適用とカリー化&#34;&gt;部分適用とカリー化&lt;/h3&gt;
-
-&lt;h4 id=&#34;部分適用&#34;&gt;部分適用&lt;/h4&gt;
-
-&lt;p&gt;クロージャ等を利用して引数の数の少ない関数を作ること。&lt;br /&gt;
-(下記Rubyコードのうち、invを導出すること)&lt;/p&gt;
-
-&lt;h4 id=&#34;カリー化&#34;&gt;カリー化&lt;/h4&gt;
-
-&lt;p&gt;部分適用の中でも、関数の引数をひとつだけにすること。&lt;br /&gt;
-複数の引数をとる関数を、引数が「もとの関数の最初の引数」で戻り値が「もとの関数の残りの引数を取り結果を返す関数」であるような関数にすること。&lt;br /&gt;
-(下記Rubyコードのうち、cdivを導出すること)&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/5431663.js&#34;&gt;&lt;/script&gt;
-
-&lt;h5 id=&#34;参考にさせていただきました&#34;&gt;参考にさせていただきました。&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://prezi.com/9brwewgcxtr2/javascript/&#34; target=&#34;_blank&#34;&gt;javascript で遊ぶラムダ式、クロージャ、カリー化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a
-href=&#34;http://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%AA%E3%83%BC%E5%8C%96&#34;
-target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -152,15 +53,7 @@ target=&#34;_blank&#34;&gt;カリー化 - Wikipedia&lt;/a&gt;&lt;/li&gt;
 &lt;p&gt;Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。&lt;br /&gt;
 (RubyとRailsの勉強を兼ねて φ(..))&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://md2note.herokuapp.com/&#34; target=&#34;_blank&#34;&gt;Md2Note &lt;a href=&#34;http://md2note.herokuapp.com/&#34;&gt;http://md2note.herokuapp.com/&lt;/a&gt;&lt;/a&gt;&lt;br /&gt;
-上記に当てはまる方は是非使ってみてください。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png&#34; alt=&#34;https://dl.dropbox.com/u/22083548/octopress/20120902/md2note_small.png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Evernoteにログインすると、ノート一覧がでますので&lt;br /&gt;
-保存先のノートを選択してください。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

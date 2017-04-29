@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on 暁</title>
-    <link>https://ackintosh.github.io/tags/mysql/index.xml</link>
+    <link>https://ackintosh.github.io/tags/mysql/</link>
     <description>Recent content in Mysql on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <atom:link href="https://ackintosh.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Aug 2012 17:34:34 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>MySQLでインデックスあり・なしの検索速度を比較してみました。</title>
@@ -18,66 +21,7 @@
       <description>&lt;p&gt;usersとfavoritesが１対多になるようにして、&lt;br /&gt;
 indexの設定あり・なしの2つのDBを用意して比較しました。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;予め、&lt;br /&gt;
-usersは 100,000件&lt;br /&gt;
-favoritesに300,000件のレコードを用意しました。&lt;/p&gt;
-
-&lt;h4 id=&#34;indexなし&#34;&gt;indexなし&lt;/h4&gt;
-
-&lt;p&gt;・テーブル作成&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null
-) engine=innodb;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;・select&lt;br /&gt;
-&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120826/select_noindex.png&#34; alt=&#34;select&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;・explain&lt;br /&gt;
-&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120826/explain_noindex.png&#34; alt=&#34;explain&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;indexあり&#34;&gt;indexあり&lt;/h4&gt;
-
-&lt;p&gt;・テーブル作成&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;create table users(
-id int(11) not null primary key auto_increment,
-name varchar(40) not null
-) engine=innodb;
-
-create table favorites(
-user_id int(11) not null,
-favorite_name varchar(40) not null,
-foreign key(user_id) references users(id)
-) engine=innodb;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;・select&lt;br /&gt;
-&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120826/select_index.png&#34; alt=&#34;select&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;・explain&lt;br /&gt;
-&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120826/explain_index.png&#34; alt=&#34;explain&#34; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;結果&#34;&gt;結果&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;indexなし
-クエリ実行時間 0.38 秒&lt;/li&gt;
-&lt;li&gt;indexあり
-クエリ実行時間 0.0005秒&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;explainの結果から、indexがないと&lt;br /&gt;
-テーブルのフルスキャンが発生してしまっていることがわかりました。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

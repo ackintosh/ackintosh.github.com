@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on 暁</title>
-    <link>https://ackintosh.github.io/tags/javascript/index.xml</link>
+    <link>https://ackintosh.github.io/tags/javascript/</link>
     <description>Recent content in Javascript on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <atom:link href="https://ackintosh.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Jul 2012 16:59:25 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Markdown記法のパーサー　markdown-jsを使う</title>
@@ -21,43 +24,7 @@
 ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
 今回markdown-jsというのを使ってみました。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;markdown-js&lt;/em&gt;&lt;br /&gt;
-&lt;a href=&#34;https://github.com/evilstreak/markdown-js&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://github.com/evilstreak/markdown-js&#34;&gt;https://github.com/evilstreak/markdown-js&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;例&#34;&gt;例&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var md = &amp;quot;#markdown&amp;quot;;
-console.dir(window.markdown.toHTML(md));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;リアルタイムにmarkdown-htmlに変換してみる&#34;&gt;リアルタイムにmarkdown→HTMLに変換してみる&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
-    &amp;lt;title&amp;gt;markdown 2 html&amp;lt;/title&amp;gt;
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;./lib/markdown.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;
-src=&amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;textarea id=&amp;quot;markdown&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
-    &amp;lt;div id=&amp;quot;html&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-        $(&#39;#markdown&#39;).keyup(function (e){
-        $(&#39;#html&#39;).html(window.markdown.toHTML($(&#39;#markdown&#39;).val()));
-        });
-    &amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;参考url&#34;&gt;参考URL&lt;/h3&gt;
-
-&lt;p&gt;にのせき日記&lt;br /&gt;
-&lt;a href=&#34;http://d.hatena.ne.jp/ninoseki/20110620/1308574793&#34; target=&#34;_blank&#34;&gt;Javascript製Markdown記法パーサー、markdown-js&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

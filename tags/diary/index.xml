@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Diary on 暁</title>
-    <link>https://ackintosh.github.io/tags/diary/index.xml</link>
+    <link>https://ackintosh.github.io/tags/diary/</link>
     <description>Recent content in Diary on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <atom:link href="https://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Apr 2017 01:23:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>2017.04.10 テストコード</title>
@@ -17,9 +20,7 @@
       <guid>https://ackintosh.github.io/blog/2017/04/10/2017-04-10/</guid>
       <description>&lt;p&gt;「テストが無いコードをリリースするということは、ズボンをはかずに外出するようなものだ」&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;という言葉が降ってきたのでよろしければご利用ください。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -30,24 +31,7 @@
       <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
       <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;仕事で Android の WebView を判定する必要があったけど未対応だったので woothee と woothee-php に PR を出した。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee&#34;&gt;woothee/woothee&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee/pull/33&#34;&gt;Add WebView on Android by ackintosh · Pull Request #33 · woothee/woothee&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php&#34;&gt;woothee/woothee-php&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/woothee/woothee-php/pull/34&#34;&gt;Support WebView on Android and curl by ackintosh · Pull Request #34 · woothee/woothee-php&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;すぐ PR に反応していただいて大変助かりました。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -58,12 +42,7 @@
       <guid>https://ackintosh.github.io/blog/2017/01/31/2017-01-31/</guid>
       <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。
 
-主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;
-
-&lt;p&gt;Wikipedia で Robin Tunney のプロフィールを調べたら、なんと誕生日が同じだった !&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%93%E3%83%B3%E3%83%BB%E3%82%BF%E3%83%8B%E3%83%BC&#34;&gt;ロビン・タニー - Wikipedia&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;1997年に Niagara Niagaraを監督したボブ・ゴッスと結婚したが後に離婚し、2007年に映画監督の アンドリュー・ドミニクと婚約したが、後に解消している。2010年12月からは ヘルメット &amp;hellip;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -72,9 +51,7 @@
       <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
-      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。
-
-理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。&lt;/p&gt;</description>
+      <description></description>
     </item>
     
     <item>
@@ -96,18 +73,7 @@
       <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
       <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Head First C の 5章 構造体、共用体、ビットフィールドが終わった。&lt;br /&gt;
-章のタイトルには無いが enum についての解説もあった。共用体は、予め定義された複数種類のデータのうちどれか一つを持つが、実際に持っているデータがどの種類なのかが共用体だけでは判別できないので、 enum を使って判別する例が示されていた。&lt;/p&gt;
-
-&lt;p&gt;夜は、映画と日帰り温泉。&lt;/p&gt;
-
-&lt;p&gt;バイオハザード ザ・ファイナルを観た。シリーズをちゃんと観てきたわけじゃないけど、まぁ楽しめるだろうと。&lt;br /&gt;
-アクションは結構楽しめたけど、動きとか画面の切り替わりが速すぎて目がついていけなかった。自分の視力の問題だろうか。&lt;br /&gt;
-あとは怖さに物足りなさを感じた。突然の大きな音とかで驚かすパターンが多かったのが残念。&lt;/p&gt;
-
-&lt;p&gt;サイゼリアでサッと夕食を済ませたあと、久々の安眠の湯。露天の檜の湯がとても良い。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -118,66 +84,7 @@
       <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
       <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h5 id=&#34;転職&#34;&gt;転職&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2015/11/15/pbtech_4/&#34;&gt;ペパボテックカンファレンス EC編に行ってきました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/06/18/pepabo/&#34;&gt;転職して１ヶ月&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;正しい開発をしたいと思ったのが転職を考えたきっかけ。ペパボテックカンファレンスや面接等で現場の方々のお話を聞いて、ペパボならそれが出来ると思った（&amp;rdquo;正しい開発&amp;rdquo; の定義は人によって違いはあるだろうけど、だいたい皆さんが想像するソレと同じです） 。5月に入社して半年以上たった今でもその印象は変わっていない。&lt;/p&gt;
-
-&lt;p&gt;先日大きめの機能開発・リリースを行った際にも、ペパボの環境の良さを感じた。&lt;br /&gt;
-複数のチーム・職種を横断したプロジェクト。限られたリソースで開発を遂げるために、メンバーをプロジェクトに注力させるために社内体制を調整したのが印象的だった。&lt;br /&gt;
-ともすると &amp;ldquo;徹夜してがんばる&amp;rdquo; という個人を犠牲にして力ずくな方向に走ってしまいがちな状況に対しても、チーム・組織で解決していく文化が素晴らしいと思った。&lt;/p&gt;
-
-&lt;p&gt;また、開発中機能の社内ユーザーテストを繰り返し行い、UI・UXに磨きをかけていくのはユーザーに本当に良いものを届けたいというこだわりが現れている。&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;正しい開発&amp;rdquo; として一番やりたかったのが、テストコードを書くこと。これを実践できたのが嬉しかった。&lt;br /&gt;
-ユニットテストを書きながら開発していたので、プロジェクトが進行して画面遷移等が増え、コードが複雑になってきても安心してリファクタリングできた。&lt;/p&gt;
-
-&lt;h5 id=&#34;lt&#34;&gt;LT&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/07/20/phpblt5/&#34;&gt;PHP BLT #5でLTデビュー&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/&#34;&gt;【ペパボ×プレイド】Tech Meetup で LT&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LTの発表を2回やった。&lt;br /&gt;
-PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコミュ障が発表する側になるとは思ってなかったが、 PHPBLT をペパボが主催するという話を聞いてエイヤッと LT に立候補した。&lt;br /&gt;
-このような機会があるのも、&amp;rdquo;いるだけで成長できる環境&amp;rdquo; たる所以だろう。&lt;/p&gt;
-
-&lt;h5 id=&#34;oss-活動&#34;&gt;OSS 活動&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_4_0&#34;&gt;Snidel 0.4 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/04/04/snidel_0_5_0&#34;&gt;Snidel 0.5 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0&#34;&gt;Snidel 0.6 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0&#34;&gt;Snidel 0.7 をリリースしました&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/mruby-ngx-shadow_proxy&#34;&gt;mruby-ngx-shadow_proxy&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/&#34;&gt;ngx_mruby でシャドウプロキシ&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/10/2016-12-10/&#34;&gt;2016.12.10 神様の開発に着手&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;LTの準備とか開発合宿の勉強で結構時間をかけていたのでガッツリはできてない。年末から &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; を作り始めていて、冬休みが明ける頃にはサービスに投入できるレベルにしたい。&lt;/p&gt;
-
-&lt;h5 id=&#34;引越し&#34;&gt;引越し&lt;/h5&gt;
-
-&lt;p&gt;前職では、諸事情により群馬県から東京赤坂まで片道2.5時間かけて通勤していて、時間や心身に相当な負担があって辛かった。
-いまは片道30分。本当に楽。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -188,12 +95,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
       <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Head First C 4章 複数のソースファイルの使用 まで終わり。&lt;br /&gt;
-&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。だいぶ形になってきた。&lt;/p&gt;
-
-&lt;p&gt;プログラミングをはじめてから6年経ってた。今年はシステムプログラミングのジャンルで何かを作りたい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -205,43 +107,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
 秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;まず秋葉原に集合。お互いに秋葉原の土地勘が全くないし、駅がデカくて出口がたくさんあるので合流するまでに時間がかかった。&lt;br /&gt;
-とりあえず自販で買ったホットコーヒーを飲みながら秋葉原公園で少しマッタリ。日陰はちょっと寒かった。&lt;/p&gt;
-
-&lt;p&gt;周辺をフラフラしたあとメイドカフェに入る。クリスマスなので、みんなサンタコスだった。サンタなので &amp;ldquo;ご主人様&amp;rdquo; とは呼ばないルールとのこと。残念。&lt;br /&gt;
-クリスマス限定のくじ引きを引いた。自分はお菓子（チロルチョコ）。しんくんは &amp;ldquo;愛のビンタ&amp;rdquo; というインパクト抜群な景品。&lt;br /&gt;
-文字通りビンタされるのだが、メイドさんに恥ずかしがる様子は全く無く、しっかり腕を振りかぶってビンタする様子が印象的だった。 &amp;ldquo;パン ! &amp;rdquo; という抜けの良い破裂音は、年末 ガキの使い 恒例の方正と蝶野のアレを想起させた。&lt;br /&gt;
-ビンタ執行の様子を動画に撮っておいて LINE で共有した。しばらく笑いのネタになりそう。&lt;/p&gt;
-
-&lt;p&gt;今日メインイベントのライブ会場へ向かう。東大前へ。&lt;/p&gt;
-
-&lt;p&gt;まだ開演までは1時間弱あったので途中で見つけた洋食屋さんでギネスビールを飲みながら時間をつぶす。&lt;br /&gt;
-店内は落ち着いた良い雰囲気で、つまみで注文した料理も美味しかったのでまた行きたい。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://tabelog.ssl.k-img.com/restaurant/images/Rvw/51540/200x200_square_51540151.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://tabelog.com/tokyo/A1310/A131004/13020758/&#34;&gt;山猫軒 (東大前/洋食)&lt;/a&gt;&lt;/h4&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;そして John John Festival のライブ。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://image.jimcdn.com/app/cms/image/transf/dimension=370x10000:format=jpg/path/sb1c068beead347ab/image/i266df7c7b71be5a4/version/1481524670/image.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://www.johnjohnfestival.com/&#34;&gt;JohnJohnFestival - Irish music band(アイリッシュ ミュージック バンド) John John Festival&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Irish Music JohnJohnFestival&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;アイリッシュ系の3人組バンド。今回のライブに誘ってもらって初めて知った。&lt;/p&gt;
-
-&lt;p&gt;会場は求道会館。
-西洋の建築様式を取り入れた寺院で、照明や座席の作りは教会のようだが、中央に仏像があったり二階には和室があったりと不思議な感じ。アイリッシュな音楽と良い感じに合ってた。&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;http://www.bunkouken.com/image_m/kyu_in02_m.jpg&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;http://www.bunkouken.com/b_kyuudoukaikan.htm&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;アイリッシュ系のライブは初めてだったが、最高だった。&lt;br /&gt;
-自分が普段よく聴いてるロックとかとは違って、アコースティックな楽器での演奏なので、奏者の強弱がダイレクトに伝わってくる。後半に向けてテンポアップして盛り上がっていく展開では鳥肌が立ちっぱなしだった。&lt;br /&gt;
-&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%A6%E3%83%AD%E3%83%B3&#34;&gt;バウロン&lt;/a&gt;という打楽器が、見た目からは想像できない色々な音色があって、存在感が印象的だった。（Youtube 動画ではバウロンがほとんど聴こえない。生演奏だからこそわかる迫力があった。）&lt;/p&gt;
-
-&lt;p&gt;演奏の合間のトークも面白くて、メンバーの人柄の良さを感じられた。&lt;br /&gt;
-子連れのお客さんもいて、会場はアットホームな雰囲気。その場にいるだけで心地良かった。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -250,14 +116,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;学生時代にとてもお世話になってたマルチエフェクター。&lt;br /&gt;
-使う機会がなくなってしまったので手放した。&lt;/p&gt;
-
-&lt;p&gt;最後にキレイに掃除して写真とった。
-&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOWp3zCDwoM/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -268,14 +127,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
       <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Memcached アダプター実装の続き。&lt;br /&gt;
-値が取れないなぁー、 NULL になっちゃうなぁーと悩んでたら return を書いてなかった。このミス何回目だろうか。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha/commit/b698375151c68d7d181654563aeb67202e0743f4&#34;&gt;実装が終わってプッシュした&lt;/a&gt; ので今日は終わり。&lt;/p&gt;
-
-&lt;p&gt;頭痛がひどい。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -288,18 +140,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;blockquote class=&#34;instagram-media&#34; data-instgrm-version=&#34;7&#34; style=&#34; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&#34;&gt;&lt;div style=&#34;padding:8px;&#34;&gt; &lt;div style=&#34; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&#34;&gt; &lt;div style=&#34; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&#34;&gt;&lt;a href=&#34;https://www.instagram.com/p/BOJxaaPjUHk/&#34; style=&#34; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&#34; target=&#34;_blank&#34;&gt;&lt;/a&gt; - &lt;time style=&#34; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&#34; datetime=&#34;2016-12-18T09:00:42+00:00&#34;&gt;&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.bicklycarpet.com/?pid=94952367&#34;&gt;ウォッシャブル＆スベリ止め付きマイクロファイバーラグ　スムースプラス｜びっくりカーペット&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;ldquo;ラグ　北欧&amp;rdquo; みたいなキーワードで検索してたら&lt;a href=&#34;http://www.bicklycarpet.com/&#34;&gt;びっくりカーペット&lt;/a&gt;にたどり着いて、色々見た結果これに決めた。&lt;/p&gt;
-
-&lt;p&gt;色は第一印象ではモスグリーンが気になったけど、残念ながら売り切れてた。なので濃いめのグリーンがキレイで、商品画像のお姉さんもキレイなフォレストにした。&lt;/p&gt;
-
-&lt;p&gt;マイクロファイバーが気持ちいいし、暖かいし、色もイメージ通り。大変良い感じです。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -311,22 +152,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
       <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
 市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016&#34;&gt;充実した1年のスタートを ― PHPで&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;記事の内容は &amp;ldquo;PHP に珍しい関数があるよ!&amp;rdquo; 程度だけど、この記事を書くに際して自分としては2つチャレンジがあった。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;PHP のソースコードを読む&lt;/li&gt;
-&lt;li&gt;おもしろくする&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;1.は C言語よくわからなくて、いままで読んだことなかったので。&lt;/p&gt;
-
-&lt;p&gt;2.について。いま働いているGMOペパボの企業理念に &lt;a href=&#34;https://pepabo.com/company/vision/&#34;&gt;もっとおもしろくできる&lt;/a&gt; というのがあるので、読んでくれたひとに &amp;ldquo;おもしろい&amp;rdquo; と思ってもらえる記事を書こうと思った。&lt;br /&gt;
-で、今回書く記事では &amp;ldquo;クスッと笑ってしまう&amp;rdquo; おもしろさと &amp;ldquo;知的好奇心を満たす&amp;rdquo; おもしろさを両立しようとしたが、どちらも中途半端になってしまった気がする。うぅ&amp;hellip;難しい&amp;hellip;&lt;br /&gt;
-少し時間をおいて冷静になったらもう一回見返してみよう。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -339,25 +165,7 @@ PHPBLT が人生初 LT 。それまで、まさか自分のようなガチのコ
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;オープンソースライセンスとは&lt;br /&gt;
-&lt;a href=&#34;https://www.jetbrains.com/buy/opensource/&#34;&gt;https://www.jetbrains.com/buy/opensource/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;非商用の OSS プロジェクトのみで使えるライセンス。専用のフォームから申請が必要で、プロジェクトの説明や携わってる開発者の人数などを入力する。&lt;br /&gt;
-↑ のページに書いてあるとおり、もちろん承認されるにはいくつかの条件があって、それらをクリアしてる必要がある。&lt;br /&gt;
-Snidel は条件を満たしているものの、一人で細々と開発してるだけなのでなんとなく不安だったけど無事に承認された。ヨカッタヨカッタ。申請してから承認のメールが来るまでは 2, 3日くらい。&lt;/p&gt;
-
-&lt;p&gt;PhpStorm を起動するとプロジェクト名入りのライセンス表示が !&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/22083548/phpstorm_licensed_to_snidel.png&#34; alt=&#34;phpstorm licensed to snidel&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Licensed to snidel / Akihito Nakano&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;(もともと vim を使ってたけど) そんなわけで、ここ数ヶ月はプライベートで PhpStorm を使い、仕事でも&lt;a href=&#34;http://diary.shu-cream.net/2016/09/01/ec-ctl.html&#34;&gt;チーフテクニカルリード&lt;/a&gt;の手腕によって JetBrains 製品のコマーシャルライセンスを買ってもらったので PhpStorm を使っている。&lt;br /&gt;
-開発が捗るので本当に最高。まだまだ活用できてない機能がたくさんあるようなので使い倒していこう。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -368,40 +176,242 @@ Snidel は条件を満たしているものの、一人で細々と開発して�
       <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
       <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.12.09 キラキラネームのすゝめ</title>
+      <link>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</link>
+      <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
+      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
 
-&lt;p&gt;&lt;blockquote class=&#34;embedly-card&#34; data-card-key=&#34;916e111541fe433792c1330eb7eba55b&#34; data-card-image=&#34;https://camo.githubusercontent.com/70395853479c982acab0d4cd78b06d14ec0d364b/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f32323038333534382f67616e657368612e706e67&#34; data-card-type=&#34;article&#34;&gt;&lt;h4&gt;&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;ackintosh/ganesha&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;ganesha - PHP implementation of Circuit Breaker pattern.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;//cdn.embedly.com/widgets/platform.js&#34; charset=&#34;UTF-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.23 展示品</title>
+      <link>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</link>
+      <pubDate>Wed, 23 Nov 2016 21:37:03 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
+      <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
+島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
 
-&lt;p&gt;なんだか仰々しい記事タイトルになってしまったが、新しく作り始めたライブラリに神様のお名前を拝借した、というだけのこと。&lt;br /&gt;
-( 趣味のライブラリではキラキラネームをつけるようにしてる、というのを&lt;a href=&#34;https://ackintosh.github.io/blog/2016/12/09/2016-12-09/&#34;&gt;前日に書いた&lt;/a&gt; )&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.13 &#39;2 x 2 = 8&#39;</title>
+      <link>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</link>
+      <pubDate>Sun, 13 Nov 2016 22:02:49 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
+      <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;
 
-&lt;p&gt;作り始めたのは &lt;a href=&#34;http://martinfowler.com/bliki/CircuitBreaker.html&#34;&gt;CircuitBreaker&lt;/a&gt; パターンを PHP で実装するライブラリ。CircuitBreaker パターンと私の関わりとしては、前職で既存のライブラリを使ってサービスに組み込んだり、Fowler の&lt;a href=&#34;https://ackintosh.github.io/blog/2016/05/10/bliki-ja/&#34;&gt;記事の翻訳に挑戦&lt;/a&gt;したこともある。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.06 </title>
+      <link>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</link>
+      <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。
 
-&lt;p&gt;自分でライブラリを作り始めたきっかけは、既存のライブラリの開発が止まってたり、機能に物足りなさを感じたり、あとは単純に自分で作ってみたかった、というありきたりな感じ。&lt;/p&gt;
+PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.11.05 Tycho</title>
+      <link>https://ackintosh.github.io/blog/2016/11/05/2016-11-05/</link>
+      <pubDate>Sat, 05 Nov 2016 12:56:56 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/11/05/2016-11-05/</guid>
+      <description>&lt;p&gt;たまたま Youtube の関連動画にあったので聴いてみたらとても癒やされた。&lt;/p&gt;
 
-&lt;p&gt;で、本題。ライブラリの名前に &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Ganesha (ガネーシャ)&lt;/a&gt; というヒンドゥー教の神様のお名前を拝借した。  理由は下記。&lt;/p&gt;
+&lt;p&gt;Tycho(ティコ)&lt;br /&gt;
+&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;像の頭を持つ神様
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.10.05 LTの準備</title>
+      <link>https://ackintosh.github.io/blog/2016/10/05/2016-10-05/</link>
+      <pubDate>Wed, 05 Oct 2016 22:38:30 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/10/05/2016-10-05/</guid>
+      <description>&lt;p&gt;LTを申し込んでから何か発表できることがないかずっと悩んでたけど、ようやく内容が決まってきた。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;PHP のマスコットキャラクターも像&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A3&#34;&gt;Wikipedia&lt;/a&gt; によると、障害を取り去り、財産をもたらしてくれるとのこと
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.22 Snidel 0.8にむけて</title>
+      <link>https://ackintosh.github.io/blog/2016/09/22/2016-09-22/</link>
+      <pubDate>Thu, 22 Sep 2016 21:12:52 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/22/2016-09-22/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のキューの部分で、専用のミドルウェアや Saas を使えるようにすべく開発をはじめた。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;CircuitBreaker は複数のシステムが共倒れになってしまう障害を防止するので、役割に共通点がありそうな感じがする&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;響きがかっこいい&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.21 LT駆動</title>
+      <link>https://ackintosh.github.io/blog/2016/09/21/2016-09-21/</link>
+      <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
+      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
 
-&lt;p&gt;ということで個人的にしっくりきたのでさっそく github にリポジトリを作って、ちょうど良い &lt;a href=&#34;https://openclipart.org/detail/219399/ganesha-colour&#34;&gt;Public Domain の画像&lt;/a&gt;を紫色に塗って README に貼って、ブログを書き始めて今に至る。&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.09.04 ド素人</title>
+      <link>https://ackintosh.github.io/blog/2016/09/04/2016-09-04/</link>
+      <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
+      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
 
-&lt;p&gt;画像を紫色に塗りつぶしてるときが一番楽しかったかもしれない。&lt;br /&gt;
-( フォトショとか使えないので mac のプレビューで頑張った )&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.30 社内ISUCON</title>
+      <link>https://ackintosh.github.io/blog/2016/08/30/2016-08-30/</link>
+      <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
+      <description>&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
 
-&lt;p&gt;楽しさのピークを過ぎてしまった懸念があるが、引続き地道に神様を開発していきます。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.27 apache &#43; mod_php脳</title>
+      <link>https://ackintosh.github.io/blog/2016/08/27/2016-08-27/</link>
+      <pubDate>Sat, 27 Aug 2016 23:50:45 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
+      <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
+なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.20 ポインタへの格下げ</title>
+      <link>https://ackintosh.github.io/blog/2016/08/20/2016-08-20/</link>
+      <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
+      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.17 集中力, コンパイラ</title>
+      <link>https://ackintosh.github.io/blog/2016/08/17/2016-08-17/</link>
+      <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/17/2016-08-17/</guid>
+      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.14 華の湯</title>
+      <link>https://ackintosh.github.io/blog/2016/08/15/2016-08-14/</link>
+      <pubDate>Mon, 15 Aug 2016 17:15:54 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/15/2016-08-14/</guid>
+      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.12 Wi2 Premium</title>
+      <link>https://ackintosh.github.io/blog/2016/08/12/2016-08-12/</link>
+      <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
+      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.11 Swift と Go</title>
+      <link>https://ackintosh.github.io/blog/2016/08/11/2016-08-11/</link>
+      <pubDate>Thu, 11 Aug 2016 14:56:22 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/11/2016-08-11/</guid>
+      <description>&lt;p&gt;夏休み2日目。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.10 iPhoneアプリ開発に入門</title>
+      <link>https://ackintosh.github.io/blog/2016/08/10/2016-08-10/</link>
+      <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
+      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.07 toe</title>
+      <link>https://ackintosh.github.io/blog/2016/08/07/2016-08-07/</link>
+      <pubDate>Sun, 07 Aug 2016 17:29:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/07/2016-08-07/</guid>
+      <description>&lt;p&gt;知人に教えてもらってハマったバンド。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.08.01 プログラミング言語Go</title>
+      <link>https://ackintosh.github.io/blog/2016/08/02/2016-08-01/</link>
+      <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
+      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2016.07.31 コンプレックス</title>
+      <link>https://ackintosh.github.io/blog/2016/07/31/2016-07-31/</link>
+      <pubDate>Sun, 31 Jul 2016 16:53:50 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/31/2016-07-31/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016.07.29 送別会</title>
+      <link>https://ackintosh.github.io/blog/2016/07/29/2016-07-29/</link>
+      <pubDate>Fri, 29 Jul 2016 16:24:17 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2016/07/29/2016-07-29/</guid>
+      <description>&lt;p&gt;2年間、派遣社員としてサービス開発・保守で活躍されたかたの送別会。
+ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 暁</title>
+    <link>https://ackintosh.github.io/tags/</link>
+    <description>Recent content in Tags on 暁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2012</copyright>
+    <lastBuildDate>Mon, 10 Apr 2017 01:23:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Diary</title>
+      <link>https://ackintosh.github.io/tags/diary/</link>
+      <pubDate>Mon, 10 Apr 2017 01:23:28 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heroku</title>
+      <link>https://ackintosh.github.io/tags/heroku/</link>
+      <pubDate>Tue, 28 Aug 2012 16:18:32 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://ackintosh.github.io/tags/javascript/</link>
+      <pubDate>Tue, 10 Jul 2012 16:59:25 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://ackintosh.github.io/tags/mysql/</link>
+      <pubDate>Sun, 26 Aug 2012 17:34:34 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Php</title>
+      <link>https://ackintosh.github.io/tags/php/</link>
+      <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://ackintosh.github.io/tags/programming/</link>
+      <pubDate>Mon, 21 Oct 2013 15:59:43 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://ackintosh.github.io/tags/ruby/</link>
+      <pubDate>Sun, 11 Aug 2013 16:10:19 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://ackintosh.github.io/tags/test/</link>
+      <pubDate>Sun, 24 Nov 2013 15:35:00 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/test/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

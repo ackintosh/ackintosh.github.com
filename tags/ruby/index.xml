@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on 暁</title>
-    <link>https://ackintosh.github.io/tags/ruby/index.xml</link>
+    <link>https://ackintosh.github.io/tags/ruby/</link>
     <description>Recent content in Ruby on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <atom:link href="https://ackintosh.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Aug 2013 16:10:19 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>ハイフンとアンダースコアの使い分け</title>
@@ -23,67 +26,7 @@
 
 &lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.segment7.net/2010/11/15/how-to-name-gems&#34;
-target=&#34;_blank&#34;&gt;How to Name Gems&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Here is my STRONG recommendation on how to name gems:
-Use underscores
-・fancy_require
-・newrelic_rpm
-・ruby_parser
-This matches the file the user will require and makes it easier for the
-user to start using your gem. gem install my_gem will be loaded by
-require ‘my_gem’.
-Use dashes for extensions
-・net-http-persistent
-・rdoc-chm
-・autotest-growl
-If you’re adding functionality to another gem use a dash. The dash is
-different-enough from an underscore to be noticeable. If you tilt the
-dash a bit it becomes a slash as well, making it easier for the user to
-know what to require. gem install net-http-persistent becomes require
-‘net/http/persistent’
-要するに&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;ハイフン -&amp;gt; パスの区切り&lt;br /&gt;
-アンダースコア -&amp;gt; 単語の区切り&lt;br /&gt;
-といったところでしょうか。&lt;/p&gt;
-
-&lt;h4 id=&#34;試してみる&#34;&gt;試してみる&lt;/h4&gt;
-
-&lt;h5 id=&#34;ハイフン区切り&#34;&gt;ハイフン区切り&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ bundle gem ackintosh-tiny-progressbar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;module Ackintosh
-  module Tiny
-    module Progressbar
-      # Your code goes here ...
-    end
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;全て別のモジュールに分かれています。&lt;/p&gt;
-
-&lt;h5 id=&#34;アンダースコア区切り&#34;&gt;アンダースコア区切り&lt;/h5&gt;
-
-&lt;pre&gt;&lt;code&gt;$ bundle gem ackintosh-tiny_progressbar
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;module Ackintosh
-  module TinyProgressbar
-    # Your code goes here…
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;「tiny」と「progressbar」は別の単語ですが意味的には１つになっています。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -96,12 +39,7 @@ end
 
 &lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;output_start メソッドや output_end メソッドのように、&lt;br /&gt;
-Template Methodの具象クラスによってオーバーライドできる非抽象メソッドをフックメソッド という。&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/ackintosh/3945597.js&#34;&gt;&lt;/script&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -113,75 +51,7 @@ Template Methodの具象クラスによってオーバーライドできる非�
       <description>&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
 RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/WEB-DB-PRESS-Vol-70-%E6%88%90%E7%94%B0/dp/4774151904&#34;
-target=&#34;_blank&#34;&gt;WEB+DB PRESS Vol.70&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/webdb_vol70.jpeg&#34; alt=&#34;WEB+DB PRESS
-Vol.70&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;WEB+DB PRESS vol.70でRails高速化としてUnicornが紹介されています。&lt;br /&gt;
-普段Railsで開発するときはherokuを使っているので&lt;br /&gt;
-herokuでUnicornを使ってみたいと思います。&lt;/p&gt;
-
-&lt;h4 id=&#34;heroku-ps-を確認&#34;&gt;heroku ps を確認&lt;/h4&gt;
-
-&lt;p&gt;まずはherokuで現在使われているWebサーバーを確認します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ heroku ps
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_thin.png&#34; alt=&#34;heroku_ps&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;herokuのデフォルトはthinなのでしょうか？？&lt;br /&gt;
-以下、Unicornのインストールを進めていきます。&lt;/p&gt;
-
-&lt;h4 id=&#34;gemfileに追加&#34;&gt;Gemfileに追加&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;gem &#39;unicorn&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;config-unicorn-rbを作成&#34;&gt;config/unicorn.rbを作成&lt;/h4&gt;
-
-&lt;p&gt;とりあえず設定内容は下記にしました。&lt;br /&gt;
-詳しいことは勉強中です。すみません。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;worker_processes 2
-timeout 20
-preload_app false
-stdout_path &amp;quot;log/unicorn-out.log&amp;quot;
-stderr_path &amp;quot;log/unicorn-err.log&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;procfileを作成&#34;&gt;Procfileを作成&lt;/h4&gt;
-
-&lt;p&gt;Railsのルートディレクトリ直下にProcfileを作成します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;herokuにpush&#34;&gt;herokuにpush&lt;/h4&gt;
-
-&lt;p&gt;いつものようにherokuにpushします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ git push heroku master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;heroku-ps-で確認&#34;&gt;heroku ps で確認&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ heroku ps
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://dl.dropbox.com/u/22083548/octopress/20120827/heroku_ps_unicorn.png&#34; alt=&#34;heroku_ps_unicorn&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;bundle exec unicorn …となっていれば成功です。
-heroku psの出力の2行目が&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;web.1: crashed for…
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;になっていたら設定を見なおしてみてください。&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
