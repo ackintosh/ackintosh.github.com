@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Mon, 10 Apr 2017 01:23:28 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Apr 2017 12:23:10 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>php-memcached にコントリビュートしたので経緯とかを書き留めておく</title>
+      <link>https://ackintosh.github.io/blog/2017/04/29/contributed-to-php-memcached/</link>
+      <pubDate>Sat, 29 Apr 2017 12:23:10 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/04/29/contributed-to-php-memcached/</guid>
+      <description>&lt;p&gt;Fix optional parameter getStats($type) by ackintosh · Pull Request #337&lt;br /&gt;
+&lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/pull/337&#34;&gt;https://github.com/php-memcached-dev/php-memcached/pull/337&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;たった4行のちょっとした修正だけど経緯とかを書き留めておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>2017.04.10 テストコード</title>

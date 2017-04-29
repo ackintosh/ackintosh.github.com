@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" php-memcached にコントリビュートしたので経緯とかを書き留めておく &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/04/29/contributed-to-php-memcached/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-04-29T12:23:10&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     php-memcached にコントリビュートしたので経緯とかを書き留めておく &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.2" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/04/29/contributed-to-php-memcached/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">php-memcached にコントリビュートしたので経緯とかを書き留めておく</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-04-29T12:23:10&#43;09:00">
+            Apr 29, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>Fix optional parameter getStats($type) by ackintosh · Pull Request #337<br />
+<a href="https://github.com/php-memcached-dev/php-memcached/pull/337">https://github.com/php-memcached-dev/php-memcached/pull/337</a></p>
+
+<p>たった4行のちょっとした修正だけど経緯とかを書き留めておく。</p>
+
+<p></p>
+
+<h2 id="やったこと">やったこと</h2>
+
+<h3 id="memcached-getstats-にドキュメントに書いてない引数があった">Memcached::getStats() にドキュメントに書いてない引数があった</h3>
+
+<p>2017-04-29 時点では <code>Memcached::getStats()</code> の <a href="http://php.net/manual/ja/memcached.getstats.php">ドキュメント</a> には引数の記載がないが、実際は <code>type</code> という引数が <a href="https://github.com/php-memcached-dev/php-memcached/pull/298">#298</a> で追加され、 v3.0.0 でリリースされている。省略可能なので全く気づかなかった。</p>
+
+<h4 id="引数-type-について">引数 <code>type</code> について</h4>
+
+<p>この引数は、lib_memcached の <a href="http://docs.libmemcached.org/memcached_stats.html#memcached_stat_execute">memcached_stat_execute</a> 関数の第2引数に渡される。</p>
+
+<p>libmemcached 1.1.0 documentation &gt; memcached_stat_execute</p>
+
+<blockquote>
+<p>args is an optional argument that can be passed in to modify the behavior of “stats”. You will need to supply a callback function that will be supplied each pair of values returned by the memcached server.</p>
+</blockquote>
+
+<p><a href="https://github.com/memcached/memcached/blob/master/doc/protocol.txt#L583-L588">memcached のドキュメント</a> には stats の引数について下記のように書かれている。</p>
+
+<p>memcached &gt; Protocol &gt; Statistics</p>
+
+<blockquote>
+<p>Depending on &lt;args&gt;, various internal data is sent by the server. The
+kinds of arguments and the data sent are not documented in this version
+of the protocol, and are subject to change for the convenience of
+memcache developers.</p>
+</blockquote>
+
+<p>この引数について把握することが目的ではなかったので、ちょっと試してみただけで、挙動ついては正直理解していない。</p>
+
+<pre><code class="language-php">var_dump($memcached-&gt;getStats('sizes_disable'));
+
+// array(1) {
+//   'localhost:11211' =&gt;
+//   array(1) {
+//     'sizes_status' =&gt;
+//     string(8) &quot;disabled&quot;
+//   }
+// }
+</code></pre>
+
+<h3 id="reflectionparameter-でオプショナルだと認識されてなかったので修正した">ReflectionParameter でオプショナルだと認識されてなかったので修正した</h3>
+
+<p>ドキュメントに書かれてないだけなら フ～ン で終わるが、省略可能なのに <code>ReflectionParameter::isOptional()</code> が false を返していたので、直さねばという気持ちになった。</p>
+
+<pre><code class="language-php">$method = new \ReflectionMethod(new \Memcached(), 'getStats');
+foreach ($method-&gt;getParameters() as $p) {
+    var_dump($p-&gt;isOptional());
+}
+// bool(false)
+</code></pre>
+
+<p>いろいろと調べながらやっていたので、かなり時間がかかってしまったのだが<br />
+結局やったことは <a href="https://github.com/php-memcached-dev/php-memcached/pull/337/files"><code>ZEND_BEGIN_ARG_INFO</code> から <code>ZEND_BEGIN_ARG_INFO_EX</code> に置き換えただけ</a>。</p>
+
+<p>実行時は <code>zend_parse_parameters</code> の第2引数に渡してる型指定子 <a href="https://github.com/php-memcached-dev/php-memcached/blob/6b660bd554368bae69c2fbf490c6e78712e50708/php_memcached.c#L2645"><code>&quot;|S!&quot;</code></a> に従ってパースされるが、リフレクションでは上記マクロで定義した情報が参照されるようだ。（このへんはまだ理解が足りていない）</p>
+
+<p><a href="https://github.com/php/php-src/blob/PHP-7.1.0/Zend/zend_API.h#L115"><code>ZEND_BEGIN_ARG_INFO_EX</code> マクロ</a> は第4引数で必須の引数の数を指定できるので、これを 0 にすると <code>ReflectionParameter::isOptional()</code> が true を返すようになった。</p>
+
+<h2 id="経緯">経緯</h2>
+
+<p><code>ReflectionParameter::isOptional()</code> が false を返すことに気づいた経緯。</p>
+
+<h3 id="モックの様子がおかしい">モックの様子がおかしい</h3>
+
+<p>テストコードで Memcached クラスのモックを使った時に様子がおかしかった。</p>
+
+<pre><code>class HogeTest extends PHPUnit\Framework\TestCase
+{
+    public function testHoge()
+    {
+        $m = $this-&gt;getMockBuilder('\Memcached')
+            -&gt;setMethods(['getStats'])
+            -&gt;getMock();
+        $m-&gt;method('getStats')
+          -&gt;willReturn(false);
+
+        $m-&gt;getStats();
+    }
+}
+</code></pre>
+
+<p>これを実行すると、引数が足りないとのことで怒られてしまう。</p>
+
+<pre><code>PHPUnit 6.1.1 by Sebastian Bergmann and contributors.
+
+There was 1 error:
+
+1) HogeTest::testHoge
+ArgumentCountError: Too few arguments to function Mock_Memcached_9d6a5f24::getStats(), 0 passed in /Users/akihito1/dev/HogeTest.php on line 19 and exactly 1 expected
+</code></pre>
+
+<p>プロダクトコードでは実際に引数なしで動いてるのに&hellip;おかしいなぁと思い、PHPUnit のコードを追っていった。</p>
+
+<h3 id="生成されたモックのソースコードがおかしい-memcached-拡張の問題だった">生成されたモックのソースコードがおかしい → memcached 拡張の問題だった</h3>
+
+<p>モックの機能は <a href="https://github.com/sebastianbergmann/phpunit-mock-objects">phpunit-mock-objects</a> に切り出されていて、PHPUnit はこれを利用している。</p>
+
+<p><code>getMockBuilder()</code> を使ったとき、対象のクラスを継承するソースコードを生成していて、今回でいうと下記のようなコードになる。<br />
+元クラスのメソッド呼び出しを <code>InvocationMocker</code> が仲介することで、予め定義したマッチャの条件を満たしているかをテストできるようになっている。</p>
+
+<pre><code class="language-php">class Mock_Memcached_8ccc9d9d extends Memcached implements PHPUnit_Framework_MockObject_MockObject
+{
+    // ...
+
+    public function getStats($args)
+    {
+        $arguments = array($args);
+        $count     = func_num_args();
+
+        if ($count &gt; 1) {
+            $_arguments = func_get_args();
+
+            for ($i = 1; $i &lt; $count; $i++) {
+                $arguments[] = $_arguments[$i];
+            }
+        }
+
+        $result = $this-&gt;__phpunit_getInvocationMocker()-&gt;invoke(
+            new PHPUnit_Framework_MockObject_Invocation_Object(
+                'Memcached', 'getStats', $arguments, '', $this, false
+            )
+        );
+
+        return $result;
+    }
+    
+    // ...
+}
+
+</code></pre>
+
+<p>今回問題なのは、生成された <code>getStats()</code> の引数が省略可能になっていないので <code>ArgumentCountError</code> が起きてしまっていること。<br />
+モックの生成処理を追っていったら、引数は <a href="https://github.com/sebastianbergmann/phpunit-mock-objects/blob/3819745c44f3aff9518fd655f320c4535d541af7/src/Generator.php#L1116-L1117">ReflectionParameter::isOptional() で判定している</a> ことがわかった。</p>
+
+<p>この判定が false になっている = memcached 拡張の方に問題があることがわかったので調べたら、ドキュメントに載ってない引数があることがわかって&hellip;&hellip;という流れで「やったこと」につながる。</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>結果的にはたった 4行 のちょっとした修正だけど、そこに至るまでにいろいろと調べていたので書き留めておいた。</p>
+
+<p>普段は（時間的な制約があるなかで開発してる場合は特に）場当たり的な解決策に走ってしまったり、余裕があったら調べようと思って後回しにしてそのまま揮発してしまうことがあるが、そういった誘惑に負けずに腰を据えてじっくり調べることで、より理解が深まったりオープンソースに貢献できることを体験できた。</p>
+
+<p>コードの中に深く潜っていくのは楽しくてワクワクする。<br />
+今回のような経験を積み重ねていけば、より深く潜れるようになっていくのかもしれない。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=php-memcached%20%e3%81%ab%e3%82%b3%e3%83%b3%e3%83%88%e3%83%aa%e3%83%93%e3%83%a5%e3%83%bc%e3%83%88%e3%81%97%e3%81%9f%e3%81%ae%e3%81%a7%e7%b5%8c%e7%b7%af%e3%81%a8%e3%81%8b%e3%82%92%e6%9b%b8%e3%81%8d%e7%95%99%e3%82%81%e3%81%a6%e3%81%8a%e3%81%8f&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f04%2f29%2fcontributed-to-php-memcached%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f04%2f29%2fcontributed-to-php-memcached%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f04%2f29%2fcontributed-to-php-memcached%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
