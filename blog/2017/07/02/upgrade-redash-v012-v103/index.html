@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Docker で動かしてる Redash を v0.12 から v1.0.3 にアップグレード &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/07/02/upgrade-redash-v012-v103/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-07-02T12:42:45&#43;09:00" />
+
+    
+    
+
+  <title>
+     Docker で動かしてる Redash を v0.12 から v1.0.3 にアップグレード &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/07/02/upgrade-redash-v012-v103/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Docker で動かしてる Redash を v0.12 から v1.0.3 にアップグレード</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-07-02T12:42:45&#43;09:00">
+            Jul 2, 2017
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>職場で使ってる Redash をアップグレードしたかったので、ローカルで素振りしたときのメモ。</p>
+
+<p></p>
+
+<p><a href="https://redash.io/help-onpremise/maintenance/how-to-upgrade-redash.html">How to Upgrade Redash · Redash Help Center</a> のとおり、基本的にはコマンド一発で終わるけど、Docker で動かしてる場合は「コンテナにログインしてコマンド叩くとか NG だよな&hellip;」という疑問がわいてくるので、同じ状況で悩んでるかたの役に立ったら幸いです。</p>
+
+<h2 id="コンテナをとめる">コンテナをとめる</h2>
+
+<pre><code>$ docker-compose down
+</code></pre>
+
+<h2 id="db-のバックアップをとる">DB のバックアップをとる</h2>
+
+<p>Data Volume でデータをホストマシンと共有していたので単純に tar で固めた。</p>
+
+<pre><code>$ tar czvf postgres-data.bk.tar.gz postgres-data
+</code></pre>
+
+<h2 id="compose-ファイルを更新">compose ファイルを更新</h2>
+
+<p>v1 では内容がガラッと変わってるので、それに合わせてファイルを更新した。</p>
+
+<p><a href="https://github.com/getredash/redash/blob/v1.0.3/docker-compose.production.yml">v1.0.3/docker-compose.production.yml</a></p>
+
+<p>使いたいイメージのバージョンを指定しておいた。</p>
+
+<pre><code>  server:
+    image: redash/redash:1.0.3.b2896
+...    
+  worker:
+    image: redash/redash:1.0.3.b2896
+</code></pre>
+
+<p>v1 では PostgreSQL 9.5 になっているが、旧 compose ファイルで指定されてた 9.3 にしておいた。</p>
+
+<pre><code>  postgres:
+    image: postgres:9.3
+</code></pre>
+
+<h2 id="db-マイグレーションを実行">DB マイグレーションを実行</h2>
+
+<pre><code>$ docker-compose run --rm server manage db upgrade
+
+WARNING: Found orphan containers (redash_redash-nginx_1, redash_redash_1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+Starting redash_redis_1 ...
+Starting redash_postgres_1 ... done
+[2017-07-02 03:28:39,179][PID:1][INFO][root] Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt
+[2017-07-02 03:28:39,202][PID:1][INFO][root] Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt
+[2017-07-02 03:28:40,139][PID:1][INFO][alembic.runtime.migration] Context impl PostgresqlImpl.
+[2017-07-02 03:28:40,140][PID:1][INFO][alembic.runtime.migration] Will assume transactional DDL.
+[2017-07-02 03:28:40,266][PID:1][INFO][alembic.runtime.migration] Running upgrade  -&gt; 65fc9ede4746, Add is_draft status to queries and dashboards
+[2017-07-02 03:28:40,353][PID:1][INFO][alembic.runtime.migration] Running upgrade 65fc9ede4746 -&gt; d1eae8b9893e, add Query.schedule_failures
+</code></pre>
+
+<h2 id="起動">起動</h2>
+
+<p>旧 compose ファイルで定義していたコンテナを削除するために <code>--remove-orphans</code> を指定する。</p>
+
+<pre><code>$ docker-compose up --remove-orphans
+
+Removing orphan container &quot;redash_redash-nginx_1&quot;
+Removing orphan container &quot;redash_redash_1&quot;
+redash_postgres_1 is up-to-date
+redash_redis_1 is up-to-date
+Creating redash_worker_1 ...
+Creating redash_server_1 ...
+Creating redash_smtp_1 ...
+Creating redash_worker_1
+Creating redash_smtp_1
+Creating redash_server_1 ... done
+Creating redash_smtp_1 ... done
+Creating redash_nginx_1 ... done
+Attaching to redash_postgres_1, redash_redis_1, redash_worker_1, redash_server_1, redash_smtp_1, redash_nginx_1
+</code></pre>
+
+<p>アップグレードできた！</p>
+
+<p><img src="https://user-images.githubusercontent.com/1885716/27767158-2dd05d2a-5f28-11e7-9311-f46f2f39ed66.png" alt="image" /></p>
+
+<p>(このあとお好みで PostgreSQL を 9.3 -&gt; 9.5 にアップグレード)</p>
+
+<h2 id="補足-コンテナでアップグレードスクリプトを実行してもエラーになる">(補足) コンテナでアップグレードスクリプトを実行してもエラーになる</h2>
+
+<p>めんどくさいからコンテナにログインしてアップグレードしちゃえ！と思っても、下記のエラーが出てアップグレードできない。</p>
+
+<h5 id="アップグレードスクリプトをダウンロード">アップグレードスクリプトをダウンロード</h5>
+
+<pre><code>$ docker-compose run redash bash
+# wget https://raw.githubusercontent.com/getredash/redash/master/bin/upgrade
+# chmod +x upgrade
+</code></pre>
+
+<h5 id="エラー">エラー</h5>
+
+<pre><code># ./upgrade
+
+Starting Redash upgrade:
+/usr/local/lib/python2.7/dist-packages/requests/packages/urllib3/util/ssl_.py:318: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#snimissingwarning.
+  SNIMissingWarning
+/usr/local/lib/python2.7/dist-packages/requests/packages/urllib3/util/ssl_.py:122: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning.
+  InsecurePlatformWarning
+Found version: 1.0.3
+Current version: current
+Traceback (most recent call last):
+  File &quot;./upgrade&quot;, line 236, in &lt;module&gt;
+    deploy_release(args.channel)
+  File &quot;./upgrade&quot;, line 214, in deploy_release
+    verify_minimum_version()
+  File &quot;./upgrade&quot;, line 186, in verify_minimum_version
+    if semver.compare(current_version(), '0.12.0') &lt; 0:
+  File &quot;/usr/local/lib/python2.7/dist-packages/semver.py&quot;, line 54, in compare
+    v1, v2 = parse(ver1), parse(ver2)
+  File &quot;/usr/local/lib/python2.7/dist-packages/semver.py&quot;, line 21, in parse
+    raise ValueError('%s is not valid SemVer string' % version)
+ValueError: current is not valid SemVer string
+</code></pre>
+
+<blockquote>
+<p>Current version: current<br />
+ValueError: current is not valid SemVer string</p>
+</blockquote>
+
+<p>アップグレードスクリプトは<br />
+<code>current</code> -&gt; <code>バージョン番号のディレクトリ</code> にリンクされている前提で書かれているが、Docker イメージはそうなっていない。<br />
+current(実ディレクトリ)の中に Re:dash がインストールされているので、現在のバージョンが判定できずエラーになっている。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Docker%20%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%97%e3%81%a6%e3%82%8b%20Redash%20%e3%82%92%20v0.12%20%e3%81%8b%e3%82%89%20v1.0.3%20%e3%81%ab%e3%82%a2%e3%83%83%e3%83%97%e3%82%b0%e3%83%ac%e3%83%bc%e3%83%89&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f02%2fupgrade-redash-v012-v103%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f02%2fupgrade-redash-v012-v103%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f02%2fupgrade-redash-v012-v103%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

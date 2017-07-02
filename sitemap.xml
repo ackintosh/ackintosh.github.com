@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ackintosh.github.io/blog/2017/07/02/upgrade-redash-v012-v103/</loc>
+    <lastmod>2017-07-02T12:42:45+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/blog/2017/04/29/contributed-to-php-memcached/</loc>
     <lastmod>2017-04-29T12:23:10+09:00</lastmod>
   </url>
@@ -438,7 +443,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2017-04-29T12:23:10+09:00</lastmod>
+    <lastmod>2017-07-02T12:42:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -473,7 +478,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2017-04-29T12:23:10+09:00</lastmod>
+    <lastmod>2017-07-02T12:42:45+09:00</lastmod>
     <priority>0</priority>
   </url>
   
