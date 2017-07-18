@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Snidel 0.9 をリリースしました &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-07-17T19:11:54&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     Snidel 0.9 をリリースしました &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Snidel 0.9 をリリースしました</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-07-17T19:11:54&#43;09:00">
+            Jul 17, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/">前回のリリース</a>はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。</p>
+
+<p></p>
+
+<h2 id="php-5-6-未満のサポートを終了">PHP 5.6 未満のサポートを終了</h2>
+
+<p>永らく古いバージョンに対応してきましたが、この度 5.6 未満のサポートを終了しました。<br />
+これにより 5.3 用に冗長になっていたコードがスマートになったり、後述する機能改善を進めることができました。</p>
+
+<h2 id="psr-3-logger-interface-をサポート">PSR-3 Logger Interface をサポート</h2>
+
+<p>PHP-FIG が定めるロガーのインターフェース規約である <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3 Logger Interface</a> をサポートしました。</p>
+
+<h4 id="従来">従来</h4>
+
+<p>これまでは、 Snidel のインスタンスにログの出力先として resouce を渡すだけの簡素な実装でした。</p>
+
+<pre><code class="language-php">$snidel-&gt;setLogDestination(fopen('php://stdout', 'w'));
+$snidel-&gt;fork($func, 'foo');
+
+// [2015-12-01 00:00:00][info][26304(p)] created child process. pid: 26306
+// [2015-12-01 00:00:00][info][26306(c)] --&gt; waiting for the token to come around.
+// [2015-12-01 00:00:00][info][26306(c)] ----&gt; started the function.
+// [2015-12-01 00:00:00][info][26306(c)] &lt;-- return token.
+// ...
+</code></pre>
+
+<h4 id="ver0-9">ver0.9</h4>
+
+<p>PSR-3 に準拠したロガーを利用できます。お好みのロガーを利用いただけるようになり、従来と比べて出力先等の自由度が上がりました。</p>
+
+<pre><code class="language-php">use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+
+$monolog = new Logger('sample');
+$stream = new StreamHandler('php://stdout', Logger::DEBUG);
+$stream-&gt;setFormatter(new LineFormatter(&quot;%datetime% &gt; %level_name% &gt; %message% %context%\n&quot;));
+$monolog-&gt;pushHandler($stream);
+
+$snidel = new Snidel([
+    'logger' =&gt; $monolog,
+]);
+$snidel-&gt;process($f);
+
+// 2017-03-22 13:13:43 &gt; DEBUG &gt; forked worker. pid: 60018 {&quot;role&quot;:&quot;master&quot;,&quot;pid&quot;:60017}
+// 2017-03-22 13:13:43 &gt; DEBUG &gt; forked worker. pid: 60019 {&quot;role&quot;:&quot;master&quot;,&quot;pid&quot;:60017}
+// 2017-03-22 13:13:43 &gt; DEBUG &gt; has forked. pid: 60018 {&quot;role&quot;:&quot;worker&quot;,&quot;pid&quot;:60018}
+// 2017-03-22 13:13:43 &gt; DEBUG &gt; has forked. pid: 60019 {&quot;role&quot;:&quot;worker&quot;,&quot;pid&quot;:60019}
+// 2017-03-22 13:13:44 &gt; DEBUG &gt; ----&gt; started the function. {&quot;role&quot;:&quot;worker&quot;,&quot;pid&quot;:60018}
+// 2017-03-22 13:13:44 &gt; DEBUG &gt; ----&gt; started the function. {&quot;role&quot;:&quot;worker&quot;,&quot;pid&quot;:60019}
+// ...
+</code></pre>
+
+<h2 id="処理結果の取得にジェネレータを利用しメモリ使用量を低減">処理結果の取得にジェネレータを利用しメモリ使用量を低減</h2>
+
+<h4 id="従来-1">従来</h4>
+
+<p>各ワーカープロセスが処理したすべての結果を配列(コレクションオブジェクトのプロパティ)に溜め込んでいたため、処理数に比例してメモリ使用量が大きくなってしまう課題がありました。</p>
+
+<pre><code class="language-php">// Snidel::get() returns instance of Snidel\Result\Collection
+$collection = $snidel-&gt;get();
+
+// Snidel\Result\Collection implements \Iterator
+foreach ($collection as $result) {
+    echo $result-&gt;getFork()-&gt;getPid();
+    echo $result-&gt;getOutput();
+    echo $result-&gt;getReturn();
+}
+</code></pre>
+
+<h4 id="ver0-9-1">ver0.9</h4>
+
+<p>PHP5.5 で実装された <a href="http://php.net/manual/ja/language.generators.overview.php">ジェネレータ</a> を利用することでメモリ使用量を低減しています。<br />
+また、当改修に伴いメソッド名を <code>Snidel::get()</code> から <code>Snidel::results()</code> に変更しています。</p>
+
+<pre><code class="language-php">// `Snidel::results()` returns `\Generator`
+foreach ($snidel-&gt;results() as $r) {
+    echo $r-&gt;getProcess()-&gt;getPid();
+    echo $r-&gt;getOutput();
+    echo $r-&gt;getReturn();
+}
+</code></pre>
+
+<p>シンプルな 10,000 個の処理を、並列数 20 で実行した場合に下記のようにメモリ使用量の違いがでました。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">バージョン</th>
+<th align="right">メモリ使用量</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">0.8</td>
+<td align="right">29.29 MB</td>
+</tr>
+
+<tr>
+<td align="center">0.9</td>
+<td align="right">9.66 MB</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="その他の変更点">その他の変更点</h2>
+
+<p>ワーカープロセスに処理を渡すための <code>Snidel::fork()</code> を <code>Snidel::process()</code> にリネームしました。</p>
+
+<pre><code class="language-php">$snidel-&gt;fork(function ($arg) { echo $arg; }, 'foo');
+</code></pre>
+
+<pre><code class="language-php">$snidel-&gt;process(function ($arg) { echo $arg; }, 'foo');
+</code></pre>
+
+<p>初期の実装では <code>Snidel::fork()</code> は子プロセスをフォークしていたのですが<br />
+<a href="https://ackintosh.github.io/blog/2016/05/04/snidel_0_6_0/">ver0.6</a>で Master-Worker モデルにアーキテクチャを変更したタイミングで、プロセスをフォークする代わりに、タスクをキューに追加するだけの実装になっており、メソッド名から連想する内容と相違がある状態でした。</p>
+
+<p>そんな中で今回、「ジェネレータを利用してメモリ消費を低減」でご紹介したとおり、処理結果を取得するメソッドの名前を変更したので、ちょうどいい機会かなと思い、それと対になる <code>Snidel::fork()</code> の方も変更しました。</p>
+
+<h2 id="今後">今後</h2>
+
+<p>ワーカープロセスがタスクを処理する際のエラーハンドリングが雑なままなので改善する予定です。<br />
+また、ワーカープロセスとのデータ受け渡しで利用しているキューの部分を外部ライブラリを使うように変更して、 Snidel 自体は並列処理の部分に集中できるようにしていければと考えています。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Snidel%200.9%20%e3%82%92%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%97%e3%81%be%e3%81%97%e3%81%9f&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f17%2fsnidel_0_9_0%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f17%2fsnidel_0_9_0%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f07%2f17%2fsnidel_0_9_0%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

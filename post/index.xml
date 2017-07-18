@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Tue, 11 Jul 2017 01:43:26 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jul 2017 19:11:54 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Snidel 0.9 をリリースしました</title>
+      <link>https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/</link>
+      <pubDate>Mon, 17 Jul 2017 19:11:54 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/&#34;&gt;前回のリリース&lt;/a&gt;はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Cowrie on Docker</title>
