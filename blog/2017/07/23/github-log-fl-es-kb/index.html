@@ -139,7 +139,7 @@
     </header>
   
     <section class="post-content">
-      <p>主にお問い合わせ対応 Issue の起票・クローズ件数や、クローズまでにかかった時間を可視化したかったので素振り。<br />
+      <p>仕事で主にお問い合わせ対応 Issue の起票・クローズ件数や、クローズまでにかかった時間を可視化したかったので素振り。<br />
 以下、素振り内容をザザッとメモ。</p>
 
 <p></p>
@@ -207,9 +207,14 @@ Kibana</p>
 
 <p><img src="https://user-images.githubusercontent.com/1885716/28501793-67d70634-701e-11e7-9112-46d57a606e0d.png" alt="image" /></p>
 
+<p>&ldquo;bug&rdquo; ラベル</p>
+
 <h3 id="その他">その他</h3>
 
-<p>webhook を受信したタイミングで、closed イベントの場合に、かかった時間( issue.closed_at - issue.created_at )を計算してログに差し込んでおけば、そのへんの分析もできそう。</p>
+<ul>
+<li>issue を作った時点でラベルがついてるとは限らないので、起票数を出すときは <code>created</code> イベントではなく <code>labeled</code> イベントでフィルタする</li>
+<li>webhook を受信したタイミングで、closed イベントの場合に、かかった時間( issue.closed_at - issue.created_at )を計算してログに差し込んでおけば、そのへんの分析もできそう</li>
+</ul>
     </section>
 
 
