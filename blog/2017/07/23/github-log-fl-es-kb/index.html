@@ -206,14 +206,14 @@ Kibana</p>
 <pre><code>server.host: &quot;EC2 のパブリック DNS&quot;
 </code></pre>
 
-<p><img src="https://user-images.githubusercontent.com/1885716/28501793-67d70634-701e-11e7-9112-46d57a606e0d.png" alt="image" /></p>
+<p>&ldquo;bug&rdquo; ラベルがついた Issue の消化状況を可視化する。</p>
 
-<p>&ldquo;bug&rdquo; ラベル</p>
+<p><img src="https://user-images.githubusercontent.com/1885716/28501793-67d70634-701e-11e7-9112-46d57a606e0d.png" alt="image" /></p>
 
 <h3 id="その他">その他</h3>
 
 <ul>
-<li>issue を作った時点でラベルがついてるとは限らないので、起票数を出すときは <code>created</code> イベントではなく <code>labeled</code> イベントでフィルタする</li>
+<li>起票数を出すときは <code>labeled</code> イベントでフィルタする</li>
 <li>webhook を受信したタイミングで、closed イベントの場合に、かかった時間( issue.closed_at - issue.created_at )を計算してログに差し込んでおけば、そのへんの分析もできそう</li>
 </ul>
     </section>
