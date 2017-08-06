@@ -232,7 +232,30 @@ require_once('login.html');
 <pre><code>xxx.xxx.xxx.xxx - - [02/Aug/2017:23:54:15 +0000] &quot;GET / HTTP/1.1&quot; 200 159 &quot;-&quot; &quot;UA&quot; &quot;-&quot;
 </code></pre>
 
-<h3 id="match-ディレクティブの設定">match ディレクティブの設定</h3>
+<h3 id="fluentd-の設定">Fluentd の設定</h3>
+
+<ul>
+<li>source ディレクティブ</li>
+</ul>
+
+<p>cookie を扱うために format を調整</p>
+
+<pre><code>&lt;source&gt;
+  type tail
+  # apache2 フォーマットの末尾に session_id を追加
+  # 参考 https://docs.fluentd.org/v0.12/articles/parser_apache2
+  format /^(?&lt;host&gt;[^ ]*) [^ ]* (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] &quot;(?&lt;method&gt;\S+)(?: +(?&lt;path&gt;[^ ]*) +\S*)?&quot; (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*)(?: &quot;(?&lt;referer&gt;[^\&quot;]*)&quot; &quot;(?&lt;agent&gt;[^\&quot;]*)&quot; &quot;(?&lt;session_id&gt;[^\&quot;]*)&quot;)?$/
+  time_format %d/%b/%Y:%H:%M:%S %z
+  types code:integer, size:integer
+  path /var/log/httpd/access_log
+  pos_file /var/log/td-agent/access.pos
+  tag apache.access
+&lt;/source&gt;
+</code></pre>
+
+<ul>
+<li>match ディレクティブ</li>
+</ul>
 
 <p><code>cookie_hash</code> で cookie を送信できる</p>
 
@@ -244,6 +267,7 @@ require_once('login.html');
   header_hash { &quot;Referer&quot;: &quot;${referer}&quot;, &quot;User-Agent&quot;: &quot;${agent}&quot; }
   cookie_hash {&quot;PHPSESSID&quot;: &quot;${session_id}&quot;}
   flush_interval 2s
+  support_methods [ &quot;get&quot; ]
 &lt;/match&gt;
 </code></pre>
 
