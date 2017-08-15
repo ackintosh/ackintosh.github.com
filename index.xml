@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 30 Jul 2017 19:59:17 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 15 Aug 2017 16:39:59 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>サブディレクトリからサブドメインに移行するコンテンツを fluent-plugin-http_shadow でテストする</title>
+      <link>https://ackintosh.github.io/blog/2017/08/15/fluentd-http-shadow-subdir2subdomain/</link>
+      <pubDate>Tue, 15 Aug 2017 16:39:59 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/08/15/fluentd-http-shadow-subdir2subdomain/</guid>
+      <description>&lt;p&gt;(うまく伝わるタイトルが思いつかなかった&amp;hellip;)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/07/30/fluentd-http-shadow/&#34;&gt;fluent-plugin-http_shadow で会員向けコンテンツをテストする&lt;/a&gt; に引き続き、&lt;a href=&#34;https://github.com/toyama0919/fluent-plugin-http_shadow&#34;&gt;fluent-plugin-http_shadow&lt;/a&gt; を使ったシャドウプロキシについて。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>fluent-plugin-http_shadow で会員向けコンテンツをテストする</title>

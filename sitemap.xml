@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ackintosh.github.io/blog/2017/08/15/fluentd-http-shadow-subdir2subdomain/</loc>
+    <lastmod>2017-08-15T16:39:59+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/blog/2017/07/30/fluentd-http-shadow/</loc>
     <lastmod>2017-07-30T19:59:17+09:00</lastmod>
   </url>
@@ -443,6 +448,12 @@
   </url>
   
   <url>
+    <loc>https://ackintosh.github.io/tags/fluentd/</loc>
+    <lastmod>2017-08-15T16:39:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/tags/heroku/</loc>
     <lastmod>2012-08-28T16:18:32+09:00</lastmod>
     <priority>0</priority>
@@ -468,7 +479,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2017-07-30T19:59:17+09:00</lastmod>
+    <lastmod>2017-08-15T16:39:59+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -503,7 +514,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2017-07-30T19:59:17+09:00</lastmod>
+    <lastmod>2017-08-15T16:39:59+09:00</lastmod>
     <priority>0</priority>
   </url>
   
