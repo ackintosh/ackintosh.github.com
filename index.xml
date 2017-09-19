@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 07 Sep 2017 09:16:11 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Sep 2017 01:51:58 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java/Kafka 初心者が Kafka Connector を実装するための環境づくり</title>
+      <link>https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/</link>
+      <pubDate>Wed, 20 Sep 2017 01:51:58 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/</guid>
+      <description>&lt;p&gt;Kafka Connect は ver0.9 で実装された、Kafka の入出力を行うためのプラグイン機構のようなもので、 &lt;code&gt;Source Connector&lt;/code&gt; と &lt;code&gt;Sink Connector&lt;/code&gt; がある。&lt;a href=&#34;https://www.confluent.io/product/connectors/&#34;&gt;多くの Connector が実装されていて&lt;/a&gt;、もちろん独自の Connector を実装して利用することもできる。&lt;/p&gt;
+
+&lt;p&gt;当記事では、Java/Kafka 初心者(いまの私です)が Connector を実装するための準備として行った環境づくりについて紹介します。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>udemy で Learn Apache Kafka for Beginners を修了した</title>
