@@ -211,7 +211,7 @@ Kafka Docker for development. Kafka, Zookeeper, Schema Registry, Kafka-Connect, 
   -p 9581-9585:9581-9585 \
   -p 9092:9092 \
   -e ADV_HOST=127.0.0.1 \
-  -v `pwd`/target/kafka-connect-colormeshop-1.0-SNAPSHOT-package/share/java/kafka-connect-colormeshop:/connectors \
+  -v $(pwd)/target/kafka-connect-colormeshop-1.0-SNAPSHOT-package/share/java:/connectors \
   landoop/fast-data-dev:latest
 </code></pre>
 
