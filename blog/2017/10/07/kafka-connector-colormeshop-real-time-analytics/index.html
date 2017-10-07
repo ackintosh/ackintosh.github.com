@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Kafka Connect ColormeShop でカラーミーショップの受注をリアルタイムに分析する &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/10/07/kafka-connector-colormeshop-real-time-analytics/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-10-07T20:02:45&#43;09:00" />
+
+    
+    
+
+  <title>
+     Kafka Connect ColormeShop でカラーミーショップの受注をリアルタイムに分析する &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.29" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/10/07/kafka-connector-colormeshop-real-time-analytics/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Kafka Connect ColormeShop でカラーミーショップの受注をリアルタイムに分析する</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-10-07T20:02:45&#43;09:00">
+            Oct 7, 2017
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>最近 Apache Kafka をいじっていて、だいたい概要がわかってきたのでそろそろ自分でコネクタを実装してみようということで作った。</p>
+
+<p><a href="https://github.com/ackintosh/kafka-connect-colormeshop">ackintosh/kafka-connect-colormeshop</a></p>
+
+<blockquote>
+<p>Kafka Connect connector for reading data in real time from ColormeShop</p>
+</blockquote>
+
+<p></p>
+
+<p>先日、カスタムコネクタの実装を始めるための環境準備について <a href="https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/">Java/Kafka 初心者が Kafka Connector を実装するための環境づくり</a> にまとめていた。<br />
+当記事では、kafka-connect-colormeshop を使ってカラーミーショップの受注をリアルタイムに分析する方法を紹介する。</p>
+
+<h2 id="実装について">実装について</h2>
+
+<p>Kafka Connect には <code>Source Connector</code> と <code>Sink Connector</code> があって、今回実装したのは <code>Source Connector</code> の方。つまり、<a href="https://shop-pro.jp/func/api/">カラーミーショップAPI</a>からデータを取ってきて Kafka トピックのレコードとして保存する役割。</p>
+
+<p>Connector の中身は <code>Connector</code> <code>ConnectorConfig</code> <code>Task</code> の3つで構成されている。</p>
+
+<ul>
+<li><code>Connector</code> : Kafka Connect のワーカープロセスの開始/終了時の挙動を定義する。</li>
+<li><code>ConnectorConfig</code> : コネクタが扱う設定項目について型・必須/任意・説明を定義する。定義した設定が <a href="https://github.com/Landoop/kafka-connect-ui">kafka-connect-ui</a> でどのように反映されるかを後述する。</li>
+<li><code>Task</code> : おそらくコネクタの実装で一番作り込むところ。ワーカーが行う具体的な処理を定義する。</li>
+</ul>
+
+<p><a href="https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/">環境づくり</a>で書いたとおりに雛形から土台を生成したあと、上記3パーツの <code>TODO:</code> になっている実装を埋めていくかたちになる。今回作った kafka-connect-colormeshop で言うと下記。</p>
+
+<ul>
+<li><code>Connector</code> : (特にやることなかった)</li>
+<li><code>ConnectorConfig</code> : ワーカーの動作に必要な API アクセストークンや、取得した受注データの保存先となる Kafka トピック名といった設定項目を定義する。<br /></li>
+<li><code>Task</code> : とってきた受注データを、予め定義したスキーマに合わせて組み立てる。</li>
+</ul>
+
+<p>上記を見ていただいてわかるとおり、やってることはとてもシンプル。</p>
+
+<h2 id="使い方">使い方</h2>
+
+<p><code>docker compose up</code> すると、Kafka クラスタと各種 UI ツールが起動する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/ui-top.png" alt="" /></p>
+
+<p>KAFKA CONNECT UI で <code>ColormeShopSourceConnector</code> を選択し、保存先のトピック名と API のアクセストークンを入力する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/kafka-connect-ui.png" alt="" /></p>
+
+<p>これで kafka-connect-colormeshop の設定は終わり。UI のトップに戻って今度は KAFKA TOPICS UI を開くと、新規受注がトピックに流れ込んできているのがわかる。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/kafka-topics-ui.png" alt="" /></p>
+
+<h2 id="カラーミーショップの受注をリアルタイムに分析する">カラーミーショップの受注をリアルタイムに分析する</h2>
+
+<p>Kafka Connect には、Kafka の開発を主導している confluent 社をはじめとした各社やコミュニティによって様々なコネクタが開発されている。</p>
+
+<p><a href="https://www.confluent.io/product/connectors/">Kafka Connect | Confluent</a></p>
+
+<p>以下では、kafka-connect-colormeshop と既存のコネクタを組み合わせてカラーミーショップの受注データを Elasticsearch に保存し、Kibana を使って都道府県別の購入者数を可視化する。</p>
+
+<p>(<a href="https://github.com/ackintosh/kafka-connect-colormeshop/blob/master/docker-compose.yml">docker-compose.yml</a> に Elasticsearch と Kibana も含まれているので別途用意する必要はない)</p>
+
+<h4 id="elasticsearch-コネクタの設定">Elasticsearch コネクタの設定</h4>
+
+<p>KAFKA CONNECT UI で Elasticsearch コネクタを選択する。2種類あるが confluent 版を使う。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/elasticsearch-connector.png" alt="" /></p>
+
+<p>トピック名や ES サーバーの URL 指定する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/elasticsearch-connector-configuration.png" alt="" /></p>
+
+<h4 id="kibana-の-region-map-で可視化する">Kibana の Region Map で可視化する</h4>
+
+<p>Region Map は 5.5.0 で実装された、国や都市の単位で集計・可視化する機能。デフォルトでは、 国単位 <code>World Countries</code> とアメリカの州単位 <code>US States</code> に対応している。<br />
+オリジナルの単位で集計したい場合は、GeoJSON を用意して <a href="https://www.elastic.co/guide/en/kibana/current/settings.html#regionmap-settings">設定ファイルで指定</a> する。</p>
+
+<ul>
+<li><a href="https://www.elastic.co/guide/en/kibana/current/regionmap.html">Region Maps | Kibana User Guide [5.6] | Elastic</a></li>
+<li><a href="http://dev.classmethod.jp/server-side/elasticsearch/kibana-region-map-custom-geojson/">Region Map で都道府県のデータを描画してみた #Kibana ｜ Developers.IO</a></li>
+</ul>
+
+<p>都道府県の描画に必要な設定は予め <a href="https://github.com/ackintosh/kafka-connect-colormeshop/blob/master/kibana.yml">kibana.yml</a> に設定してあるので、下記を行うだけで良い。</p>
+
+<p>Data タブの Field で <code>customer.pref_id</code>を選択する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/regionmap-data.png" alt="" /></p>
+
+<p>Option タブの Layer Settings で <code>Japan</code> <code>Prefecture id</code> を選択する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/regionmap-option.png" alt="" /></p>
+
+<p>「▶」を押すと集計結果が地図上に描画される。かっこいい！</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/kafka-connector-colormeshop-real-time-analytics/regionmap-japan.png" alt="" /></p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Kafka%20Connect%20ColormeShop%20%e3%81%a7%e3%82%ab%e3%83%a9%e3%83%bc%e3%83%9f%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%83%e3%83%97%e3%81%ae%e5%8f%97%e6%b3%a8%e3%82%92%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%bf%e3%82%a4%e3%83%a0%e3%81%ab%e5%88%86%e6%9e%90%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f07%2fkafka-connector-colormeshop-real-time-analytics%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f07%2fkafka-connector-colormeshop-real-time-analytics%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f07%2fkafka-connector-colormeshop-real-time-analytics%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
