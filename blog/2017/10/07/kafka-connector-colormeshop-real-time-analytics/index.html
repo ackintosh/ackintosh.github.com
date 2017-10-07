@@ -152,7 +152,7 @@
 <p>先日、カスタムコネクタの実装を始めるための環境準備について <a href="https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/">Java/Kafka 初心者が Kafka Connector を実装するための環境づくり</a> にまとめていた。<br />
 当記事では、kafka-connect-colormeshop を使ってカラーミーショップの受注をリアルタイムに分析する方法を紹介する。</p>
 
-<h2 id="実装について">実装について</h2>
+<h2 id="コネクタの実装について">コネクタの実装について</h2>
 
 <p>Kafka Connect には <code>Source Connector</code> と <code>Sink Connector</code> があって、今回実装したのは <code>Source Connector</code> の方。つまり、<a href="https://shop-pro.jp/func/api/">カラーミーショップAPI</a>からデータを取ってきて Kafka トピックのレコードとして保存する役割。</p>
 
