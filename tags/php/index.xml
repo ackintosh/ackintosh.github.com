@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>PHP の Memcache と Memcached は並行して使えない</title>
+      <title>PHP の Memcache と Memcached は相互に読み書きできない</title>
       <link>https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/</link>
       <pubDate>Mon, 16 Oct 2017 21:13:17 +0900</pubDate>
       

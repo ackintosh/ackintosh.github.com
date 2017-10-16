@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content=" PHP の Memcache と Memcached は並行して使えない &middot;  暁" />
+  	<meta property="og:title" content=" PHP の Memcache と Memcached は相互に読み書きできない &middot;  暁" />
   	<meta property="og:site_name" content="暁" />
   	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/" />
 
@@ -19,7 +19,7 @@
     
 
   <title>
-     PHP の Memcache と Memcached は並行して使えない &middot;  暁
+     PHP の Memcache と Memcached は相互に読み書きできない &middot;  暁
   </title>
 
     <meta name="description" content="" />
@@ -127,7 +127,7 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">PHP の Memcache と Memcached は並行して使えない</h1>
+        <h1 class="post-title">PHP の Memcache と Memcached は相互に読み書きできない</h1>
         <small></small>
 
         <section class="post-meta">
@@ -165,7 +165,7 @@
 
 <p>しかし歴史のある WEB アプリケーションでは、(おそらく)開発当時は Memcached が無かったので Memcache が使われ今も動き続けている。そして PHP7 へのバージョンアップのために Memcached への移行という課題を抱えているエンジニアも多いのではないか。（私もそのひとり）</p>
 
-<p>記事タイトルのとおり、「Memcache と Memcached は並行して使えない」。つまり Memcache で書き込んだデータは Memcached では読めないし、その逆もまた然り。<br />
+<p>記事タイトルのとおり、「Memcache と Memcached は相互に読み書きできない」。つまり Memcache で書き込んだデータは Memcached では読めないし、その逆もまた然り。<br />
 例えば memcached を介して複数のロールでデータを共有している場合は、関係するロール全てを同時に Memcached に移行必要がある。</p>
 
 <p>「<code>set()</code> と <code>get()</code> しか使ってないし、Memcache/Memcached どっちも同じこと（memcached にデータを読み書き）してるだけなんだからシュッといけるでしょ〜」と楽観しているかたは当記事を読んで現実を受け入れ、考えを改める必要がある。<br />
@@ -442,7 +442,7 @@ written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKA
     
     <section class="share">
       <h4>Share this post</h4>
-      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=PHP%20%e3%81%ae%20Memcache%20%e3%81%a8%20Memcached%20%e3%81%af%e4%b8%a6%e8%a1%8c%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%88%e3%81%aa%e3%81%84&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f16%2fphp-memcache-memcached%2f"
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=PHP%20%e3%81%ae%20Memcache%20%e3%81%a8%20Memcached%20%e3%81%af%e7%9b%b8%e4%ba%92%e3%81%ab%e8%aa%ad%e3%81%bf%e6%9b%b8%e3%81%8d%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f16%2fphp-memcache-memcached%2f"
           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <span class="hidden">Twitter</span>
       </a>
