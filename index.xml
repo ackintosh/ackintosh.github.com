@@ -18,7 +18,23 @@
       <pubDate>Mon, 16 Oct 2017 21:13:17 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;PHP から memcached を利用するための拡張モジュールには2種類ある。&lt;/p&gt;
+
+&lt;h4 id=&#34;memcache&#34;&gt;Memcache&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://php.net/manual/ja/book.memcache.php&#34;&gt;PHP: Memcache - Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://git.php.net/?p=pecl/caching/memcache.git&#34;&gt;72.52.91.13 Git - pecl/caching/memcache.git/summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;memcached&#34;&gt;Memcached&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://php.net/manual/ja/book.memcached.php&#34;&gt;PHP: Memcached - Manual&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/&#34;&gt;php-memcached-dev/php-memcached: memcached extension based on libmemcached library&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
