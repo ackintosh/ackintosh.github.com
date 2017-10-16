@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" PHP の Memcache と Memcached は並行して使えない &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-10-16T21:13:17&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     PHP の Memcache と Memcached は並行して使えない &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.29" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">PHP の Memcache と Memcached は並行して使えない</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-10-16T21:13:17&#43;09:00">
+            Oct 16, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p></p>
+
+<p>PHP から memcached を利用するための拡張モジュールには2種類ある。</p>
+
+<h4 id="memcache">Memcache</h4>
+
+<ul>
+<li><a href="http://php.net/manual/ja/book.memcache.php">PHP: Memcache - Manual</a></li>
+<li><a href="http://git.php.net/?p=pecl/caching/memcache.git">72.52.91.13 Git - pecl/caching/memcache.git/summary</a></li>
+</ul>
+
+<h4 id="memcached">Memcached</h4>
+
+<ul>
+<li><a href="http://php.net/manual/ja/book.memcached.php">PHP: Memcached - Manual</a></li>
+<li><a href="https://github.com/php-memcached-dev/php-memcached/">php-memcached-dev/php-memcached: memcached extension based on libmemcached library</a></li>
+</ul>
+
+<p>Memcache は開発が止まっている。Memcached は libmemcached を使って実装され、現在も開発が続けられていてもちろん PHP7 にも対応している。ということで新規なら迷わず <strong>Memcached</strong> を選択する。</p>
+
+<p>しかし歴史のある WEB アプリケーションでは、(おそらく)開発当時は Memcached が無かったので Memcache が使われ今も動き続けている。そして PHP7 へのバージョンアップのために Memcached への移行という課題を抱えているエンジニアも多いのではないか。（私もそのひとり）</p>
+
+<p>記事タイトルのとおり、「Memcache と Memcached は並行して使えない」。つまり Memcache で書き込んだデータは Memcached では読めないし、その逆もまた然り。<br />
+例えば memcached を介して複数のロールでデータを共有している場合は、関係するロール全てを同時に Memcached に移行必要がある。</p>
+
+<p>「<code>set()</code> と <code>get()</code> しか使ってないし、Memcache/Memcached どっちも同じこと（memcached にデータを読み書き）してるだけなんだからシュッといけるでしょ〜」と楽観しているかたは当記事を読んで現実を受け入れ、考えを改める必要がある。<br />
+※ 単一のロールに閉じて memcached を使っている場合は上記のような大変さは無い。ただ、Memcache/Memcached の間でデータの読み書きができないので、移行したタイミングでデータが全て無かったことになる、または意図しないデータが読み出される(後述)可能性は考慮しておいた方が良さそう。</p>
+
+<p>以下、Memcache/Memcached でデータを読み書きした場合の挙動の確認と、それぞれの拡張の実装の違いを見ていく。</p>
+
+<h2 id="memcache同士-memcached同士で読み書き">Memcache同士、Memcached同士で読み書き</h2>
+
+<p>（※ TODO: 各拡張のバージョン等を追記する）<br />
+まずは通常のケース。</p>
+
+<h3 id="memcache-で-set-memcache-で-get">Memcache で set → Memcache で get</h3>
+
+<ul>
+<li><p>set.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcache();
+$m-&gt;addServer('127.0.0.1', 11211);
+$m-&gt;set('key_string', 'value_string');
+$m-&gt;set('key_bool', true);
+</code></pre></li>
+
+<li><p>get.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcache();
+$m-&gt;addServer('127.0.0.1', 11211);
+var_dump($m-&gt;get('key_string'));
+var_dump($m-&gt;get('key_bool'));
+</code></pre></li>
+
+<li><p>結果</p>
+
+<pre><code>[vagrant@local memcache]$ php set.php
+[vagrant@local memcache]$ php get.php
+string(15) &quot;value_string&quot;
+string(1) &quot;1&quot;
+</code></pre></li>
+</ul>
+
+<p><code>key_bool</code> にセットした <code>true</code> が <code>&quot;1&quot;</code> に変わっている (！)</p>
+
+<h3 id="memcached-で-set-memcached-で-get">Memcached で set → Memcached で get</h3>
+
+<ul>
+<li><p>set.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcached();
+$m-&gt;addServer('127.0.0.1', 11211);
+$m-&gt;set('key_string', 'value_string');
+$m-&gt;set('key_bool', true);
+</code></pre></li>
+
+<li><p>get.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcached();
+$m-&gt;addServer('127.0.0.1', 11211);
+var_dump($m-&gt;get('key_string'));
+var_dump($m-&gt;get('key_bool'));
+</code></pre></li>
+
+<li><p>結果</p>
+
+<pre><code>[vagrant@local memcached]$ php set.php
+[vagrant@local memcached]$ php get.php
+string(15) &quot;value_string&quot;
+bool(true)
+</code></pre></li>
+</ul>
+
+<p>期待通り :ok:</p>
+
+<h2 id="データを読み書きできない-の具体的な挙動を確認する">&ldquo;データを読み書きできない&rdquo; の具体的な挙動を確認する</h2>
+
+<h3 id="memcached-で-set-memcache-で-get">Memcached で set → Memcache で get</h3>
+
+<p>( 逆パターン(Memcache → Memcache)は試していない )</p>
+
+<ul>
+<li><p>set.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcached();
+$m-&gt;addServer('127.0.0.1', 11211);
+$m-&gt;set('key_string', 'value_string');
+$m-&gt;set('key_bool', true);
+</code></pre></li>
+
+<li><p>get.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcache();
+$m-&gt;addServer('127.0.0.1', 11211);
+var_dump($m-&gt;get('key_string'));
+var_dump($m-&gt;get('key_bool'));
+</code></pre></li>
+
+<li><p>結果</p>
+
+<pre><code>[vagrant@local memcached_memcache]$ php set.php
+[vagrant@local memcached_memcache]$ php get.php
+string(15) &quot;value_string&quot;
+bool(false)
+</code></pre></li>
+</ul>
+
+<p><code>$m-&gt;get('key_bool')</code> の結果が false → おそらく「取得に失敗した」意味の false</p>
+
+<h5 id="色々な型で試す">色々な型で試す</h5>
+
+<ul>
+<li><p>set.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcached();
+$m-&gt;addServer('127.0.0.1', 11211);
+$m-&gt;set('key_string', 'value_string');
+$m-&gt;set('key_bool', true);
+$m-&gt;set('key_int', 1);
+$m-&gt;set('key_array', array('value_array'));
+</code></pre></li>
+
+<li><p>get.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcache();
+$m-&gt;addServer('127.0.0.1', 11211);
+var_dump($m-&gt;get('key_string'));
+var_dump($m-&gt;get('key_bool'));
+var_dump($m-&gt;get('key_int'));
+var_dump($m-&gt;get('key_array'));
+</code></pre></li>
+
+<li><p>結果</p>
+
+<pre><code>[vagrant@local memcached_memcache]$ php get.php
+string(12) &quot;value_string&quot;
+bool(false)
+bool(false)
+bool(false)
+</code></pre></li>
+</ul>
+
+<p>　→ string 以外が全部 false&hellip;</p>
+
+<h5 id="配列が-unserialize-されない">配列が unserialize されない</h5>
+
+<ul>
+<li><p>set.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcached();
+$m-&gt;addServer('127.0.0.1', 11211);
+$m-&gt;set('key_array', array('value_array'));
+</code></pre></li>
+
+<li><p>get.php</p>
+
+<pre><code class="language-php">&lt;?php
+$m = new Memcache();
+$m-&gt;addServer('127.0.0.1', 11211);
+var_dump($m-&gt;get('key_array'));
+</code></pre></li>
+
+<li><p>結果</p>
+
+<pre><code>[vagrant@local memcached_memcache]$ php get.php
+string(29) &quot;a:1:{i:0;s:11:&quot;value_array&quot;;}&quot;
+</code></pre></li>
+</ul>
+
+<h2 id="実装の違いを確認する">実装の違いを確認する</h2>
+
+<p>ここまで見てきた挙動の要因になっている Memcache/Memcached それぞれの <code>set()</code> <code>get()</code> の実装の違いを確認する。</p>
+
+<h3 id="memcache-1">Memcache</h3>
+
+<h4 id="set">set()</h4>
+
+<p><a href="http://git.php.net/?p=pecl/caching/memcache.git;a=blob;f=memcache.c;h=6a7576d1a86fdbeaf8f30c3cfd54ac642719c006;hb=HEAD#l1820">ソースコード</a></p>
+
+<h6 id="値の保存の仕方">値の保存の仕方</h6>
+
+<ul>
+<li>string: そのまま保存</li>
+<li>int, float, bool: 文字列に変換して保存</li>
+<li>それ以外: シリアライズして保存
+
+<ul>
+<li>保存時に、シリアライズしたかどうかを <code>flags</code> で渡す</li>
+<li><a href="http://git.php.net/?p=pecl/caching/memcache.git;a=blob;f=memcache.c;h=6a7576d1a86fdbeaf8f30c3cfd54ac642719c006;hb=HEAD#l1864">http://git.php.net/?p=pecl/caching/memcache.git;a=blob;f=memcache.c;h=6a7576d1a86fdbeaf8f30c3cfd54ac642719c006;hb=HEAD#l1864</a></li>
+</ul></li>
+</ul>
+
+<h4 id="get">get()</h4>
+
+<p><a href="http://git.php.net/?p=pecl/caching/memcache.git;a=blob;f=memcache.c;h=6a7576d1a86fdbeaf8f30c3cfd54ac642719c006;hb=HEAD#l1435">ソースコード</a></p>
+
+<ul>
+<li>保存時にシリアライズしていれば <a href="http://git.php.net/?p=pecl/caching/memcache.git;a=blob;f=memcache.c;h=6a7576d1a86fdbeaf8f30c3cfd54ac642719c006;hb=HEAD#l1305">アンシリアライズする</a></li>
+</ul>
+
+<h3 id="memcached-1">Memcached</h3>
+
+<h4 id="set-1">set()</h4>
+
+<p><a href="https://github.com/php-memcached-dev/php-memcached/blob/r2.1.0/php_memcached.c#L1107">ソースコード</a></p>
+
+<h6 id="値の保存の仕方-1">値の保存の仕方</h6>
+
+<ul>
+<li>string, int, float, bool: そのまま(シリアライズせず)保存</li>
+<li>それ以外: シリアライズして保存</li>
+<li>保存時に、型の情報を <code>flags</code> で渡す
+
+<ul>
+<li><a href="https://github.com/php-memcached-dev/php-memcached/blob/r2.1.0/php_memcached.c#L1422">https://github.com/php-memcached-dev/php-memcached/blob/r2.1.0/php_memcached.c#L1422</a></li>
+<li>第7引数 <code>flags</code> はライブラリが自由に利用できるフィールドで、Memcached はここに型情報を入れている</li>
+<li><a href="http://docs.libmemcached.org/memcached_set.html">http://docs.libmemcached.org/memcached_set.html</a></li>
+</ul></li>
+</ul>
+
+<h4 id="get-1">get()</h4>
+
+<p><a href="https://github.com/php-memcached-dev/php-memcached/blob/r2.1.0/php_memcached.c#L490">ソースコード</a></p>
+
+<ul>
+<li><a href="https://github.com/php-memcached-dev/php-memcached/blob/r2.1.0/php_memcached.c#L2932"><code>flags</code> に保存しておいた型情報を元に返り値をいい感じにする</a></li>
+</ul>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>謎の挙動も実装の違いがわかると腑に落ちてくるのではないだろうか。</p>
+
+<p>シュッと移行できるだろうとかなり楽観していたのだが辛い現実を目の当たりにしてしまい、その勢いで書いた。そのため必要以上に不安を煽るような書き方をしてしまった箇所があるかもしれない。</p>
+
+<p>&hellip;</p>
+
+<p>複数のロールで memcached を介してデータを共有している場合でも、うまいこと1ロールずつ移行する方法がないものか。&rdquo;こうやって移行したぜ！&rdquo; という知見をお持ちの方は <a href="https://twitter.com/NAKANO_Akihito/">@NAKANO_Akihito</a> までご連絡いただけると幸いです。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=PHP%20%e3%81%ae%20Memcache%20%e3%81%a8%20Memcached%20%e3%81%af%e4%b8%a6%e8%a1%8c%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%88%e3%81%aa%e3%81%84&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f16%2fphp-memcache-memcached%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f16%2fphp-memcache-memcached%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f10%2f16%2fphp-memcache-memcached%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
