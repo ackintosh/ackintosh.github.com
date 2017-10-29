@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Mon, 16 Oct 2017 21:13:17 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 27 Oct 2017 21:37:22 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP7 に対応した Memcache 拡張モジュール</title>
+      <link>https://ackintosh.github.io/blog/2017/10/27/pecl-memcache/</link>
+      <pubDate>Fri, 27 Oct 2017 21:37:22 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/10/27/pecl-memcache/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/&#34;&gt;PHP の Memcache と Memcached は相互に読み書きできない&lt;/a&gt; を社内 slack で共有したところ、Memcache をフォークして PHP7 に対応しているリポジトリがあることを教えてもらった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/websupport-sk/pecl-memcache&#34;&gt;websupport-sk/pecl-memcache&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PHP の Memcache と Memcached は相互に読み書きできない</title>
