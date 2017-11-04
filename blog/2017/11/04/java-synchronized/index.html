@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" synchronized メソッドの挙動を JVM のスレッドダンプを見ながら確かめる &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2017/11/04/java-synchronized/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2017-11-04T17:56:28&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="java" />
+    
+    
+
+  <title>
+     synchronized メソッドの挙動を JVM のスレッドダンプを見ながら確かめる &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.29" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2017/11/04/java-synchronized/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">synchronized メソッドの挙動を JVM のスレッドダンプを見ながら確かめる</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-11-04T17:56:28&#43;09:00">
+            Nov 4, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/java/">#java</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>最近、趣味で Java 製プロダクトをいじっていたり、<a href="https://www.amazon.co.jp/%E5%A2%97%E8%A3%9C%E6%94%B9%E8%A8%82%E7%89%88-Java%E8%A8%80%E8%AA%9E%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E5%85%A5%E9%96%80-%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E7%B7%A8-%E7%B5%90%E5%9F%8E-%E6%B5%A9/dp/4797331623">デザインパターン入門マルチスレッド編</a>を読んでいることもあって Java のコードを書くようになった。<br />
+これまでほぼ PHP しかやってこなかったので <a href="https://docs.oracle.com/javase/jp/7/api/java/util/concurrent/package-summary.html">java.util.concurrent パッケージ</a> の充実っぷりに衝撃をうけた。これらのクラスを使って分散アルゴリズムの実装に挑戦してみたい。</p>
+
+<p></p>
+
+<p>今回はスレッドの排他制御の仕組みである synchronized メソッドの挙動(ブロックされる範囲)を、 JVM のスレッドダンプを見ながら確かめてみる。挙動を確かめるだけならコードを動かすだけで充分なのだが、今後も Java を書くならスレッドダンプを見ることに慣れておいたほうが良いだろうということで。</p>
+
+<h3 id="コード">コード</h3>
+
+<p>よくある銀行口座から引き落とすコード。引き落としを行う <code>withdraw()</code> は synchronized メソッドになっているので、ある時点で実行できるスレッドは1つだけ。<br />
+引き落とし処理には約10秒かかるので、その間もう片方のスレッドがブロックされているか否かがスレッドダンプから見て取れるはず。</p>
+
+<pre><code class="language-java">class Bank {
+    private int money;
+
+    public Bank(int money) {
+        this.money = money;
+    }
+
+    public synchronized boolean withdraw(int m) {
+        System.out.println(&quot;引き落とし中...&quot;);
+
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        if (money &lt; m) {
+            return false;
+        }
+
+        money -= m;
+        System.out.println(&quot;引き落とし完了!&quot;);
+        return true;
+    }
+}
+
+class Withdraw extends Thread {
+    private Bank bank;
+
+    public Withdraw(Bank bank) {
+        this.bank = bank;
+    }
+
+    @Override
+    public void run() {
+        if (!bank.withdraw(1000)) {
+            System.out.println(&quot;口座残高が足りません!&quot;);
+        }
+    }
+}
+</code></pre>
+
+<h3 id="同一インスタンスの-synchronozed-メソッド呼び出しはブロックされる">同一インスタンスの synchronozed メソッド呼び出しはブロックされる</h3>
+
+<h6 id="コード-1">コード</h6>
+
+<pre><code class="language-java">public class Sample {
+    public static void main(String[] args) {
+        Bank bank = new Bank(1000);
+        new Withdraw(bank).start();
+        new Withdraw(bank).start();
+    }
+}
+</code></pre>
+
+<h6 id="スレッドダンプ">スレッドダンプ</h6>
+
+<p>スレッドダンプに、スレッドの状態を表す <a href="https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Thread.State.html">Thread.State</a> が出力されるので、これを確認する。<br />
+Thread-1 が <code>BLOCKED</code> なのでブロックされている。</p>
+
+<pre><code>$ jps | grep Sample | cut -d ' ' -f 1 | xargs -I{} jstack {}
+...
+...
+...
+
+
+&quot;Thread-1&quot; #12 prio=5 os_prio=31 tid=0x00007ff9cb87b000 nid=0x5b03 waiting for monitor entry [0x000070000b3b2000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at Bank.withdraw(Sample.java:33)
+        - waiting to lock &lt;0x000000076ac29250&gt; (a Bank)
+        at Withdraw.run(Sample.java:19)
+
+&quot;Thread-0&quot; #11 prio=5 os_prio=31 tid=0x00007ff9cb87f000 nid=0x5903 waiting on condition [0x000070000b2af000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at Bank.withdraw(Sample.java:36)
+        - locked &lt;0x000000076ac29250&gt; (a Bank)
+        at Withdraw.run(Sample.java:19)
+
+...
+...
+...
+</code></pre>
+
+<h3 id="異なるインスタンスの-synchronozed-メソッド呼び出しはブロックされない">異なるインスタンスの synchronozed メソッド呼び出しはブロックされない</h3>
+
+<h6 id="コード-2">コード</h6>
+
+<pre><code class="language-java">public class Sample {
+    public static void main(String[] args) {
+        Bank bank = new Bank(1000);
+        Bank bank2 = new Bank(1000);
+        new Withdraw(bank).start();
+        new Withdraw(bank2).start();
+    }
+}
+</code></pre>
+
+<h6 id="スレッドダンプ-1">スレッドダンプ</h6>
+
+<p>Thread-1, Thread-0 どちらも <code>TIMED_WAITING</code> で、今回でいうところの引き落とし処理中であることがわかる。</p>
+
+<pre><code>$ jps | grep Sample | cut -d ' ' -f 1 | xargs -I{} jstack {}
+...
+...
+...
+
+&quot;Thread-1&quot; #12 prio=5 os_prio=31 tid=0x00007f9e84819000 nid=0x5b03 waiting on condition [0x0000700002cf9000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at Bank.withdraw(Sample.java:36)
+        - locked &lt;0x000000076ac29100&gt; (a Bank)
+        at Withdraw.run(Sample.java:19)
+
+&quot;Thread-0&quot; #11 prio=5 os_prio=31 tid=0x00007f9e8300d800 nid=0x5903 waiting on condition [0x0000700002bf6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at Bank.withdraw(Sample.java:36)
+        - locked &lt;0x000000076ac290f0&gt; (a Bank)
+        at Withdraw.run(Sample.java:19)
+
+...
+...
+...
+</code></pre>
+
+<h3 id="クラスメソッドの場合">クラスメソッドの場合</h3>
+
+<p><code>withdraw()</code> をクラスメソッドにした場合。</p>
+
+<h6 id="コード-3">コード</h6>
+
+<pre><code class="language-java">public class Sample {
+    public static void main(String[] args) {
+        new Withdraw().start();
+        new Withdraw().start();
+    }
+}
+
+class Bank {
+    private static int money = 1000;
+
+    public static synchronized boolean withdraw(int m) {
+        System.out.println(&quot;引き落とし中...&quot;);
+
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        if (money &lt; m) {
+            return false;
+        }
+
+        money -= m;
+        System.out.println(&quot;引き落とし完了!&quot;);
+        return true;
+    }
+}
+
+class Withdraw extends Thread {
+    @Override
+    public void run() {
+        if (!Bank.withdraw(1000)) {
+            System.out.println(&quot;口座残高が足りません!&quot;);
+        }
+    }
+}
+</code></pre>
+
+<h6 id="スレッドダンプ-2">スレッドダンプ</h6>
+
+<p>もちろんブロックされている。</p>
+
+<pre><code>&quot;Thread-1&quot; #12 prio=5 os_prio=31 tid=0x00007fe10b86a000 nid=0x5b03 waiting for monitor entry [0x000070000412c000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at Bank.withdraw(Sample.java:36)
+        - waiting to lock &lt;0x000000076aed9680&gt; (a java.lang.Class for Bank)
+        at Withdraw.run(Sample.java:21)
+
+&quot;Thread-0&quot; #11 prio=5 os_prio=31 tid=0x00007fe10b869800 nid=0x5903 waiting on condition [0x0000700004029000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at Bank.withdraw(Sample.java:39)
+        - locked &lt;0x000000076aed9680&gt; (a java.lang.Class for Bank)
+        at Withdraw.run(Sample.java:21)
+</code></pre>
+
+<h3 id="異なるインスタンスでクラスメソッドを実行した場合">異なるインスタンスでクラスメソッドを実行した場合</h3>
+
+<p>※ インスタンスでクラスメソッドを実行するのはそもそも良くないコードだが、挙動の確認として。</p>
+
+<h6 id="コード-4">コード</h6>
+
+<pre><code class="language-java">public class Sample {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Bank bank2 = new Bank();
+        new Withdraw(bank).start();
+        new Withdraw(bank2).start();
+    }
+}
+
+/** Bank クラスは同じなので省略 **/
+
+class Withdraw extends Thread {
+    private Bank bank;
+
+    public Withdraw(Bank bank) {
+        this.bank = bank;
+    }
+
+    @Override
+    public void run() {
+        if (!bank.withdraw(1000)) {
+            System.out.println(&quot;口座残高が足りません!&quot;);
+        }
+    }
+}
+</code></pre>
+
+<h6 id="スレッドダンプ-3">スレッドダンプ</h6>
+
+<p>「クラスメソッドの場合」と同様にブロックされている。</p>
+
+<pre><code>&quot;Thread-1&quot; #12 prio=5 os_prio=31 tid=0x00007fedf1031800 nid=0x5b03 waiting for monitor entry [0x00007000066d9000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at Bank.withdraw(Sample.java:36)
+        - waiting to lock &lt;0x000000076ac28d78&gt; (a java.lang.Class for Bank)
+        at Withdraw.run(Sample.java:21)
+
+&quot;Thread-0&quot; #11 prio=5 os_prio=31 tid=0x00007fedf008e800 nid=0x5903 waiting on condition [0x00007000065d6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at Bank.withdraw(Sample.java:39)
+        - locked &lt;0x000000076ac28d78&gt; (a java.lang.Class for Bank)
+        at Withdraw.run(Sample.java:21)
+</code></pre>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=synchronized%20%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89%e3%81%ae%e6%8c%99%e5%8b%95%e3%82%92%20JVM%20%e3%81%ae%e3%82%b9%e3%83%ac%e3%83%83%e3%83%89%e3%83%80%e3%83%b3%e3%83%97%e3%82%92%e8%a6%8b%e3%81%aa%e3%81%8c%e3%82%89%e7%a2%ba%e3%81%8b%e3%82%81%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f11%2f04%2fjava-synchronized%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f11%2f04%2fjava-synchronized%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2017%2f11%2f04%2fjava-synchronized%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
