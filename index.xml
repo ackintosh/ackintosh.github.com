@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 04 Nov 2017 17:56:28 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 Nov 2017 17:41:55 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CopyOnWriteArrayList でリストを安全に更新する</title>
+      <link>https://ackintosh.github.io/blog/2017/11/19/copy-on-write-array-list/</link>
+      <pubDate>Sun, 19 Nov 2017 17:41:55 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2017/11/19/copy-on-write-array-list/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.hyuki.com/dp/dp2.html&#34;&gt;デザインパターン入門 マルチスレッド編&lt;/a&gt; に、マルチスレッドプログラムの評価基準として &lt;code&gt;安全性&lt;/code&gt; &lt;code&gt;生存性&lt;/code&gt; &lt;code&gt;再利用性&lt;/code&gt; が挙げられている。安全性とはオブジェクトのフィールドが意図した値を保っていることで、安全性が保たれているクラスをスレッドセーフなクラスという。&lt;br /&gt;
+マルチスレッドプログラミングにおいてオブジェクトを安全に更新するには、操作が競合しないように synchronized などを使った排他制御の工夫が必要。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>synchronized メソッドの挙動を JVM のスレッドダンプを見ながら確かめる</title>
