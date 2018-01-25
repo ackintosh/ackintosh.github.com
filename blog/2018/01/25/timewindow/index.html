@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" TimeWindowの種類 &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2018/01/25/timewindow/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-01-25T10:14:04&#43;09:00" />
+
+    
+    
+
+  <title>
+     TimeWindowの種類 &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/01/25/timewindow/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">TimeWindowの種類</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-01-25T10:14:04&#43;09:00">
+            Jan 25, 2018
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <h2 id="timewindowとは">TimeWindowとは</h2>
+
+<p>ググってみた感じだと(ソフトウェア開発以外も含めた)文脈によっていくつか微妙に異なる意味がありそうなのだが、当記事では &ldquo;ある測定の対象となる時間枠&rdquo; の意味で扱う。例えば、システムで発生したイベントを集めて加工を行うようなストリーム処理において、どこからどこまでのイベントを対象とするかを決定するのがTimeWindowである。</p>
+
+<p></p>
+
+<p>TimeWindowが処理対象とする枠を決めるためのロジックにはいくつか種類があるので以下にまとめる。できるだけ一般的と思われるものをまとめたが、個別のサービスやプロダクトによって違いがあるかもしれないのでご了承いただきたい。<br />
+(<a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#tumbling-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a>にある画像がわかりやすかったので引用させていただいている)</p>
+
+<h2 id="tumbling-window">Tumbling Window</h2>
+
+<p>最もシンプルなロジックで、時間軸を任意の間隔( = ウィンドウサイズ )で区切る。1つのイベントは必ず1つのTimeWindowに属する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/timewindow/tumbling-window.png" alt="Tumbling Window" /></p>
+
+<p>引用元: <a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#tumbling-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a></p>
+
+<h2 id="hopping-window">Hopping Window</h2>
+
+<p>Tumbling Windowと似ているが、ウィンドウサイズの他にホップサイズという変数が存在する。ホップサイズは、枠と枠の間隔を表す。(文章で説明するのが難しい。)1つのイベントは1つ以上のTimeWindowに属する。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/timewindow/hopping-window.png" alt="Hopping Window" /></p>
+
+<p>引用元: <a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#hopping-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a></p>
+
+<h2 id="sliding-window">Sliding Window</h2>
+
+<p>名称からしてイメージしやすいかもしれないが、&rdquo;直近○○のイベント&rdquo; を処理対象とする場合に使いやすい。
+Sliding Windowは <code>Eviction policy</code> と <code>Trigger policy</code> という2種類のポリシー(特性)を持つ。開発者はこれらを組み合わせて柔軟なウィンドウ処理を行う。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/timewindow/sliding-window.png" alt="Sliding Window" /></p>
+
+<p>引用元: <a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#sliding-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a></p>
+
+<h3 id="trigger-policy-トリガーポリシー">Trigger Policy (トリガーポリシー)</h3>
+
+<p>&ldquo;直近&rdquo;という枠を扱うには何らかのトリガーが必要になる。Trigger Policyで、何を軸にしてウィンドウ処理を起動するかを決める。</p>
+
+<ul>
+<li>Time Trigger Policy
+
+<ul>
+<li>N秒間経過するごとに起動する、といったように時間を軸にして起動する</li>
+</ul></li>
+<li>Count Trigger Policy
+
+<ul>
+<li>N個イベントが発生するごとに起動する、といったように数を軸にして起動する</li>
+</ul></li>
+</ul>
+
+<h3 id="eviction-policy-排他ポリシー">Eviction Policy (排他ポリシー)</h3>
+
+<p>何を軸にしてイベントを集めるか( = 範囲を外れたイベントを排除するか)を決めるポリシー。</p>
+
+<ul>
+<li>Time Eviction Policy
+
+<ul>
+<li>直近N秒間、といったように時間を軸に集める</li>
+</ul></li>
+<li>Count Eviction Policy
+
+<ul>
+<li>直近N個、といったように数を軸にして集める</li>
+</ul></li>
+</ul>
+
+<h3 id="ポリシーの組み合わせの例">ポリシーの組み合わせの例</h3>
+
+<h5 id="time-trigger-policy-x-time-eviction-policy">Time Trigger Policy x Time Eviction Policy</h5>
+
+<p>60秒ごと(Trigger Policy)に、直近10秒間(Eviction Policy)のイベントを集めて行うウィンドウ処理を起動する。</p>
+
+<h5 id="time-trigger-policy-x-count-eviction-policy">Time Trigger Policy x Count Eviction Policy</h5>
+
+<p>60秒ごと(Trigger Policy)に、直近30個(Eviction Policy)のイベントを集めて行うウィンドウ処理を起動する。</p>
+
+<hr />
+
+<h4 id="参考">参考</h4>
+
+<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#tumbling-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a></li>
+<li><a href="https://developer.ibm.com/streamsdev/2014/08/22/spl-sliding-windows-explained/">SPL Sliding Windows Explained - Streamsdev</a></li>
+</ul>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=TimeWindow%e3%81%ae%e7%a8%ae%e9%a1%9e&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f01%2f25%2ftimewindow%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f01%2f25%2ftimewindow%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f01%2f25%2ftimewindow%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

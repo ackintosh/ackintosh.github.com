@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ackintosh.github.io/blog/2018/01/25/timewindow/</loc>
+    <lastmod>2018-01-25T10:14:04+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/blog/2017/11/19/copy-on-write-array-list/</loc>
     <lastmod>2017-11-19T17:41:55+09:00</lastmod>
   </url>
@@ -531,7 +536,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2017-11-19T17:41:55+09:00</lastmod>
+    <lastmod>2018-01-25T10:14:04+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -566,7 +571,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2017-11-19T17:41:55+09:00</lastmod>
+    <lastmod>2018-01-25T10:14:04+09:00</lastmod>
     <priority>0</priority>
   </url>
   
