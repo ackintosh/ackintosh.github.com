@@ -207,7 +207,7 @@ h4, h5, h6 {
     -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     color: #2E2E2E;
     line-height: 1.15em;
-    margin: 0 0 0.4em 0;
+    margin: 2em 0 1.5em 0;
     font-family: "Open Sans", sans-serif;
     text-rendering: geometricPrecision;
 }
@@ -223,7 +223,7 @@ h2 {
     letter-spacing: -1px;
     border-bottom: 1px solid #eee;
     padding-bottom: 0.3em;
-    margin-bottom: 16px;
+    margin-bottom: 38px;
 }
 
 h2.post-title {
@@ -248,7 +248,7 @@ h6 {
 }
 
 a {
-    color: #4A4A4A;
+    color: #016ed2;
     transition: color 0.3s ease;
 }
 
