@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Swagger Codegen &#43; Circuit Breaker in #PHP &middot;  暁" />
+  	<meta property="og:site_name" content="暁" />
+  	<meta property="og:url" content="https://ackintosh.github.io/blog/2018/02/05/swagger-codegen-with-circuit-breaker-in-php-ja/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-02-05T22:51:53&#43;09:00" />
+
+    
+    
+
+  <title>
+     Swagger Codegen &#43; Circuit Breaker in #PHP &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+	  <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/02/05/swagger-codegen-with-circuit-breaker-in-php-ja/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Swagger Codegen &#43; Circuit Breaker in #PHP</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-02-05T22:51:53&#43;09:00">
+            Feb 5, 2018
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>( English version is coming soon! )</p>
+
+<p>以前 <a href="https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/">Swagger Codegen + CircuitBreaker(Ganesha)</a> でSwagger Codegenと拙作の<a href="https://github.com/ackintosh/ganesha">Ganesha</a> (Circuit BreakerのPHP実装)を組み合わせる方法を書いた。<br />
+その後、Swagger CodegenとGaneshaの双方ともバージョンアップし、より親和性が高まったので、改めてSwagger CodegenやCircuit Breakerの概要を含めてご紹介したい。</p>
+
+<p></p>
+
+<h2 id="swagger-codegenとは">Swagger Codegenとは</h2>
+
+<p><a href="https://github.com/swagger-api/swagger-codegen">https://github.com/swagger-api/swagger-codegen</a></p>
+
+<p>OpenAPI仕様からドキュメント、APIクライアントやサーバースタブ等を自動生成するツールで、例えばAPIクライアントは当記事執筆時点で30以上の言語をサポートしており活発なコミュニティによってその数は増え続けている。</p>
+
+<p>利用するには、ビルド済みのjarファイルをダウンロードしたり、Macユーザーならhomebrewで安定版を使うことができるが、下記ではリポジトリから最新のmasterブランチをcloneして使う方法を挙げておく。</p>
+
+<pre><code>$ git clone https://github.com/swagger-api/swagger-codegen
+$ cd swagger-codegen
+$ ./run-in-docker.sh mvn package
+$ ./run-in-docker.sh generate \
+    -i path/to/your-api-specification.yml \
+    -l php \
+    -o /gen/out/php-client
+$ ls -la ./out/php-client
+</code></pre>
+
+<p>これだけでAPI仕様に沿ったPHPクライアントが生成できる。<br />
+その他、そもそものOpenAPIの仕様や生成するコードをカスタマイズする方法についての詳細は、Swagger Codegenのトップコントリビュータ <a href="https://twitter.com/wing328">@win328</a> が執筆した電子書籍を参照することをお勧めします。</p>
+
+<p><a href="https://gumroad.com/a/1072608371">A Beginner&rsquo;s Guide to Code Generation for REST APIs</a></p>
+
+<p>(なお現在、私を含むTechnical Committeeのメンバーによって日本語訳が進められており、近日リリース予定です)</p>
+
+<h4 id="phpクライアントについて">PHPクライアントについて</h4>
+
+<p>Swagger Codegen v2.3からはHTTPクライアントとしてGuzzleを採用している。(それ以前はcurl関数をラップした独自のHTTPクライアントを使っていた)<br />
+これにより非同期リクエストが可能になったり、Guzzleの <a href="http://docs.guzzlephp.org/en/stable/handlers-and-middleware.html">Middleware機構</a> を利用する各種ライブラリを組み込むことが可能になり利便性が一気に向上した。</p>
+
+<p><a href="https://packagist.org/?q=guzzle%20middleware&amp;p=0">Packagistで &ldquo;guzzle middleware&rdquo; を検索した結果</a></p>
+
+<p>後述するが、GaneshaもこのMiddlewareを実装することでよりスムーズにSwagger Codegenと組み合わせることが出来るようになった。</p>
+
+<h2 id="circuit-breakerとは">Circuit Breakerとは</h2>
+
+<p><a href="https://martinfowler.com/bliki/CircuitBreaker.html">https://martinfowler.com/bliki/CircuitBreaker.html</a></p>
+
+<p>外部API呼び出しにおいて、呼び出し先が高負荷などにより応答しなくなった場合に、その障害が呼び出し元に連鎖してしまうことを防ぐための実装パターン。</p>
+
+<p>Circuit BreakerがAPI呼び出しの成功/失敗(タイムアウト)を監視し、閾値を超えるとOpenステータスとなり、API呼び出しを遮断(Reject)する。この挙動により障害の連鎖を防止する。また、一定時間経過後にCircuit BreakerはHalf Openステータスとなり一部のAPI呼び出しを通すようになる。呼び出しが成功すれば障害が収束したとみなしてCircuit Breakerは元のステータス(Closed)となり、全ての呼び出しを許可する。</p>
+
+<p>つまり人手を介することなくCircuit Breakerが呼び出し先の異常を検知し、飛び火することをいい感じに防止してくれる。Circuit Breakerのステータス遷移についてよりイメージしやすいように、ファウラーのブログから引用させていただく。</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/swagger-codegen-with-circuit-breaker-in-php-ja/circuit_breaker_state.png" alt="circuit_breaker_state.png" /></p>
+
+<p>(<a href="https://martinfowler.com/bliki/CircuitBreaker.html">CircuitBreaker - martinfowler.com</a>より引用)</p>
+
+<p>PHPの実装はいくつかあるが、イチオシは拙作の <a href="https://github.com/ackintosh/ganesha">Ganesha</a>。閾値の設定を <a href="https://github.com/ackintosh/ganesha#strategies">失敗率(Rate)や失敗数(Count)</a> で設定でき、<a href="https://github.com/ackintosh/ganesha#adapters">Adapter機構</a> で様々なストレージに対応している。<br />
+ご興味があれば、(擬似的な)障害を起こしながらGaneshaの挙動を確認できるような <a href="https://github.com/ackintosh/ganesha#are-you-interested">サンプル</a> を用意しているので是非お試しいただきたい。</p>
+
+<h2 id="swagger-codegen-ganesha">Swagger Codegen + Ganesha</h2>
+
+<p>前置きが長くなってしまったが、ここまで読んでいただいたかたはSwagger CodegenでAPIクライアントを生成することの手軽さと、安定したサービス運用のためのCircuit Breakerの必要性をご理解いただいたのではないだろうか。
+以下、Swagger CodegenとGaneshaを組み合わせる方法をご紹介する。</p>
+
+<p>まずはGaneshaが提供するGuzzle Middlewareを、Guzzleに組み込む。</p>
+
+<pre><code class="language-php">use Ackintosh\Ganesha\Builder;
+use Ackintosh\Ganesha\GuzzleMiddleware;
+use Ackintosh\Ganesha\Exception\RejectedException;
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+
+$ganesha = Builder::build([
+    'timeWindow'           =&gt; 30,
+    'failureRateThreshold' =&gt; 50,
+    'minimumRequests'      =&gt; 10,
+    'intervalToHalfOpen'   =&gt; 5,
+    'adapter'              =&gt; $adapter,
+]);
+$middleware = new GuzzleMiddleware($ganesha);
+
+$handlers = HandlerStack::create();
+$handlers-&gt;push($middleware);
+
+$client = new Client(['handler' =&gt; $handlers]);
+</code></pre>
+
+<p>あとは、そのHTTPクライアントをSwagger Codegenで生成したAPIクラスのコンストラクタに渡すだけ。</p>
+
+<pre><code class="language-php">$api = new PetApi($client);
+</code></pre>
+
+<p>これで、前述したとおりのロジックでGaneshaがAPI呼び出しを監視し、異常を検知すればリクエストを遮断し、自動的に復旧の判断もしてくれる。</p>
+
+<h4 id="リクエストが遮断-reject-されたときは">リクエストが遮断(Reject)されたときは？</h4>
+
+<p>Ganeshaが呼び出し先APIの異常を検知しリクエストを遮断した場合、例外 <code>RejectedException</code> を投げる。</p>
+
+<pre><code class="language-php">use Ackintosh\Ganesha\Exception\RejectedException;
+
+try {
+    $api-&gt;getPetById(123);
+} catch (RejectedException $e) {
+    awesomeErrorHandling($e);
+}
+</code></pre>
+
+<p>この挙動は <a href="https://www.amazon.co.jp/Release-%E6%9C%AC%E7%95%AA%E7%94%A8%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A3%BD%E5%93%81%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%A8%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB-Michael-T-Nygard/dp/4274067491/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1491103513&amp;sr=1-1&amp;keywords=release+it">Release It! 本番用ソフトウェア製品の設計とデプロイのために</a> の <code>5.2 ブレーカー</code> で説明されている下記に従っている。</p>
+
+<blockquote>
+<p>ブレーカーが「開」だと、すべての呼び出しが即座に失敗する。これは何らかの例外によって示すべきだろう。ユーザーに適切なフィードバックを提供するには、「開」のときには別な種類の例外を発生させると都合がよい。そうすれば、呼び出しをするコードでその種の例外を違ったやり方で処理できるようになる。</p>
+</blockquote>
+
+<p>(P.101 5.2ブレーカー より引用)</p>
+
+<h4 id="ganeshaが利用するストレージで障害が起きた場合は">Ganeshaが利用するストレージで障害が起きた場合は？</h4>
+
+<p>GaneshaはAPI呼び出しの成功/失敗等をストレージに保存するが、そのストレージで障害が起きた場合、例外やエラーは発生させずリクエストを許可する。<br />
+これはFail-silentに従った挙動で、例えば自動車設計において安全装置にトラブルが起きた場合、安全な状態を保つために通常はその機能を停止する方向に設計する。同様に、API呼び出しにおける安全装置であるCircuit Breakerの障害時はその機能を停止(例外等を発生させずリクエストを許可)するよう実装している。</p>
+
+<p>代わりに、下記のようにストレージ障害にフックして任意の処理を行うことができる。</p>
+
+<pre><code class="language-php">$ganesha-&gt;subscribe(function ($event, $service, $message) {
+    switch ($event) {
+        case Ganesha::EVENT_STORAGE_ERROR:
+            \YourMonitoringSystem::error($message);
+            break;
+        default:
+            break;
+    }
+});
+</code></pre>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>Swagger CodegenによるAPIクライアント生成、Circuit Breakerによる障害連鎖の防止、それからCircuit BreakerのPHP実装であるGaneshaをSwagger Codegenに組み込む方法を駆け足でご紹介した。</p>
+
+<p>Ganeshaを組み込むのはご覧頂いたとおりとてもシンプルなので、すでにSwagger Codegenでクライアントを生成して運用されている場合でも簡単に利用していただけると思う。<br />
+Ganeshaについての詳細はぜひ <a href="https://github.com/ackintosh/ganesha#ganesha">README</a> をご参照いただきたい。ご要望やPRも大歓迎なのでお気軽に。</p>
+
+<hr />
+
+<p>2014年のファウラーのブログ <a href="https://martinfowler.com/articles/microservices.html">Microservices</a> で提唱されたマイクロサービスは、今日では充分一般的になった手法かなと思います。また、マイクロサービスがバズる以前から、コンポーネント同士をAPIで繋いでサービスを構成しているケースは多くあったのではないでしょうか。<br />
+みなさんは障害の連鎖を経験されたことがありますか？恥ずかしながら私はあります(一度ではなく、何度も&hellip;)。なんともいえない惨めさがあります。あの悔しさがGaneshaを開発するモチベーションになっているのかもしれません。</p>
+
+<p>この記事がみなさまの開発効率化とサービス安定運用のご参考になれば幸いです。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Swagger%20Codegen%20%2b%20Circuit%20Breaker%20in%20%23PHP&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f05%2fswagger-codegen-with-circuit-breaker-in-php-ja%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f05%2fswagger-codegen-with-circuit-breaker-in-php-ja%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f05%2fswagger-codegen-with-circuit-breaker-in-php-ja%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

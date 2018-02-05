@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 25 Jan 2018 10:14:04 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 Feb 2018 22:51:53 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Swagger Codegen &#43; Circuit Breaker in #PHP</title>
+      <link>https://ackintosh.github.io/blog/2018/02/05/swagger-codegen-with-circuit-breaker-in-php-ja/</link>
+      <pubDate>Mon, 05 Feb 2018 22:51:53 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2018/02/05/swagger-codegen-with-circuit-breaker-in-php-ja/</guid>
+      <description>&lt;p&gt;( English version is coming soon! )&lt;/p&gt;
+
+&lt;p&gt;以前 &lt;a href=&#34;https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/&#34;&gt;Swagger Codegen + CircuitBreaker(Ganesha)&lt;/a&gt; でSwagger Codegenと拙作の&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; (Circuit BreakerのPHP実装)を組み合わせる方法を書いた。&lt;br /&gt;
+その後、Swagger CodegenとGaneshaの双方ともバージョンアップし、より親和性が高まったので、改めてSwagger CodegenやCircuit Breakerの概要を含めてご紹介したい。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>TimeWindowの種類</title>
