@@ -21,7 +21,7 @@
       <description>&lt;p&gt;( English version is coming soon! )&lt;/p&gt;
 
 &lt;p&gt;以前 &lt;a href=&#34;https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/&#34;&gt;Swagger Codegen + CircuitBreaker(Ganesha)&lt;/a&gt; でSwagger Codegenと拙作の&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; (Circuit BreakerのPHP実装)を組み合わせる方法を書いた。&lt;br /&gt;
-その後、Swagger CodegenとGaneshaの双方ともバージョンアップし、より親和性が高まったので、改めてSwagger CodegenやCircuit Breakerの概要を含めてご紹介したい。&lt;/p&gt;
+その後、Swagger CodegenとGaneshaの双方ともバージョンアップし親和性が高まり、よりシンプルな方法で組み込めるようになったので、改めてSwagger CodegenやCircuit Breakerの概要も含めてご紹介したい。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

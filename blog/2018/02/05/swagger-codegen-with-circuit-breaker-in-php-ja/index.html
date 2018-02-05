@@ -142,7 +142,7 @@
       <p>( English version is coming soon! )</p>
 
 <p>以前 <a href="https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/">Swagger Codegen + CircuitBreaker(Ganesha)</a> でSwagger Codegenと拙作の<a href="https://github.com/ackintosh/ganesha">Ganesha</a> (Circuit BreakerのPHP実装)を組み合わせる方法を書いた。<br />
-その後、Swagger CodegenとGaneshaの双方ともバージョンアップし、より親和性が高まったので、改めてSwagger CodegenやCircuit Breakerの概要を含めてご紹介したい。</p>
+その後、Swagger CodegenとGaneshaの双方ともバージョンアップし親和性が高まり、よりシンプルな方法で組み込めるようになったので、改めてSwagger CodegenやCircuit Breakerの概要も含めてご紹介したい。</p>
 
 <p></p>
 
@@ -152,7 +152,7 @@
 
 <p>OpenAPI仕様からドキュメント、APIクライアントやサーバースタブ等を自動生成するツールで、例えばAPIクライアントは当記事執筆時点で30以上の言語をサポートしており活発なコミュニティによってその数は増え続けている。</p>
 
-<p>利用するには、ビルド済みのjarファイルをダウンロードしたり、Macユーザーならhomebrewで安定版を使うことができるが、下記ではリポジトリから最新のmasterブランチをcloneして使う方法を挙げておく。</p>
+<p>利用するには、ビルド済みのjarファイルをダウンロードしたり、Macユーザーならhomebrewで安定版をインストールして使うことができるが、下記ではリポジトリから最新のmasterブランチをcloneして使う方法を挙げておく。</p>
 
 <pre><code>$ git clone https://github.com/swagger-api/swagger-codegen
 $ cd swagger-codegen
@@ -169,7 +169,7 @@ $ ls -la ./out/php-client
 
 <p><a href="https://gumroad.com/a/1072608371">A Beginner&rsquo;s Guide to Code Generation for REST APIs</a></p>
 
-<p>(なお現在、私を含むTechnical Committeeのメンバーによって日本語訳が進められており、近日リリース予定です)</p>
+<p>(なお現在、私を含むTechnical Committeeの日本人メンバーによって日本語訳が進められており、近日リリース予定です)</p>
 
 <h3 id="phpクライアントについて">PHPクライアントについて</h3>
 
@@ -178,7 +178,7 @@ $ ls -la ./out/php-client
 
 <p><a href="https://packagist.org/?q=guzzle%20middleware&amp;p=0">Packagistで &ldquo;guzzle middleware&rdquo; を検索した結果</a></p>
 
-<p>後述するが、GaneshaもこのMiddlewareを実装することでよりスムーズにSwagger Codegenと組み合わせることが出来るようになった。</p>
+<p>後述するが、GaneshaもこのMiddleware機構を利用することでよりシンプルにSwagger Codegenと組み合わせることが出来るようになった。</p>
 
 <h2 id="circuit-breakerとは">Circuit Breakerとは</h2>
 
@@ -188,19 +188,18 @@ $ ls -la ./out/php-client
 
 <p>Circuit BreakerがAPI呼び出しの成功/失敗(タイムアウト)を監視し、閾値を超えるとOpenステータスとなり、API呼び出しを遮断(Reject)する。この挙動により障害の連鎖を防止する。また、一定時間経過後にCircuit BreakerはHalf Openステータスとなり一部のAPI呼び出しを通すようになる。呼び出しが成功すれば障害が収束したとみなしてCircuit Breakerは元のステータス(Closed)となり、全ての呼び出しを許可する。</p>
 
-<p>つまり人手を介することなくCircuit Breakerが呼び出し先の異常を検知し、飛び火することをいい感じに防止してくれる。Circuit Breakerのステータス遷移についてよりイメージしやすいように、ファウラーのブログから引用させていただく。</p>
+<p>つまり人手を介することなくCircuit Breakerが呼び出し先の異常を検知し、飛び火することをいい感じに防止してくれる。Circuit Breakerのステータス遷移についてよりイメージしやすいように、ファウラーのブログから図を引用させていただく。</p>
 
 <p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/swagger-codegen-with-circuit-breaker-in-php-ja/circuit_breaker_state.png" alt="circuit_breaker_state.png" /></p>
 
 <p>(<a href="https://martinfowler.com/bliki/CircuitBreaker.html">CircuitBreaker - martinfowler.com</a>より引用)</p>
 
-<p>PHPの実装はいくつかあるが、イチオシは拙作の <a href="https://github.com/ackintosh/ganesha">Ganesha</a>。閾値の設定を <a href="https://github.com/ackintosh/ganesha#strategies">失敗率(Rate)や失敗数(Count)</a> で設定でき、<a href="https://github.com/ackintosh/ganesha#adapters">Adapter機構</a> で様々なストレージに対応している。<br />
-ご興味があれば、(擬似的な)障害を起こしながらGaneshaの挙動を確認できるような <a href="https://github.com/ackintosh/ganesha#are-you-interested">サンプル</a> を用意しているので是非お試しいただきたい。</p>
+<p>Circuit BreakerのPHP実装はいくつかあるが、イチオシは拙作の <a href="https://github.com/ackintosh/ganesha">Ganesha</a>。閾値の設定を <a href="https://github.com/ackintosh/ganesha#strategies">失敗率(Rate)や失敗数(Count)</a> で設定でき、<a href="https://github.com/ackintosh/ganesha#adapters">Adapter機構</a> で様々なストレージに対応している。<br />
+ご興味があれば、(擬似的な)障害を起こしながらGaneshaの挙動を確認できる <a href="https://github.com/ackintosh/ganesha#are-you-interested">サンプル</a> を用意しているので是非お試しいただきたい。</p>
 
 <h2 id="swagger-codegen-ganesha">Swagger Codegen + Ganesha</h2>
 
-<p>前置きが長くなってしまったが、ここまで読んでいただいたかたはSwagger CodegenでAPIクライアントを生成することの手軽さと、安定したサービス運用のためのCircuit Breakerの必要性をご理解いただいたのではないだろうか。
-以下、Swagger CodegenとGaneshaを組み合わせる方法をご紹介する。</p>
+<p>前置きが長くなってしまったが、ここまで読んでいただいたかたはSwagger CodegenでAPIクライアントを生成することの手軽さと、安定したサービス運用のためのCircuit Breakerの必要性をご理解いただけたのではないだろうか。以下、Swagger CodegenとGaneshaを組み合わせる方法をご紹介する。</p>
 
 <p>まずはGaneshaが提供するGuzzle Middlewareを、Guzzleに組み込む。</p>
 
@@ -255,7 +254,7 @@ try {
 
 <h3 id="ganeshaが利用するストレージで障害が起きた場合は">Ganeshaが利用するストレージで障害が起きた場合は？</h3>
 
-<p>GaneshaはAPI呼び出しの成功/失敗等をストレージに保存するが、そのストレージで障害が起きた場合、例外やエラーは発生させずリクエストを許可する。<br />
+<p>GaneshaはAPI呼び出しの成功/失敗等をストレージに記録するが、そのストレージで障害が起きた場合、例外やエラーは発生させずリクエストを許可する。<br />
 これはFail-silentに従った挙動で、例えば自動車設計において安全装置にトラブルが起きた場合、安全な状態を保つために通常はその機能を停止する方向に設計する。同様に、API呼び出しにおける安全装置であるCircuit Breakerの障害時はその機能を停止(例外等を発生させずリクエストを許可)するよう実装している。</p>
 
 <p>代わりに、下記のようにストレージ障害にフックして任意の処理を行うことができる。</p>
@@ -273,15 +272,15 @@ try {
 
 <h2 id="まとめ">まとめ</h2>
 
-<p>Swagger CodegenによるAPIクライアント生成、Circuit Breakerによる障害連鎖の防止、それからCircuit BreakerのPHP実装であるGaneshaをSwagger Codegenに組み込む方法を駆け足でご紹介した。</p>
+<p>Swagger CodegenによるAPIクライアントの自動生成、Circuit Breakerによる障害連鎖の防止、それからCircuit BreakerのPHP実装であるGaneshaをSwagger Codegenで生成したAPIクライアントに組み込む方法を駆け足でご紹介した。</p>
 
-<p>Ganeshaを組み込むのはご覧頂いたとおりとてもシンプルなので、すでにSwagger Codegenでクライアントを生成して運用されている場合でも簡単に利用していただけると思う。<br />
+<p>ご覧頂いたとおりGaneshaを組み込む方法はとてもシンプルなので、すでにSwagger Codegenでクライアントを生成して運用されている場合でも簡単に導入できる。<br />
 Ganeshaについての詳細はぜひ <a href="https://github.com/ackintosh/ganesha#ganesha">README</a> をご参照いただきたい。ご要望やPRも大歓迎なのでお気軽に。</p>
 
 <hr />
 
-<p>2014年のファウラーのブログ <a href="https://martinfowler.com/articles/microservices.html">Microservices</a> で提唱されたマイクロサービスは、今日では充分一般的になった手法かなと思います。また、マイクロサービスがバズる以前から、コンポーネント同士をAPIで繋いでサービスを構成しているケースは多くあったのではないでしょうか。<br />
-みなさんは障害の連鎖を経験されたことがありますか？恥ずかしながら私はあります(一度ではなく、何度も&hellip;)。なんともいえない惨めさがあります。あの悔しさがGaneshaを開発するモチベーションになっているのかもしれません。</p>
+<p>2014年のファウラーのブログ <a href="https://martinfowler.com/articles/microservices.html">Microservices</a> で提唱されたマイクロサービスは、今日では一般的になった手法かなと思います。また、マイクロサービスがバズる以前から、コンポーネント同士をAPIで繋いでサービスを構成しているケースは多くあったのではないでしょうか。<br />
+みなさんは障害の連鎖を経験されたことがありますか？恥ずかしながら私はあります(一度ではなく、何度も&hellip;)。あのときの悔しさがGaneshaを開発するモチベーションになっているのかもしれません。</p>
 
 <p>この記事がみなさまの開発効率化とサービス安定運用のご参考になれば幸いです。</p>
     </section>
