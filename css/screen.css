@@ -1068,7 +1068,7 @@ body:not(.post-template) .post-title {
 }
 
 .post-title {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 
 .post-meta {
