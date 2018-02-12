@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 27 Oct 2017 21:37:22 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 12 Feb 2018 16:05:25 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Travis CIでPHP5.3から最新までのバージョンでCIをまわす</title>
+      <link>https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/</link>
+      <pubDate>Mon, 12 Feb 2018 16:05:25 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/</guid>
+      <description>&lt;p&gt;なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PHP7 に対応した Memcache 拡張モジュール</title>

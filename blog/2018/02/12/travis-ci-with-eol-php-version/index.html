@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" Travis CIでPHP5.3から最新までのバージョンでCIをまわす -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-02-12T16:05:25&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     Travis CIでPHP5.3から最新までのバージョンでCIをまわす &middot;  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Travis CIでPHP5.3から最新までのバージョンでCIをまわす</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-02-12T16:05:25&#43;09:00">
+            Feb 12, 2018
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。</p>
+
+<p></p>
+
+<h2 id="どんなライブラリか">どんなライブラリか</h2>
+
+<p>いきなり話が脇道にそれるが、&rdquo;どうしても古いPHPのサポートを継続しておきたいライブラリ&rdquo;とは何かというと <a href="https://github.com/ackintosh/toumi">Toumi</a> という、phpファイルのクラスや関数宣言の部分だけを抜き出してincludeすることが出来るライブラリ。</p>
+
+<p><a href="https://ackintosh.github.io/blog/2013/11/24/toumi/">クラスや関数宣言だけをインクルードできるライブラリを作りました - 暁</a></p>
+
+<blockquote>
+<p>クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？</p>
+</blockquote>
+
+<p>つまり、超レガシーなコードをテストで保護するためのはじめの一歩としてとても重宝するライブラリ。なので、そもそもToumiが古いPHPのバージョンをサポートしなくなってしまったら、これを必要としている人たちが使えなくなってしまうかもしれない。というのがサポートを継続しておきたい理由。</p>
+
+<h2 id="php5-3はtrustyではサポートされていない">PHP5.3はTrustyではサポートされていない</h2>
+
+<p><a href="https://docs.travis-ci.com/user/reference/trusty#PHP-images">The Trusty Build Environment - Travis CI</a></p>
+
+<blockquote>
+<p>Note: We do not support PHP versions 5.2.x and 5.3.x on Trusty. Specifying it will result in build failure. If you need to test with these versions, use Precise.</p>
+</blockquote>
+
+<p>Travis CIでのユニットテストはデフォルトではUbuntuのTrustyで実行されるが、これが5.3をサポートしていないので .travis.yml でPreciseを明示する必要がある。</p>
+
+<p>ちなみに、Preciseが明示されていない場合は下記のようなエラーになる。</p>
+
+<p><a href="https://travis-ci.org/ackintosh/toumi/jobs/340079648">Job #17.1 - ackintosh/toumi - Travis CI</a></p>
+
+<blockquote>
+<p>PHP 5.3 is supported only on Precise.<br />
+See <a href="https://docs.travis-ci.com/user/reference/trusty#PHP-images">https://docs.travis-ci.com/user/reference/trusty#PHP-images</a> on how to test PHP 5.3 on Precise.
+Terminating.</p>
+</blockquote>
+
+<h2 id="phpunitは4系を使う">PHPUnitは4系を使う</h2>
+
+<p>PHPUnitは5系からはphp5.6以降のサポートなので、4系を使わなければならない。</p>
+
+<h2 id="おわりに">おわりに</h2>
+
+<p>本当にメモ程度で中身が薄いが何事もアウトプットだと思って、週末の盆栽作業の内容を書いた。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Travis%20CI%e3%81%a7PHP5.3%e3%81%8b%e3%82%89%e6%9c%80%e6%96%b0%e3%81%be%e3%81%a7%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%81%a7CI%e3%82%92%e3%81%be%e3%82%8f%e3%81%99&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f12%2ftravis-ci-with-eol-php-version%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f12%2ftravis-ci-with-eol-php-version%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f02%2f12%2ftravis-ci-with-eol-php-version%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
