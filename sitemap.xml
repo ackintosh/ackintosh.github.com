@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ackintosh.github.io/blog/2018/02/25/joined-to-swagger-codegen-core-team/</loc>
+    <lastmod>2018-02-25T20:57:56+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/</loc>
     <lastmod>2018-02-12T16:05:25+09:00</lastmod>
   </url>
@@ -546,7 +551,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2018-02-12T16:05:25+09:00</lastmod>
+    <lastmod>2018-02-25T20:57:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -581,7 +586,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2018-02-12T16:05:25+09:00</lastmod>
+    <lastmod>2018-02-25T20:57:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   
