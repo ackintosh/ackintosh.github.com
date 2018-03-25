@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" 翻訳者デビュー - REST APIのためのコード生成入門 -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2018/03/25/translator-debut/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-03-25T12:13:22&#43;09:00" />
+
+    
+    
+
+  <title>
+     翻訳者デビュー - REST APIのためのコード生成入門 -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/03/25/translator-debut/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/php/">php</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/programming/">programming</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/tags/test/">test</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About Hugo</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">翻訳者デビュー - REST APIのためのコード生成入門</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-03-25T12:13:22&#43;09:00">
+            Mar 25, 2018
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>2018-03-16、Swagger Codegenについての電子書籍が販売開始した。</p>
+
+<p><a href="https://gumroad.com/l/swagger_codegen_beginner_jp">REST APIのためのコード生成入門 - Swagger Codegenを利用したRESTful API開発の効率化</a></p>
+
+<p><a href="https://gumroad.com/l/swagger_codegen_beginner_jp" target="_blank">
+<img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/translator-debut/swagger_codegen_beginner_jp.jpg" alt="REST APIのためのコード生成入門" />
+</a></p>
+
+<p>内容はOpanAPIやSwagger Codegenの解説、導入〜自動生成するコードをカスタマイズする方法の紹介。ご興味があるかたは<a href="https://drive.google.com/file/d/1bAKOvNY9y2QUJhRdrNbCfXqQxVXds6O3/view">1章まで無料で読める</a>ので是非ご覧いただきたい。</p>
+
+<p></p>
+
+<p>原著はSwagger Codegenのトップコントリビュータである<a href="https://twitter.com/wing328">@wing328</a>による <a href="https://gumroad.com/l/swagger_codegen_beginner?locale=en">A Beginner&rsquo;s Guide to Code Generation for REST APIs</a> で、昨年末から<a href="https://twitter.com/taxpon">@taxpon</a>さんと2人で翻訳作業をしていた。</p>
+
+<p><a href="https://twitter.com/taxpon">@taxpon</a>さんのブログで翻訳に至った経緯、作業プロセスやSwagger Codegenの今後にも触れられているのでご参照いただきたい。</p>
+
+<p><a href="https://takuro.ws/2018/03/17/swagger-codegen-ebook/">Takuro Wada | Swagger Codegenに関する電子書籍の販売を開始しました</a></p>
+
+<p>以下は、今回はじめて翻訳に挑戦してみた感想。</p>
+
+<h3 id="英語に全く自信が無かったが意外と出来た">英語に全く自信が無かったが意外と出来た</h3>
+
+<p>今回の日本語訳の話をいただく前の2017年9月頃から、Swagger CodegenのTechnical Committee(PHP)としてissueやPRのやりとりをしていたが、英語が出来なさすぎてissueの返信に1時間以上かかることもよくあった。なので日本語訳の話をいただいた時はチャンスをもらえて嬉しい反面、とんでもなく巨大な壁が目の前に立ちはだかったように感じて &ldquo;やりきれるのだろうか&rdquo; と不安もかなりあった。</p>
+
+<p>結果、2017年11月の作業開始から4ヶ月くらいで販売開始することができた。2018年1月の時点で翻訳自体はほぼできていて、それから先は調整(Swagger Codegenのバージョンアップに伴う内容の調整等)やレビューが主だったので、当初感じていた不安と比べたらだいぶ良いペースで進んでいた。</p>
+
+<h3 id="必要なのは日本語力だった">必要なのは日本語力だった</h3>
+
+<p>翻訳作業中にしばしば悩んでいたのが意訳の難しさだった。</p>
+
+<p>「原著の意図は読み取れる。ただ直訳すると○○○なんだけど、もっと伝わりやすいイイ感じの日本語に意訳したいが、それが思いつかない。」というところで手が止まってしまうことが多かった。</p>
+
+<p>例えば <code>1.3 Swagger Codegenのターゲット</code> で、APIのエバンジェリストがSwagger Codegenを利用するメリットを挙げている箇所で原著は、</p>
+
+<pre><code>The success of an API evangelist hinges on many factors and one of them is how many developers actually use the API in production.
+</code></pre>
+
+<p>となっていて、これを直訳すると</p>
+
+<pre><code>APIエバンジェリストの成功は多くの要因に左右され、そのうちの1つはAPIを実際にプロダクションで使用する開発者の数です。
+</code></pre>
+
+<p>になると思うが、日本語版ではこれを下記にしている。</p>
+
+<pre><code>APIをプロダクトで利用する開発者の数は、そのAPIの成功を示す重要なファクターのひとつです。
+</code></pre>
+
+<p>(ここだけ抜き出して例示しても、良くなっているかどうかわかりにくいかもしれない&hellip;)</p>
+
+<h3 id="おわりに">おわりに</h3>
+
+<p>今でも英語のやりとりには四苦八苦してはいるが、翻訳を経験したことで心理的ハードルはだいぶ下がったように感じている。また月並みだが、英語のドキュメントを眺めて内容を把握するのと、それを母国語で相手(読者のかた)に伝えるのは違う難しさがあって面白かった。</p>
+
+<hr />
+
+<p>原著者であり、Swagger Codegenのトップコントリビュータである<a href="https://twitter.com/wing328">@wing328</a>はコミュニティを本当に大切にしていて、彼のコミュニティに敬意を払う姿勢が本書の端々にもあらわれている。電子書籍の販売についても、販売によって得られるものをコアメンバーやテクニカルコミッティに還元したいという想いもあるようだ。</p>
+
+<p>自分がSwagger Codegenに関わるようになった経緯は <a href="https://ackintosh.github.io/blog/2018/02/25/joined-to-swagger-codegen-core-team/">Swagger Codegen Core Teamにジョインした</a> に書いたが、ちょっとしたきっかけでコントリビュートするようになり、それが今回日本語訳の話につながり貴重な経験をさせていただいた。これからもコミュニティの一員としてSwagger Codegenに貢献していきたい。</p>
+
+<p>また、&rdquo;Swagger Codegenへのコントリビュートに興味があるけど、何からやったらいいのかわからない&rdquo; というかたは是非 <a href="https://github.com/swagger-api/swagger-codegen/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22">help wantedラベルが付いているissue</a> を眺めてみることをおすすめします。または僕にご連絡ください :)</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">NAKANO Akihito</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%e7%bf%bb%e8%a8%b3%e8%80%85%e3%83%87%e3%83%93%e3%83%a5%e3%83%bc%20-%20REST%20API%e3%81%ae%e3%81%9f%e3%82%81%e3%81%ae%e3%82%b3%e3%83%bc%e3%83%89%e7%94%9f%e6%88%90%e5%85%a5%e9%96%80&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f03%2f25%2ftranslator-debut%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f03%2f25%2ftranslator-debut%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f03%2f25%2ftranslator-debut%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

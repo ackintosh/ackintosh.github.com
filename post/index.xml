@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 25 Feb 2018 20:57:56 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 25 Mar 2018 12:13:22 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>翻訳者デビュー - REST APIのためのコード生成入門</title>
+      <link>https://ackintosh.github.io/blog/2018/03/25/translator-debut/</link>
+      <pubDate>Sun, 25 Mar 2018 12:13:22 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2018/03/25/translator-debut/</guid>
+      <description>&lt;p&gt;2018-03-16、Swagger Codegenについての電子書籍が販売開始した。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gumroad.com/l/swagger_codegen_beginner_jp&#34;&gt;REST APIのためのコード生成入門 - Swagger Codegenを利用したRESTful API開発の効率化&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gumroad.com/l/swagger_codegen_beginner_jp&#34; target=&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/translator-debut/swagger_codegen_beginner_jp.jpg&#34; alt=&#34;REST APIのためのコード生成入門&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;内容はOpanAPIやSwagger Codegenの解説、導入〜自動生成するコードをカスタマイズする方法の紹介。ご興味があるかたは&lt;a href=&#34;https://drive.google.com/file/d/1bAKOvNY9y2QUJhRdrNbCfXqQxVXds6O3/view&#34;&gt;1章まで無料で読める&lt;/a&gt;ので是非ご覧いただきたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Swagger Codegen Core Teamにジョインした</title>
