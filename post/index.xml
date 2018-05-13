@@ -7,10 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 25 Mar 2018 12:13:22 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 12 May 2018 23:13:49 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenAPI Generator - community drivenで成長するコードジェネレータ</title>
+      <link>https://ackintosh.github.io/blog/2018/05/12/openapi-generator/</link>
+      <pubDate>Sat, 12 May 2018 23:13:49 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2018/05/12/openapi-generator/</guid>
+      <description>&lt;p&gt;2018-05-12、&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator&#34;&gt;OpenAPI Generator&lt;/a&gt; が公開されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator&#34;&gt;https://github.com/OpenAPITools/openapi-generator&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;OpenAPI Generator allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;これは &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;Swagger Codegen&lt;/a&gt; v2.4をフォークしたプロジェクトで、&lt;a href=&#34;https://github.com/OAI/OpenAPI-Specification/&#34;&gt;OpenAPI&lt;/a&gt;ドキュメントから様々なプログラミング言語のAPIクライアントやスタブサーバーなどのソースコードを生成するツールです。まだベータ版のような状態で、&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator#11---compatibility&#34;&gt;&amp;ldquo;v3.0.0&amp;rdquo;として初回リリースすることを予定しています&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;p&gt;私は &amp;ldquo;元&amp;rdquo; Swagger Codegen のコアメンバーであり、現在 OpenAPI Generator のコアメンバー/創立メンバーで少し中の事情に詳しいので、なぜフォークするに至ったのかといった経緯やOpenAPI Generatorについて書いていきたいと思います。&lt;br /&gt;
+なお、個人のブログに書いていることですので主観が入っている部分があるかもしれませんが大目に見ていただけますと幸いです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>翻訳者デビュー - REST APIのためのコード生成入門</title>

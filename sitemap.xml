@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ackintosh.github.io/blog/2018/05/12/openapi-generator/</loc>
+    <lastmod>2018-05-12T23:13:49+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ackintosh.github.io/about/</loc>
     <lastmod>2018-04-30T00:00:00+00:00</lastmod>
   </url>
@@ -556,7 +561,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2018-03-25T12:13:22+09:00</lastmod>
+    <lastmod>2018-05-12T23:13:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -591,7 +596,7 @@
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2018-04-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-12T23:13:49+09:00</lastmod>
     <priority>0</priority>
   </url>
   

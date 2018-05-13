@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" OpenAPI Generator - community drivenで成長するコードジェネレータ -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2018/05/12/openapi-generator/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-05-12T23:13:49&#43;09:00" />
+
+    
+    
+
+  <title>
+     OpenAPI Generator - community drivenで成長するコードジェネレータ -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.40.2" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/05/12/openapi-generator/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">OpenAPI Generator - community drivenで成長するコードジェネレータ</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-05-12T23:13:49&#43;09:00">
+            May 12, 2018
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>2018-05-12、<a href="https://github.com/OpenAPITools/openapi-generator">OpenAPI Generator</a> が公開されました。</p>
+
+<p><a href="https://github.com/OpenAPITools/openapi-generator">https://github.com/OpenAPITools/openapi-generator</a></p>
+
+<blockquote>
+<p>OpenAPI Generator allows generation of API client libraries (SDK generation), server stubs, documentation and configuration automatically given an OpenAPI Spec</p>
+</blockquote>
+
+<p>これは <a href="https://github.com/swagger-api/swagger-codegen">Swagger Codegen</a> v2.4をフォークしたプロジェクトで、<a href="https://github.com/OAI/OpenAPI-Specification/">OpenAPI</a>ドキュメントから様々なプログラミング言語のAPIクライアントやスタブサーバーなどのソースコードを生成するツールです。まだベータ版のような状態で、<a href="https://github.com/OpenAPITools/openapi-generator#11---compatibility">&ldquo;v3.0.0&rdquo;として初回リリースすることを予定しています</a> 。</p>
+
+<p>私は &ldquo;元&rdquo; Swagger Codegen のコアメンバーであり、現在 OpenAPI Generator のコアメンバー/創立メンバーで少し中の事情に詳しいので、なぜフォークするに至ったのかといった経緯やOpenAPI Generatorについて書いていきたいと思います。<br />
+なお、個人のブログに書いていることですので主観が入っている部分があるかもしれませんが大目に見ていただけますと幸いです。</p>
+
+<p></p>
+
+<hr />
+
+<h4 id="経緯-swagger-codegenの開発状況">経緯 - Swagger Codegenの開発状況</h4>
+
+<p>2017年7月に<a href="https://www.openapis.org/blog/2017/07/26/the-oai-announces-the-openapi-specification-3-0-0">OpenAPI Specification 3.0.0がリリース</a>されてからもうじき1年が経ちますが、Swagger CodegenのOpenAPI Specification 3(以下、OAS3)対応はあまり進んでおらず喫緊の課題となっています。</p>
+
+<p>Swagger Codegenの <a href="https://github.com/swagger-api/swagger-codegen/tree/3.0.0">&ldquo;3.0.0&rdquo; ブランチ</a>で、OAS3への対応を目的とした開発をスポンサー企業であるSmartBear社のエンジニアの方が主導して進められていて、1月にリリース候補版(Swagger Codegen 3.0.0-rc0)がリリースされました。</p>
+
+<p><a href="https://github.com/swagger-api/swagger-codegen/releases/tag/v3.0.0-rc0">Release Swagger Codegen 3.0.0-rc0 has been released! · swagger-api/swagger-codegen</a><br />
+なお、リリース候補版ではOAS3に対応している言語はまだごく一部のみとなっています。</p>
+
+<p>このリリースには主目的であるOAS3の対応以外にも大きな変更が加えられており、内部のジェネレータ部分を<a href="https://github.com/swagger-api/swagger-codegen-generators">別リポジトリ</a>に切り離したり、テンプレートエンジンを別のライブラリに切り替えています。</p>
+
+<p>残念なことに、これらの変更は主導しているエンジニアが独断で行ったことです。コミュニティのリソースは有限であるため、私たちはOAS3の対応に集中した方が良いと考えていますがコミュニティの声は取り入られませんでした。
+また、v3.0.0の開発が行われているブランチでは<a href="https://github.com/swagger-api/swagger-codegen/commit/952695086f071c299ed17fa0a5dff84f7c435152">テストコードが一気に無効化された</a>場面もあり、(言い方が悪いかもしれませんが)やや乱暴な印象を受けるところもあります。</p>
+
+<p>Swagger Codegenはこれまで多くの開発者からなる素晴らしいコミュニティに支えられて開発されてきました。
+もちろん、これからもそうあるべきだと考えていますが実情とは大きな乖離があります。<br />
+この状況を憂慮した <a href="https://github.com/wing328/">William</a> (Swagger Codegenのトップコントリビュータ) はSmartBear社のエンジニアの方々と話し合いを重ねてきましたが、Williamの意向は受け入れられませんでした。</p>
+
+<p>そこで、Williamが中心になってコアメンバーやテクニカルコミッティと話し合った結果、SmartBear社のエンジニアを説得するのは諦め、Swagger Codegenをフォークし、別のプロジェクトとしてこれまで通りのcommunity drivenな開発を続けることを決めました。</p>
+
+<p>以上がSwagger Codegenをフォークするに至った経緯の大要となります。</p>
+
+<p>OpenAPI Generatorの <a href="https://github.com/OpenAPITools/openapi-generator#63---history-of-openapi-generator">README</a> や <a href="https://github.com/OpenAPITools/openapi-generator/blob/master/docs/qna.md">Q&amp;A</a> にもそのあたりの記載がありますのでご興味があればぜひ御覧ください。</p>
+
+<hr />
+
+<h4 id="openapi-generator">OpenAPI Generator</h4>
+
+<p>Swagger Codegen v3 及びその開発体制を批判することは当記事の目的ではありません。</p>
+
+<p>OpenAPI Generatorは William の呼びかけで集まった<a href="https://github.com/OpenAPITools/openapi-generator/#founding-members-alphabetical-order">40人以上のコントリビュータ</a>によって開発が進められ、本日の公開を迎えることができました。<br />
+開発リソースをOAS3の対応に集中し、すべての言語で一通りの実装を行いました。
+ですが、まだ不完全な箇所や各言語固有の課題などがまだまだ残っています。私たちが気づけていないジェネレータの不具合もあると思います。</p>
+
+<p>私たちはみなさんからのフィードバック/コントリビュートを必要としています。<br />
+ぜひOpenAPI Generatorでみなさんがお使いのプログラミング言語の<a href="https://github.com/OpenAPITools/openapi-generator/#2---getting-started">コードを生成してみてください</a>。(APIクライアントだけでも<a href="https://github.com/OpenAPITools/openapi-generator/#overview">40以上の言語をサポートしています</a>)</p>
+
+<p>一緒にOpenAPI Generatorを成長させませんか？</p>
+
+<p><a href="https://github.com/OpenAPITools/openapi-generator">https://github.com/OpenAPITools/openapi-generator</a></p>
+
+<p>OpenAPI Generator Core Team/Founding Member<br />
+Akihito Nakano</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=OpenAPI%20Generator%20-%20community%20driven%e3%81%a7%e6%88%90%e9%95%b7%e3%81%99%e3%82%8b%e3%82%b3%e3%83%bc%e3%83%89%e3%82%b8%e3%82%a7%e3%83%8d%e3%83%ac%e3%83%bc%e3%82%bf&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f05%2f12%2fopenapi-generator%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f05%2f12%2fopenapi-generator%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f05%2f12%2fopenapi-generator%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
