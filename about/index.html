@@ -211,11 +211,11 @@ William Cheng 著, 中野暁人 / 和田拓朗 訳</p>
 
 <p>当該プロジェクトの立ち上げ期(OSSプロジェクトとして公開する前に非公開リポジトリで開発を行っていた期間)の唯一最重要な課題がOpenAPI Specification3(OAS3)への対応でした。<br />
 40人以上のSwagger Codegenのコントリビュータがフォークすることに賛同し、プロジェクト公開までの1ヶ月半の間に300以上のプルリクエストが送信されました。このうち私が出した25のPRがマージされていて、これはPR数でいうと上から3番目になります。(非公開リポジトリでの作業なのでPRは見れませんが、OpenAPI Generatorのコミットログとして残っています)<br />
-また、<a href="https://github.com/OpenAPITools/openapi-generator/graphs/contributors">Contributors</a>の上位10人に入っており貢献度の高さの証明になっていると思います。</p>
+また、<a href="https://github.com/OpenAPITools/openapi-generator/graphs/contributors">Contributors</a>の上位10人に入っており貢献度の高さの証明になっています。</p>
 
 <p>&lt;貢献の多様さ&gt;</p>
 
-<p>プロジェクトの公開時はメディア数社にリリースの通知を行いPublickey様に記事化していただきました。</p>
+<p>プロジェクトの公開時はメディア数社にリリースの通知を行いPublickey様に記事化していただきました。はてなブックマークで400以上ブックマークされており、これをきっかけに一気に国内での認知が広まりました。</p>
 
 <p><a href="https://www.publickey1.jp/blog/18/rest_apiapiopenapi_generatorswagger_generator.html">REST API仕様からAPIクライアントやスタブサーバを自動生成する「OpenAPI Generator」オープンソースで公開。Swagger Codegenからのフォーク － Publickey</a></p>
 
@@ -225,14 +225,14 @@ William Cheng 著, 中野暁人 / 和田拓朗 訳</p>
 
 <p>このようにしてプライベートで携わっているソフトウェアを自身の担当業務に導入し、導入して感じた課題をフィードバックするサイクルを実践している例を2つ挙げます。</p>
 
-<p>&ldquo;OpenAPIドキュメントのバリデーションをCIのプロセスに組み込む&rdquo;</p>
+<p>(1) &ldquo;OpenAPIドキュメントのバリデーションをCIのプロセスに組み込む&rdquo;</p>
 
 <p>OpenAPI Generatorには、<code>validate</code> サブコマンドでドキュメントの妥当性をチェックすることができます。これをCIのプロセスに組み込むことで、OASのフォーマットの間違いを機械的に検出することができるようになりました。<br />
 また、<a href="https://github.com/OpenAPITools/openapi-generator/releases/tag/v3.0.2">v3.0.2</a>では <code>validate</code> サブコマンドに <code>--recommend</code> オプションが追加されており、私はこの機能の仕様検討に参加していました。</p>
 
 <p><a href="https://github.com/OpenAPITools/openapi-generator/issues/142">CLI: add info about unused schemas in the validate command · Issue #142 · OpenAPITools/openapi-generator</a></p>
 
-<p>&ldquo;OpenAPIドキュメントから自動生成したAPIクライアントを公式クライアントとして公開する&rdquo;</p>
+<p>(2) &ldquo;OpenAPIドキュメントから自動生成したAPIクライアントを公式クライアントとして公開する&rdquo;</p>
 
 <p>自身が担当しているサービスのAPIクライアントをOpenAPI Generatorを利用して生成/公開しました。</p>
 
@@ -245,9 +245,7 @@ William Cheng 著, 中野暁人 / 和田拓朗 訳</p>
 <li><a href="https://github.com/OpenAPITools/openapi-generator/pull/400">Improve generation of README which has long description by ackintosh · Pull Request #400 · OpenAPITools/openapi-generator</a></li>
 </ul>
 
-<p>このように高い質・量・スピードでソフトウェアを改善しながら、それを業務に導入することでサービスの改善とOSSへのフィードバックのサイクルを回すことがわたしの作り上げる力を示しています。</p>
-
-<p>(((WIP)))</p>
+<p>このように高い質・量・スピードでソフトウェアを改善しながら、それを業務に導入することでサービスの改善とOSSへのフィードバックのサイクルを回すことが私の作り上げる力を示しています。</p>
 
 <h3 id="2-時間の経過に耐える力">2. 時間の経過に耐える力</h3>
 
@@ -255,7 +253,21 @@ William Cheng 著, 中野暁人 / 和田拓朗 訳</p>
 <p>一方で、我々が作るものは、単に一度作れば済むものではなく、継続的に価値を届け続けるべきものです。つまり、ある特定の時点における線の価値のみが高いだけでは不十分です。それに加えて、時間の経過に対して積分的な面の価値を増大させる必要があります。そのためには、設計力、テストを書く能力が必要です。</p>
 </blockquote>
 
-<p>(((WIP)))</p>
+<h5 id="目指しているアーキテクチャが抱えるであろう課題を見通してオープンなかたちで解決する">目指しているアーキテクチャが抱えるであろう課題を見通してオープンなかたちで解決する</h5>
+
+<p>当時、ロジックが様々なロール/言語でそれぞれ実装されているために機能追加や保守が難しくなってきている背景があり、それを解決するために(ロジックが集約された)APIを中心にして、<a href="https://speakerdeck.com/akihito_nakano/pepabo-ec-tech-mtg01?slide=7">サービスを提供するロール群がそれを取り囲むようなかたちのアーキテクチャ</a>に移行するという方針のもと事業部全体の開発が進められていました。</p>
+
+<p>その中で私は <a href="https://speakerdeck.com/akihito_nakano/pepabo-ec-tech-mtg01?slide=9">中心に据えたAPIの障害が周辺のロールに波及してしまう</a> ことを懸念し、その対策として<a href="https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/">サーキットブレーカーの導入について事業部のTech MTGで発表</a>し、社内にカスケード障害の危険性とサーキットブレーカーの有効性を啓蒙しました。</p>
+
+<script async class="speakerdeck-embed" data-id="3fd29695180c42d9b564e6b2d491bf0a" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>また、APIを利用するのはPHPで実装されたロールが多いのでPHP製のサーキットブレーカーのライブラリをいくつか試したのですが良いのが見つからなかったので自分で実装しGanesha(ガネーシャ)という名前でオープンソースとして公開しています。</p>
+
+<p><a href="https://github.com/ackintosh/ganesha">ackintosh/ganesha: PHP implementation of Circuit Breaker pattern.</a></p>
+
+<p>Tech MTGでの発表では実際にGaneshaが動作する様子をデモし、上々の評判をいただきました。Ganeshaはその後も<a href="https://github.com/ackintosh/ganesha/pull/7">Redisアダプタの実装</a>や<a href="https://github.com/ackintosh/ganesha/pull/12">GuzzleMiddlewareの対応</a>のように開発を継続していて、<a href="https://github.com/ackintosh/ganesha/stargazers">Github star</a>も3ケタが見えてきました。</p>
+
+<p>このように、プロダクトが目指しているアーキテクチャが抱えるであろう課題を見通し、すばやく手を動かしながらオープンなかたちで解決することが私の時間の経過に耐える力を示しています。</p>
 
 <h3 id="3-影響を広げる力">3. 影響を広げる力</h3>
 
