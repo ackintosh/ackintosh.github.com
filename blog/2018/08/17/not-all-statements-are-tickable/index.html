@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" declare(ticks=1)を宣言していてもシグナルを処理できない事がある -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2018/08/17/not-all-statements-are-tickable/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2018-08-17T10:54:24&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    
+
+  <title>
+     declare(ticks=1)を宣言していてもシグナルを処理できない事がある -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.42.2" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2018/08/17/not-all-statements-are-tickable/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">declare(ticks=1)を宣言していてもシグナルを処理できない事がある</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-08-17T10:54:24&#43;09:00">
+            Aug 17, 2018
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/php/">#php</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>以前から<a href="https://github.com/ackintosh/snidel">Snidel</a>というPHPで手軽にマルチプロセスで並列処理をするライブラリを作っているのだが、このお盆休みの間にその開発中にハマったことがあったのでブログに残しておく。</p>
+
+<p></p>
+
+<p>はじめに何にハマったのか端的に書くと、<code>declare(ticks=1)</code> を宣言していても子プロセスでtickされず、親から子プロセスに送信したシグナルが処理されないケースがあった。</p>
+
+<h2 id="サンプルコード">サンプルコード</h2>
+
+<p>まずはちゃんと動くパターンのシンプルなサンプルコードを見ていただきたい。</p>
+
+<pre><code class="language-php">&lt;?php
+declare(ticks=1);
+
+$pid = pcntl_fork();
+
+switch ($pid) {
+    case -1:
+        die('Failed to pcntl_fork()');
+        break;
+    case 0:
+        /*
+         * 子プロセス
+         */
+        // シグナルを受取ったことをわかりやすくするためにハンドラを設定しておく
+        pcntl_signal(
+            SIGTERM,
+            function ($sig) {
+                die('Received a signal: ' . $sig);
+            },
+            false
+        );
+
+        $t = time();
+        while (true) {
+            // 3秒経過後にドットを出力しつづける
+            if ($t + 3 &lt; time()) {
+                echo '.';
+            }
+        }
+        exit;
+    default:
+        /*
+         * 親プロセス
+         */
+        // 5秒待ってから子プロセスを終了する
+        sleep(5);
+        posix_kill($pid, SIGTERM);
+        $status = null;
+        pcntl_waitpid($pid, $status);
+        break;
+}
+</code></pre>
+
+<ul>
+<li>子プロセス: 3秒経過したらドットを出力しつづける</li>
+<li>親プロセス: 5秒後にSIGTERMを子プロセスに送信して終了させる</li>
+</ul>
+
+<p>やっていることは ↑ シンプルで、スクリプトを実行すると下記のように最後に子プロセスがシグナルを受け取った旨が出力されて終了するはず。(※pcntl拡張モジュールが必要)</p>
+
+<pre><code class="language-bash">$ php index.php
+...............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Received a signal: 15
+</code></pre>
+
+<h2 id="補足-declare-ticks-1-とマルチプロセス">補足: <code>declare(ticks=1)</code> とマルチプロセス</h2>
+
+<p><a href="http://jp2.php.net/manual/ja/control-structures.declare.php">PHP: declare - Manual</a></p>
+
+<blockquote>
+<p>declare 文は、あるコードブロックの中に 実行ディレクティブをセットするために使用されます。</p>
+</blockquote>
+
+<p><a href="http://jp2.php.net/manual/ja/control-structures.declare.php#control-structures.declare.ticks">PHP: declare - Manual &gt; Ticks</a></p>
+
+<blockquote>
+<p>tickとはdeclareブロックの実行中にパーサが N個の低レベル tick 可能な文を実行するごとに 発生するイベントのことです。</p>
+</blockquote>
+
+<p>マニュアルを読んでもちょっと分かりづらいが <code>declare(ticks=1)</code> を宣言することで(そのスクリプト内の処理において)、1つ1つのステートメントを実行する間に任意の処理を挟む隙間を作ることができるイメージで間違いない(はず)。</p>
+
+<p>(Ticksについてのより詳細(厳密な表現)は下記が大変わかりやすい)<br />
+<a href="http://ku.ido.nu/post/90223971739/what-is-tick-of-php">http://ku.ido.nu/post/90223971739/what-is-tick-of-php</a></p>
+
+<blockquote>
+<p>イベントという言葉に惑わされて非同期に呼ばれたりするのかと思いましたが、ticksの正体は単純に N opcodes ごとに実行されるopcodeなのでした。</p>
+</blockquote>
+
+<p>tickごとに実行する関数は <a href="http://jp2.php.net/manual/ja/function.register-tick-function.php">register_tick_function</a> で登録できるが、サンプルコードではそれはやっていない。ではなぜ <code>declare(ticks=1)</code> を宣言しているかというと、 <strong>シグナルをハンドリングするための仕組みとしてTicksを利用している</strong> からで、なので逆にこれを宣言していないといくら親プロセスからシグナルを送信しても子プロセスはそれを受取ってくれない。</p>
+
+<p><a href="http://php.net/manual/ja/intro.pcntl.php">関数リファレンス &gt; プロセス制御 &gt; PCNTL &gt; はじめに</a></p>
+
+<blockquote>
+<p>現在 PCNTL はシグナルハンドルコールバックの仕組みとして ticks を 使用しており、これは以前の仕組みよりずっと高速です。</p>
+</blockquote>
+
+<h2 id="declare-ticks-1-を宣言していてもシグナルを処理できない事がある"><code>declare(ticks=1)</code> を宣言していてもシグナルを処理できない事がある</h2>
+
+<p>では本題のハマったことに話を移すと、サンプルコードの子プロセスのwhileループの中を下記のように書き換えると <code>declare(ticks=1)</code> を宣言しているにも関わらず子プロセスがシグナルを受取らずいつまで経ってもスクリプトが終了しなくなる。</p>
+
+<pre><code class="language-php">        while (true) {
+            // 3秒経過後にドットを出力しつづける
+            // if ($t + 3 &lt; time()) {
+            if (false) {
+                echo '.';
+            }
+        }
+</code></pre>
+
+<p>原因がわからず小一時間悩んでいたのだがPHPマニュアルにしっかり書いてあった。</p>
+
+<p><a href="http://jp2.php.net/manual/ja/control-structures.declare.php#control-structures.declare.ticks">PHP: declare - Manual &gt; Ticks</a></p>
+
+<blockquote>
+<p>すべての文が tick 可能なわけではありません。 たとえば条件式や引数式などは tick できません。</p>
+</blockquote>
+
+<p>上記、書き換え後のスクリプトでは、whileループの中のif文の評価結果が常にfalseになるので、 <strong>処理のステートメントは進み続けている(ループが回っている)が、全て条件式なのでtickされていなかった</strong> 。これにより親プロセスが送信したシグナルを受付ける隙間が無くなってしまいスクリプトが終了しなくなっていた。</p>
+
+<p>サンプルコードでは分かりやすくするために不自然なコードになっているが、例えば <a href="https://github.com/ackintosh/snidel">Snidel</a> では下記のような感じのコードがあって、</p>
+
+<pre><code class="language-php">        while (true) {
+            // キューからジョブを取り出す.
+            // dequeue() は一定時間ポーリングした後、ジョブが無ければ null を返す.
+            if ($job = dequeue()) {
+                $job-&gt;run();
+            }
+        }
+</code></pre>
+
+<p>この場合は 「ジョブが無くて待機中だとシグナルを受付けない」 「ジョブを捌いてるときは受付ける」 みたいなことになって、しかも 「 <em>if文の後ろにデバッグコードを入れると普通にシグナルを受付ける</em> 」 みたいな挙動になるので完全に迷宮入りしていた&hellip;。</p>
+
+<pre><code class="language-php">        while (true) {
+            if (false) {
+                echo '.';
+            }
+            // デバッグコードを入れるとココでtickする
+            $logger-&gt;debug('デバッグコードを入れるとシグナルを受付けるようになるからめっちゃ混乱したよ!');
+        }
+</code></pre>
+
+<h2 id="おわりに">おわりに</h2>
+
+<p>丁寧に書いてあるPHPマニュアルに感謝！</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=declare%28ticks%3d1%29%e3%82%92%e5%ae%a3%e8%a8%80%e3%81%97%e3%81%a6%e3%81%84%e3%81%a6%e3%82%82%e3%82%b7%e3%82%b0%e3%83%8a%e3%83%ab%e3%82%92%e5%87%a6%e7%90%86%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%84%e4%ba%8b%e3%81%8c%e3%81%82%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f08%2f17%2fnot-all-statements-are-tickable%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f08%2f17%2fnot-all-statements-are-tickable%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2018%2f08%2f17%2fnot-all-statements-are-tickable%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
