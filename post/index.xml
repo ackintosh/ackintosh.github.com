@@ -20,7 +20,7 @@
       <guid>https://ackintosh.github.io/blog/2018/12/08/detect-deprecated-java-code/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 
-&lt;p&gt;OpenAPI Generatorは現在 &lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator#14---build-projects&#34;&gt;Java8 での動作&lt;/a&gt; が基本になっているが、一方で下記のPR/issueのようにJDK9以降のサポートを進めていく流れがある。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator&#34;&gt;OpenAPI Generator&lt;/a&gt;は現在 &lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator#14---build-projects&#34;&gt;Java8 での動作&lt;/a&gt; が基本になっているが、一方で下記のPR/issueのようにJDK9以降のサポートを進めていく流れがある。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/pull/1188&#34;&gt;Add JDK 9 support by wing328 · Pull Request #1188 · OpenAPITools/openapi-generator&lt;/a&gt;&lt;/li&gt;
@@ -28,7 +28,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/issues/1203&#34;&gt;Update brew formula to support JDK9 · Issue #1203 · OpenAPITools/openapi-generator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;自分もこの辺に絡んでいきたい気持ちになってきたので、表題のようにJava8で開発しながら、手元のソースコードでJava9(またはそれ以降のバージョン)で非推奨になった構文が使われているかチェックする方法が知りたくなった。&lt;/p&gt;
+&lt;p&gt;自分もこの辺に絡んでいきたい気持ちになってきたので、Java8で開発しながら、Java9(またはそれ以降のバージョン)で非推奨になった構文が手元のソースコードで使われているかチェックする方法が知りたくなった。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
