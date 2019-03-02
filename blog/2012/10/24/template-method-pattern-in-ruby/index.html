@@ -46,7 +46,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.54.0" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/" />
 
@@ -97,7 +97,7 @@
 
 
 
-<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
   <nav class="main-nav overlay clearfix">
 
   <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
@@ -134,8 +134,6 @@
       <p>Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。</p>
 
 <p>Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。</p>
-
-<p></p>
 
 <p>output_start メソッドや output_end メソッドのように、<br />
 Template Methodの具象クラスによってオーバーライドできる非抽象メソッドをフックメソッド という。</p>

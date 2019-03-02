@@ -44,7 +44,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.54.0" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/" />
 
@@ -95,7 +95,7 @@
 
 
 
-<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
   <nav class="main-nav overlay clearfix">
 
   <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
@@ -130,8 +130,6 @@
       <p>Kafka Connect は ver0.9 で実装された、Kafka の入出力を行うためのプラグイン機構のようなもので、 <code>Source Connector</code> と <code>Sink Connector</code> がある。<a href="https://www.confluent.io/product/connectors/">多くの Connector が実装されていて</a>、もちろん独自の Connector を実装して利用することもできる。</p>
 
 <p>当記事では、Java/Kafka 初心者(いまの私です)が Connector を実装するための準備として行った環境づくりについて紹介します。</p>
-
-<p></p>
 
 <h2 id="archtype-を使って土台を生成する">archtype を使って土台を生成する</h2>
 

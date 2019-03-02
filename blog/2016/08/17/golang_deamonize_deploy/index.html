@@ -44,7 +44,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.54.0" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/" />
 
@@ -95,7 +95,7 @@
 
 
 
-<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
   <nav class="main-nav overlay clearfix">
 
   <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
@@ -128,8 +128,6 @@
   
     <section class="post-content">
       <p>社内の某合宿イベントで、Go製の軽量WAF <a href="https://echo.labstack.com/">Echo</a> を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。</p>
-
-<p></p>
 
 <p>慣れない事が多くて試行錯誤しながら丸一日使ってめっちゃ疲れたけど勉強になった。hot deploy の仕組みが大変興味深いです。（<a href="#参考記事:c89a01ea34ec3d3b965d2855f1d3c3d0">参考記事</a>）</p>
 

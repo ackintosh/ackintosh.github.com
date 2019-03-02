@@ -28,9 +28,7 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator/issues/1203&#34;&gt;Update brew formula to support JDK9 · Issue #1203 · OpenAPITools/openapi-generator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;自分もこの辺に絡んでいきたい気持ちになってきたので、Java8で開発しながら、Java9(またはそれ以降のバージョン)で非推奨になった構文が手元のソースコードで使われているかチェックする方法が知りたくなった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;自分もこの辺に絡んでいきたい気持ちになってきたので、Java8で開発しながら、Java9(またはそれ以降のバージョン)で非推奨になった構文が手元のソースコードで使われているかチェックする方法が知りたくなった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,9 +37,7 @@
       <pubDate>Fri, 17 Aug 2018 10:54:24 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2018/08/17/not-all-statements-are-tickable/</guid>
-      <description>&lt;p&gt;以前から&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;というPHPで手軽にマルチプロセスで並列処理をするライブラリを作っているのだが、このお盆休みの間にその開発中にハマったことがあったのでブログに残しておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;以前から&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;というPHPで手軽にマルチプロセスで並列処理をするライブラリを作っているのだが、このお盆休みの間にその開発中にハマったことがあったのでブログに残しておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,9 +57,7 @@
 &lt;p&gt;これは &lt;a href=&#34;https://github.com/swagger-api/swagger-codegen&#34;&gt;Swagger Codegen&lt;/a&gt; v2.4をフォークしたプロジェクトで、&lt;a href=&#34;https://github.com/OAI/OpenAPI-Specification/&#34;&gt;OpenAPI&lt;/a&gt;ドキュメントから様々なプログラミング言語のAPIクライアントやスタブサーバーなどのソースコードを生成するツールです。まだベータ版のような状態で、&lt;a href=&#34;https://github.com/OpenAPITools/openapi-generator#11---compatibility&#34;&gt;&amp;ldquo;v3.0.0&amp;rdquo;として初回リリースすることを予定しています&lt;/a&gt; 。&lt;/p&gt;
 
 &lt;p&gt;私は &amp;ldquo;元&amp;rdquo; Swagger Codegen のコアメンバーであり、現在 OpenAPI Generator のコアメンバー/創立メンバーで少し中の事情に詳しいので、なぜフォークするに至ったのかといった経緯やOpenAPI Generatorについて書いていきたいと思います。&lt;br /&gt;
-なお、個人のブログに書いていることですので主観が入っている部分があるかもしれませんが大目に見ていただけますと幸いです。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+なお、個人のブログに書いていることですので主観が入っている部分があるかもしれませんが大目に見ていただけますと幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -90,9 +84,7 @@
 &lt;img src=&#34;https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/translator-debut/swagger_codegen_beginner_jp.jpg&#34; alt=&#34;REST APIのためのコード生成入門&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;内容はOpanAPIやSwagger Codegenの解説、導入〜自動生成するコードをカスタマイズする方法の紹介。ご興味があるかたは&lt;a href=&#34;https://drive.google.com/file/d/1bAKOvNY9y2QUJhRdrNbCfXqQxVXds6O3/view&#34;&gt;1章まで無料で読める&lt;/a&gt;ので是非ご覧いただきたい。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;内容はOpanAPIやSwagger Codegenの解説、導入〜自動生成するコードをカスタマイズする方法の紹介。ご興味があるかたは&lt;a href=&#34;https://drive.google.com/file/d/1bAKOvNY9y2QUJhRdrNbCfXqQxVXds6O3/view&#34;&gt;1章まで無料で読める&lt;/a&gt;ので是非ご覧いただきたい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,9 +93,7 @@
       <pubDate>Sun, 25 Feb 2018 20:57:56 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2018/02/25/joined-to-swagger-codegen-core-team/</guid>
-      <description>&lt;p&gt;記念エントリ。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;記念エントリ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -112,9 +102,7 @@
       <pubDate>Mon, 12 Feb 2018 16:05:25 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/</guid>
-      <description>&lt;p&gt;なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -126,9 +114,7 @@
       <description>&lt;p&gt;( English version is coming soon! )&lt;/p&gt;
 
 &lt;p&gt;以前 &lt;a href=&#34;https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/&#34;&gt;Swagger Codegen + CircuitBreaker(Ganesha)&lt;/a&gt; でSwagger Codegenと拙作の&lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; (Circuit BreakerのPHP実装)を組み合わせる方法を書いた。&lt;br /&gt;
-その後、Swagger CodegenとGaneshaの双方ともバージョンアップし親和性が高まり、よりシンプルな方法で組み込めるようになったので、改めてSwagger CodegenやCircuit Breakerの概要も含めてご紹介したい。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+その後、Swagger CodegenとGaneshaの双方ともバージョンアップし親和性が高まり、よりシンプルな方法で組み込めるようになったので、改めてSwagger CodegenやCircuit Breakerの概要も含めてご紹介したい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -139,9 +125,7 @@
       <guid>https://ackintosh.github.io/blog/2018/01/25/timewindow/</guid>
       <description>&lt;h2 id=&#34;timewindowとは&#34;&gt;TimeWindowとは&lt;/h2&gt;
 
-&lt;p&gt;ググってみた感じだと(ソフトウェア開発以外も含めた)文脈によっていくつか微妙に異なる意味がありそうなのだが、当記事では &amp;ldquo;ある測定の対象となる時間枠&amp;rdquo; の意味で扱う。例えば、システムで発生したイベントを集めて加工を行うようなストリーム処理において、どこからどこまでのイベントを対象とするかを決定するのがTimeWindowである。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;ググってみた感じだと(ソフトウェア開発以外も含めた)文脈によっていくつか微妙に異なる意味がありそうなのだが、当記事では &amp;ldquo;ある測定の対象となる時間枠&amp;rdquo; の意味で扱う。例えば、システムで発生したイベントを集めて加工を行うようなストリーム処理において、どこからどこまでのイベントを対象とするかを決定するのがTimeWindowである。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -151,9 +135,7 @@
       
       <guid>https://ackintosh.github.io/blog/2017/11/19/copy-on-write-array-list/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.hyuki.com/dp/dp2.html&#34;&gt;デザインパターン入門 マルチスレッド編&lt;/a&gt; に、マルチスレッドプログラムの評価基準として &lt;code&gt;安全性&lt;/code&gt; &lt;code&gt;生存性&lt;/code&gt; &lt;code&gt;再利用性&lt;/code&gt; が挙げられている。安全性とはオブジェクトのフィールドが意図した値を保っていることで、安全性が保たれているクラスをスレッドセーフなクラスという。&lt;br /&gt;
-マルチスレッドプログラミングにおいてオブジェクトを安全に更新するには、操作が競合しないように synchronized などを使った排他制御の工夫が必要。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+マルチスレッドプログラミングにおいてオブジェクトを安全に更新するには、操作が競合しないように synchronized などを使った排他制御の工夫が必要。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -163,9 +145,7 @@
       
       <guid>https://ackintosh.github.io/blog/2017/11/04/java-synchronized/</guid>
       <description>&lt;p&gt;最近、趣味で Java 製プロダクトをいじっていたり、&lt;a href=&#34;https://www.amazon.co.jp/%E5%A2%97%E8%A3%9C%E6%94%B9%E8%A8%82%E7%89%88-Java%E8%A8%80%E8%AA%9E%E3%81%A7%E5%AD%A6%E3%81%B6%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E5%85%A5%E9%96%80-%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E7%B7%A8-%E7%B5%90%E5%9F%8E-%E6%B5%A9/dp/4797331623&#34;&gt;デザインパターン入門マルチスレッド編&lt;/a&gt;を読んでいることもあって Java のコードを書くようになった。&lt;br /&gt;
-これまでほぼ PHP しかやってこなかったので &lt;a href=&#34;https://docs.oracle.com/javase/jp/7/api/java/util/concurrent/package-summary.html&#34;&gt;java.util.concurrent パッケージ&lt;/a&gt; の充実っぷりに衝撃をうけた。これらのクラスを使って分散アルゴリズムの実装に挑戦してみたい。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+これまでほぼ PHP しかやってこなかったので &lt;a href=&#34;https://docs.oracle.com/javase/jp/7/api/java/util/concurrent/package-summary.html&#34;&gt;java.util.concurrent パッケージ&lt;/a&gt; の充実っぷりに衝撃をうけた。これらのクラスを使って分散アルゴリズムの実装に挑戦してみたい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -175,9 +155,7 @@
       
       <guid>https://ackintosh.github.io/blog/2017/10/30/nttdatatc2017/</guid>
       <description>&lt;p&gt;最近仕事で Apache Kafka を使おうと思っていたり、分散処理が面白くて勉強している。そんな中いままさに知りたいことがセッション一覧に連なってたので参加してきた。&lt;br /&gt;
-以下、聴講したセッションの概要、気になったところや質問させていただいたことのメモ。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+以下、聴講したセッションの概要、気になったところや質問させていただいたことのメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -188,9 +166,7 @@
       <guid>https://ackintosh.github.io/blog/2017/10/27/pecl-memcache/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/&#34;&gt;PHP の Memcache と Memcached は相互に読み書きできない&lt;/a&gt; を社内 slack で共有したところ、Memcache をフォークして PHP7 に対応しているリポジトリがあることを教えてもらった。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/websupport-sk/pecl-memcache&#34;&gt;websupport-sk/pecl-memcache&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/websupport-sk/pecl-memcache&#34;&gt;websupport-sk/pecl-memcache&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -213,9 +189,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://php.net/manual/ja/book.memcached.php&#34;&gt;PHP: Memcached - Manual&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/&#34;&gt;php-memcached-dev/php-memcached: memcached extension based on libmemcached library&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -230,9 +204,7 @@
 
 &lt;blockquote&gt;
 &lt;p&gt;Kafka Connect connector for reading data in real time from ColormeShop&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/blockquote&gt;</description>
     </item>
     
     <item>
@@ -243,9 +215,7 @@
       <guid>https://ackintosh.github.io/blog/2017/09/20/kafka-connector-dev/</guid>
       <description>&lt;p&gt;Kafka Connect は ver0.9 で実装された、Kafka の入出力を行うためのプラグイン機構のようなもので、 &lt;code&gt;Source Connector&lt;/code&gt; と &lt;code&gt;Sink Connector&lt;/code&gt; がある。&lt;a href=&#34;https://www.confluent.io/product/connectors/&#34;&gt;多くの Connector が実装されていて&lt;/a&gt;、もちろん独自の Connector を実装して利用することもできる。&lt;/p&gt;
 
-&lt;p&gt;当記事では、Java/Kafka 初心者(いまの私です)が Connector を実装するための準備として行った環境づくりについて紹介します。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;当記事では、Java/Kafka 初心者(いまの私です)が Connector を実装するための準備として行った環境づくりについて紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -254,9 +224,7 @@
       <pubDate>Thu, 07 Sep 2017 09:16:11 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/09/07/learn-apache-kafka-for-beginners/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.udemy.com/apache-kafka-series-kafka-from-beginner-to-intermediate/&#34;&gt;Apache Kafka Series - Learn Apache Kafka for Beginners | Udemy&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.udemy.com/apache-kafka-series-kafka-from-beginner-to-intermediate/&#34;&gt;Apache Kafka Series - Learn Apache Kafka for Beginners | Udemy&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -265,7 +233,7 @@
       <pubDate>Wed, 16 Aug 2017 14:34:19 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/08/16/avoid_memory_limit/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>サーバー set_time_limit(0); echo str_repeat(&#39;.&#39;, 1024 * 1024 * 256);  file_get_contents :ng: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; file_get_contents($url); register_shutdown_function(function () { echo sprintf(&amp;quot;\nmemory_get_peak_usage: %dMB\n&amp;quot;, memory_get_peak_usage() / 1024 / 1024); }); // memory_limit: 128M // PHP Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 130023456 bytes) in /Users/akihito1/hoge.php on line 7  ストリームを使う :ok: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; $ch = curl_init($url); $stream = fopen(&#39;php://temp&#39;, &#39;w+&#39;); curl_setopt_array($ch, [ CURLOPT_FILE =&amp;gt; $stream, ]); curl_exec($ch); curl_close($ch); rewind($stream); while (!</description>
     </item>
     
     <item>
@@ -276,9 +244,7 @@
       <guid>https://ackintosh.github.io/blog/2017/08/15/fluentd-http-shadow-subdir2subdomain/</guid>
       <description>&lt;p&gt;(うまく伝わるタイトルが思いつかなかった&amp;hellip;)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/07/30/fluentd-http-shadow/&#34;&gt;fluent-plugin-http_shadow で会員向けコンテンツをテストする&lt;/a&gt; に引き続き、&lt;a href=&#34;https://github.com/toyama0919/fluent-plugin-http_shadow&#34;&gt;fluent-plugin-http_shadow&lt;/a&gt; を使ったシャドウプロキシについて。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/07/30/fluentd-http-shadow/&#34;&gt;fluent-plugin-http_shadow で会員向けコンテンツをテストする&lt;/a&gt; に引き続き、&lt;a href=&#34;https://github.com/toyama0919/fluent-plugin-http_shadow&#34;&gt;fluent-plugin-http_shadow&lt;/a&gt; を使ったシャドウプロキシについて。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -292,9 +258,7 @@
 &lt;li&gt;&lt;a href=&#34;http://qiita.com/toyama0919/items/ae4bc88423317e6668b1&#34;&gt;fluentdで本番環境を再現する - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Fluentd を使って ShadowProxy できるプラグイン。フロントに手を入れずに簡単・安全にできるのが魅力。現状、リクエストボディが送信できない(※)が、 GET アクセスが大部分を占めるようなロールであれば充分かなと。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Fluentd を使って ShadowProxy できるプラグイン。フロントに手を入れずに簡単・安全にできるのが魅力。現状、リクエストボディが送信できない(※)が、 GET アクセスが大部分を占めるようなロールであれば充分かなと。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -303,9 +267,7 @@
       <pubDate>Sun, 23 Jul 2017 02:56:08 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/07/23/github-log-fl-es-kb/</guid>
-      <description>&lt;p&gt;仕事で主にお問い合わせ対応 Issue の起票・クローズ件数や、クローズまでにかかった時間を可視化したかったので素振り。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;仕事で主にお問い合わせ対応 Issue の起票・クローズ件数や、クローズまでにかかった時間を可視化したかったので素振り。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -314,9 +276,7 @@
       <pubDate>Mon, 17 Jul 2017 19:11:54 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/&#34;&gt;前回のリリース&lt;/a&gt;はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/&#34;&gt;前回のリリース&lt;/a&gt;はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -325,9 +285,7 @@
       <pubDate>Tue, 11 Jul 2017 01:43:26 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/07/11/cowrie-on-docker/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/micheloosterhof/cowrie&#34;&gt;micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/micheloosterhof/cowrie&#34;&gt;micheloosterhof/cowrie: Cowrie SSH/Telnet Honeypot&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -336,9 +294,7 @@
       <pubDate>Sun, 02 Jul 2017 12:42:45 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/07/02/upgrade-redash-v012-v103/</guid>
-      <description>&lt;p&gt;職場で使ってる Redash をアップグレードしたかったので、ローカルで素振りしたときのメモ。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;職場で使ってる Redash をアップグレードしたかったので、ローカルで素振りしたときのメモ。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -347,9 +303,7 @@
       <pubDate>Fri, 30 Jun 2017 09:22:31 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/06/30/pepabo-tech-mtg02/</guid>
-      <description>&lt;p&gt;ブログに書くのが遅くなってしまった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;ブログに書くのが遅くなってしまった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -361,9 +315,7 @@
       <description>&lt;p&gt;Fix optional parameter getStats($type) by ackintosh · Pull Request #337&lt;br /&gt;
 &lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/pull/337&#34;&gt;https://github.com/php-memcached-dev/php-memcached/pull/337&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;たった4行のちょっとした修正だけど経緯とかを書き留めておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;たった4行のちょっとした修正だけど経緯とかを書き留めておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -372,9 +324,7 @@
       <pubDate>Mon, 10 Apr 2017 01:23:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/10/2017-04-10/</guid>
-      <description>&lt;p&gt;「テストが無いコードをリリースするということは、ズボンをはかずに外出するようなものだ」&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;「テストが無いコードをリリースするということは、ズボンをはかずに外出するようなものだ」&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -383,7 +333,10 @@
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>Swagger Codegen とは swagger-api/swagger-codegen
+OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。
+Mac なら Homebrew でさくっと試せる。
+$ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . $ tree . └── SwaggerClient-php ├── README.md ├── autoload.php ├── composer.json ├── docs │ ├── Api │ │ ├── PetApi.md │ │ ├── StoreApi.md │ │ └── UserApi.md │ └── Model │ ├── ApiResponse.md │ ├── Category.md │ ├── Order.md │ ├── Pet.md │ ├── Tag.</description>
     </item>
     
     <item>
@@ -392,9 +345,7 @@
       <pubDate>Fri, 10 Mar 2017 21:48:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
-      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -403,9 +354,7 @@
       <pubDate>Thu, 09 Mar 2017 14:09:56 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/09/pepabo-tech-mtg01/</guid>
-      <description>&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;我らがEC事業部のエンジニア祭りで発表した。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -414,8 +363,7 @@
       <pubDate>Sat, 18 Feb 2017 23:34:08 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/02/18/2017-02-18/</guid>
-      <description>&lt;p&gt;に行ってきた。
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;に行ってきた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -424,9 +372,7 @@
       <pubDate>Fri, 10 Feb 2017 19:01:58 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/02/10/2017-02-10/</guid>
-      <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;ユーザーエージェント判定器 woothee にコントリビュートした。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -435,9 +381,7 @@
       <pubDate>Tue, 31 Jan 2017 22:31:04 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/31/2017-01-31/</guid>
-      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。
-
-主人公ジェーンの鋭い観察力・推理力も面白いが、上司役の女優 Robin Tunney の綺麗さも見どころ。&lt;/p&gt;</description>
+      <description>&lt;p&gt;会社の新年会で海外ドラマの THE MENTALIST が面白いとの話をきいたので観始めて、 最近家にいるときはずっと観てる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -446,7 +390,7 @@
       <pubDate>Sat, 28 Jan 2017 13:14:20 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/28/2017-01-28/</guid>
-      <description>データベーススペシャリストの参考書を1周読み終わった。 理解が足りてないところ・苦手なところがわかったので、明日からはその辺を補強しつつ過去問題をやる。午前対策はひたすら過去問を解いて、躓いたところを都度調べる感じでいいかなと。</description>
+      <description>&lt;p&gt;データベーススペシャリストの参考書を1周読み終わった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -455,9 +399,7 @@
       <pubDate>Tue, 03 Jan 2017 00:33:23 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/03/2017-resolution/</guid>
-      <description>&lt;p&gt;体を柔らかくする。股割りができるくらい。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;体を柔らかくする。股割りができるくらい。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -466,9 +408,7 @@
       <pubDate>Sun, 01 Jan 2017 17:33:53 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/01/01/2017-01-01/</guid>
-      <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;初夢では、レガシーコードをどうやっつけようかと、あーでもないこーでもないと考えていた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -477,9 +417,7 @@
       <pubDate>Sat, 31 Dec 2016 14:42:55 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/31/2016-looking-back/</guid>
-      <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;2016年の大きいイベントは転職と引越しだった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -488,9 +426,7 @@
       <pubDate>Fri, 30 Dec 2016 23:25:18 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/30/2016-12-30/</guid>
-      <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;永福町のドトールは適度に空いていて良い。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -500,9 +436,7 @@
       
       <guid>https://ackintosh.github.io/blog/2016/12/24/2016-12-24/</guid>
       <description>&lt;p&gt;しんくんと都内をいくつか巡った。&lt;br /&gt;
-秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+秋葉原散策 〜 アイリッシュ系バンドのライブ 〜 飲む のプラン。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -511,7 +445,9 @@
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>学生時代にとてもお世話になってたマルチエフェクター。
+使う機会がなくなってしまったので手放した。
+最後にキレイに掃除して写真とった。</description>
     </item>
     
     <item>
@@ -520,9 +456,7 @@
       <pubDate>Thu, 22 Dec 2016 17:40:32 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/22/2016-12-22/</guid>
-      <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;何故か今日はめっちゃ疲れたので寄り道せずに帰ろうかと思ったけど、下北のマックで &lt;a href=&#34;https://github.com/ackintosh/ganesha&#34;&gt;Ganesha&lt;/a&gt; の実装を進める。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -533,9 +467,7 @@
       <guid>https://ackintosh.github.io/blog/2016/12/17/2016-12-17/</guid>
       <description>&lt;p&gt;今年5月の転職と同時に田舎から引越して約半年経った。もう冬。&lt;/p&gt;
 
-&lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;さすがにフローリングのままでは寒くて耐えられなくなってきたのでラグを買った。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -545,9 +477,7 @@
       
       <guid>https://ackintosh.github.io/blog/2016/12/17/pepabo_advent_calendar2016/</guid>
       <description>&lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2016/pepabo&#34;&gt;pepabo Advent Calendar 2016&lt;/a&gt; 17日目の記事です。&lt;br /&gt;
-昨日は genkiroid さんの &lt;a href=&#34;https://genkiroid.github.io/2016/12/16/about-turpan/&#34;&gt;PHPのrequire系ステートメントと断捨離について&lt;/a&gt; でした。コードを断捨離していきましょう!!!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+昨日は genkiroid さんの &lt;a href=&#34;https://genkiroid.github.io/2016/12/16/about-turpan/&#34;&gt;PHPのrequire系ステートメントと断捨離について&lt;/a&gt; でした。コードを断捨離していきましょう!!!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -557,9 +487,7 @@
       
       <guid>https://ackintosh.github.io/blog/2016/12/16/2016-12-16/</guid>
       <description>&lt;p&gt;体調が優れないので仕事を休ませてもらった。&lt;br /&gt;
-市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+市販薬を飲んで夕方まで寝ていたらだいぶ回復したので、グラッチェガーデンズに行って夕食を済ませて、そのままドリンクバーを飲みつつアドベントカレンダーの続きを書く。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -570,9 +498,7 @@
       <guid>https://ackintosh.github.io/blog/2016/12/11/2016-12-14/</guid>
       <description>&lt;p&gt;(少し前のことだけどブログに書いてなかった)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt; で JetBrains のオープンソースライセンスが承認された !!&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -581,9 +507,7 @@
       <pubDate>Sat, 10 Dec 2016 15:44:16 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/10/2016-12-10/</guid>
-      <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;この度、神様の開発を始めたので経緯をブログに書いておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -592,9 +516,7 @@
       <pubDate>Fri, 09 Dec 2016 15:08:57 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/09/2016-12-09/</guid>
-      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;趣味でライブラリを作り始めるとき、最近はキラキラネームをつけるようにしてる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -604,9 +526,7 @@
       
       <guid>https://ackintosh.github.io/blog/2016/11/23/2016-11-23/</guid>
       <description>&lt;p&gt;浦和で用事を済ませたあと、そのまま帰るのはもったいなかったので駅前のパルコでふらふらと徘徊。
-島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+島村楽器で色々みていたら、木製で非常にいい味を出してる足台に一目惚れしてしまった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -615,9 +535,7 @@
       <pubDate>Sun, 13 Nov 2016 22:02:49 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/11/13/2016-11-13/</guid>
-      <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;夕飯をどうしようかと下北沢をフラフラしていたら、カレー980円食べ放題の看板が気になったので&lt;a href=&#34;https://tabelog.com/tokyo/A1318/A131802/13084034/&#34;&gt;ににんがよん&lt;/a&gt;に入ってみた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -626,9 +544,7 @@
       <pubDate>Sat, 12 Nov 2016 20:08:58 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/11/12/2016-11-12/</guid>
-      <description>「PHPはどのように動くのか」のつづきを読む。
-オペコードを眺めて へぇ〜と思ったり、zval とか HashTable が何となくどんなものかわかってきた。
-オペコードの説明はマニュアルにあった。 http://php.net/manual/ja/internals2.opcodes.php</description>
+      <description>&lt;p&gt;「PHPはどのように動くのか」のつづきを読む。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -637,9 +553,7 @@
       <pubDate>Sun, 06 Nov 2016 23:34:32 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/11/06/2016-11-06/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。
-
-PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit のコードを追ってみるかー、というところで集中力が切れた。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のアーキテクチャをゴリッと変えてる途中。なぜかユニットテストが通らなくて困ってる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -651,9 +565,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <description>&lt;p&gt;たまたま Youtube の関連動画にあったので聴いてみたらとても癒やされた。&lt;/p&gt;
 
 &lt;p&gt;Tycho(ティコ)&lt;br /&gt;
-&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;http://tychomusic.com/&#34;&gt;http://tychomusic.com/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -663,9 +575,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       
       <guid>https://ackintosh.github.io/blog/2016/10/27/pepabo_plaid_lt/</guid>
       <description>&lt;p&gt;場所は&lt;a href=&#34;https://www.google.co.jp/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=1&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=0ahUKEwjx4vPDjYXQAhUBErwKHdXbC0sQFggkMAA&amp;amp;url=https%3A%2F%2Fplaid.co.jp%2F&amp;amp;usg=AFQjCNEnanIqoRljdEgfkMOHG4ZV_TRZbw&amp;amp;sig2=1UqILw-ttShPafI83trptw&#34;&gt;プレイド&lt;/a&gt;さん。&lt;br /&gt;
-オフィススペースと隣り合った一角がカフェみたいになっていて、そこに椅子とスクリーンを並べたかたちの会場。角のカウンターにはコーヒーサイフォンが並んでいて大変オシャレでした。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+オフィススペースと隣り合った一角がカフェみたいになっていて、そこに椅子とスクリーンを並べたかたちの会場。角のカウンターにはコーヒーサイフォンが並んでいて大変オシャレでした。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -674,9 +584,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Wed, 05 Oct 2016 22:38:30 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/10/05/2016-10-05/</guid>
-      <description>&lt;p&gt;LTを申し込んでから何か発表できることがないかずっと悩んでたけど、ようやく内容が決まってきた。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;LTを申し込んでから何か発表できることがないかずっと悩んでたけど、ようやく内容が決まってきた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -685,9 +593,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Thu, 22 Sep 2016 21:12:52 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/09/22/2016-09-22/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のキューの部分で、専用のミドルウェアや Saas を使えるようにすべく開発をはじめた。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;のキューの部分で、専用のミドルウェアや Saas を使えるようにすべく開発をはじめた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -696,9 +602,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Wed, 21 Sep 2016 15:01:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/09/21/2016-09-21/</guid>
-      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;社外向け勉強会の発表者が募集されていたので立候補した。ネタがあるわけじゃなかったけど、1ヶ月くらい先なのでなんとかなるだろうと。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -707,9 +611,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Fri, 16 Sep 2016 17:58:26 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/09/16/osan10/</guid>
-      <description>&lt;p&gt;お産合宿10に参加しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;お産合宿10に参加しました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -718,9 +620,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Fri, 09 Sep 2016 23:58:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/09/09/snidel_0_7_0/</guid>
-      <description>&lt;p&gt;今回のリリースでは実装をシンプルにするために機能を削除しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;今回のリリースでは実装をシンプルにするために機能を削除しました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -729,9 +629,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Sun, 04 Sep 2016 22:08:07 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/09/04/2016-09-04/</guid>
-      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;なんとなく無気力になってダラダラと過ごしてしまった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -740,9 +638,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Tue, 30 Aug 2016 19:13:36 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/30/2016-08-30/</guid>
-      <description>&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;チューニングコンテストISUCONの社内版が初開催された。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -752,9 +648,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       
       <guid>https://ackintosh.github.io/blog/2016/08/27/2016-08-27/</guid>
       <description>&lt;p&gt;コンパイラ入門　3章を読んだ。&lt;br /&gt;
-なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+なんとなくの理解なので、ちゃんと復習しないとすぐ忘れそう。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -763,9 +657,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Sat, 20 Aug 2016 17:01:43 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/20/2016-08-20/</guid>
-      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;近くのドトールでもくもくとCを触る。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -774,9 +666,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Wed, 17 Aug 2016 19:24:09 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/17/2016-08-17/</guid>
-      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;夏休み最終日。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -785,9 +675,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Wed, 17 Aug 2016 12:40:37 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/17/golang_deamonize_deploy/</guid>
-      <description>&lt;p&gt;社内の某合宿イベントで、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;社内の某合宿イベントで、Go製の軽量WAF &lt;a href=&#34;https://echo.labstack.com/&#34;&gt;Echo&lt;/a&gt; を使ったAPIサーバーを作ろうとしていて、夏休み中にデーモン化とデプロイの仕組みを作ってみたので、ちょっとまとまりきってないですが忘れないうちにメモしておきます。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -796,9 +684,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Mon, 15 Aug 2016 17:15:54 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/15/2016-08-14/</guid>
-      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;久しぶりに実家近くの日帰り温泉に行ってきた。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -807,9 +693,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Fri, 12 Aug 2016 15:30:49 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/12/2016-08-12/</guid>
-      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;夏休み3日目。　ではなく出勤。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -818,9 +702,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Thu, 11 Aug 2016 14:56:22 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/11/2016-08-11/</guid>
-      <description>&lt;p&gt;夏休み2日目。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;夏休み2日目。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -829,9 +711,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Wed, 10 Aug 2016 23:29:00 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/10/2016-08-10/</guid>
-      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;夏休み1日目。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -840,9 +720,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Sun, 07 Aug 2016 17:29:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/07/2016-08-07/</guid>
-      <description>&lt;p&gt;知人に教えてもらってハマったバンド。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;知人に教えてもらってハマったバンド。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -852,9 +730,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       
       <guid>https://ackintosh.github.io/blog/2016/08/05/shadow_proxy-using-ngx_mruby/</guid>
       <description>&lt;p&gt;最近 ngx_mruby をいじり始めて「ビルドできた！」「おぉ、簡単にWebサーバーの振る舞いを変えられる！」ところまでいったので、&lt;br /&gt;
-何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+何を作ろうかと考えて初めに思いついたのがシャドウプロキシでした。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -863,9 +739,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Tue, 02 Aug 2016 01:31:52 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/08/02/2016-08-01/</guid>
-      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;社内のプログラミング言語Goの読書会にここ数回参加できていなかったので自習。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -874,14 +748,7 @@ PHPUnit の方がおかしいんじゃないかと思ってきたので PHPUnit 
       <pubDate>Sun, 31 Jul 2016 16:53:50 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/07/31/2016-07-31/</guid>
-      <description>最近、情報系の学校をでている方々が学生時代にどんな事を勉強していたのか気になってる。 先日、大学院を出ている方から聞いたのは、ホワイトボードを研究していたとのこと。
-とある議論をしている間のホワイトボードを動画撮影・解析して、書かれたワードがホワイトボードに残っている時間で重要度を判定（長い時間ホワイトボードに残っているのは重要）するプログラムを書いていたとのこと。
-他にも色々な処理をやっていたそうですが自分は話に追いつけなかった。
-けど話を聞いていてすごく面白かった。
-自分は音楽系の出身なので、情報系のバックグラウンドが無いのでそこをコンプレックスに感じている。いまの職場は本当にレベルが高くて、勉強する人たちばかりだし、優秀な新卒もバンバン入ってくるので、余計に劣等感を感じる。
-でも、そんな環境に身を投じたくて転職したので、これが自分の望んでいた状況なのです。
-上記コンプレックスを克服すべく、まずはパタヘネ(上)を読み始めているところ。
-Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デイビッド A パターソン, ジョン Ｌ ヘネシー, 成田 光彰: Kindleストアコンピュータの構成と設計 第5版 上 Kindle版: 一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレットなど、様々な端末でもお楽しみいただけます。読み終えたページ、ブックマークやメモ、ハイライトも同期されますのでご活用ください。</description>
+      <description>&lt;p&gt;最近、情報系の学校をでている方々が学生時代にどんな事を勉強していたのか気になってる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -891,9 +758,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       
       <guid>https://ackintosh.github.io/blog/2016/07/29/2016-07-29/</guid>
       <description>&lt;p&gt;2年間、派遣社員としてサービス開発・保守で活躍されたかたの送別会。
-ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+ひとつひとつ、とても丁寧に対応されていて、チームメンバーはもちろんカスタマーサポートの方々からも信頼が厚い人だった。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -902,9 +767,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <pubDate>Wed, 20 Jul 2016 23:51:41 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/07/20/phpblt5/</guid>
-      <description>&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;PHP界隈でアツい勉強会の１つ、PHP BLTでLTしてきました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -913,9 +776,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <pubDate>Wed, 13 Jul 2016 20:36:31 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/07/13/2016_07_13_event/</guid>
-      <description>&lt;p&gt;いままで人前でLTすらしたことないので、このようなイベントの登壇は自分のようなコミュ障には大変ハードルが高く感じますが、ちょうど入社したてということもあり、転職を考えている方に何か伝えられる事があるのではないかと思って勇気を出して臨みました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;いままで人前でLTすらしたことないので、このようなイベントの登壇は自分のようなコミュ障には大変ハードルが高く感じますが、ちょうど入社したてということもあり、転職を考えている方に何か伝えられる事があるのではないかと思って勇気を出して臨みました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -924,7 +785,21 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>転職 GMOペパボという会社に転職しました。
+5&amp;frasl;16 入社なので１ヶ月くらい経ったところです。
+きっかけは ペパボテックカンファレンスEC編 への参加で、
+初めは &amp;ldquo;他社のECはどんなことやってるのかなぁ&amp;rdquo; と気になってフラっと行ってみたのですが
+発表の内容に刺激をうけてペパボに興味を持って、そこから話が進んでいき運良く入社できた感じです。
+環境 テックカンファレンスに参加した時の感想でも書いてるのですが、 サービスの改善に対するモチベーションが高く、改善のための技術的なチャレンジも積極的に取り組んでいます。
+7&amp;frasl;2(土), 3(日)に開催される YAPC::ASIA HACHIOJI のトークでGMOペパボのエンジニアが５人(!!)採択されたようですので、諸々普段の取り組みがが披露されるようです。とても楽しみです。
+あとはレベル高いひとたちばかりです。
+前職では中野は技術的に尖ってる方の人、みたいに見られることがあって、少なからずその状況にあぐらをかいてる的な気持ちはあったと思う(そうならないように努めていましたが)ので大変良い刺激をいただいています。
+「オレ、大丈夫かな（やっていけるかな）」という不安がよぎることもありましたが、今は不安になってる暇があったら努力しようという気持ちです。日々、積み重ねていきます。
+それが目的で転職したんですから。恵まれた環境に感謝しつつ、価値を出していかないと。
+他人と自分を比べるな。自分より凄い人に劣等感を覚え嫉妬する行為も自分より劣っている人を見下し安心する行為も君にとってはマイナスの影響しか持たない。比べるなら過去の自分だ。過去の自分に打ち勝ち続ける事で人は成長するし、努力によって確実に倒し超えていけるのは過去の自分だけだ。
+&amp;mdash; Testosterone (@badassceo) 2016年6月18日 
+近況  カラーミーショップのチームに所属して頑張っています
+ 「いるだけで成長できる環境」にあるとおり、成長できるチャンスがたくさんあるので活用していく次第 マスタリングTCP/IP読書会、プログラミング言語Go読書会に参加中 PHPBLTをペパボ主催でやります。LTします！ 渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています </description>
     </item>
     
     <item>
@@ -937,9 +812,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
 &lt;a href=&#34;http://bliki-ja.github.io/CircuitBreaker/&#34; target=&#34;_blank&#34;&gt;CircuitBreaker&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;プルリクエスト&lt;br /&gt;
-&lt;a href=&#34;https://github.com/bliki-ja/bliki-ja.github.io/pull/3&#34; target=&#34;_blank&#34;&gt;Add CircuitBreaker #3&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;a href=&#34;https://github.com/bliki-ja/bliki-ja.github.io/pull/3&#34; target=&#34;_blank&#34;&gt;Add CircuitBreaker #3&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -951,9 +824,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <description>&lt;p&gt;外部的なインターフェースは変わっていませんが、&lt;br /&gt;
 内部的なアーキテクチャを大幅に変更しました。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.6.0&#34;&gt;Release 0.6.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.6.0&#34;&gt;Release 0.6.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -963,9 +834,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       
       <guid>https://ackintosh.github.io/blog/2016/05/01/books_201604/</guid>
       <description>&lt;p&gt;人工知能がアツいようなのでとりあえず１冊読んでみたのと&lt;br /&gt;
-近いうちに環境が変わるので、色々と足りないところの予備知識を準備するのがメイン。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+近いうちに環境が変わるので、色々と足りないところの予備知識を準備するのがメイン。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -977,9 +846,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <description>&lt;p&gt;引き続き内部のリファクタリングに加えて、&lt;br /&gt;
 今回のリリースでは Snidel::get() の返り値を変更しました。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.5.0&#34; target=&#34;_blank&#34;&gt;Release 0.5.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/ackintosh/snidel/releases/tag/0.5.0&#34; target=&#34;_blank&#34;&gt;Release 0.5.0 · ackintosh/snidel&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -991,9 +858,7 @@ Amazon.co.jp: コンピュータの構成と設計 第5版 上 電子書籍: デ
       <description>&lt;p&gt;リリース日は 2016-02-21 なのでブログに書くのがだいぶ遅くなってしまいました。&lt;/p&gt;
 
 &lt;p&gt;PHP5.2 のサポートを終了したのが大きな変更点です。&lt;br /&gt;
-これまでは諸事情によりサポートせざるを得なかったのですがようやく。。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+これまでは諸事情によりサポートせざるを得なかったのですがようやく。。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1010,9 +875,7 @@ AWSに関しては、&lt;br /&gt;
 会社としてもこれからノウハウを溜めていこうという段階だったので手探り状態で&lt;br /&gt;
 大変でしたが周りの方々にフォローしていただきながらなんとか完了することができました。&lt;/p&gt;
 
-&lt;p&gt;この記事では移行の際にハマったことを共有します。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;この記事では移行の際にハマったことを共有します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1021,9 +884,7 @@ AWSに関しては、&lt;br /&gt;
       <pubDate>Sun, 15 Nov 2015 17:27:08 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2015/11/15/pbtech_4/</guid>
-      <description>&lt;p&gt;いま仕事でECに携わっているのもあって気になったので行ってきました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;いま仕事でECに携わっているのもあって気になったので行ってきました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1036,9 +897,7 @@ AWSに関しては、&lt;br /&gt;
 この記事は、&lt;br /&gt;
 追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。&lt;/p&gt;
 
-&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1047,9 +906,7 @@ AWSに関しては、&lt;br /&gt;
       <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2015/09/29/snidel/</guid>
-      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1060,9 +917,7 @@ AWSに関しては、&lt;br /&gt;
       <guid>https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
       <description>&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
 
-&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1072,9 +927,7 @@ AWSに関しては、&lt;br /&gt;
       
       <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
-リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1088,9 +941,7 @@ AWSに関しては、&lt;br /&gt;
 &lt;p&gt;&lt;a href=&#34;http://spikaapp.com/ja/&#34; target=&#34;_blank&#34;&gt;Spika - world first opensource messenger for ios/android&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;今回のハッカソン関係者のみなさんもブログに書かれていますので、
-Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+Spikaについてとか、ハッカソン開催の経緯や技術的なことについてはこちらを見てください。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1100,9 +951,7 @@ Spikaについてとか、ハッカソン開催の経緯や技術的なことに
       
       <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
-今回はグローバル関数への依存について。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+今回はグローバル関数への依存について。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1114,9 +963,7 @@ Spikaについてとか、ハッカソン開催の経緯や技術的なことに
       <description>&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
-target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1131,9 +978,7 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
 
 &lt;h4 id=&#34;eric-hodel氏の推奨するネーミングルール&#34;&gt;Eric Hodel氏の推奨するネーミングルール&lt;/h4&gt;
 
-&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1145,9 +990,7 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
       <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1158,9 +1001,7 @@ target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;
       <guid>https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
       <description>&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1174,9 +1015,7 @@ flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
-FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1185,9 +1024,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
-      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1198,9 +1035,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <guid>https://ackintosh.github.io/blog/2013/04/18/lambda/</guid>
       <description>&lt;p&gt;すぐに混乱してしまうので、端的にまとめてみました。&lt;br /&gt;
 勉強しながら少しづつ修正しています。&lt;br /&gt;
-間違いがありましたら、ご指摘いただけると幸いです。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+間違いがありましたら、ご指摘いただけると幸いです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1211,9 +1046,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <guid>https://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
       <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
 
-&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1226,9 +1059,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 
 &lt;pre&gt;&lt;code&gt;$ rake new_post[hoge]
 zsh: no matches found: new_post[hoge]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
@@ -1241,9 +1072,7 @@ zsh: no matches found: new_post[hoge]
 
 &lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
 &lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
-:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1254,9 +1083,7 @@ zsh: no matches found: new_post[hoge]
       <guid>https://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
       <description>&lt;p&gt;Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。&lt;/p&gt;
 
-&lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1269,9 +1096,7 @@ zsh: no matches found: new_post[hoge]
 ブログのネタをEvernoteにメモしてる人も多いのではないでしょうか。&lt;/p&gt;
 
 &lt;p&gt;Markdownをプレビューしながら書いてそのままEvernoteに保存できるサービスを作ってみました。&lt;br /&gt;
-(RubyとRailsの勉強を兼ねて φ(..))&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+(RubyとRailsの勉強を兼ねて φ(..))&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1281,9 +1106,7 @@ zsh: no matches found: new_post[hoge]
       
       <guid>https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
       <description>&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
-RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1293,9 +1116,7 @@ RailsではデフォルトでWEBrickが起動しますが、低速なので本�
       
       <guid>https://ackintosh.github.io/blog/2012/08/26/compared-the-index-with-and-without/</guid>
       <description>&lt;p&gt;usersとfavoritesが１対多になるようにして、&lt;br /&gt;
-indexの設定あり・なしの2つのDBを用意して比較しました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+indexの設定あり・なしの2つのDBを用意して比較しました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -1308,9 +1129,7 @@ indexの設定あり・なしの2つのDBを用意して比較しました。&lt
 
 &lt;p&gt;最近githubやOctopressを使うようになってきたので、markdownをしっかり覚えたい今日この頃です。&lt;br /&gt;
 ふと、Javascriptでmarkdown→HTMLに変換してくれるのはないかなと気になったので
-今回markdown-jsというのを使ってみました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+今回markdown-jsというのを使ってみました。&lt;/p&gt;</description>
     </item>
     
   </channel>

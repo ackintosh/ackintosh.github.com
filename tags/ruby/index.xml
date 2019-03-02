@@ -24,9 +24,7 @@
 
 &lt;h4 id=&#34;eric-hodel氏の推奨するネーミングルール&#34;&gt;Eric Hodel氏の推奨するネーミングルール&lt;/h4&gt;
 
-&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;RubyGemsの作者、Eric Hodel氏は自身のブログで次のように推奨しています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -37,9 +35,7 @@
       <guid>https://ackintosh.github.io/blog/2012/10/24/template-method-pattern-in-ruby/</guid>
       <description>&lt;p&gt;Template Methodパターンは、アルゴリズムに多態性を持たせたい場合に有効。&lt;/p&gt;
 
-&lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;Rubyは抽象メソッドをサポートしていないので、Reportクラスのoutput_lineメソッドでは例外を投げるようにしている。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -49,9 +45,7 @@
       
       <guid>https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
       <description>&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
-RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;</description>
     </item>
     
   </channel>

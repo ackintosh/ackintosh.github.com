@@ -18,9 +18,7 @@
       <pubDate>Fri, 17 Aug 2018 10:54:24 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2018/08/17/not-all-statements-are-tickable/</guid>
-      <description>&lt;p&gt;以前から&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;というPHPで手軽にマルチプロセスで並列処理をするライブラリを作っているのだが、このお盆休みの間にその開発中にハマったことがあったのでブログに残しておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;以前から&lt;a href=&#34;https://github.com/ackintosh/snidel&#34;&gt;Snidel&lt;/a&gt;というPHPで手軽にマルチプロセスで並列処理をするライブラリを作っているのだが、このお盆休みの間にその開発中にハマったことがあったのでブログに残しておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,9 +27,7 @@
       <pubDate>Mon, 12 Feb 2018 16:05:25 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2018/02/12/travis-ci-with-eol-php-version/</guid>
-      <description>&lt;p&gt;なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;なんだか辛さが滲み出るようなタイトルだ。どうしても古いPHPのサポートを継続しておきたいライブラリがあって、PHP5.3から最新までのバージョンでCIをまわすときに少しハマりどころ(といったら大げさだが)があったのでメモしておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -42,9 +38,7 @@
       <guid>https://ackintosh.github.io/blog/2017/10/27/pecl-memcache/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/&#34;&gt;PHP の Memcache と Memcached は相互に読み書きできない&lt;/a&gt; を社内 slack で共有したところ、Memcache をフォークして PHP7 に対応しているリポジトリがあることを教えてもらった。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/websupport-sk/pecl-memcache&#34;&gt;websupport-sk/pecl-memcache&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://github.com/websupport-sk/pecl-memcache&#34;&gt;websupport-sk/pecl-memcache&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -67,9 +61,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://php.net/manual/ja/book.memcached.php&#34;&gt;PHP: Memcached - Manual&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/&#34;&gt;php-memcached-dev/php-memcached: memcached extension based on libmemcached library&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -78,7 +70,7 @@
       <pubDate>Wed, 16 Aug 2017 14:34:19 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/08/16/avoid_memory_limit/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>サーバー set_time_limit(0); echo str_repeat(&#39;.&#39;, 1024 * 1024 * 256);  file_get_contents :ng: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; file_get_contents($url); register_shutdown_function(function () { echo sprintf(&amp;quot;\nmemory_get_peak_usage: %dMB\n&amp;quot;, memory_get_peak_usage() / 1024 / 1024); }); // memory_limit: 128M // PHP Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 130023456 bytes) in /Users/akihito1/hoge.php on line 7  ストリームを使う :ok: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; $ch = curl_init($url); $stream = fopen(&#39;php://temp&#39;, &#39;w+&#39;); curl_setopt_array($ch, [ CURLOPT_FILE =&amp;gt; $stream, ]); curl_exec($ch); curl_close($ch); rewind($stream); while (!</description>
     </item>
     
     <item>
@@ -87,9 +79,7 @@
       <pubDate>Mon, 17 Jul 2017 19:11:54 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/07/17/snidel_0_9_0/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/&#34;&gt;前回のリリース&lt;/a&gt;はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/&#34;&gt;前回のリリース&lt;/a&gt;はアーキテクチャ等の内部的な変更がメインでしたが、今回は逆にライブラリのインターフェースを大きく変える変更を加えています。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -101,9 +91,7 @@
       <description>&lt;p&gt;Fix optional parameter getStats($type) by ackintosh · Pull Request #337&lt;br /&gt;
 &lt;a href=&#34;https://github.com/php-memcached-dev/php-memcached/pull/337&#34;&gt;https://github.com/php-memcached-dev/php-memcached/pull/337&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;たった4行のちょっとした修正だけど経緯とかを書き留めておく。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;たった4行のちょっとした修正だけど経緯とかを書き留めておく。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -112,7 +100,10 @@
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
+      <description>Swagger Codegen とは swagger-api/swagger-codegen
+OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。
+Mac なら Homebrew でさくっと試せる。
+$ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . $ tree . └── SwaggerClient-php ├── README.md ├── autoload.php ├── composer.json ├── docs │ ├── Api │ │ ├── PetApi.md │ │ ├── StoreApi.md │ │ └── UserApi.md │ └── Model │ ├── ApiResponse.md │ ├── Category.md │ ├── Order.md │ ├── Pet.md │ ├── Tag.</description>
     </item>
     
     <item>
@@ -121,9 +112,7 @@
       <pubDate>Fri, 10 Mar 2017 21:48:28 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/03/10/snidel_0_8_0/</guid>
-      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Snidel 0.8 をリリースしました。2点、変更内容やその理由をご紹介します。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -136,9 +125,7 @@
 この記事は、&lt;br /&gt;
 追加した３つの機能の紹介と、Snidel を使ってもらって嬉しかった！の話になります。&lt;/p&gt;
 
-&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;個人的に、(実際のアプリケーションで必要とされるかは別として）面白い試みをした機能もありますので興味を持っていただけると嬉しいです。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -147,9 +134,7 @@
       <pubDate>Tue, 29 Sep 2015 14:24:34 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2015/09/29/snidel/</guid>
-      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;シルバーウィーク中に php のライブラリを作りました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -160,9 +145,7 @@
       <guid>https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/</guid>
       <description>&lt;p&gt;拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。&lt;/p&gt;
 
-&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -172,9 +155,7 @@
       
       <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
-リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -184,9 +165,7 @@
       
       <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
-今回はグローバル関数への依存について。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+今回はグローバル関数への依存について。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -198,9 +177,7 @@
       <description>&lt;p&gt;名前は見かけていたものの、いまいち理解していなかった。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/language.oop5.late-static-bindings.php&#34;
-target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manual&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -212,9 +189,7 @@ target=&#34;_blank&#34;&gt;PHP: 遅延静的束縛 (Late Static Bindings) - Manu
       <description>&lt;p&gt;&lt;a href=&#34;http://qiita.com/yuya_takeyama/items/858c5a0652441f54f0a8&#34;
 target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;こちらの投稿がとても興味深かったので、自分なりに書いてみました。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -225,9 +200,7 @@ target=&#34;_blank&#34;&gt;PHP で関数合成 - Qiita [キータ]&lt;/a&gt;&lt;
       <guid>https://ackintosh.github.io/blog/2013/06/11/developed-a-benchmark-tool/</guid>
       <description>&lt;p&gt;こちらの記事に影響を受けて、参考にさせていただきながら自分でも作ってみました。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;http://blog.yuyat.jp/archives/1063&#34; target=&#34;_blank&#34;&gt;PHP 用ベンチマーキングフレームワーク Joshimane というのを作った&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -241,9 +214,7 @@ flexible, community driven PHP5.3 framework.&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://fuelphp.jp/&#34;&gt;FuelPHP.JP 日本語ドキュメント&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;実際の開発では、独自のバリデーションルールがいくつか必要になります。&lt;br /&gt;
-FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -252,9 +223,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <pubDate>Mon, 29 Apr 2013 12:33:40 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2013/04/29/custom-configuration-file-for-fuelphp/</guid>
-      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;FuelPHPで、独自に作成した設定ファイルを使う方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -265,9 +234,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
       <guid>https://ackintosh.github.io/blog/2013/04/18/tcp-server-written-in-php/</guid>
       <description>&lt;p&gt;PHPでTCPサーバーを書いてみました。&lt;/p&gt;
 
-&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;pcntl関数を使うには、phpソースをbuildする時に–enable-pcntlを付けないといけません。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -280,9 +247,7 @@ FuelPHPで追加する方法のメモです。φ(｀д´)ﾒﾓﾒﾓ…&lt;/p&g
 
 &lt;p&gt;Scalaで書かれたメッセージキューサーバー。Twitterで使われてるらしいです。&lt;br /&gt;
 &lt;a href=&#34;http://samuraism.jp/diary/2011/11/20/1321770660000.html&#34; target=&#34;_blank&#34;&gt;Twitterで使っているScalaで書かれたオープンソースのメッセージキューサーバー、Kestrel
-:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+:侍ズム#samuraism&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

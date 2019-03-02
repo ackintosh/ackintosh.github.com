@@ -46,7 +46,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.54.0" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2014/02/01/is-binary-in-php/" />
 
@@ -97,7 +97,7 @@
 
 
 
-<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
   <nav class="main-nav overlay clearfix">
 
   <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
@@ -134,8 +134,6 @@
       <p>拡張子での判定は、除外対象のメンテが必要になったりするので今回はボツです。</p>
 
 <p>最良の方法か分かりませんが、ファイル内にnull文字が含まれる場合にバイナリファイルとして判定するようにしました。</p>
-
-<p></p>
 
 <pre><code class="language-php">&lt;?php
 $result = preg_match('#\0#', file_get_contents($file));

@@ -19,9 +19,7 @@
       
       <guid>https://ackintosh.github.io/blog/2012/08/28/using-the-unicorn-in-heroku/</guid>
       <description>&lt;p&gt;最近PHPネタばかりだったので、頑張ってRailsについて書いてみます。&lt;br /&gt;
-RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+RailsではデフォルトでWEBrickが起動しますが、低速なので本番運用には向かないとされています。&lt;/p&gt;</description>
     </item>
     
   </channel>

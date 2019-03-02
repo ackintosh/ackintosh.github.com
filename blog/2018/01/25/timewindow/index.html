@@ -44,7 +44,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.54.0" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2018/01/25/timewindow/" />
 
@@ -95,7 +95,7 @@
 
 
 
-<header class="main-header post-head" style="background-image: url(/assets/images/background.jpeg)">
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
   <nav class="main-nav overlay clearfix">
 
   <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
@@ -130,8 +130,6 @@
       <h2 id="timewindowとは">TimeWindowとは</h2>
 
 <p>ググってみた感じだと(ソフトウェア開発以外も含めた)文脈によっていくつか微妙に異なる意味がありそうなのだが、当記事では &ldquo;ある測定の対象となる時間枠&rdquo; の意味で扱う。例えば、システムで発生したイベントを集めて加工を行うようなストリーム処理において、どこからどこまでのイベントを対象とするかを決定するのがTimeWindowである。</p>
-
-<p></p>
 
 <p>TimeWindowが処理対象とする枠を決めるためのロジックにはいくつか種類があるので以下にまとめる。できるだけ一般的と思われるものをまとめたが、個別のサービスやプロダクトによって違いがあるかもしれないのでご了承いただきたい。<br />
 (<a href="https://docs.microsoft.com/ja-jp/azure/stream-analytics/stream-analytics-window-functions#tumbling-window">Stream Analytics ウィンドウ関数の概要 | Microsoft Docs</a>にある画像がわかりやすかったので引用させていただいている)</p>

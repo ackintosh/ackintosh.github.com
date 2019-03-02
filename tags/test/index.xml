@@ -19,9 +19,7 @@
       
       <guid>https://ackintosh.github.io/blog/2013/11/24/toumi/</guid>
       <description>&lt;p&gt;クラスや関数の宣言と諸々の処理がごちゃ混ぜに書かれてるスクリプトをメンテナンスする時、&lt;br /&gt;
-リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+リファクタリングするためにテストを書きたいけど、テストを書くためにはリファクタリングしないと…(＊_＊) という状況ありませんか？&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -31,9 +29,7 @@
       
       <guid>https://ackintosh.github.io/blog/2013/10/18/php-testability/</guid>
       <description>&lt;p&gt;テストしにくい状況って色々な原因があると思いますが、&lt;br /&gt;
-今回はグローバル関数への依存について。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+今回はグローバル関数への依存について。&lt;/p&gt;</description>
     </item>
     
   </channel>
