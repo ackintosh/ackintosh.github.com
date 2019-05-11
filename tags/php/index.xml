@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Php on 暁</title>
+    <title>php on 暁</title>
     <link>https://ackintosh.github.io/tags/php/</link>
-    <description>Recent content in Php on 暁</description>
+    <description>Recent content in php on 暁</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
@@ -70,7 +70,7 @@
       <pubDate>Wed, 16 Aug 2017 14:34:19 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/08/16/avoid_memory_limit/</guid>
-      <description>サーバー set_time_limit(0); echo str_repeat(&#39;.&#39;, 1024 * 1024 * 256);  file_get_contents :ng: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; file_get_contents($url); register_shutdown_function(function () { echo sprintf(&amp;quot;\nmemory_get_peak_usage: %dMB\n&amp;quot;, memory_get_peak_usage() / 1024 / 1024); }); // memory_limit: 128M // PHP Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 130023456 bytes) in /Users/akihito1/hoge.php on line 7  ストリームを使う :ok: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; $ch = curl_init($url); $stream = fopen(&#39;php://temp&#39;, &#39;w+&#39;); curl_setopt_array($ch, [ CURLOPT_FILE =&amp;gt; $stream, ]); curl_exec($ch); curl_close($ch); rewind($stream); while (!</description>
+      <description></description>
     </item>
     
     <item>
@@ -100,10 +100,7 @@
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
-      <description>Swagger Codegen とは swagger-api/swagger-codegen
-OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。
-Mac なら Homebrew でさくっと試せる。
-$ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . $ tree . └── SwaggerClient-php ├── README.md ├── autoload.php ├── composer.json ├── docs │ ├── Api │ │ ├── PetApi.md │ │ ├── StoreApi.md │ │ └── UserApi.md │ └── Model │ ├── ApiResponse.md │ ├── Category.md │ ├── Order.md │ ├── Pet.md │ ├── Tag.</description>
+      <description></description>
     </item>
     
     <item>

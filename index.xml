@@ -67,7 +67,7 @@
       
       <guid>https://ackintosh.github.io/about/</guid>
       <description>中野 暁人 (Akihito Nakano)
- Web application developer Core Team &amp;amp; founding member of OpenAPI Generator My Patreon page 😊 : Akihito Nakano is creating Open-Source Software | Patreon  Career history  2018.12 アスクル株式会社に入社. 個人向けECサイトの開発に従事. 2016.5 GMOペパボ株式会社に入社. EC支援サービスの開発に従事. 2013.10 EMTG株式会社に入社. ファンサイト/ファンクラブやECサイトの開発に従事. 2010.7 プログラミングに興味を持ち株式会社ユアシストに入社. EC-CUBE, WordPress等でのサイト制作に従事. 2007.4 IT技術者派遣企業に入社. PCセットアップ等の軽作業に従事しながらCCNAやLPIC等の資格を取得. 2007.3 音楽系専門学校(4年制)卒業.  Products  Ganesha: PHP implementation of Circuit Breaker pattern. Snidel: A multi-process container. It looks like multi-thread-ish. Toumi: A library for including legacy php file.</description>
+ Web application developer Core Team &amp;amp; founding member of OpenAPI Generator Open Source Software Creator : github.com/ackintosh My Patreon page 😊 : Akihito Nakano is creating Open-Source Software | Patreon  Career history  2018.12 アスクル株式会社に入社. 個人向けECサイトの開発に従事. 2016.5 GMOペパボ株式会社に入社. EC支援サービスの開発に従事. 2013.10 EMTG株式会社に入社. ファンサイト/ファンクラブやECサイトの開発に従事. 2010.7 プログラミングに興味を持ち株式会社ユアシストに入社. EC-CUBE, WordPress等でのサイト制作に従事. 2007.4 IT技術者派遣企業に入社. PCセットアップ等の軽作業に従事しながらCCNAやLPIC等の資格を取得. 2007.3 音楽系専門学校(4年制)卒業.  Products  Ganesha: PHP implementation of Circuit Breaker pattern. Snidel: A multi-process container.</description>
     </item>
     
     <item>
@@ -233,7 +233,7 @@
       <pubDate>Wed, 16 Aug 2017 14:34:19 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/08/16/avoid_memory_limit/</guid>
-      <description>サーバー set_time_limit(0); echo str_repeat(&#39;.&#39;, 1024 * 1024 * 256);  file_get_contents :ng: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; file_get_contents($url); register_shutdown_function(function () { echo sprintf(&amp;quot;\nmemory_get_peak_usage: %dMB\n&amp;quot;, memory_get_peak_usage() / 1024 / 1024); }); // memory_limit: 128M // PHP Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 130023456 bytes) in /Users/akihito1/hoge.php on line 7  ストリームを使う :ok: echo &#39;memory_limit: &#39; . ini_get(&#39;memory_limit&#39;) . &amp;quot;\n&amp;quot;; $ch = curl_init($url); $stream = fopen(&#39;php://temp&#39;, &#39;w+&#39;); curl_setopt_array($ch, [ CURLOPT_FILE =&amp;gt; $stream, ]); curl_exec($ch); curl_close($ch); rewind($stream); while (!</description>
+      <description></description>
     </item>
     
     <item>
@@ -333,10 +333,7 @@
       <pubDate>Sun, 09 Apr 2017 16:33:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2017/04/09/swagger-codegen-with-ganesha/</guid>
-      <description>Swagger Codegen とは swagger-api/swagger-codegen
-OpenAPI / Swagger に沿った定義から色々な言語のクライアントやテスト、スタブを生成できるツール。
-Mac なら Homebrew でさくっと試せる。
-$ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swagger.io/v2/swagger.json -l php -o . $ tree . └── SwaggerClient-php ├── README.md ├── autoload.php ├── composer.json ├── docs │ ├── Api │ │ ├── PetApi.md │ │ ├── StoreApi.md │ │ └── UserApi.md │ └── Model │ ├── ApiResponse.md │ ├── Category.md │ ├── Order.md │ ├── Pet.md │ ├── Tag.</description>
+      <description></description>
     </item>
     
     <item>
@@ -445,9 +442,7 @@ $ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swa
       <pubDate>Fri, 23 Dec 2016 18:07:13 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/12/23/2016-12-23/</guid>
-      <description>学生時代にとてもお世話になってたマルチエフェクター。
-使う機会がなくなってしまったので手放した。
-最後にキレイに掃除して写真とった。</description>
+      <description></description>
     </item>
     
     <item>
@@ -785,21 +780,7 @@ $ brew install swagger-codegen $ swagger-codegen generate -i http://petstore.swa
       <pubDate>Sat, 18 Jun 2016 21:07:16 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2016/06/18/pepabo/</guid>
-      <description>転職 GMOペパボという会社に転職しました。
-5&amp;frasl;16 入社なので１ヶ月くらい経ったところです。
-きっかけは ペパボテックカンファレンスEC編 への参加で、
-初めは &amp;ldquo;他社のECはどんなことやってるのかなぁ&amp;rdquo; と気になってフラっと行ってみたのですが
-発表の内容に刺激をうけてペパボに興味を持って、そこから話が進んでいき運良く入社できた感じです。
-環境 テックカンファレンスに参加した時の感想でも書いてるのですが、 サービスの改善に対するモチベーションが高く、改善のための技術的なチャレンジも積極的に取り組んでいます。
-7&amp;frasl;2(土), 3(日)に開催される YAPC::ASIA HACHIOJI のトークでGMOペパボのエンジニアが５人(!!)採択されたようですので、諸々普段の取り組みがが披露されるようです。とても楽しみです。
-あとはレベル高いひとたちばかりです。
-前職では中野は技術的に尖ってる方の人、みたいに見られることがあって、少なからずその状況にあぐらをかいてる的な気持ちはあったと思う(そうならないように努めていましたが)ので大変良い刺激をいただいています。
-「オレ、大丈夫かな（やっていけるかな）」という不安がよぎることもありましたが、今は不安になってる暇があったら努力しようという気持ちです。日々、積み重ねていきます。
-それが目的で転職したんですから。恵まれた環境に感謝しつつ、価値を出していかないと。
-他人と自分を比べるな。自分より凄い人に劣等感を覚え嫉妬する行為も自分より劣っている人を見下し安心する行為も君にとってはマイナスの影響しか持たない。比べるなら過去の自分だ。過去の自分に打ち勝ち続ける事で人は成長するし、努力によって確実に倒し超えていけるのは過去の自分だけだ。
-&amp;mdash; Testosterone (@badassceo) 2016年6月18日 
-近況  カラーミーショップのチームに所属して頑張っています
- 「いるだけで成長できる環境」にあるとおり、成長できるチャンスがたくさんあるので活用していく次第 マスタリングTCP/IP読書会、プログラミング言語Go読書会に参加中 PHPBLTをペパボ主催でやります。LTします！ 渋谷のランチは結構高いので破産しないようにワンコインランチを発掘しようと思っています </description>
+      <description></description>
     </item>
     
     <item>
