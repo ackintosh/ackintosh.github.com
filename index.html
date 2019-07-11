@@ -40,7 +40,7 @@
         <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
       
     
-    <meta name="generator" content="Hugo 0.55.4" />
+    <meta name="generator" content="Hugo 0.55.6" />
 
     <link rel="canonical" href="https://ackintosh.github.io/" />
 
@@ -136,6 +136,27 @@
 </nav>
 
     </div>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://ackintosh.github.io/blog/2019/07/11/uint256/">符号なし256bit整数を言語がサポートしていない場合の対応</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p><p>Ethereumのスマートコントラクト記述に使われる言語 Solidity では <code>uint256</code> をサポートしていてこれがよく使われているが、一方でチェーン側を実装している言語が必ずしもそれに相当する型をネイティブでサポートしているわけではない。</p>
+
+<p>最近 <a href="https://github.com/ackintosh/plasma-cash">勉強がてら Plasma Cash の実装</a>に手をつけだして、子チェーンを Rust で書き始めたのだけど、まさに Rust は <code>uint128</code> までなのでこの壁にぶつかってしまった。とはいえ実際に Rust で実装して動いているプロジェクトはあるので、どんな実装をして <code>uint256</code> に対応しているのか、Ethereumに関連するクレートを調べてみた。</p> <a class="read-more" href="https://ackintosh.github.io/blog/2019/07/11/uint256/">more&nbsp;&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        
+        
+        
+        <time class="post-date" datetime="2019-07-11T09:34:51&#43;09:00">
+            11 Jul 2019
+        </time>
+    </footer>
+</article>
 
     
         
@@ -594,25 +615,6 @@
         
         <time class="post-date" datetime="2017-07-30T19:59:17&#43;09:00">
             30 Jul 2017
-        </time>
-    </footer>
-</article>
-
-    
-        
-<article class="post post">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://ackintosh.github.io/blog/2017/07/23/github-log-fl-es-kb/">GitHub の Issue 消化状況を Kibana で可視化する</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p><p>仕事で主にお問い合わせ対応 Issue の起票・クローズ件数や、クローズまでにかかった時間を可視化したかったので素振り。</p> <a class="read-more" href="https://ackintosh.github.io/blog/2017/07/23/github-log-fl-es-kb/">more&nbsp;&raquo;</a></p>
-    </section>
-    <footer class="post-meta">
-        
-        
-        
-        <time class="post-date" datetime="2017-07-23T02:56:08&#43;09:00">
-            23 Jul 2017
         </time>
     </footer>
 </article>

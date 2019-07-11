@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" 符号なし256bit整数を言語がサポートしていない場合の対応 -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2019/07/11/uint256/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2019-07-11T09:34:51&#43;09:00" />
+
+    
+    
+
+  <title>
+     符号なし256bit整数を言語がサポートしていない場合の対応 -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2019/07/11/uint256/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">符号なし256bit整数を言語がサポートしていない場合の対応</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2019-07-11T09:34:51&#43;09:00">
+            Jul 11, 2019
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>Ethereumのスマートコントラクト記述に使われる言語 Solidity では <code>uint256</code> をサポートしていてこれがよく使われているが、一方でチェーン側を実装している言語が必ずしもそれに相当する型をネイティブでサポートしているわけではない。</p>
+
+<p>最近 <a href="https://github.com/ackintosh/plasma-cash">勉強がてら Plasma Cash の実装</a>に手をつけだして、子チェーンを Rust で書き始めたのだけど、まさに Rust は <code>uint128</code> までなのでこの壁にぶつかってしまった。とはいえ実際に Rust で実装して動いているプロジェクトはあるので、どんな実装をして <code>uint256</code> に対応しているのか、Ethereumに関連するクレートを調べてみた。</p>
+
+<h2 id="paritytech-parity-common">paritytech/parity-common</h2>
+
+<p>parity-common配下の primitive-types クレートに <code>U256</code> 構造体が定義されている。</p>
+
+<p><a href="https://github.com/paritytech/parity-common/blob/ed95e273199dd7b63fe113eb76b4dc0f927270df/primitive-types/src/lib.rs#L51-L54">https://github.com/paritytech/parity-common/blob/ed95e273199dd7b63fe113eb76b4dc0f927270df/primitive-types/src/lib.rs#L51-L54</a></p>
+
+<pre><code class="language-rust"> construct_uint! {
+ 	/// 256-bit unsigned integer.
+ 	pub struct U256(4);
+ }
+</code></pre>
+
+<p>なにやら <code>construct_uint</code> というマクロで構造体の定義を組み立てていそうなので、マクロの中身を見てみる。</p>
+
+<p><a href="https://github.com/paritytech/parity-common/blob/8ebc5c85c2ba606e40525853829c5047499cc5fb/uint/src/uint.rs#L338">parity-common/uint/src/uint.rs#L338</a></p>
+
+<pre><code class="language-rust">#[macro_export]
+macro_rules! construct_uint {
+</code></pre>
+
+<p>最初に見たの構造体の宣言は<a href="https://github.com/paritytech/parity-common/blob/8ebc5c85c2ba606e40525853829c5047499cc5fb/uint/src/uint.rs#L343">下記</a>にマッチして展開されていると思われる。</p>
+
+<pre><code class="language-rust">( $(#[$attr:meta])* $visibility:vis struct $name:ident ( $n_words:tt ); ) =&gt; {
+</code></pre>
+
+<p>構造体の定義に該当するマクロの記述は<a href="https://github.com/paritytech/parity-common/blob/8ebc5c85c2ba606e40525853829c5047499cc5fb/uint/src/uint.rs#L425">ココ</a>。</p>
+
+<pre><code class="language-rust">$visibility struct $name (pub [u64; $n_words]);
+</code></pre>
+
+<p>なので、最初に見た <code>pub struct U256(4)</code> は <code>pub struct U256(pub [u64; 4])</code> というタプル構造体の宣言に展開される。</p>
+
+<p>このタプル構造体の型定義 <code>[u64; 4]</code> は、マクロの定義では <code>n_words</code> という名前が付けられているので、これを追っていくことでどんな実装になっているのかが見えてくる。<br />
+勘がいい人は型定義からすでに察しているかもだけど、&rdquo;<code>uint256</code>をどうやって実装しているのか&rdquo; についての結論は <strong>「符号なし64bit整数を4つ使って表現している」</strong> になる。</p>
+
+<p>例えば、<a href="https://github.com/paritytech/parity-common/blob/8ebc5c85c2ba606e40525853829c5047499cc5fb/uint/src/uint.rs#L347-L352"><code>uint128</code> から <code>U256</code> を作る関連関数の定義</a>を見てみると、</p>
+
+<pre><code class="language-rust">fn from(value: u128) -&gt; $name {
+	let mut ret = [0; $n_words];
+	ret[0] = value as u64;
+	ret[1] = (value &gt;&gt; 64) as u64;
+	$name(ret)
+}
+</code></pre>
+
+<p>引数で受け取った <code>u128</code> の数値を、64bit 2つに分けて、予め用意しておいた4つぶんの配列に桁の小さい方から入れている。（リトルエンディアン）</p>
+
+<p>というわけで謎は解けました。スッキリ。</p>
+
+<h2 id="rust-bitcoin">rust-bitcoin</h2>
+
+<p>ちょっと気になったのでBitcoin関係のクレートも見てみた。</p>
+
+<p><a href="https://github.com/rust-bitcoin/rust-bitcoin/blob/783948446c626ce8b61313f93c3f1c980f475624/src/util/uint.rs">https://github.com/rust-bitcoin/rust-bitcoin/blob/783948446c626ce8b61313f93c3f1c980f475624/src/util/uint.rs</a></p>
+
+<pre><code class="language-rust"> macro_rules! construct_uint {
+     ($name:ident, $n_words:expr) =&gt; (
+         /// Little-endian large integer type
+         #[repr(C)]
+         pub struct $name(pub [u64; $n_words]);
+</code></pre>
+
+<p>parity-commonと結構似ていて、符号なし64bit整数を4つ使って表現している。（Rustの練度が低いので細かな違いを読み解くほどの余裕が無かった）</p>
+
+<h2 id="go-ethereum">go-ethereum</h2>
+
+<p>言語が違う(Go)けど、一応有名どころをチェックしておこうということでGethの実装を見たところ、32bit で表現しているようだ。（Goも <code>uint256</code> をサポートしていない）</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/72029f0f88f6263c74efc03eed7f09dd2c249d6a/accounts/abi/numbers.go#L42-L44">https://github.com/ethereum/go-ethereum/blob/72029f0f88f6263c74efc03eed7f09dd2c249d6a/accounts/abi/numbers.go#L42-L44</a></p>
+
+<pre><code class="language-go"> func U256(n *big.Int) []byte {
+ 	return math.PaddedBigBytes(math.U256(n), 32)
+ }
+</code></pre>
+
+<p>それと、こちらはビッグエンディアンで扱っているという違いもあった。</p>
+
+<pre><code class="language-go"> // ReadBits encodes the absolute value of bigint as big-endian bytes. Callers must ensure
+ // that buf has enough space. If buf is too short the result will be incomplete.
+ func ReadBits(bigint *big.Int, buf []byte) {
+ 	i := len(buf)
+ 	for _, d := range bigint.Bits() {
+ 		for j := 0; j &lt; wordBytes &amp;&amp; i &gt; 0; j++ {
+ 			i--
+ 			buf[i] = byte(d)
+ 			d &gt;&gt;= 8
+ 		}
+ 	}
+ }
+</code></pre>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%e7%ac%a6%e5%8f%b7%e3%81%aa%e3%81%97256bit%e6%95%b4%e6%95%b0%e3%82%92%e8%a8%80%e8%aa%9e%e3%81%8c%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%81%97%e3%81%a6%e3%81%84%e3%81%aa%e3%81%84%e5%a0%b4%e5%90%88%e3%81%ae%e5%af%be%e5%bf%9c&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f07%2f11%2fuint256%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f07%2f11%2fuint256%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f07%2f11%2fuint256%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

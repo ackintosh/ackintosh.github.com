@@ -46,7 +46,7 @@
       
       
     
-    <meta name="generator" content="Hugo 0.55.4" />
+    <meta name="generator" content="Hugo 0.55.6" />
 
     <link rel="canonical" href="https://ackintosh.github.io/blog/2017/10/16/php-memcache-memcached/" />
 
@@ -174,16 +174,18 @@ $m = new Memcache();
 $m-&gt;addServer('127.0.0.1', 11211);
 $m-&gt;set('key_string', 'value_string');
 $m-&gt;set('key_bool', true);
-</code></pre></li>
+</code></pre>
 
-<li><p>get.php</p>
-
-<pre><code class="language-php">&lt;?php
+<ul>
+<li>get.php
+<code>php
+&lt;?php
 $m = new Memcache();
 $m-&gt;addServer('127.0.0.1', 11211);
 var_dump($m-&gt;get('key_string'));
 var_dump($m-&gt;get('key_bool'));
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>結果</p>
 
@@ -206,16 +208,18 @@ $m = new Memcached();
 $m-&gt;addServer('127.0.0.1', 11211);
 $m-&gt;set('key_string', 'value_string');
 $m-&gt;set('key_bool', true);
-</code></pre></li>
+</code></pre>
 
-<li><p>get.php</p>
-
-<pre><code class="language-php">&lt;?php
+<ul>
+<li>get.php
+<code>php
+&lt;?php
 $m = new Memcached();
 $m-&gt;addServer('127.0.0.1', 11211);
 var_dump($m-&gt;get('key_string'));
 var_dump($m-&gt;get('key_bool'));
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>結果</p>
 
@@ -242,16 +246,18 @@ $m = new Memcached();
 $m-&gt;addServer('127.0.0.1', 11211);
 $m-&gt;set('key_string', 'value_string');
 $m-&gt;set('key_bool', true);
-</code></pre></li>
+</code></pre>
 
-<li><p>get.php</p>
-
-<pre><code class="language-php">&lt;?php
+<ul>
+<li>get.php
+<code>php
+&lt;?php
 $m = new Memcache();
 $m-&gt;addServer('127.0.0.1', 11211);
 var_dump($m-&gt;get('key_string'));
 var_dump($m-&gt;get('key_bool'));
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>結果</p>
 
@@ -276,18 +282,20 @@ $m-&gt;set('key_string', 'value_string');
 $m-&gt;set('key_bool', true);
 $m-&gt;set('key_int', 1);
 $m-&gt;set('key_array', array('value_array'));
-</code></pre></li>
+</code></pre>
 
-<li><p>get.php</p>
-
-<pre><code class="language-php">&lt;?php
+<ul>
+<li>get.php
+<code>php
+&lt;?php
 $m = new Memcache();
 $m-&gt;addServer('127.0.0.1', 11211);
 var_dump($m-&gt;get('key_string'));
 var_dump($m-&gt;get('key_bool'));
 var_dump($m-&gt;get('key_int'));
 var_dump($m-&gt;get('key_array'));
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>結果</p>
 
@@ -310,15 +318,17 @@ bool(false)
 $m = new Memcached();
 $m-&gt;addServer('127.0.0.1', 11211);
 $m-&gt;set('key_array', array('value_array'));
-</code></pre></li>
+</code></pre>
 
-<li><p>get.php</p>
-
-<pre><code class="language-php">&lt;?php
+<ul>
+<li>get.php
+<code>php
+&lt;?php
 $m = new Memcache();
 $m-&gt;addServer('127.0.0.1', 11211);
 var_dump($m-&gt;get('key_array'));
-</code></pre></li>
+</code></li>
+</ul></li>
 
 <li><p>結果</p>
 

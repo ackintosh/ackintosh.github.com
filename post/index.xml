@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 08 Dec 2018 13:42:50 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 09:34:51 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>符号なし256bit整数を言語がサポートしていない場合の対応</title>
+      <link>https://ackintosh.github.io/blog/2019/07/11/uint256/</link>
+      <pubDate>Thu, 11 Jul 2019 09:34:51 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2019/07/11/uint256/</guid>
+      <description>&lt;p&gt;Ethereumのスマートコントラクト記述に使われる言語 Solidity では &lt;code&gt;uint256&lt;/code&gt; をサポートしていてこれがよく使われているが、一方でチェーン側を実装している言語が必ずしもそれに相当する型をネイティブでサポートしているわけではない。&lt;/p&gt;
+
+&lt;p&gt;最近 &lt;a href=&#34;https://github.com/ackintosh/plasma-cash&#34;&gt;勉強がてら Plasma Cash の実装&lt;/a&gt;に手をつけだして、子チェーンを Rust で書き始めたのだけど、まさに Rust は &lt;code&gt;uint128&lt;/code&gt; までなのでこの壁にぶつかってしまった。とはいえ実際に Rust で実装して動いているプロジェクトはあるので、どんな実装をして &lt;code&gt;uint256&lt;/code&gt; に対応しているのか、Ethereumに関連するクレートを調べてみた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Java8で開発しながら、Java9で非推奨になった構文が使われているかチェックする</title>
