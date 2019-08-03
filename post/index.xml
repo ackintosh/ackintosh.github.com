@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 11 Jul 2019 09:34:51 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 02 Aug 2019 21:39:29 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ブロックチェーン関連プロダクトのヘルスチェックの実装を眺める</title>
+      <link>https://ackintosh.github.io/blog/2019/08/02/health_check/</link>
+      <pubDate>Fri, 02 Aug 2019 21:39:29 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2019/08/02/health_check/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://peaks.cc/books/cryptocurrency&#34;&gt;ゼロから創る暗号通貨&lt;/a&gt;という、PythonでP2Pネットワークの部分から実装を進めていって最終的にBitcoin的なものを創るというめっちゃ面白い本があって、最近これを &lt;a href=&#34;https://github.com/ackintosh/blue&#34;&gt;Rustで実装&lt;/a&gt; している。&lt;/p&gt;
+
+&lt;p&gt;本の序盤、P2Pネットワークの基盤を作っていくところで、接続してるPeerのヘルスチェックを実装する。といってもこの本ではシンプルにTCPのレイヤーで繋がるかどうか確認するだけなんだけど、なんとなくこの部分を実際のプロダクトはどんな感じに実装しているのか（何かスゴイことやってるのか？）気になってコードを眺めてみたのでブログに書いておく。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>符号なし256bit整数を言語がサポートしていない場合の対応</title>

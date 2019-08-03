@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" ブロックチェーン関連プロダクトのヘルスチェックの実装を眺める -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2019/08/02/health_check/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2019-08-02T21:39:29&#43;09:00" />
+
+    
+    
+
+  <title>
+     ブロックチェーン関連プロダクトのヘルスチェックの実装を眺める -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2019/08/02/health_check/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">ブロックチェーン関連プロダクトのヘルスチェックの実装を眺める</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2019-08-02T21:39:29&#43;09:00">
+            Aug 2, 2019
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://peaks.cc/books/cryptocurrency">ゼロから創る暗号通貨</a>という、PythonでP2Pネットワークの部分から実装を進めていって最終的にBitcoin的なものを創るというめっちゃ面白い本があって、最近これを <a href="https://github.com/ackintosh/blue">Rustで実装</a> している。</p>
+
+<p>本の序盤、P2Pネットワークの基盤を作っていくところで、接続してるPeerのヘルスチェックを実装する。といってもこの本ではシンプルにTCPのレイヤーで繋がるかどうか確認するだけなんだけど、なんとなくこの部分を実際のプロダクトはどんな感じに実装しているのか（何かスゴイことやってるのか？）気になってコードを眺めてみたのでブログに書いておく。</p>
+
+<p>ヘルスチェック自体はP2Pネットワークやブロックチェーンに限ったものではないけど、上記の経緯から、ブロックチェーン関連のプロダクトを調べた。</p>
+
+<h2 id="ヘルスチェックの種類">ヘルスチェックの種類</h2>
+
+<p>まずはヘルスチェックについてググったところ下記がわかりやすかった。🙏 感謝</p>
+
+<p><a href="https://terasolunaorg.github.io/guideline/5.5.1.RELEASE/ja/ArchitectureInDetail/WebApplicationDetail/HealthCheck.html#id4">4.14. ヘルスチェック — TERASOLUNA Server Framework for Java (5.x) Development Guideline 5.5.1.RELEASE documentation</a></p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/health-check/healthcheck.png" alt="HealthCheck" /></p>
+
+<p>OSI参照モデルのL3, L4, L7で、どのレイヤーのチェックを行うかで種類が分かれる。例えばHTTP(L7)だったらステータスコードやレスポンスボディをチェックする。ふむふむ。</p>
+
+<h2 id="go-ethereum">go-ethereum</h2>
+
+<p><a href="https://github.com/ethereum/go-ethereum">ethereum/go-ethereum: Official Go implementation of the Ethereum protocol</a></p>
+
+<h4 id="ping送信">Ping送信</h4>
+
+<p>ヘルスチェックのPing送信は下記をgoroutineで実行している。</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/a1f8549262567ddacac3d4180f8a6ca0826036a9/p2p/peer.go#L249-L265">p2p/peer.go#L249-L265</a></p>
+
+<pre><code class="language-go">func (p *Peer) pingLoop() {
+	ping := time.NewTimer(pingInterval)
+	defer p.wg.Done()
+	defer ping.Stop()
+	for {
+		select {
+		case &lt;-ping.C:
+			if err := SendItems(p.rw, pingMsg); err != nil {
+				p.protoErr &lt;- err
+				return
+			}
+			ping.Reset(pingInterval)
+		case &lt;-p.closed:
+			return
+		}
+	}
+}
+</code></pre>
+
+<p>メッセージコードとして <code>0x02</code> をセットしているだけで、それ以外は何も送っていない。</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/a1f8549262567ddacac3d4180f8a6ca0826036a9/p2p/peer.go#L54">p2p/peer.go#L54</a></p>
+
+<pre><code class="language-go">const (
+	// devp2p message codes
+	handshakeMsg = 0x00
+	discMsg      = 0x01
+	pingMsg      = 0x02
+	pongMsg      = 0x03
+)
+</code></pre>
+
+<h4 id="ping受信-pong返信">Ping受信 -&gt; Pong返信</h4>
+
+<p>受信側は下記をgoroutineで実行している。</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/a1f8549262567ddacac3d4180f8a6ca0826036a9/p2p/peer.go#L267-L281">p2p/peer.go#L267-L281</a></p>
+
+<pre><code class="language-go">func (p *Peer) readLoop(errc chan&lt;- error) {
+	defer p.wg.Done()
+	for {
+		msg, err := p.rw.ReadMsg()
+		if err != nil {
+			errc &lt;- err
+			return
+		}
+		msg.ReceivedAt = time.Now()
+		if err = p.handle(msg); err != nil {
+			errc &lt;- err
+			return
+		}
+	}
+}
+</code></pre>
+
+<p>Pingを受ける側のコード。受信したメッセージコードで判断して、<code>pongMsg(0x03)</code> のメッセージコードでレスポンスを返している。</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/a1f8549262567ddacac3d4180f8a6ca0826036a9/p2p/peer.go#L283-L287">p2p/peer.go#L283-L287</a></p>
+
+<pre><code class="language-go">func (p *Peer) handle(msg Msg) error {
+	switch {
+	case msg.Code == pingMsg:
+		msg.Discard()
+		go SendItems(p.rw, pongMsg)
+</code></pre>
+
+<h4 id="pong受信">Pong受信</h4>
+
+<p>ふたたびPingを送信する方のコードに戻る。こちらはレスポンス(Pong)のメッセージコードは見ていなくて、単純にPingが成功したかどうかだけの判断。</p>
+
+<pre><code class="language-go">			if err := SendItems(p.rw, pingMsg); err != nil {
+				p.protoErr &lt;- err
+</code></pre>
+
+<p>Pingに失敗したら、そのPeerとの接続を閉じる。</p>
+
+<p><a href="https://github.com/ethereum/go-ethereum/blob/a1f8549262567ddacac3d4180f8a6ca0826036a9/p2p/peer.go#L234-L236">p2p/peer.go#L234-L236</a></p>
+
+<pre><code class="language-go">		case err = &lt;-p.protoErr:
+			reason = discReasonForError(err)
+			break loop
+	// ...
+	close(p.closed)
+	p.rw.close(reason)
+	// ...
+</code></pre>
+
+<h4 id="go-ethereumはl4でのチェック">go-ethereumはL4でのチェック</h4>
+
+<p>上記の通りざっとコードを眺めた感じではgo-ethereumのヘルスチェックはペイロードの中身まではチェックしていない。なので先述のヘルスチェックの種類でいうと <code>(2)</code> のL4のチェックに当てはまる。<br />
+（命名に &ldquo;Ping&rdquo; を使っているが、<a href="http://linuxjm.osdn.jp/html/netkit/man8/ping.8.html">pingコマンド</a>のようにICMP(L3)でやりとりしてるわけではない）</p>
+
+<h2 id="libp2p">libp2p</h2>
+
+<p><a href="https://libp2p.io/">libp2p - https://libp2p.io/</a></p>
+
+<p>P2Pネットワークアプリケーションの実装に必要なプロトコルや仕様をオープンに議論しながら決めていこうというプロジェクト。当初はP2Pの分散ファイルシステムである <a href="https://ipfs.io/">IPFS</a> の一部として始まったが、現在では特定のプロダクトに依存しない形になっている。</p>
+
+<p><a href="https://github.com/libp2p/specs">https://github.com/libp2p/specs</a></p>
+
+<p>仕様は上記リポジトリで管理していて、<a href="https://github.com/libp2p">いくつかの言語で仕様の実装が進んでいる</a>。JS, Node, Goあたりが一番進んでいて、その他の言語も絶賛実装中という雰囲気。</p>
+
+<h2 id="rust-libp2p">rust-libp2p</h2>
+
+<p>libp2pのRust実装であるrust-libp2pのコードを眺めてみる。</p>
+
+<p><a href="https://github.com/libp2p/rust-libp2p">libp2p/rust-libp2p: The Rust Implementation of libp2p networking stack.</a></p>
+
+<h3 id="ping送信-1">Ping送信</h3>
+
+<p><a href="https://rust-num.github.io/num/rand/fn.thread_rng.html">rand::thread_rng</a>で生成した32byteのランダムなデータを送信している。</p>
+
+<p><a href="https://github.com/libp2p/rust-libp2p/blob/ce4ca3cc75b68780d980f92471e616b2c2e311e4/protocols/ping/src/protocol.rs#L88-L107">protocols/ping/src/protocol.rs#L88-L107</a></p>
+
+<pre><code class="language-rust">impl&lt;TSocket&gt; OutboundUpgrade&lt;TSocket&gt; for Ping
+where
+    TSocket: AsyncRead + AsyncWrite,
+{
+    type Output = Duration;
+    type Error = io::Error;
+    type Future = PingDialer&lt;Negotiated&lt;TSocket&gt;&gt;;
+
+    #[inline]
+    fn upgrade_outbound(self, socket: Negotiated&lt;TSocket&gt;, _: Self::Info) -&gt; Self::Future {
+        let payload: [u8; 32] = thread_rng().sample(distributions::Standard);
+        debug!(&quot;Preparing ping payload {:?}&quot;, payload);
+
+        PingDialer {
+            state: PingDialerState::Write {
+                inner: nio::write_all(socket, payload),
+            },
+        }
+    }
+}
+</code></pre>
+
+<h6 id="補足-upgrade-について">補足: &ldquo;Upgrade&rdquo;について</h6>
+
+<p>libp2pでは、プロトコルで定めた様々な機能を層状に積み重ねていくような概念を持っていて、そのように積み重ねる様を指して、コネクションを &ldquo;upgradeする&rdquo; と呼んでいる。</p>
+
+<p><a href="https://github.com/libp2p/specs/blob/master/connections/README.md#upgrading-connections">https://github.com/libp2p/specs/blob/master/connections/README.md#upgrading-connections</a></p>
+
+<p>当記事で抜粋しているrust-libp2pのコードのトレイトやメソッドの命名に &ldquo;Upgrade&rdquo; が入っているのは、そのようなlibp2pの思想が命名に反映されているため。</p>
+
+<h3 id="ping受信-pong返信-1">Ping受信 -&gt; Pong返信</h3>
+
+<p>Pingを受信した側は、<a href="https://github.com/libp2p/rust-libp2p/blob/ce4ca3cc75b68780d980f92471e616b2c2e311e4/protocols/ping/src/protocol.rs#L81">受け取った32byteのデータをそのまま返している</a>。</p>
+
+<p><a href="https://github.com/libp2p/rust-libp2p/blob/ce4ca3cc75b68780d980f92471e616b2c2e311e4/protocols/ping/src/protocol.rs#L62-L86">protocols/ping/src/protocol.rs#L62-L86</a></p>
+
+<pre><code class="language-rust">impl&lt;TSocket&gt; InboundUpgrade&lt;TSocket&gt; for Ping
+where
+    TSocket: AsyncRead + AsyncWrite,
+{
+    type Output = ();
+    type Error = io::Error;
+    type Future = future::Map&lt;
+        future::AndThen&lt;
+        future::AndThen&lt;
+        future::AndThen&lt;
+            RecvPing&lt;TSocket&gt;,
+            SendPong&lt;TSocket&gt;, fn((Negotiated&lt;TSocket&gt;, [u8; 32])) -&gt; SendPong&lt;TSocket&gt;&gt;,
+            Flush&lt;TSocket&gt;, fn((Negotiated&lt;TSocket&gt;, [u8; 32])) -&gt; Flush&lt;TSocket&gt;&gt;,
+            Shutdown&lt;TSocket&gt;, fn(Negotiated&lt;TSocket&gt;) -&gt; Shutdown&lt;TSocket&gt;&gt;,
+    fn(Negotiated&lt;TSocket&gt;) -&gt; ()&gt;;
+
+    #[inline]
+    fn upgrade_inbound(self, socket: Negotiated&lt;TSocket&gt;, _: Self::Info) -&gt; Self::Future {
+        nio::read_exact(socket, [0; 32])
+            .and_then::&lt;fn(_) -&gt; _, _&gt;(|(sock, buf)| nio::write_all(sock, buf))
+            .and_then::&lt;fn(_) -&gt; _, _&gt;(|(sock, _)| nio::flush(sock))
+            .and_then::&lt;fn(_) -&gt; _, _&gt;(|sock| nio::shutdown(sock))
+            .map(|_| ())
+    }
+}
+</code></pre>
+
+<h3 id="pong受信-1">Pong受信</h3>
+
+<p>ふたたびPingを送信する方（PingDialer）のコードに戻る。Pongで返ってきたデータが正しいかどうかチェックしている。</p>
+
+<p><a href="https://github.com/libp2p/rust-libp2p/blob/ce4ca3cc75b68780d980f92471e616b2c2e311e4/protocols/ping/src/protocol.rs#L159-L165">protocols/ping/src/protocol.rs#L159-L165</a></p>
+
+<pre><code class="language-rust">...
+...
+                PingDialerState::Read { ref mut inner, payload, started } =&gt; {
+                    let (socket, payload_received) = try_ready!(inner.poll());
+                    let rtt = started.elapsed();
+                    if payload_received != payload {
+                        return Err(io::Error::new(
+                            io::ErrorKind::InvalidData, &quot;Ping payload mismatch&quot;));
+                    }
+...
+...
+</code></pre>
+
+<p>それと、Ping-Pongの往復にかかった時間（Round Trip Time）の計測をしている。</p>
+
+<pre><code class="language-rust">                PingDialerState::Flush { ref mut inner, payload } =&gt; {
+                    ...
+                    let started = Instant::now();
+                    PingDialerState::Read {
+                        ...
+                        started,
+                    }
+                },
+                PingDialerState::Read { ref mut inner, payload, started } =&gt; {
+                    ...
+                    let rtt = started.elapsed();
+                    ...
+                    PingDialerState::Shutdown {
+                        ...
+                        rtt,
+                    }
+                },
+</code></pre>
+
+<h3 id="rust-libp2pはl7でのチェック">rust-libp2pはL7でのチェック</h3>
+
+<p>はじめに見たgo-ethereumとは違ってlibp2p(rust-libp2p)では、返ってくるデータのチェックまで行っていた。これは先述のヘルスチェックの種類でいうと <code>(3)</code> のL7のチェックに当てはまる。</p>
+
+<p>また、RTTの計測をしていたのは面白い違いだった。ブロックチェーンの話題から逸れるが、おそらくロードバランサの文脈でいうと、振り分け先を選ぶ基準にこのようにヘルスチェック時に計測したRTTを使うこともあるのだろう。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e9%96%a2%e9%80%a3%e3%83%97%e3%83%ad%e3%83%80%e3%82%af%e3%83%88%e3%81%ae%e3%83%98%e3%83%ab%e3%82%b9%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%81%ae%e5%ae%9f%e8%a3%85%e3%82%92%e7%9c%ba%e3%82%81%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f08%2f02%2fhealth_check%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f08%2f02%2fhealth_check%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2019%2f08%2f02%2fhealth_check%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
