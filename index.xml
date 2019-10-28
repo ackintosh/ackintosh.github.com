@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Fri, 02 Aug 2019 21:39:29 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 28 Oct 2019 20:11:22 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Libraのステート管理 - Jellyfish Merkle Tree</title>
+      <link>https://ackintosh.github.io/blog/2019/10/28/jellyfish-merkle-tree/</link>
+      <pubDate>Mon, 28 Oct 2019 20:11:22 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2019/10/28/jellyfish-merkle-tree/</guid>
+      <description>&lt;p&gt;この記事では、Libraネットワーク内で合意が取れたトランザクションを保存する部分の処理を追っていくことで、Libraでアカウントのステート（アカウントに紐づく残高などの情報）をどんな感じに管理しているのかざっくり把握していきたい。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>ブロックチェーン関連プロダクトのヘルスチェックの実装を眺める</title>
