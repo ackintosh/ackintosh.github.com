@@ -184,7 +184,7 @@
     ) -&gt; Result&lt;HashValue&gt; {
 </code></pre>
 
-<p>メソッドの内容を俯瞰してみると、アカウント、イベント、トランザクションの3種類の更新を行っているようなので、アカウントの処理を追っていく。なお、メソッド名からも暗示されている通り複数のトランザクションをまとめて処理する実装になっている。（なのでこれ以降に追っていくアカウント関係の処理も複数のステートをまとめて扱うかたちになっているので各種命名に <code>batch</code> の単語がよく出てくる）</p>
+<p>メソッドの内容を俯瞰してみると、アカウント、イベント、トランザクションの3種類の更新を行っているようなので、アカウントの処理を追っていく。なお、メソッド名から暗示されている通り複数のトランザクションをまとめて処理する実装になっている。（なのでこれ以降に追っていくアカウント関係の処理も複数のステートをまとめて扱うかたちになっているので各種命名に <code>batch</code> の単語がよく出てくる）</p>
 
 <p><a href="https://github.com/libra/libra/blob/df7d714e5f6ee695004c45d90ec74e285c973618/storage/libradb/src/state_store/mod.rs#L51">https://github.com/libra/libra/blob/df7d714e5f6ee695004c45d90ec74e285c973618/storage/libradb/src/state_store/mod.rs#L51</a></p>
 
@@ -242,7 +242,7 @@
 
 <h3 id="最適化-ethereumとの違い">最適化 - Ethereumとの違い</h3>
 
-<p>愚直にSparse Merkle Treeの実装で256bitアドレスのステートを表現しようとすると、巨大で無駄の多いツリーになってしまうので何かしらの最適化が必要になる。例えばEthereumのModified Merkle Patricia Trie場合は、<code>branch</code> <code>leaf</code> <code>extension</code> の3種類のノードがあって、このうち <code>extension</code> ノードがパスの共通部分を (<code>shared nibble(s)</code>)に持つことでツリーの短縮を行なっている。</p>
+<p>愚直にSparse Merkle Treeで256bitアドレスのステートを表現しようとすると、巨大で無駄の多いツリーになってしまうので何かしらの最適化が必要になる。例えばEthereumのModified Merkle Patricia Trie場合は、<code>branch</code> <code>leaf</code> <code>extension</code> の3種類のノードがあって、このうち <code>extension</code> ノードがパスの共通部分を (<code>shared nibble(s)</code>)に持つことでツリーの短縮を行なっている。</p>
 
 <ul>
 <li><a href="https://github.com/ethereum/wiki/wiki/Patricia-Tree#modified-merkle-patricia-trie-specification-also-merkle-patricia-tree">Patricia Tree · ethereum/wiki Wiki</a></li>
