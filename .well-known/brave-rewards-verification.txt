@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: ackintosh.github.io
+Token: a7ff9f7c6ad05e4fe3d36efc4a561237b0e3770afbed38fac3bec2623e255cfc
