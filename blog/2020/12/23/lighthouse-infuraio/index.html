@@ -142,9 +142,16 @@
 <p>執筆時点の最新（lighthouse v1.0.4 ）を前提にしている。<br />
 <a href="https://github.com/sigp/lighthouse/releases/tag/v1.0.4">https://github.com/sigp/lighthouse/releases/tag/v1.0.4</a></p>
 
+<h2 id="遭遇したエラーメッセージ">遭遇したエラーメッセージ</h2>
+
+<p>Beacon Nodeを起動してまもなく下記のエラーメッセージが出てきた。</p>
+
+<pre><code>Dec 23 10:46:29.801 ERRO Failed to update eth1 cache             error: Failed to update eth1 cache: &quot;All fallback errored: https://goerli.infura.io/v3/{APIキー} =&gt; GetDepositLogsFailed(\&quot;Eth1 node returned error: {\\\&quot;code\\\&quot;:-32005,\\\&quot;message\\\&quot;:\\\&quot;query returned more than 10000 results\\\&quot;}\&quot;)&quot;, retry_millis: 7000, service: eth1_rpc
+</code></pre>
+
 <h2 id="どこでエラー出ているのか">どこでエラー出ているのか</h2>
 
-<p>エラーログの内容から、場所はすぐに特定できる。</p>
+<p>エラーログの内容から、場所はすぐに特定できた。</p>
 
 <p><a href="https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L847">https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L847</a></p>
 
