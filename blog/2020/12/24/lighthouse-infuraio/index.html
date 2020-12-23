@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2020-12-24T00:00:14&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="lighthouse" />
+    
+    
+
+  <title>
+     infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2020-12-24T00:00:14&#43;09:00">
+            Dec 24, 2020
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/lighthouse/">#lighthouse</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>この記事は <a href="https://qiita.com/advent-calendar/2020/ethereum">Ethereum Advent Calendar 2020</a> 24日目の記事です。</p>
+
+<hr />
+
+<p>Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には infura.io が便利。</p>
+
+<p><a href="https://infura.io/">Ethereum API | IPFS API Gateway | ETH Nodes as a Service | Infura</a></p>
+
+<p>※ <a href="https://launchpad.ethereum.org/">Launch Pad</a>の手順では、ネットワークの分散のために自前でクライアントを立てることが推奨されているので、本格的な運用の場合は自前で立てる方が良いのだろう。</p>
+
+<p>以下、eth1バックエンドとしてinfura.ioを使ってBeacon Node(lighthouse)を立てようとした時に遭遇したエラーメッセージと、それについて調べたことをメモしておく。</p>
+
+<p>執筆時点の最新（lighthouse v1.0.4 ）を前提にしている。<br />
+<a href="https://github.com/sigp/lighthouse/releases/tag/v1.0.4">https://github.com/sigp/lighthouse/releases/tag/v1.0.4</a></p>
+
+<h2 id="遭遇したエラーメッセージ">遭遇したエラーメッセージ</h2>
+
+<p>Beacon Nodeを起動してまもなく下記のエラーメッセージが出てきた。</p>
+
+<pre><code>Dec 23 10:46:29.801 ERRO Failed to update eth1 cache             error: Failed to update eth1 cache: &quot;All fallback errored: https://goerli.infura.io/v3/{APIキー} =&gt; GetDepositLogsFailed(\&quot;Eth1 node returned error: {\\\&quot;code\\\&quot;:-32005,\\\&quot;message\\\&quot;:\\\&quot;query returned more than 10000 results\\\&quot;}\&quot;)&quot;, retry_millis: 7000, service: eth1_rpc
+</code></pre>
+
+<h2 id="どこでエラー出ているのか">どこでエラー出ているのか</h2>
+
+<p>エラーログの内容から、場所はすぐに特定できた。</p>
+
+<p><a href="https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L847">https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L847</a></p>
+
+<pre><code class="language-rust">             /*
+              * Step 1. Download logs.
+              */
+             let block_range_ref = &amp;block_range;
+             let logs = endpoints
+                 .first_success(|e| async move {
+                     get_deposit_logs_in_range(
+                         e,
+                         &amp;deposit_contract_address_ref,
+                         block_range_ref.clone(),
+                         Duration::from_millis(GET_DEPOSIT_LOG_TIMEOUT_MILLIS),
+                     )
+                     .await
+                     .map_err(SingleEndpointError::GetDepositLogsFailed)
+                 })
+                 .await
+                 .map_err(Error::FallbackError)?;
+</code></pre>
+
+<p>周辺のコードを読んでいると、下記をしている処理だとわかった。</p>
+
+<ul>
+<li>eth1のエンドポイントから、<a href="https://ethereum.org/en/eth2/deposit-contract/">デポジットコントラクト</a>のログを（ブロックのレンジを指定して）<a href="https://github.com/sigp/lighthouse/blob/d8cda2d86eb3f69185a16d0474b987fbf0b8eb6b/beacon_node/eth1/src/http.rs#L310">取得している</a></li>
+<li>レンジの幅は、<a href="https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L340-L341">blocks_per_log_query</a> の<a href="https://github.com/sigp/lighthouse/blob/7933596c891db74e344292e650b05f49673ab830/beacon_node/eth1/src/service.rs#L809-L818">設定値で決まる</a></li>
+</ul>
+
+<h2 id="なぜエラー出ているのか">なぜエラー出ているのか</h2>
+
+<p>infura.ioのドキュメントに、ひとつのクエリでは最大 10,000 の結果を返すとの制限事項書かれている。おそらく、レンジで指定されているブロックに 10,000 を超える数のログが含まれているためにエラーになっているのだろう。</p>
+
+<p><a href="https://infura.io/docs/ethereum/json-rpc/ratelimits">Infura Documentation | Infura Documentation</a></p>
+
+<blockquote>
+<h4 id="limitations">LIMITATIONS</h4>
+
+<p>&hellip;<br />
+A max of 10,000 results can be returned by a single query</p>
+</blockquote>
+
+<h2 id="どうすればよいのか">どうすればよいのか</h2>
+
+<p>前述の設定値 <code>blocks_per_log_query</code> は、CLIパラメータで指定できるようになっている。（デフォルトは 1,000 ）<br />
+10にしたらエラーが出なくなり、デポジットログのインポートが成功するようになった。（100ではダメだった）</p>
+
+<pre><code class="language-shell"> $ lighthouse bn \
+        --debug-level debug \
+        --network pyrmont \
+        --eth1-endpoints https://goerli.infura.io/v3/{APIキー} \
+        --eth1-blocks-per-log-query 10
+</code></pre>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=infura.io%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Beacon%20Node%28lighthouse%29%e3%82%92%e7%ab%8b%e3%81%a6%e3%82%8b%e6%99%82%e3%81%ab%e9%81%ad%e9%81%87%e3%81%97%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2020%2f12%2f24%2flighthouse-infuraio%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2020%2f12%2f24%2flighthouse-infuraio%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2020%2f12%2f24%2flighthouse-infuraio%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
