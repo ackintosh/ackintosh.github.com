@@ -18,7 +18,11 @@
       <pubDate>Wed, 23 Dec 2020 16:55:14 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/blog/2020/12/23/lighthouse-infuraio/</guid>
-      <description>&lt;p&gt;Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には infura.io が便利。&lt;/p&gt;
+      <description>&lt;p&gt;この記事は &lt;a href=&#34;https://qiita.com/advent-calendar/2020/ethereum&#34;&gt;Ethereum Advent Calendar 2020&lt;/a&gt; 24日目の記事です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には infura.io が便利。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://infura.io/&#34;&gt;Ethereum API | IPFS API Gateway | ETH Nodes as a Service | Infura&lt;/a&gt;&lt;/p&gt;
 
