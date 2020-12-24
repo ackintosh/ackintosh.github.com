@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta property="og:title" content=" infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁" />
+    <meta property="og:title" content=" Infuraを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁" />
     <meta property="og:site_name" content="暁" />
     <meta property="og:url" content="https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/" />
     <meta property="og:description" content="" />
@@ -24,7 +24,7 @@
     
 
   <title>
-     infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁
+     Infuraを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー -  暁
   </title>
 
     <meta name="description" content="" />
@@ -117,7 +117,7 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー</h1>
+        <h1 class="post-title">Infuraを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー</h1>
         <section class="post-meta">
         
           <time class="post-date" datetime="2020-12-24T00:00:14&#43;09:00">
@@ -135,13 +135,13 @@
 
 <hr />
 
-<p>Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には infura.io が便利。</p>
+<p>Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には <a href="https://infura.io/">Infura</a> が便利。</p>
 
 <p><a href="https://infura.io/">Ethereum API | IPFS API Gateway | ETH Nodes as a Service | Infura</a></p>
 
 <p>※ <a href="https://launchpad.ethereum.org/">Launch Pad</a>の手順では、ネットワークの分散のために自前でクライアントを立てることが推奨されているので、本格的な運用の場合は自前で立てる方が良いのだろう。</p>
 
-<p>以下、eth1バックエンドとしてinfura.ioを使ってBeacon Node(lighthouse)を立てようとした時に遭遇したエラーメッセージと、それについて調べたことをメモしておく。</p>
+<p>以下、eth1バックエンドとしてInfuraを使ってBeacon Node(lighthouse)を立てようとした時に遭遇したエラーメッセージと、それについて調べたことをメモしておく。</p>
 
 <p>執筆時点の最新（lighthouse v1.0.4 ）を前提にしている。<br />
 <a href="https://github.com/sigp/lighthouse/releases/tag/v1.0.4">https://github.com/sigp/lighthouse/releases/tag/v1.0.4</a></p>
@@ -187,7 +187,7 @@
 
 <h2 id="なぜエラー出ているのか">なぜエラー出ているのか</h2>
 
-<p>infura.ioのドキュメントに、ひとつのクエリでは最大 10,000 の結果を返すとの制限事項書かれている。おそらく、レンジで指定されているブロックに 10,000 を超える数のログが含まれているためにエラーになっているのだろう。</p>
+<p>Infuraのドキュメントに、ひとつのクエリでは最大 10,000 の結果を返すとの制限事項書かれている。おそらく、レンジで指定されているブロックに 10,000 を超える数のログが含まれているためにエラーになっているのだろう。</p>
 
 <p><a href="https://infura.io/docs/ethereum/json-rpc/ratelimits">Infura Documentation | Infura Documentation</a></p>
 
@@ -242,7 +242,7 @@ written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akih
     
     <section class="share">
       <h4>Share this post</h4>
-      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=infura.io%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Beacon%20Node%28lighthouse%29%e3%82%92%e7%ab%8b%e3%81%a6%e3%82%8b%e6%99%82%e3%81%ab%e9%81%ad%e9%81%87%e3%81%97%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2020%2f12%2f24%2flighthouse-infuraio%2f"
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Infura%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Beacon%20Node%28lighthouse%29%e3%82%92%e7%ab%8b%e3%81%a6%e3%82%8b%e6%99%82%e3%81%ab%e9%81%ad%e9%81%87%e3%81%97%e3%81%9f%e3%82%a8%e3%83%a9%e3%83%bc&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2020%2f12%2f24%2flighthouse-infuraio%2f"
           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <span class="hidden">Twitter</span>
       </a>

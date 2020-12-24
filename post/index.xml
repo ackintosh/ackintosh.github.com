@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>infura.ioを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー</title>
+      <title>Infuraを使ってBeacon Node(lighthouse)を立てる時に遭遇したエラー</title>
       <link>https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/</link>
       <pubDate>Thu, 24 Dec 2020 00:00:14 +0900</pubDate>
       
@@ -22,13 +22,13 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には infura.io が便利。&lt;/p&gt;
+&lt;p&gt;Beacon Nodeを稼働させるためには、利用するEthereum(eth1)のエンドポイントを指定する必要があるが、ちょっと動作を検証してみたい程度のときに自前でeth1クライアントを立てておくのはやや骨が折れる。そういった場合には &lt;a href=&#34;https://infura.io/&#34;&gt;Infura&lt;/a&gt; が便利。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://infura.io/&#34;&gt;Ethereum API | IPFS API Gateway | ETH Nodes as a Service | Infura&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;※ &lt;a href=&#34;https://launchpad.ethereum.org/&#34;&gt;Launch Pad&lt;/a&gt;の手順では、ネットワークの分散のために自前でクライアントを立てることが推奨されているので、本格的な運用の場合は自前で立てる方が良いのだろう。&lt;/p&gt;
 
-&lt;p&gt;以下、eth1バックエンドとしてinfura.ioを使ってBeacon Node(lighthouse)を立てようとした時に遭遇したエラーメッセージと、それについて調べたことをメモしておく。&lt;/p&gt;</description>
+&lt;p&gt;以下、eth1バックエンドとしてInfuraを使ってBeacon Node(lighthouse)を立てようとした時に遭遇したエラーメッセージと、それについて調べたことをメモしておく。&lt;/p&gt;</description>
     </item>
     
     <item>
