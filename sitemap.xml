@@ -3,32 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/</loc>
-    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
+    <loc>https://ackintosh.github.io/tags/ethereum/</loc>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ackintosh.github.io/blog/2021/02/10/lighthouse-metrics-on-mac/</loc>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://ackintosh.github.io/post/</loc>
-    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ackintosh.github.io/tags/</loc>
-    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ackintosh.github.io/tags/lighthouse/</loc>
-    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ackintosh.github.io/</loc>
-    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
+    <lastmod>2021-02-10T07:58:27+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ackintosh.github.io/blog/2020/12/24/lighthouse-infuraio/</loc>
+    <lastmod>2020-12-24T00:00:14+09:00</lastmod>
   </url>
   
   <url>

@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Thu, 24 Dec 2020 00:00:14 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2021 07:58:27 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Ethereum</title>
+      <link>https://ackintosh.github.io/tags/ethereum/</link>
+      <pubDate>Wed, 10 Feb 2021 07:58:27 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/tags/ethereum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>lighthouse</title>
       <link>https://ackintosh.github.io/tags/lighthouse/</link>
-      <pubDate>Thu, 24 Dec 2020 00:00:14 +0900</pubDate>
+      <pubDate>Wed, 10 Feb 2021 07:58:27 +0900</pubDate>
       
       <guid>https://ackintosh.github.io/tags/lighthouse/</guid>
       <description></description>
