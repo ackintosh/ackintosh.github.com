@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on 暁</title>
+    <link>https://ackintosh.github.io/tags/rust/</link>
+    <description>Recent content in Rust on 暁</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2012</copyright>
+    <lastBuildDate>Sun, 14 Feb 2021 15:01:29 +0900</lastBuildDate>
+    
+	<atom:link href="https://ackintosh.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>dhat-rsでRustプログラムのヒープメモリ使用量を確認する</title>
+      <link>https://ackintosh.github.io/blog/2021/02/14/dhat-rs/</link>
+      <pubDate>Sun, 14 Feb 2021 15:01:29 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2021/02/14/dhat-rs/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://docs.rs/dhat/&#34;&gt;dhat - Rust&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;dhat-rsは &lt;a href=&#34;https://www.valgrind.org/docs/manual/dh-manual.html&#34;&gt;DHAT&lt;/a&gt; と同等の機能を提供するクレートで、 このクレートの &lt;a href=&#34;https://docs.rs/dhat/0.2.2/dhat/struct.DhatAlloc.html&#34;&gt;dhat::DhatAlloc&lt;/a&gt; をアロケータに設定することで、ヒープの割当を追跡・計測してくれる。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

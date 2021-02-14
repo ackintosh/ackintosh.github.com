@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" dhat-rsでRustプログラムのヒープメモリ使用量を確認する -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2021/02/14/dhat-rs/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2021-02-14T15:01:29&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Rust" />
+    
+    
+
+  <title>
+     dhat-rsでRustプログラムのヒープメモリ使用量を確認する -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2021/02/14/dhat-rs/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">dhat-rsでRustプログラムのヒープメモリ使用量を確認する</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2021-02-14T15:01:29&#43;09:00">
+            Feb 14, 2021
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/rust/">#Rust</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://docs.rs/dhat/">dhat - Rust</a></p>
+
+<p>dhat-rsは <a href="https://www.valgrind.org/docs/manual/dh-manual.html">DHAT</a> と同等の機能を提供するクレートで、 このクレートの <a href="https://docs.rs/dhat/0.2.2/dhat/struct.DhatAlloc.html">dhat::DhatAlloc</a> をアロケータに設定することで、ヒープの割当を追跡・計測してくれる。</p>
+
+<h2 id="計測する">計測する</h2>
+
+<p>サンプルとしてLeetCodeの問題を使う。</p>
+
+<p><a href="https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/">Check If Two String Arrays are Equivalent - LeetCode</a></p>
+
+<p>2つの配列（文字列を要素に持つ配列）が引数で渡され、それが一致するかどうかを返すという問題。素直に実装するなら下記のように1行で済んでしまう。</p>
+
+<pre><code class="language-rust">impl Solution {
+    pub fn array_strings_are_equal(word1: Vec&lt;String&gt;, word2: Vec&lt;String&gt;) -&gt; bool {
+        word1.concat() == word2.concat()
+    }
+}
+</code></pre>
+
+<p>このプログラムに、下記のように100バイトの文字列（をいくつかに分割した配列）を与えるテストコードで、ヒープメモリの使用量を計測する。</p>
+
+<pre><code class="language-rust">#[test]
+fn heap() {
+    let _dhat = Dhat::start_heap_profiling();
+
+    assert!(Solution::array_strings_are_equal(
+        vec![&quot;12&quot;.into(), &quot;34567890&quot;.into(), &quot;123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890&quot;.into()],
+        vec![&quot;12&quot;.into(), &quot;345678901234567890123456789012345678901234567890&quot;.into(), &quot;12345678901234567890123456789012345678901234567890&quot;.into()],
+    ));
+}
+</code></pre>
+
+<p>計測結果は 544 bytes だった。</p>
+
+<pre><code class="language-bash">dhat: Total:     544 bytes in 10 blocks
+dhat: At t-gmax: 544 bytes in 10 blocks
+dhat: At t-end:  0 bytes in 0 blocks
+</code></pre>
+
+<h2 id="ヒープの使用量を改善する">ヒープの使用量を改善する</h2>
+
+<p>先程の解答ではスライスの <a href="https://doc.rust-lang.org/std/primitive.slice.html#method.concat">concatメソッド</a> を使っているのでコードが簡潔になるが、結合後の文字列が新しく作られるので、それだけ余分にヒープメモリを使っていることになる。</p>
+
+<p>実験として、concatメソッドを使わずに、元の引数の参照を使って配列を比較する解答を実装してみる。</p>
+
+<pre><code class="language-rust">impl Solution {
+    pub fn array_strings_are_equal(word1: Vec&lt;String&gt;, word2: Vec&lt;String&gt;) -&gt; bool {
+        let mut w2_index = 0;
+        let mut ww2_index = 0;
+
+        for w1 in word1.iter() {
+            for i in 0..w1.len() {
+                let ww1 = &amp;w1[i..=i];
+
+                if word2.len() &lt;= w2_index {
+                    return false;
+                }
+
+                let w2 = word2.index(w2_index);
+                let ww2 = &amp;w2[ww2_index..=ww2_index];
+                if ww1 != ww2 {
+                    return false;
+                }
+
+                if w2.len() &lt;= (ww2_index + 1) {
+                    w2_index += 1;
+                    ww2_index = 0;
+                } else {
+                    ww2_index += 1;
+                }
+            }
+        }
+
+        if word2.len() &gt;= (w2_index + 1) {
+            let w2 = &amp;word2[w2_index];
+            if w2.len() &gt;= (ww2_index + 1) {
+                return false;
+            }
+        }
+
+        true
+    }
+}
+</code></pre>
+
+<p>かなりコードの見通しが悪いけど、このプログラムのヒープメモリの使用量は 344 bytes だった。最初のconcatを使った解答と比べると、ちょうど200bytes（100バイトの文字列の引数が2つ分）が減っていることがわかる。</p>
+
+<pre><code class="language-bash">dhat: Total:     344 bytes in 8 blocks
+dhat: At t-gmax: 344 bytes in 8 blocks
+dhat: At t-end:  0 bytes in 0 blocks
+</code></pre>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=dhat-rs%e3%81%a7Rust%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%81%ae%e3%83%92%e3%83%bc%e3%83%97%e3%83%a1%e3%83%a2%e3%83%aa%e4%bd%bf%e7%94%a8%e9%87%8f%e3%82%92%e7%a2%ba%e8%aa%8d%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f14%2fdhat-rs%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f14%2fdhat-rs%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f14%2fdhat-rs%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
