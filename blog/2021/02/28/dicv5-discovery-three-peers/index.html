@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" sigp/discv5のテストコードを読んでノードの動作を理解する -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2021/02/28/dicv5-discovery-three-peers/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2021-02-28T23:38:19&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="discv5" />
+    
+    
+
+  <title>
+     sigp/discv5のテストコードを読んでノードの動作を理解する -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2021/02/28/dicv5-discovery-three-peers/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">sigp/discv5のテストコードを読んでノードの動作を理解する</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2021-02-28T23:38:19&#43;09:00">
+            Feb 28, 2021
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/discv5/">#discv5</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://github.com/sigp/discv5/">sigp/discv5</a>のとあるテストを読み解きながら、各ノードがどんな通信をしているのか、各ノードのk-bucketの中身はどうなっているのかを確認していくことで理解を深める。</p>
+
+<p>なお、sigp/discv5のソースコードは執筆時点で最新の <a href="https://github.com/sigp/discv5/tree/02d2c896c66f8dc2b848c3996fedcd98e1dfec69">02d2c896c6</a> 、 <a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5.md">discv5の仕様</a> は v5.1 を参照する。</p>
+
+<h2 id="対象のテストコード">対象のテストコード</h2>
+
+<p>今回読むテストコードは <a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L162">こちら</a> で、FINDNODEリクエストに対して期待通りのノード数が得られるかを確認するテスト。</p>
+
+<h2 id="ノードの起動">ノードの起動</h2>
+
+<p><a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L169">https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L169</a></p>
+
+<ul>
+<li>bootstrap node</li>
+<li>通常のnodeを3つ (node1, node2, node3)</li>
+<li>target node (FINDNODEリクエストのターゲットとして指定するノード)</li>
+</ul>
+
+<p>の合計5つのノードを起動する。</p>
+
+<p>ここでのポイントは、ノードを起動する際に予め、bootstrap nodeと、その他のノード（node1, node2, node3, target node）の距離が &ldquo;256&rdquo; になるようにseed値を固定している。これによって、FINDNODEリクエストの結果にバラつきが出ないようにしている。</p>
+
+<p>discv5における <a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-theory.md#nodes-records-and-distances">ノード間の距離</a> とは、ノードID(32byte)のXORの結果を対数で表したもので、sigp/discv5の実装では <a href="https://github.com/sigp/discv5/blob/f75da8aca06a814f987711188e7eb250b9c2fe6f/src/kbucket/key.rs#L92">leading zeroの数を利用している</a>。</p>
+
+<p>各ノードのノードID(途中省略)は下記。</p>
+
+<ul>
+<li>bootstrap node: 0x2390..81d9</li>
+<li>node1: 0xb862..63b1</li>
+<li>node2: 0xbd03..5d70</li>
+<li>node3: 0xe030..dcbe</li>
+<li>target node: 0xf47b..3704</li>
+</ul>
+
+<h2 id="node1-3にbootstrapノードを登録する">node1〜3にbootstrapノードを登録する</h2>
+
+<p><a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L186-L199">https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L186-L199</a></p>
+
+<ul>
+<li>bootstrap nodeに、node1, 2, 3のENRを登録する</li>
+<li>node1, 2, 3に、bootstrap nodeのENRを登録する</li>
+</ul>
+
+<p>前述の通り、bootstrapノードと、その他のノード（node1〜3、target node）の距離が &ldquo;256&rdquo; になるように調整されているので、各ノードのk-bucketの 256 番目のbucketに登録される。</p>
+
+<p>この時点での、起動しているノードとそれらの繋がり（add_enrによって認識しているノード）は下記のようになっている</p>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/dicv5-discovery-three-peers/initial_kbuckets.png" alt="initial_kbuckets" /></p>
+
+<h3 id="node1-から-findnodeリクエストを送信する">node1 から FINDNODEリクエストを送信する</h3>
+
+<ul>
+<li><a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-wire.md#findnode-request-0x03">FINDNODE</a></li>
+<li><a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-wire.md#nodes-response-0x04">NODES</a></li>
+</ul>
+
+<p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/dicv5-discovery-three-peers/sequence.png" alt="sequence" /></p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=sigp%2fdiscv5%e3%81%ae%e3%83%86%e3%82%b9%e3%83%88%e3%82%b3%e3%83%bc%e3%83%89%e3%82%92%e8%aa%ad%e3%82%93%e3%81%a7%e3%83%8e%e3%83%bc%e3%83%89%e3%81%ae%e5%8b%95%e4%bd%9c%e3%82%92%e7%90%86%e8%a7%a3%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f28%2fdicv5-discovery-three-peers%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f28%2fdicv5-discovery-three-peers%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f02%2f28%2fdicv5-discovery-three-peers%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
