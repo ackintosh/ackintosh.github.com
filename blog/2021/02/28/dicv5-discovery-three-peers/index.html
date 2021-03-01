@@ -137,7 +137,7 @@
 
 <h2 id="対象のテストコード">対象のテストコード</h2>
 
-<p>今回読むテストコードは <a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L162">こちら</a> で、FINDNODEリクエストに対して期待通りのノード数が得られるかを確認するテスト。</p>
+<p>今回読むテストコードは <a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L162">こちら</a> で、<a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5.rs#L432">Discv5::find_node()</a> の結果が期待通りのノード数を得られるかを確認するテスト。</p>
 
 <h2 id="ノードの起動">ノードの起動</h2>
 
@@ -180,9 +180,10 @@
 
 <p><img src="https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/dicv5-discovery-three-peers/initial_kbuckets.png" alt="initial_kbuckets" /></p>
 
-<h3 id="node1-から-findnodeリクエストを送信する">node1 から FINDNODEリクエストを送信する</h3>
+<h3 id="node1-から-find-node-を実行する">node1 から find_node() を実行する</h3>
 
-<p><a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L204-L209">https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L204-L209</a></p>
+<p>引数は target_node のノードID。<br />
+<a href="https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L204-L209">https://github.com/sigp/discv5/blob/f47dac2e1f59735bb0affe3502372c21d758cc4e/src/discv5/test.rs#L204-L209</a></p>
 
 <p>メッセージの仕様</p>
 
