@@ -24,6 +24,15 @@
     </item>
     
     <item>
+      <title>sigp/discv5のテストコードを読んでノードの動作を理解する</title>
+      <link>https://ackintosh.github.io/blog/2021/02/28/dicv5-discovery-three-peers/</link>
+      <pubDate>Sun, 28 Feb 2021 23:38:19 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2021/02/28/dicv5-discovery-three-peers/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/sigp/discv5/&#34;&gt;sigp/discv5&lt;/a&gt;のとあるテストを読み解きながら、各ノードがどんな通信をしているのか、各ノードのk-bucketの中身はどうなっているのかを確認していくことで理解を深める。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>dhat-rsでRustプログラムのヒープメモリ使用量を確認する</title>
       <link>https://ackintosh.github.io/blog/2021/02/14/dhat-rs/</link>
       <pubDate>Sun, 14 Feb 2021 15:01:29 +0900</pubDate>
