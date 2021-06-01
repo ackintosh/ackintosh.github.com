@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" sigp/discv5 v0.1.0-beta.4で追加された機能 -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2021/06/02/discv5-v0.1.0-beta4/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2021-06-02T07:11:28&#43;09:00" />
+
+    
+    
+
+  <title>
+     sigp/discv5 v0.1.0-beta.4で追加された機能 -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2021/06/02/discv5-v0.1.0-beta4/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">sigp/discv5 v0.1.0-beta.4で追加された機能</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2021-06-02T07:11:28&#43;09:00">
+            Jun 2, 2021
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://github.com/sigp/discv5/releases/tag/v0.1.0-beta.4">Release v0.1.0-beta.4 · sigp/discv5 · GitHub</a></p>
+
+<p>個人的に気になった機能のソースコードを追ったのでメモ。</p>
+
+<h2 id="同一サブネットのノード数を制限する">同一サブネットのノード数を制限する</h2>
+
+<blockquote>
+<p>Adds an abstract filter to the local routing table, allowing easier ways to filter entries from being added to the table. This is currently used for creating limits on IP ranges and incoming/vs outgoing nodes.</p>
+</blockquote>
+
+<p>以前から、怪しいノードを <a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/socket/filter/mod.rs#L154-L155">BANする機能</a> は実装されていたが、それとは別にIPアドレスベースでフィルタする機能が実装された。</p>
+
+<h4 id="機能">機能</h4>
+
+<ul>
+<li>ルーティングテーブル内に同じ /24 サブネットに属するノード数の上限を設ける</li>
+<li>テーブル単位、バケット単位で上限が設定される</li>
+</ul>
+
+<h4 id="実装">実装</h4>
+
+<p>同じ /24 サブネットに属するノード数が制限値内であるかどうかを確認している</p>
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L70-L96">https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L70-L96</a></li>
+</ul>
+
+<p>2種類のフィルタ</p>
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L41">IpTableFilter</a>
+
+<ul>
+<li>KBucketsTableで利用するフィルタ</li>
+<li>「同じ /24 サブネットに属するノード数は 10 まで」に<a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L35-L36">設定されている</a></li>
+<li>フィルタ自体には、（設定値以外は）ルーティングテーブルに関係する実装は入っていない。KBucketsTableのフィールドに保持されて<a href="https://github.com/sigp/discv5/blob/b1e7ad688228c85e802abc4b165783e4e95db886/src/kbucket.rs#L344">使われる</a></li>
+</ul></li>
+<li><a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L54">IpBucketFilter</a>
+
+<ul>
+<li>Bucketで利用するフィルタ</li>
+<li>「Bucket内に、同じ /24 サブネットに属するノード数は 2 まで」に<a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/kbucket/filter.rs#L37-L38">設定されている</a></li>
+</ul></li>
+</ul>
+
+<h4 id="設定値のカスタマイズはできない">設定値のカスタマイズはできない</h4>
+
+<ul>
+<li>ip_limitが設定されている場合にこの制限が有効になる</li>
+<li><a href="https://github.com/sigp/discv5/blob/b1e7ad688228c85e802abc4b165783e4e95db886/src/discv5.rs#L95-L105">https://github.com/sigp/discv5/blob/b1e7ad688228c85e802abc4b165783e4e95db886/src/discv5.rs#L95-L105</a></li>
+<li>上記のコメントにかかれているとおり、現状、このフィルタのカスタマイズはできない</li>
+</ul>
+
+<h2 id="セッションに-接続方向-を持たせる">セッションに &ldquo;接続方向&rdquo; を持たせる</h2>
+
+<blockquote>
+<p>Introduces the concept of connection direction. Sessions that get established are now tagged with either being ingoing or outgoing. This can be used to limit the number of incoming connections allowed per bucket.</p>
+</blockquote>
+
+<ul>
+<li>各ノードとの間のセッションに InComming/Outgoing の方向を持たせて、フィルタリングに利用する</li>
+</ul>
+
+<h4 id="実装-1">実装</h4>
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/handler/mod.rs#L116-L123">ConnectionDirectionの定義</a></li>
+<li>ConnectionDirectionを保持する構造体
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/blob/b1e7ad688228c85e802abc4b165783e4e95db886/src/kbucket/bucket.rs#L54-L60">NodeStatus</a></li>
+</ul></li>
+<li><a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/handler/mod.rs#L676-L682">Directionを判断しているコード</a></li>
+<li>ConnectionDirection::InComming はフィルタリングに使われている
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/blob/b1e7ad688228c85e802abc4b165783e4e95db886/src/kbucket/bucket.rs#L308-L311">例</a></li>
+</ul></li>
+</ul>
+
+<h2 id="その他の改善">その他の改善</h2>
+
+<blockquote>
+<p>Improves and adds some extra filtering logic to harden the security and limit the allowed actions of malicious actors.</p>
+</blockquote>
+
+<ul>
+<li>該当すると思われるコミット
+
+<ul>
+<li><a href="https://github.com/sigp/discv5/pull/66/commits/c9fe1e15a208410494377bf6e7a1634608fb4220">https://github.com/sigp/discv5/pull/66/commits/c9fe1e15a208410494377bf6e7a1634608fb4220</a></li>
+</ul></li>
+<li>同一IPあたりのノード数の制限を追加
+
+<ul>
+<li>制限を超過したIPアドレスは<a href="https://github.com/sigp/discv5/blob/82c11b261fc65f0962f79612393a8ce2a4ccb01d/src/socket/filter/mod.rs#L195-L217">BANリストに追加される</a></li>
+<li>デフォルトの設定値は 10</li>
+</ul></li>
+<li>IpVoteのエントリに有効期限が追加された</li>
+</ul>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=sigp%2fdiscv5%20v0.1.0-beta.4%e3%81%a7%e8%bf%bd%e5%8a%a0%e3%81%95%e3%82%8c%e3%81%9f%e6%a9%9f%e8%83%bd&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f06%2f02%2fdiscv5-v0.1.0-beta4%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f06%2f02%2fdiscv5-v0.1.0-beta4%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2021%2f06%2f02%2fdiscv5-v0.1.0-beta4%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+
