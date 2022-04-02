@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" TestgroundのテストプランをRustで実装する -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2022/04/02/testground-rust-sdk/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2022-04-02T22:34:02&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Rust" />
+    
+    
+
+  <title>
+     TestgroundのテストプランをRustで実装する -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2022/04/02/testground-rust-sdk/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">TestgroundのテストプランをRustで実装する</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2022-04-02T22:34:02&#43;09:00">
+            Apr 2, 2022
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ackintosh.github.io/tags/rust/">#Rust</a></span>
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p>P2Pシステムをテストするフレームワークである <a href="https://github.com/testground/testground">Testground</a>。最近、<a href="https://github.com/testground/sdk-rust/releases/tag/v0.1.0">RustのSDKがリリースされた</a>ので試しにテストプランを実装してみた。</p>
+
+<p>実装したテストプランは <a href="https://github.com/ackintosh/sandbox/tree/master/rust/crate-testground-sdk-rust">こちら</a> のリポジトリにあげている。</p>
+
+<h2 id="manifestファイルの作成">manifestファイルの作成</h2>
+
+<p>下記のように <code>manifest.toml</code> を作成する。テストプランのビルドや実行は Docker を利用するので <code>builders</code> や <code>runners</code> の設定で有効にしている。</p>
+
+<pre><code class="language-toml">name = &quot;sandbox-sdk-rust&quot;
+
+[defaults]
+builder = &quot;docker:generic&quot;
+runner = &quot;local:docker&quot;
+
+[builders.&quot;docker:generic&quot;]
+enabled = true
+
+[runners.&quot;local:docker&quot;]
+enabled = true
+
+[[testcases]]
+name = &quot;main&quot;
+instances = { min = 2, max = 2, default = 2 }
+</code></pre>
+
+<h2 id="テストプランの実装">テストプランの実装</h2>
+
+<p>とりあえず動かしてみるだけなのでシンプルに下記のステップにした。</p>
+
+<ol>
+<li>各ノードがランダムな時間 sleep する</li>
+<li>sleep が終わったこと( ready であること)を<a href="https://docs.testground.ai/concepts-and-architecture/sync-service">Sync service</a>に通知する</li>
+<li>参加ノードすべてが ready になったら、各ノードは次のステップに進む (テストの成功を Sync service に通知する)</li>
+</ol>
+
+<pre><code class="language-rust">use std::time::Duration;
+use rand::Rng;
+
+#[async_std::main]
+async fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+    // Sync serviceと通信するためのクライアント
+    let mut sync_client = testground::sync::Client::new().await?;
+
+    // ランダムな時間 sleep する
+    let mut rng = rand::thread_rng();
+    let uniform = rand::distributions::Uniform::new(1, 10);
+    async_std::task::sleep(Duration::from_secs(rng.sample(uniform))).await;
+
+    let state = &quot;ready&quot;.to_string();
+
+    // ready の状態になったことを通知する
+    sync_client.signal(state.clone()).await?;
+
+    // 参加ノードすべてが ready の状態になるまで待つ
+    sync_client.wait_for_barrier(state, 2).await?;
+
+    sync_client.publish_success().await?;
+
+    Ok(())
+}
+</code></pre>
+
+<p>テストプランの実装では Sync service とのやりとりがキモになってくるが、現時点の SDK には、ほぼ上記で使っている <code>signal</code> と <code>wait_for_barrier</code> くらいしか無い。<a href="https://github.com/testground/sdk-rust/pull/6">この PR</a> がマージされればだいぶ充実してくるので楽しみ。</p>
+
+<p>個人的にP2Pネットワーキングのテストやシミュレーションはとても興味があるので自分も積極的にコントリビュートしていきたい。</p>
+
+<h2 id="dockerfileの作成">Dockerfileの作成</h2>
+
+<p>&ldquo;manifestファイルの作成&rdquo; で述べたとおり、テストプランのビルドや実行に Docker を利用するので、Dockerfile を用意しておく。</p>
+
+<pre><code class="language-Dockerfile">FROM rust:1.57-bullseye as builder
+WORKDIR /usr/src/sdk-rust
+COPY . .
+RUN cd plan &amp;&amp; cargo build
+
+FROM debian:bullseye-slim
+COPY --from=builder /usr/src/sdk-rust/plan/target/debug/crate-testground-sdk-rust /usr/local/bin/sandbox
+EXPOSE 6060
+ENTRYPOINT [ &quot;sandbox&quot;]
+</code></pre>
+
+<h2 id="テストの実行">テストの実行</h2>
+
+<p>インスタンス数 2 で実行してみる。</p>
+
+<pre><code class="language-shell">$ testground run single \
+           --plan=crate-testground-sdk-rust \
+           --testcase=main \
+           --builder=docker:generic \
+           --runner=local:docker \
+           --instances=2 \
+           --wait
+
+...
+...
+...
+Apr  2 13:32:51.223392  INFO    starting container      {&quot;runner&quot;: &quot;local:docker&quot;, &quot;run_id&quot;: &quot;c9450le49b3ouvtgfdag&quot;, &quot;id&quot;: &quot;d290b25388bd99d833234e8c31aec531f20fc67de04f479380a31a19698bfbf1&quot;, &quot;group&quot;: &quot;single&quot;, &quot;group_index&quot;: 0}
+Apr  2 13:32:51.223400  INFO    starting container      {&quot;runner&quot;: &quot;local:docker&quot;, &quot;run_id&quot;: &quot;c9450le49b3ouvtgfdag&quot;, &quot;id&quot;: &quot;54fa68ae0dd3b6199c1d0c8561b03d5f2a19029d925e06237aaa2d9bc35cc9b8&quot;, &quot;group&quot;: &quot;single&quot;, &quot;group_index&quot;: 1}
+...
+...
+...
+Apr  2 13:33:00.626327  INFO    9.3978s         OK &lt;&lt; single[000] (d290b2) &gt;&gt;
+Apr  2 13:33:00.660355  INFO    9.4355s         OK &lt;&lt; single[001] (54fa68) &gt;&gt;
+...
+...
+...
+Apr  2 13:33:00.940846  INFO    run finished successfully       {&quot;run_id&quot;: &quot;c9450le49b3ouvtgfdag&quot;, &quot;plan&quot;: &quot;sandbox-sdk-rust&quot;, &quot;case&quot;: &quot;main&quot;, &quot;runner&quot;: &quot;local:docker&quot;, &quot;instances&quot;: 2}
+</code></pre>
+
+<p>コンソール出力の <code>... OK ...</code> が、ソースコードの <code>sync_client.publish_success()</code> の部分になる。</p>
+
+<p>期待通り、Barrier を利用することによって、各ノードが <code>publish_success()</code> を行うタイミングを待ち合わせる挙動をしていたのを確認できた。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Testground%e3%81%ae%e3%83%86%e3%82%b9%e3%83%88%e3%83%97%e3%83%a9%e3%83%b3%e3%82%92Rust%e3%81%a7%e5%ae%9f%e8%a3%85%e3%81%99%e3%82%8b&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2022%2f04%2f02%2ftestground-rust-sdk%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2022%2f04%2f02%2ftestground-rust-sdk%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2022%2f04%2f02%2ftestground-rust-sdk%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

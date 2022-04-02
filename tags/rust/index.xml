@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sun, 14 Feb 2021 15:01:29 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 02 Apr 2022 22:34:02 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TestgroundのテストプランをRustで実装する</title>
+      <link>https://ackintosh.github.io/blog/2022/04/02/testground-rust-sdk/</link>
+      <pubDate>Sat, 02 Apr 2022 22:34:02 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2022/04/02/testground-rust-sdk/</guid>
+      <description>&lt;p&gt;P2Pシステムをテストするフレームワークである &lt;a href=&#34;https://github.com/testground/testground&#34;&gt;Testground&lt;/a&gt;。最近、&lt;a href=&#34;https://github.com/testground/sdk-rust/releases/tag/v0.1.0&#34;&gt;RustのSDKがリリースされた&lt;/a&gt;ので試しにテストプランを実装してみた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>dhat-rsでRustプログラムのヒープメモリ使用量を確認する</title>
