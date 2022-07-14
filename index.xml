@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Sat, 02 Apr 2022 22:34:02 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jul 2022 17:35:46 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lighthouseが自動的にNAT越えする仕組み</title>
+      <link>https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/</link>
+      <pubDate>Wed, 13 Jul 2022 17:35:46 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/</guid>
+      <description>&lt;p&gt;NATを利用して外部と接続されているプライベートネットワーク内のノードが外部とP2Pの通信を行う場合、NAT越え（NAT Traversal）の対応が必要になる。LighthouseにはUPnPの機能が備わっているが、一応、これを使わなくても自動的にNAT越えをして動作するようになっている。（「一応」と言ったのは、できればUPnPなどの何かしらの設定を行うことが推奨されているので）&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>TestgroundのテストプランをRustで実装する</title>
