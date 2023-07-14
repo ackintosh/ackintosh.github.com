@@ -141,10 +141,12 @@
         
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/">Lighthouseが自動的にNAT越えする仕組み</a></h2>
+        <h2 class="post-title"><a href="https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/">Lighthouseノードが自分の公開アドレスを自動的に認識する仕組み</a></h2>
     </header>
     <section class="post-excerpt">
-        <p><p>NATを利用して外部と接続されているプライベートネットワーク内のノードが外部とP2Pの通信を行う場合、NAT越え（NAT Traversal）の対応が必要になる。LighthouseにはUPnPの機能が備わっているが、一応、これを使わなくても自動的にNAT越えをして動作するようになっている。（「一応」と書いたのは、できればUPnPなどの何かしらの設定を行うことが推奨されているので）</p> <a class="read-more" href="https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/">more&nbsp;&raquo;</a></p>
+        <p><p>例えば一般的なネット環境下にあるラップトップでLighthouseノードを起動した場合、NATの背後でノードが稼働することになる。この場合、ノードは自力で自分の公開IPアドレス/ポートを知ることは難しい。また、インターネットプロバイダの都合により稼働中に公開アドレスが変更になる可能もある。</p>
+
+<p>Lighthouseには公開IPアドレス/ポートを自動的に認識する仕組みがあるので、どのようにして実現されているのか調べた。</p> <a class="read-more" href="https://ackintosh.github.io/blog/2022/07/13/lighthouse-behind-nat/">more&nbsp;&raquo;</a></p>
     </section>
     <footer class="post-meta">
         
