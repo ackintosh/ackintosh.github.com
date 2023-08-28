@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Wed, 13 Jul 2022 17:35:46 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 28 Aug 2023 09:22:37 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to simulate Restricted Cone NAT locally</title>
+      <link>https://ackintosh.github.io/blog/2023/08/28/simulate-restricted-cone-nat-locally/</link>
+      <pubDate>Mon, 28 Aug 2023 09:22:37 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2023/08/28/simulate-restricted-cone-nat-locally/</guid>
+      <description>&lt;p&gt;Reproducing specific network topology is important in network protocol development. If a specific network topology can be reproduced on the developer&amp;rsquo;s local machine, development efficiency can be greatly improved through test automation and other means. This post describes how to reproduce Restricted Cone NAT network on your local machine.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Lighthouseノードが自分の公開アドレスを自動的に認識する仕組み</title>
