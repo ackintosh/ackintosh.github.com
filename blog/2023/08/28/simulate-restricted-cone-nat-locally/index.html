@@ -129,6 +129,8 @@
     <section class="post-content">
       <p>Reproducing specific network topology is important in network protocol development. If a specific network topology can be reproduced on the developer&rsquo;s local machine, development efficiency can be greatly improved through test automation and other means. This post describes how to reproduce Restricted Cone NAT network on your local machine.</p>
 
+<p>Edit: I&rsquo;ve published a Docker-based one - <a href="https://github.com/ackintosh/discv5-hole-punching">https://github.com/ackintosh/discv5-hole-punching</a>. I hope it helps you.</p>
+
 <h2 id="network-topology">Network topology</h2>
 
 <p>The diagram below shows network topology that this post describes. There are three segments: <code>10.0.0.0/8</code>, <code>192.168.1.0/24</code> and <code>192.168.2.0/24</code>. In this example, we assume <code>10.0.0.0/8</code> is public network, and <code>192.168.1.0/24</code> and <code>192.168.2.0/24</code> are private network that behind NAT.</p>
