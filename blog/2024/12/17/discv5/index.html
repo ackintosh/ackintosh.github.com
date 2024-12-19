@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta property="og:title" content=" Node Discovery Protocol v5 〜Beacon Node間の接続メカニズム〜 -  暁" />
+    <meta property="og:site_name" content="暁" />
+    <meta property="og:url" content="https://ackintosh.github.io/blog/2024/12/17/discv5/" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://ackintosh.github.io/assets/images/favicon.gif" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@NAKANO_Akihito" />
+
+    
+    <meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2024-12-17T22:04:31&#43;09:00" />
+
+    
+    
+
+  <title>
+     Node Discovery Protocol v5 〜Beacon Node間の接続メカニズム〜 -  暁
+  </title>
+
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ackintosh.github.io/assets/images/favicon.gif">
+    <link rel="apple-touch-icon" href="https://ackintosh.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ackintosh.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://ackintosh.github.io/index.xml" rel="alternate" type="application/rss+xml" title="暁" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.55.6" />
+
+    <link rel="canonical" href="https://ackintosh.github.io/blog/2024/12/17/discv5/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-17804201-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/tomorrow-night.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/">HOME</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ackintosh.github.io/about/">About me</a>
+            </li>
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://ackintosh.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head" style="background-image: url(https://s3-ap-northeast-1.amazonaws.com/ackintosh.github.io/bg.jpg)">
+  <nav class="main-nav overlay clearfix">
+
+  <a class="blog-logo" href="https://ackintosh.github.io/"><img src="https://ackintosh.github.io/assets/images/favicon.gif" alt="Home" /></a>
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Node Discovery Protocol v5 〜Beacon Node間の接続メカニズム〜</h1>
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2024-12-17T22:04:31&#43;09:00">
+            Dec 17, 2024
+          </time>
+        
+         
+        </section>
+    </header>
+  
+    <section class="post-content">
+      <p><a href="https://qiita.com/advent-calendar/2024/ethereum">Ethereum Advent Calendar 2024</a> 17日目の記事です。</p>
+
+<p>Ethereumは世界中に分散する不特定多数のノードによって形成されるP2Pネットワークです。本記事ではEthereumのコンセンサスレイヤを担うBeacon Nodeにおいて、ノード同士がお互いを発見・接続するメカニズムであるNode Discovery Protocol v5について概要を解説します。</p>
+
+<h2 id="なぜnode-discoveryが必要なのか">なぜNode Discoveryが必要なのか</h2>
+
+<p>まずはNode Discoveryの必要性を理解するため、クライアント・サーバモデルとP2Pネットワークを比較してみましょう。</p>
+
+<h3 id="クライアント-サーバモデル">クライアント・サーバモデル</h3>
+
+<p><img src="https://s3.ap-northeast-1.amazonaws.com/ackintosh.github.io/discv5/client-server.png" alt="client-server" /></p>
+
+<blockquote>
+<p><em>クライアント・サーバモデル（ChatGPTで生成）</em></p>
+</blockquote>
+
+<p>クライアント・サーバモデル（典型的なWebサービスなど）ではクライアントとサーバが明確に役割分担されています。クライアントはサーバにリクエストを送り、サーバは処理結果を返す仕組みです。このモデルではクライアントが事前にサーバのアドレスを知っていることが前提で、そのアドレスは多くの場合は https で始まるURLとして表現されています。また、サーバは一般的に特定の企業や団体によって集中管理されています。</p>
+
+<h3 id="p2pネットワーク">P2Pネットワーク</h3>
+
+<p><img src="https://s3.ap-northeast-1.amazonaws.com/ackintosh.github.io/discv5/p2pnetwork.webp" alt="p2pnetwork" /></p>
+
+<blockquote>
+<p><em>P2P（ChatGPTで生成）</em></p>
+</blockquote>
+
+<p>対照的にP2Pネットワーク（例：Ethereum）は、全てのノードが平等で役割分担がありません。また、Ethereumのようにパブリック型の場合、誰でもノードを立ててネットワークに参加させることができます。このため、不特定多数のノードが参加するコンピュータネットワークで、全体を集中管理するサーバや管理者が存在せず、各ノードが自律分散的に動作してEthereumのネットワークを形成します。</p>
+
+<p>Ethereumは執筆時点で<a href="https://ccaf.io/cbnsi/ethereum/network_analytics">10,000以上のノードが稼働</a>していて、ひとつのノードは数十〜百程度のノードと通信をしながら動作します。不特定多数が参加するネットワークですので、通信相手のノードが急にオフラインになったり、帯域が細いなどの理由で不安定なノードもいますし、挙動の怪しいノードはBANすることもあります。そのため接続相手のノードは常に一定とは限らず、入れ替わりが頻繁に生じます。この際、新たな通信相手を効率的に見つける手段が必要になります。全体を集中管理する存在がいればそこに問い合わせれば良いのですが不特定多数が参加するパブリック型ではそれが不可能です。そこで必要になるのがNode Discoveryで、Ethereum（のコンセンサスレイヤ）ではNode Discovery Protocol v5というプロトコルが実装されています。</p>
+
+<h2 id="node-discovery-protocol-v5">Node Discovery Protocol v5</h2>
+
+<p>Node Discovery Protocol v5（以下、discv5）は分散ハッシュテーブルの手法である <a href="https://ja.wikipedia.org/wiki/Kademlia">Kademlia</a> を基に、Ethereum向けに設計されたプロトコルです。</p>
+
+<h3 id="node-discoveryの流れ">Node Discoveryの流れ</h3>
+
+<p>下記のシーケンス図のように、既知のノードから他のノードを紹介してもらう形で探索が進みます。</p>
+
+<p><img src="https://s3.ap-northeast-1.amazonaws.com/ackintosh.github.io/discv5/node-discovery.png" alt="node-discovery" /></p>
+
+<blockquote>
+<p><em>説明用に簡略化しているため、実際のdiscv5の挙動とは一部異なります</em></p>
+</blockquote>
+
+<ul>
+<li>ノードAはノードEと通信したいが、連絡先を知らないため、ノードBに紹介を依頼</li>
+<li>ノードBはEを知らないが、代わりにEに最も近いノードCの連絡先を返す</li>
+<li>ノードAは返ってきた情報をもとに探索を繰り返し、最終的にEと通信可能になる</li>
+</ul>
+
+<p>この探索を実現するために重要なのが、 <em>ノード間の「距離」を定量化する仕組み</em> です。</p>
+
+<h3 id="ノード間の距離">ノード間の距離</h3>
+
+<p>「距離」はノードの物理的な位置ではなく、ノード識別子（ノードID）同士の差異を指します。ノードIDは公開鍵から導出される32バイトのデータで、下記の計算式で距離を定義します。</p>
+
+<p><a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-theory.md#nodes-records-and-distances">Nodes, Records and Distances</a></p>
+
+<blockquote>
+<p>distance(n₁, n₂) = n₁ XOR n₂<br />
+logdistance(n₁, n₂) = log2(distance(n₁, n₂))</p>
+</blockquote>
+
+<p>簡単のため3ビットで具体例を示すと下記のようになります。</p>
+
+<p><strong>例1</strong><br />
+ノードA = 001<br />
+ノードB = 010<br />
+とすると、<br />
+→ XOR：011<br />
+→ 距離：2</p>
+
+<p><strong>例2</strong><br />
+ノードA = 001<br />
+ノードA  = 001<br />
+とすると、<br />
+→ XOR：000<br />
+→ 距離：0（同一ノード）</p>
+
+<p>なお、上記で計算している対数距離は log2(N) ではなく、シンプルに先頭のゼロの数を使って計算されています。</p>
+
+<blockquote>
+<p>IDのビット長 - XORの先頭ゼロの数</p>
+</blockquote>
+
+<p><strong>例1の場合</strong><br />
+3ビット - 1 = 2</p>
+
+<p>これはビット単位の距離を効率的に計算するために使われる手法で分散システムではよく使われていると思われます。実際のノードIDは32バイトですのでその広大な空間に散らばるID同士を効率的に計算できるメリットは大きいです！</p>
+
+<h3 id="補足-boot-nodes">補足：boot nodes</h3>
+
+<p>「Node Discoveryの流れ」で示したシーケンス図は、予めノードAが最低でも1つは他ノードを知っていないと成立しません。ですので実際のEthereumノードは起動時に事前に定義されたノード（boot nodes）にアクセスしてNode Discoveryを開始します。この挙動はdiscv5の仕様外で、ノード実装に委ねられています。</p>
+
+<p>Ethereum Foundationや各ノードの開発チームが運用しているboot nodesの情報が<a href="https://github.com/eth-clients/mainnet/blob/main/metadata/bootstrap_nodes.yaml">こちら</a>で管理・公開されています。基本的にはノード起動時にこれらのboot nodesにアクセスすることでNode Discoveryを開始します。</p>
+
+<h2 id="おわりに">おわりに</h2>
+
+<p>この記事では、P2Pに馴染みのないかたを想定してNode Discoveryの必要性やその仕組み、ノード間の距離を定量化する手法をご紹介しました。不特定多数のノードが自律分散的に協調する裏でこのような仕組みが動いていると考えると大変興味深いですね！</p>
+
+<p>簡潔さを重視したので特にシーケンス図はNode Discovery Protocol v5の動作を正確に表しているわけではありませんのでご了承ください。もしこの記事を読んで面白そうと思っていただけたら、<a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5.md">仕様</a>や実装を眺めてみると新しい発見があるかもしれません。いくつかの言語で実装されていますが、私は<a href="https://github.com/sigp/discv5">Rust実装</a>のメンテナのひとりですので何か不明点があればお答えできるかもしれません。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    
+    
+
+    
+
+
+
+
+
+<section class="author">
+written by <h4><a href="https://twitter.com/NAKANO_Akihito" target="_blank">Akihito Nakano</a></h4>
+  
+  <a href="https://twitter.com/NAKANO_Akihito" target="_blank"><img src="https://ackintosh.github.io/assets/images/prof.jpeg" /></a>
+  <p>Read <a href="https://ackintosh.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+    <section class="share">
+      <h4>Share this post</h4>
+      <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Node%20Discovery%20Protocol%20v5%20%e3%80%9cBeacon%20Node%e9%96%93%e3%81%ae%e6%8e%a5%e7%b6%9a%e3%83%a1%e3%82%ab%e3%83%8b%e3%82%ba%e3%83%a0%e3%80%9c&amp;url=https%3a%2f%2fackintosh.github.io%2fblog%2f2024%2f12%2f17%2fdiscv5%2f"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+      </a>
+      <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fackintosh.github.io%2fblog%2f2024%2f12%2f17%2fdiscv5%2f"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+      </a>
+      <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fackintosh.github.io%2fblog%2f2024%2f12%2f17%2fdiscv5%2f"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+      </a>
+    </section>
+    
+
+    
+    
+    
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">暁</a> Copyright (c) 2012</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://ackintosh.github.io/js/index.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.yjtag.jp/tag.js#site=g7Rx6Q9";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    </script>
+    <noscript>
+      <iframe src="//b.yjtag.jp/iframe?c=g7Rx6Q9" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </noscript>
+</body>
+</html>
+

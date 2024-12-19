@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2012</copyright>
-    <lastBuildDate>Mon, 28 Aug 2023 09:22:37 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2024 22:04:31 +0900</lastBuildDate>
     
 	<atom:link href="https://ackintosh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Node Discovery Protocol v5 〜Beacon Node間の接続メカニズム〜</title>
+      <link>https://ackintosh.github.io/blog/2024/12/17/discv5/</link>
+      <pubDate>Tue, 17 Dec 2024 22:04:31 +0900</pubDate>
+      
+      <guid>https://ackintosh.github.io/blog/2024/12/17/discv5/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://qiita.com/advent-calendar/2024/ethereum&#34;&gt;Ethereum Advent Calendar 2024&lt;/a&gt; 17日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;Ethereumは世界中に分散する不特定多数のノードによって形成されるP2Pネットワークです。本記事ではEthereumのコンセンサスレイヤを担うBeacon Nodeにおいて、ノード同士がお互いを発見・接続するメカニズムであるNode Discovery Protocol v5について概要を解説します。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to simulate Restricted Cone NAT locally</title>
